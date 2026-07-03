@@ -68,8 +68,8 @@ def relation_rows(quotes: pd.DataFrame) -> pd.DataFrame:
             target = quotes.iloc[right]
             rows.append(
                 {
-                    "source_global_id": safe_text(source.get("quote_id")),
-                    "target_global_id": safe_text(target.get("quote_id")),
+                    "source_global_id": safe_text(source.get("information_id")),
+                    "target_global_id": safe_text(target.get("information_id")),
                     "edge_type": "sequence",
                     "edge_family": "qualitative_narrative",
                     "methodological_phase": "listening",
@@ -123,8 +123,8 @@ def relation_rows(quotes: pd.DataFrame) -> pd.DataFrame:
 
             rows.append(
                 {
-                    "source_global_id": safe_text(src.get("quote_id")),
-                    "target_global_id": safe_text(tgt.get("quote_id")),
+                    "source_global_id": safe_text(src.get("information_id")),
+                    "target_global_id": safe_text(tgt.get("information_id")),
                     "edge_type": relation_type,
                     "edge_family": "qualitative_narrative",
                     "methodological_phase": "listening",
