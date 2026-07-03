@@ -305,11 +305,11 @@ if not perception_diag.empty:
     c6.metric("Solid perceptions", f"{robust_count}/{len(perception_diag)}")
 
 if confidence_level == "error":
-    st.error("Low confidence — take these numbers as rough direction only.")
+    st.error(f"Low confidence ({failed_checks} checks failed)")
 elif confidence_level == "warning":
-    st.warning("Medium confidence — some link types need more data.")
+    st.warning(f"Medium confidence ({failed_checks} checks failed)")
 else:
-    st.success("High confidence.")
+    st.success(f"High confidence ({failed_checks} checks failed)")
 
 st.divider()
 
@@ -506,24 +506,24 @@ with tab_narrative:
 
         with c2:
             st.markdown("**Browse quotes**")
-        if listening.empty:
-            st.info("No quotes available.")
-        else:
-            listening = listening.copy()
-            listening["channel_display"] = listening.apply(display_channel_label, axis=1)
-            channels = sorted(listening["channel_display"].fillna("Unknown").astype(str).unique().tolist())
-            selected_channel = st.selectbox("Filter by channel", options=["All"] + channels)
-            view = listening.copy()
-            if selected_channel != "All":
-                view = view[view["channel_display"].astype(str) == selected_channel]
-            show_cols = [c for c in ["information_id", "channel_display", "pattern_names", "value_names", "information_text"] if c in view.columns]
-            st.dataframe(
-                view[show_cols].head(40).rename(columns={
-                    "information_id": "ID", "channel_display": "Channel",
-                    "pattern_names": "Patterns", "value_names": "Values", "information_text": "Quote",
-                }),
-                use_container_width=True, hide_index=True,
-            )
+            if listening.empty:
+                st.info("No quotes available.")
+            else:
+                listening = listening.copy()
+                listening["channel_display"] = listening.apply(display_channel_label, axis=1)
+                channels = sorted(listening["channel_display"].fillna("Unknown").astype(str).unique().tolist())
+                selected_channel = st.selectbox("Filter by channel", options=["All"] + channels)
+                view = listening.copy()
+                if selected_channel != "All":
+                    view = view[view["channel_display"].astype(str) == selected_channel]
+                show_cols = [c for c in ["information_id", "channel_display", "pattern_names", "value_names", "information_text"] if c in view.columns]
+                st.dataframe(
+                    view[show_cols].head(40).rename(columns={
+                        "information_id": "ID", "channel_display": "Channel",
+                        "pattern_names": "Patterns", "value_names": "Values", "information_text": "Quote",
+                    }),
+                    use_container_width=True, hide_index=True,
+                )
 
     with st.expander("How influence is measured"):
         st.markdown(
@@ -541,7 +541,7 @@ with tab_profiles:
     st.markdown(
         "Each **story cluster** groups related quotes together. The system finds these automatically "
         "by measuring how similar quotes are to each other. Below that, you'll see **three-layer profiles** "
-        "(surface / hidden / big-picture) that we wrote by hand for the key stories."
+        "(surface / hidden / big-picture) for the key stories."
     )
 
     # ── Narrative × perception topic landscape visualization
@@ -826,6 +826,7 @@ with tab_perception:
 with tab_gnn:
     st.subheader("What-if: adding new links")
     st.caption("Simulates what happens if we connect items that aren't linked yet.")
+    st.info("Note: deeper semantic analysis of what these links would mean can be done, but hasn't been run yet. These results are structural only.")
 
     if not gnn_link_recommendations.empty:
         st.markdown("**1. Top suggested links**")
