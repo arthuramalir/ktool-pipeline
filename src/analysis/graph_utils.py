@@ -61,9 +61,11 @@ def read_csv_safe(path: Path) -> pd.DataFrame:
 def load_table(filename: str, *subfolders: str) -> pd.DataFrame:
     candidates = [DATA_DIR / filename]
     candidates.extend(DATA_DIR / folder / filename for folder in subfolders)
-    for path in candidates:
+    for i, path in enumerate(candidates):
         frame = read_csv_safe(path)
-        if not frame.empty or path.exists():
+        if not frame.empty:
+            return frame
+        if path.exists() and i == len(candidates) - 1:
             return frame
     return pd.DataFrame()
 
@@ -129,10 +131,7 @@ def build_graph(
         source = str(row["source_global_id"])
         target = str(row["target_global_id"])
         attrs = {col: "" if pd.isna(row[col]) else row[col] for col in edges.columns if col not in {"source_global_id", "target_global_id"}}
-        if directed:
-            graph.add_edge(source, target, **attrs)
-        else:
-            graph.add_edge(source, target, **attrs)
+        graph.add_edge(source, target, **attrs)
     return graph
 
 

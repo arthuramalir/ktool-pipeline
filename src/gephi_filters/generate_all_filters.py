@@ -3,7 +3,7 @@ One file per analytical view. Run from project root:
   python src/gephi_filters/generate_all_filters.py
 """
 
-import os, sys
+import os, re, sys
 from pathlib import Path
 import networkx as nx
 import pandas as pd
@@ -14,10 +14,17 @@ from graph_utils import build_graph, simple_graph, ANALYSIS_DIR, DATA_DIR, PLATF
 FILTERS_DIR = DATA_DIR / "analysis" / "gephi_filters"
 FILTERS_DIR.mkdir(parents=True, exist_ok=True)
 
-VIEWS = []
+PROJECT_NAME = os.environ.get("KTOOL_PROJECT_NAME", "ALC")
+
+def slugify(value: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "_", str(value).strip().lower())
+    return slug.strip("_") or "project"
 
 def label_file(name):
-    return FILTERS_DIR / name
+    prefix = f"{slugify(PROJECT_NAME)}_platform_{PLATFORM_ID}_"
+    return FILTERS_DIR / f"{prefix}{name}"
+
+VIEWS = []
 
 def register(name, desc, G, default_attrs=True):
     """Export a graph as GEXF + GraphML and register it."""

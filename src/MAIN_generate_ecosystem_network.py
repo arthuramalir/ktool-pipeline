@@ -36,14 +36,16 @@ def export_graph_files(graph: nx.MultiDiGraph) -> tuple[str, str]:
 def load_safe_csv(filename, subfolder=""):
     """Loads a CSV cleanly, checking both the flat root directory and subfolder layouts."""
     filepath = os.path.join(DATA_DIR, filename)
-    if not os.path.exists(filepath) or os.path.getsize(filepath) == 0:
+    if not os.path.exists(filepath) or os.path.getsize(filepath) < 10:
         filepath = os.path.join(DATA_DIR, subfolder, filename)
         
-    if os.path.exists(filepath) and os.path.getsize(filepath) > 0:
+    if os.path.exists(filepath) and os.path.getsize(filepath) >= 10:
         try:
-            return pd.read_csv(filepath)
+            df = pd.read_csv(filepath)
+            if not df.empty:
+                return df
         except Exception:
-            return pd.DataFrame()
+            pass
     return pd.DataFrame()
 
 
