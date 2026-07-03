@@ -1,0 +1,253 @@
+{
+  "generated_at_utc": "2026-07-03T10:23:14.338151+00:00",
+  "dataset_dir": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test",
+  "node_count": 376,
+  "edge_count": 577,
+  "node_types": {
+    "agent": 136,
+    "project": 101,
+    "information": 72,
+    "channel": 27,
+    "challenge": 15,
+    "theme": 10,
+    "pilot": 6,
+    "perception": 6,
+    "prototype": 3
+  },
+  "edge_families": {
+    "declared_relational": 420,
+    "listening": 136,
+    "interpretive": 21
+  },
+  "diagnostics": {
+    "orphan_edges_removed": 2305,
+    "duplicate_edges_removed": 3,
+    "expected_empty_relations": [
+      "agent_initiative_links.csv",
+      "initiative_lead_agent_links.csv",
+      "initiative_perception_links.csv",
+      "initiative_thematic_area_links.csv",
+      "information_pattern_links.csv",
+      "pattern_perception_links.csv",
+      "channel_information_links.csv",
+      "value_perception_links.csv"
+    ]
+  },
+  "input_files": [
+    {
+      "name": "agent_initiative_links.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "agents.csv",
+      "size": 58541,
+      "sha256_16": "cfb78e22b9e55fe6"
+    },
+    {
+      "name": "challenges.csv",
+      "size": 3460,
+      "sha256_16": "44a36c2a10aae93b"
+    },
+    {
+      "name": "challenges_opportunities.csv",
+      "size": 3460,
+      "sha256_16": "44a36c2a10aae93b"
+    },
+    {
+      "name": "channel_information_links.csv",
+      "size": 879,
+      "sha256_16": "dde2f93a6c412777"
+    },
+    {
+      "name": "channels.csv",
+      "size": 1762,
+      "sha256_16": "6b8b8206904c2e17"
+    },
+    {
+      "name": "information_pattern_connections.csv",
+      "size": 84,
+      "sha256_16": "893546a6a74abfe5"
+    },
+    {
+      "name": "information_pattern_links.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "information_value_links.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "informations.csv",
+      "size": 67361,
+      "sha256_16": "c8cb7018cfa9bd1e"
+    },
+    {
+      "name": "initiative_initiative_links.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "initiative_lead_agent_links.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "initiative_partner_links.csv",
+      "size": 1790,
+      "sha256_16": "30ae5e4a03fab66d"
+    },
+    {
+      "name": "initiative_perception_links.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "initiative_thematic_area_links.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "initiatives_unified.csv",
+      "size": 93322,
+      "sha256_16": "f879b87be186247a"
+    },
+    {
+      "name": "link_agent_capabilities.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "link_agent_indicators.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "link_agent_interconnections.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "link_agent_thematic_areas.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "link_information_channels.csv",
+      "size": 879,
+      "sha256_16": "dde2f93a6c412777"
+    },
+    {
+      "name": "link_information_patterns.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "link_information_values.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "link_initiative_agents.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "link_initiative_indicators.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "link_initiative_interconnections.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "link_initiative_partners.csv",
+      "size": 1790,
+      "sha256_16": "30ae5e4a03fab66d"
+    },
+    {
+      "name": "link_initiative_perceptions.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "link_initiative_themes.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "link_pattern_perceptions.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "listening_pipeline.csv",
+      "size": 28181,
+      "sha256_16": "7e9bcfd37b140671"
+    },
+    {
+      "name": "pattern_perception_links.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "patterns.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    },
+    {
+      "name": "perception_challenge_links.csv",
+      "size": 1044,
+      "sha256_16": "8152fed8426748ba"
+    },
+    {
+      "name": "perceptions.csv",
+      "size": 1229,
+      "sha256_16": "9db84ce82256fd40"
+    },
+    {
+      "name": "pilots.csv",
+      "size": 6344,
+      "sha256_16": "e63d36ee52517b38"
+    },
+    {
+      "name": "portfolio_matrix_inputs.csv",
+      "size": 7071,
+      "sha256_16": "560f5bdf81318591"
+    },
+    {
+      "name": "projects.csv",
+      "size": 84479,
+      "sha256_16": "18bf2f473f6833fc"
+    },
+    {
+      "name": "prototypes.csv",
+      "size": 3303,
+      "sha256_16": "23e2af14ff8f1c02"
+    },
+    {
+      "name": "sessions.csv",
+      "size": 60,
+      "sha256_16": "1470b8c563aae353"
+    },
+    {
+      "name": "thematic_areas.csv",
+      "size": 253,
+      "sha256_16": "4b5004ea0417e6f7"
+    },
+    {
+      "name": "value_perception_links.csv",
+      "size": 24,
+      "sha256_16": "06c7c586f10ca8f1"
+    },
+    {
+      "name": "values.csv",
+      "size": 2,
+      "sha256_16": "7eb70257593da06f"
+    }
+  ]
+}

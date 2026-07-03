@@ -1,0 +1,8 @@
+perception_id,perception_label,quote_count,n_channels,internal_coherence,contradiction_density,purity_score,source_entropy,status_flag
+408, Aoibhe,36,10,,,,2.9613,Robust
+410,Naomi,12,6,,,,2.4591,Robust
+411, John,9,6,,,,2.4194,Robust
+406,Siobhán,8,6,,,,2.4056,Robust
+409,Mary,3,3,,,,1.585,Robust
+__unassigned__,__unassigned__,2,2,,,,1.0,Underdeveloped (< 3 quotes)
+407,Luke,2,1,,,,-0.0,Underdeveloped (< 3 quotes); Single channel — verify independence

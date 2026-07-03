@@ -1,0 +1,4 @@
+source_index,target_index,source_global_id,target_global_id,source_label,target_label,source_node_type,target_node_type,link_type,pair_kind,recommendation_category,impact_layer,rationale,link_probability
+225,173,project_4601,project_4549,Sanctuary groups nationwide,2030 Sustainability Roadmap,project,project,project -> project,project-project,Project alignment,Structure,Likely to reinforce collaboration between initiatives in the mapping layer.,1.0
+68,113,agent_5792,agent_5846,Sanctuary Runners,Barnardos,agent,agent,agent -> agent,agent-agent,Actor coordination,Structure,Likely to strengthen coordination between actors in the mapping layer.,1.0
+146,134,project_4167,agent_5935,Trinity Access 21 (TA21),Open Specturrm,project,agent,project -> agent,project-agent,Actor-initiative bridge,Structure,Likely to improve how actors and initiatives connect in the mapping layer.,1.0

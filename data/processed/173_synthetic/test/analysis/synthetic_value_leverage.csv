@@ -1,0 +1,111 @@
+global_id,label,node_type,associated_budget,investment_level,betweenness_centrality,degree,leverage_score
+project_4529,Inclusive Surf Programmes,project,203472,low,0.001759,3,0.008644
+project_4166,Liquid Therapy,project,693152,medium,0.005705,7,0.00823
+project_4609,Why Wellbeing Matters,project,217051,low,0.001621,4,0.007466
+project_4176,Uplift ,project,226290,low,0.001566,3,0.006919
+project_4564, Headstart Fund,project,290787,medium,0.001755,4,0.006034
+project_4566,Innovate Together,project,548309,medium,0.003163,5,0.005769
+project_4555,Vocational training,project,615433,medium,0.002669,4,0.004337
+project_4552,Community Engagement,project,1101245,high,0.004389,5,0.003986
+project_4175,Gaisce – The President's Award,project,763505,medium,0.003032,5,0.003971
+project_4177,Social Ecosystems for a Fair and Inclusive Transit,project,603122,medium,0.002143,4,0.003553
+project_4547,Tusla Aftercare Drop-In Services,project,1503350,high,0.005132,6,0.003414
+project_4557,Oberstown coffee van business; Bord Bia Bloom,project,1184345,high,0.003957,6,0.003341
+project_4574,Corporate Workshops,project,944976,high,0.003077,5,0.003256
+project_4581,Limetree Project,project,1726116,high,0.005067,7,0.002935
+pilot_836,Digital wellbeing lab,pilot,613397,medium,0.001721,4,0.002806
+project_4541,Journey to Freedom,project,313529,medium,0.000832,3,0.002653
+project_4595,Traveller Culture & Identity Programme (TCIP),project,678696,medium,0.001782,3,0.002626
+project_4536,Area‑Based Childhood Programme (ABC),project,1026815,high,0.002676,4,0.002606
+project_4579,Spunout Academy ,project,1296480,high,0.003149,5,0.002429
+project_4583,Teen Parent Support Programme,project,573671,medium,0.001377,4,0.002401
+project_4598,New Trails,project,1525971,high,0.003392,5,0.002223
+project_4560,Breaking Down Barriers to Inclusive Care for LGBTQ,project,2234224,high,0.004069,6,0.001821
+project_4172,Helium Arts,project,1200298,high,0.002181,4,0.001817
+project_4572,Generation Pride,project,1700132,high,0.003078,4,0.00181
+project_4603,Sport & Wellness Fund,project,3572047,high,0.006404,7,0.001793
+project_4534,INCLUSEA,project,1491411,high,0.002366,5,0.001586
+project_4155,Educate Together,project,2305083,high,0.003564,5,0.001546
+project_4154,Change Clothes Crumlin,project,668115,medium,0.001025,3,0.001534
+project_4538,Housing-led Supports for homeless/ people at risk ,project,2784307,high,0.003951,5,0.001419
+project_4594,Traveller Voice,project,2946943,high,0.004159,5,0.001411
+project_4602,Tackle Your Feelings,project,2358999,high,0.003294,5,0.001396
+project_4580,CHIPPS,project,2016992,high,0.002665,5,0.001321
+project_4169,The Great Care Co-op,project,2492553,high,0.003256,5,0.001306
+project_4576,Fair Play - Sports LGBTQ+ Inclusion,project,3265627,high,0.003898,6,0.001194
+project_4539,RTE Toy Show Appeal,project,1742707,high,0.002073,4,0.00119
+project_4540,Creative Arts Psychotherapy for vulnerable childre,project,3223146,high,0.003751,5,0.001164
+project_4570,Surf Club,project,2965962,high,0.003271,5,0.001103
+project_4584,Hair Together Programme,project,1874086,high,0.002056,4,0.001097
+pilot_837,Community of practice: Teachers as change agents,pilot,1335125,high,0.001444,4,0.001081
+project_4551,Tree planting,project,3899048,high,0.003939,6,0.00101
+project_4608,Entrepreneurship Impact Fund ,project,1395003,high,0.001408,3,0.001009
+project_4549,2030 Sustainability Roadmap,project,3399061,high,0.003395,4,0.000999
+project_4531,Community Services Programme,project,3877075,high,0.003852,5,0.000993
+project_4174,Sensational Kids,project,298322,medium,0.000296,2,0.000992
+project_4607,Integrated care programme for children,project,2648181,high,0.002608,4,0.000985
+project_4592,Pride on the PItch,project,1756684,high,0.001726,4,0.000982
+project_4605,Women in Sport,project,4552834,high,0.004347,6,0.000955
+project_4586,Meals on wheels,project,1744983,high,0.001617,3,0.000927
+project_4575,LGBTQI+ Inclusion Training,project,2034728,high,0.001839,4,0.000904
+project_4616,Connected Communities Fund,project,782431,medium,0.000664,2,0.000848
+prototype_511,National digital infrastructure to measure the tru,prototype,292301,medium,0.000243,2,0.000831
+project_4611,Wellbeing Policy Framework of the Department of Ed,project,3982219,high,0.003241,4,0.000814
+project_4588,Drug & alcohol support,project,3144722,high,0.002555,4,0.000812
+project_4604,Brighter Futures Fund,project,2776413,high,0.002251,4,0.000811
+project_4550,Carbon Neutrality,project,1884154,high,0.001475,3,0.000783
+project_4587,Family support,project,4611090,high,0.003518,5,0.000763
+project_4582,Creches,project,1790460,high,0.001343,3,0.00075
+project_4593,No Shame,project,3101230,high,0.0023,4,0.000742
+project_4596,Youth Service,project,3347914,high,0.002453,4,0.000733
+project_4565,Breaking Barriers Fund,project,1886413,high,0.001306,3,0.000693
+project_4568,A Drop in The Ocean [ADITO],project,3186443,high,0.002174,4,0.000682
+project_4567,Ktool,project,2043376,high,0.001344,3,0.000658
+project_4554,Mental Health & Wellbeing,project,1869510,high,0.001171,3,0.000626
+project_4158,iScoil,project,3200080,high,0.001969,4,0.000615
+pilot_840,Adopt a practice,pilot,1051519,high,0.000645,3,0.000614
+project_4589,Counselling,project,3632044,high,0.002074,4,0.000571
+project_4532,PEACEPlus Initiative ,project,3968048,high,0.002156,4,0.000543
+project_4156,Fighting Words,project,2022635,high,0.001092,3,0.00054
+project_4610,National Wellbeing Framework,project,3692156,high,0.001935,3,0.000524
+project_4173,The No Barriers Foundation,project,3516901,high,0.001832,4,0.000521
+project_4569,Big Brother Big Sister,project,4466984,high,0.002321,4,0.00052
+project_4548,Crosscare Aftercare Service ,project,1333342,high,0.00064,2,0.00048
+project_4561,Green Campus & Sustainability,project,3347275,high,0.001542,3,0.000461
+project_4559,Addiction Counselling,project,2758749,high,0.001265,3,0.000459
+project_4563,Reads & Rhymes Together,project,4241297,high,0.001935,4,0.000456
+project_4571,Open Event,project,2767517,high,0.001247,3,0.000451
+project_4537,"Meitheal - Prevention, Partnership & Family Suppor",project,3643734,high,0.001555,4,0.000427
+project_4162,SpunOut.ie,project,2879345,high,0.00122,3,0.000424
+project_4159,Not So Different,project,3282446,high,0.001351,4,0.000412
+project_4606,Erasmus+ Sport program,project,1611760,high,0.000636,3,0.000395
+project_4591,"Various groups, camps and workshops",project,754855,medium,0.000298,2,0.000394
+project_4168,Trinity Centre for People with Intellectual Disabi,project,2785365,high,0.001093,3,0.000392
+project_4160,The Shona Project,project,3555774,high,0.001333,3,0.000375
+project_4167,Trinity Access 21 (TA21),project,1353050,high,0.000486,2,0.000359
+project_4600,Drop-In Leagues,project,1592376,high,0.000542,2,0.00034
+project_4562,Innovation Strategy,project,4029047,high,0.001362,4,0.000338
+project_4599,Place-based Football Coop groups,project,1027518,high,0.000292,2,0.000284
+project_4573,School Workshops ,project,3334056,high,0.000935,3,0.00028
+project_4590,Parent toddler groups,project,3345480,high,0.000898,3,0.000269
+project_4558,Bord Bia Bloom,project,2477381,high,0.00066,2,0.000266
+project_4601,Sanctuary groups nationwide,project,4326226,high,0.001113,3,0.000257
+project_4585,SPACE,project,4770256,high,0.001178,3,0.000247
+project_4577,Training,project,2359333,high,0.000573,2,0.000243
+project_4164,Social Innovation Campus,project,4692834,high,0.001122,3,0.000239
+project_4553,Lighthouse Industry Construction Federation Charit,project,2991653,high,0.000695,3,0.000232
+project_4530,Innovation in Sport,project,3208558,high,0.000734,3,0.000229
+project_4556,STEPS+ programme,project,2181049,high,0.000446,2,0.000205
+project_4171,GIY (Grow It Yourself),project,4260934,high,0.000826,3,0.000194
+project_4533,iSURFATLANTIC,project,1335792,high,0.000253,3,0.00019
+project_4578,Creative Arts Therapy,project,2127510,high,0.000362,3,0.00017
+project_4597,Health and Wellbeing Programme,project,4324465,high,0.00058,2,0.000134
+project_4535,Connecting for Life - Ireland's national strategy ,project,4236552,high,0.000546,2,0.000129
+project_4170,FoodCloud ,project,3265278,high,0.000351,2,0.000108
+project_4178,Hair Together,project,4419001,high,0.00037,2,8.4e-05
+prototype_512,National listening infrastructure,prototype,177635,low,0.0,0,0.0
+project_4152,Bounce Back Recycling,project,4350587,high,0.0,2,0.0
+pilot_839,Cross-sector residencies,pilot,1107781,high,0.0,0,0.0
+pilot_838,Transition to adulthood pathways,pilot,866446,high,0.0,0,0.0
+pilot_835,Students' mental health skills CV,pilot,284858,medium,0.0,0,0.0
+prototype_513,The living map of the mental health ecosystem in I,prototype,632318,medium,0.0,0,0.0

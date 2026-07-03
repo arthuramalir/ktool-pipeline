@@ -1,0 +1,385 @@
+global_id,label,node_type,agent_type,pr_NGO,pr_unknown,diffusion_bias
+agent_5836,Eco Unesco,agent,NGO,0.00322928,0.0,1.0
+agent_5822,No Barriers,agent,NGO,0.00322928,0.0,1.0
+agent_5831,Nature Worx ,agent,NGO,0.00322928,0.0,1.0
+agent_5503,Inishowen Development Partnership (IDP),agent,NGO,0.0054439,0.00079223,0.7459
+agent_5504,Inishowen Family Action Network (IFAN),agent,NGO,0.0054439,0.00079223,0.7459
+agent_5372,Blue Box Creative Arts Centre,agent,NGO,0.00501125,0.0008949,0.697
+agent_5370,Focus Ireland,agent,NGO,0.00501125,0.0008949,0.697
+agent_5373,Donegal Domestic Violence Refuge (Gloria House),agent,NGO,0.00501125,0.0008949,0.697
+agent_4754,Hope and Courage Collective,agent,NGO,0.00462209,0.00102832,0.636
+agent_5840,Young social innovators,agent,NGO,0.00510913,0.00117004,0.6273
+agent_5849,Shona project,agent,NGO,0.00510913,0.00117004,0.6273
+agent_5848,HUGG,agent,NGO,0.00510913,0.00117004,0.6273
+agent_5842,Gaisce,agent,NGO,0.00510913,0.00117004,0.6273
+agent_5845,Pieta,agent,NGO,0.00510913,0.00117004,0.6273
+agent_5847,Samaritans,agent,NGO,0.00510913,0.00117004,0.6273
+agent_5843,bodywhys,agent,NGO,0.00510913,0.00117004,0.6273
+agent_5480,Society of the Irish Motor Industry (SIMI),agent,NGO,0.00458844,0.00107487,0.6204
+agent_5479,Construction Industry Federation,agent,NGO,0.00458844,0.00107487,0.6204
+agent_5869,Common Knowledge Centre for Sustainable Living CLG,agent,NGO,0.005054,0.00172976,0.49
+agent_5874,Offaly Traveller Movement,agent,NGO,0.005054,0.00172976,0.49
+agent_5872,Spiritan Asylum Services Initiative CLG (T/A Spirasi),agent,NGO,0.005054,0.00172976,0.49
+agent_5873,Women's Collective Ireland - Tallaght,agent,NGO,0.005054,0.00172976,0.49
+agent_5834,Rainbow Club,agent,NGO,0.005054,0.00172976,0.49
+agent_5871,Childhood Development Initiative,agent,NGO,0.005054,0.00172976,0.49
+agent_5870,Anew Support Services CLG,agent,NGO,0.005054,0.00172976,0.49
+agent_5506,Public Health Nurse Network (Carndonagh),agent,public_administration,0.00221462,0.00079223,0.473
+agent_5358,Spraoi & Sport,agent,NGO,0.02605686,0.00932293,0.473
+agent_5499,Sláintecare Healthy Communities (Donegal),agent,public_administration,0.00221462,0.00079223,0.473
+agent_5502,ETB Youthreach Carndonagh,agent,educational_institution,0.00221462,0.00079223,0.473
+agent_5505,Carndonagh Community School – Pastoral Care Team,agent,religious_institution,0.00221462,0.00079223,0.473
+agent_5516,Rosemary Collaboratory,agent,NGO,0.00488054,0.00199109,0.4205
+agent_5509,Breast Cancer Ireland,agent,NGO,0.00488054,0.00199109,0.4205
+agent_5846,Barnardos,agent,NGO,0.00664239,0.00273342,0.4169
+agent_5793,Irish Surfing,agent,NGO,0.00459265,0.00202343,0.3883
+agent_5371,Community Foundation Ireland,agent,NGO,0.00968949,0.00462314,0.354
+agent_5868,Aware,agent,NGO,0.00658726,0.00329314,0.3334
+agent_5876,National Youth Council of Ireland,agent,NGO,0.00658726,0.00329314,0.3334
+agent_5374,Knocklee House (Kerry Recovery Centre),agent,civil_association,0.00178197,0.0008949,0.3314
+agent_5375,St. Brigid’s Family Resource Centre (Tralee),agent,civil_association,0.00178197,0.0008949,0.3314
+agent_5366,First Fortnight,agent,NGO,0.03983708,0.02000863,0.3313
+agent_5819,Sport Ireland ,agent,NGO,0.0061259,0.00358681,0.2614
+agent_5376,Crosscare,agent,private_company,0.00317477,0.00192322,0.2455
+agent_5491,Regional Health Areas,agent,public_administration,0.00133618,0.00082266,0.2379
+agent_5493,Home Liaison Officers,agent,public_administration,0.00133618,0.00082266,0.2379
+agent_5492,Family Resource Centres,agent,public_administration,0.00133618,0.00082266,0.2379
+agent_5494,Hospital clinical staff,agent,public_administration,0.00133618,0.00082266,0.2379
+agent_5497,Patient Support Groups,agent,civil_society,0.00133618,0.00082266,0.2379
+agent_5489,Arts Council,agent,public_administration,0.00133618,0.00082266,0.2379
+agent_4753,Helium Arts,agent,NGO,0.01729452,0.01064896,0.2378
+agent_5785,spunout,agent,NGO,0.07077929,0.04405685,0.2327
+agent_5841,Higher education authority,agent,public_administration,0.00187986,0.00117004,0.2327
+agent_5507,Mental Health Ireland,agent,NGO,0.00823852,0.00528422,0.2185
+agent_5818,ISCOIL,agent,NGO,0.00653464,0.00419321,0.2183
+agent_5488,Involve CLG,agent,NGO,0.0240625,0.0159826,0.2018
+agent_5786,Childhood Matters,agent,NGO,0.01949183,0.01298757,0.2003
+agent_5821,DCU anti-bullying centre,agent,academy,0.00327266,0.00219836,0.1964
+agent_5490,Children and young persons committees (CYPSC),agent,public_administration,0.00272898,0.00185098,0.1917
+agent_5931,Active Disabilities Ireland,agent,NGO,0.00477657,0.00347916,0.1572
+agent_5483,Oberstown Children Detention Campus ,agent,public_administration,0.00421269,0.00307335,0.1564
+agent_5380,Parents ,agent,civil_society,0.00139281,0.00102832,0.1505
+agent_5783,Shoutout,agent,NGO,0.03933249,0.02904109,0.1505
+agent_5383,"Education Welfare Officers (EWOs, TESS team)",agent,public_administration,0.00129512,0.00098026,0.1384
+agent_5387,JLOs/ Managers/Support staff in International Protection Cen,agent,public_administration,0.00129512,0.00098026,0.1384
+agent_5367,Tacu Family Resource Centre,agent,NGO,0.02895462,0.02191666,0.1383
+agent_5379,Young People,agent,civil_society,0.00404709,0.00308346,0.1351
+agent_5482,DEIS Schools,agent,educational_institution,0.00275197,0.00210319,0.1336
+agent_5481,"Parents, Guardians & Aftercare workers",agent,civil_society,0.00265428,0.00205514,0.1272
+agent_5788,Bohemian Football Club,agent,social_movement,0.01515274,0.01191429,0.1196
+agent_5476,Children's Health Ireland,agent,public_administration,0.00135916,0.00107487,0.1168
+agent_5478,Sisk Group,agent,private_company,0.00135916,0.00107487,0.1168
+agent_5351,Cruthu Foundation Way2Work,agent,private_company,0.03358478,0.02656113,0.1168
+agent_5500,Jigsaw,agent,foundation,0.0069911,0.00554908,0.115
+agent_5837,"Department of Children, Disability and Equality",agent,public_administration,0.00341311,0.00273342,0.1106
+agent_5838,Department of Education and Youth,agent,public_administration,0.00341311,0.00273342,0.1106
+agent_5369,TUSLA,agent,public_administration,0.01250102,0.01001761,0.1103
+agent_5787,Hair Together,agent,private_company,0.01668471,0.01345099,0.1073
+agent_5477,ETBs,agent,public_administration,0.00898917,0.0078302,0.0689
+agent_5382,Youthreach,agent,educational_institution,0.00593115,0.00520206,0.0655
+agent_5512,RCSI,agent,academy,0.00353112,0.00316113,0.0553
+agent_5384,School Guidance Counsellors/Chaplins/School Support Team,agent,educational_institution,0.00282838,0.00254364,0.053
+agent_4757,HSE (Health Service Executive),agent,institution,0.01489438,0.01388353,0.0351
+agent_5877,Mason Hayes & Curran LLP,agent,private_company,0.00182472,0.00172976,0.0267
+agent_4722,Rethink Ireland,agent,NGO,0.09017371,0.08548136,0.0267
+agent_5377,NOVAS,agent,private_company,0.00182472,0.00172976,0.0267
+agent_5833, UNESCO Child and Family Research Centre at the University o,agent,academy,0.00335798,0.00329314,0.0097
+agent_5782,Agirre Lehendakaria Center,agent,foundation,0.00335798,0.00329314,0.0097
+prototype_513,The living map of the mental health ecosystem in Ireland,prototype,,8.28e-06,8.28e-06,0.0
+channel_9490,Unnamed,channel,,0.0,0.0,0.0
+challenge_2309,Resource strain and burnout,challenge,,1.341e-05,1.341e-05,0.0
+project_4561,Green Campus & Sustainability,project,,0.0,0.0,0.0
+prototype_511,National digital infrastructure to measure the true cost of ,prototype,,5.36e-06,5.36e-06,0.0
+information_25591,The language around mental health too is very negative for y,information,,4.99e-06,4.99e-06,0.0
+pilot_838,Transition to adulthood pathways,pilot,,2.96e-06,2.96e-06,0.0
+information_25335,“Liquid Therapy helped me overcome my fear of the ocean. I s,information,,9.79e-06,9.79e-06,0.0
+project_4587,Family support,project,,0.0,0.0,0.0
+project_4549,2030 Sustainability Roadmap,project,,0.0,0.0,0.0
+challenge_2559,"Reactive, not preventive systems",challenge,,3.36e-06,3.36e-06,0.0
+information_25357,“The main thing for mental health is stigma and shame. But p,information,,4.82e-06,4.82e-06,0.0
+channel_9509.0,002,channel,,1.946e-05,1.946e-05,0.0
+information_25342,“My role was set up … as it was deemed a service need that …,information,,2.43e-06,2.43e-06,0.0
+project_4566,Innovate Together,project,,0.0,0.0,0.0
+challenge_2561,Overloaded schools acting as mental health providers,challenge,,3.35e-06,3.35e-06,0.0
+project_4541,Journey to Freedom,project,,0.0,0.0,0.0
+agent_5844,Atlantic Futures,agent,academy,0.0,0.0,0.0
+agent_5839,YouthMedInfo,agent,academy,0.0,0.0,0.0
+information_26120,“The positive eh body language as well. So say like lads wer,information,,3.66e-06,3.66e-06,0.0
+project_4600,Drop-In Leagues,project,,0.0,0.0,0.0
+project_4574,Corporate Workshops,project,,0.0,0.0,0.0
+theme_778,Health & Wellbeing,theme,,0.0,0.0,0.0
+pilot_839,Cross-sector residencies,pilot,,5.81e-06,5.81e-06,0.0
+information_25343,“Mental health services are very much delivered that you see,information,,3.64e-06,3.64e-06,0.0
+project_4560,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children,project,,0.0,0.0,0.0
+project_4166,Liquid Therapy,project,,4.33e-06,4.33e-06,0.0
+challenge_2560,Build mentoring and peer-support ecosystems,challenge,,3.36e-06,3.36e-06,0.0
+information_25584,"Personally, I see a lot of students struggling with anxiety.",information,,3.9e-06,3.9e-06,0.0
+value_1,Equality,value,,4.89e-06,4.89e-06,0.0
+pilot_836,Digital wellbeing lab,pilot,,0.0,0.0,0.0
+project_4553,Lighthouse Industry Construction Federation Charity - 24/7 S,project,,0.0,0.0,0.0
+information_25830,"Back to HSE, I'll just come to JAMA and I actually now have,",information,,4.86e-06,4.86e-06,0.0
+project_4552,Community Engagement,project,,0.0,0.0,0.0
+project_4606,Erasmus+ Sport program,project,,0.0,0.0,0.0
+project_4586,Meals on wheels,project,,0.0,0.0,0.0
+information_25589,"So, I suppose for us, we are dealing with young people who h",information,,4.99e-06,4.99e-06,0.0
+project_4164,Social Innovation Campus,project,,0.0,0.0,0.0
+challenge_2564,"Addressing mental health as a systemic issue, not individual",challenge,,0.0,0.0,0.0
+channel_9506.0,RI-002,channel,,8.57e-06,8.57e-06,0.0
+channel_9512,Unnamed,channel,,0.0,0.0,0.0
+information_25348,“The great thing about physical activity is the knock-on eff,information,,6.07e-06,6.07e-06,0.0
+project_4598,New Trails,project,,0.0,0.0,0.0
+information_25353,“It’s trying to create more of a link between the HSE health,information,,4.87e-06,4.87e-06,0.0
+information_23088,"Thank you for your commitment to creating a more just, equal",information,,6.1e-06,6.1e-06,0.0
+value_2,Inclusion,value,,8.56e-06,8.56e-06,0.0
+information_25336,"Looking ahead, we’re excited to work with the newly-formed g",information,,6.11e-06,6.11e-06,0.0
+information_25590,We find that social media has played a significant role in t,information,,7.49e-06,7.49e-06,0.0
+channel_9510.0,003,channel,,1.085e-05,1.085e-05,0.0
+project_4556,STEPS+ programme,project,,0.0,0.0,0.0
+project_4565,Breaking Barriers Fund,project,,0.0,0.0,0.0
+project_4569,Big Brother Big Sister,project,,0.0,0.0,0.0
+channel_9548,Unnamed,channel,,0.0,0.0,0.0
+information_25347,“One simple model is a model like the No Barriers project … ,information,,6.07e-06,6.07e-06,0.0
+project_4540,Creative Arts Psychotherapy for vulnerable children - Limeri,project,,5.41e-06,5.41e-06,0.0
+information_25367,The main focus of our programmes is on encouraging movement ,information,,2.45e-06,2.45e-06,0.0
+project_4611,Wellbeing Policy Framework of the Department of Education,project,,0.0,0.0,0.0
+project_4562,Innovation Strategy,project,,0.0,0.0,0.0
+project_4610,National Wellbeing Framework,project,,0.0,0.0,0.0
+information_25582,I could say that most students here would benefit from thera,information,,3.91e-06,3.91e-06,0.0
+information_25361,“It’s also having the right people reaching out to travelers,information,,4.83e-06,4.83e-06,0.0
+information_23094,"I am proud to say we surpassed our target, reaching €109 mil",information,,4.88e-06,4.88e-06,0.0
+perception_411, John,perception,,3.1e-06,3.1e-06,0.0
+information_25358,"“You would read a lot about young traveler, male … suicide. ",information,,6.03e-06,6.03e-06,0.0
+theme_701,Philanthropy & Funding,theme,,0.0,0.0,0.0
+challenge_2557,Chronic underfunding of community work,challenge,,3.35e-06,3.35e-06,0.0
+project_4530,Innovation in Sport,project,,0.0,0.0,0.0
+project_4160,The Shona Project,project,,0.0,0.0,0.0
+project_4175,Gaisce – The President's Award,project,,0.0,0.0,0.0
+challenge_2558,Invest in long-term community capacity,challenge,,6.7e-06,6.7e-06,0.0
+value_12,Environment,value,,2.45e-06,2.45e-06,0.0
+project_4532,PEACEPlus Initiative ,project,,0.0,0.0,0.0
+value_14,Education,value,,7.33e-06,7.33e-06,0.0
+project_4588,Drug & alcohol support,project,,0.0,0.0,0.0
+theme_201,Youth support,theme,,0.0,0.0,0.0
+information_25364,The areas that are most urgent are self-harm and suicidal id,information,,3.65e-06,3.65e-06,0.0
+information_25346,“Sometimes the approach is just we’re constantly putting out,information,,7.29e-06,7.29e-06,0.0
+channel_9512.0,003,channel,,1.23e-06,1.23e-06,0.0
+channel_9549,Unnamed,channel,,0.0,0.0,0.0
+channel_9509,Unnamed,channel,,0.0,0.0,0.0
+project_4538,Housing-led Supports for homeless/ people at risk of homeles,project,,0.0,0.0,0.0
+project_4567,Ktool,project,,0.0,0.0,0.0
+project_4582,Creches,project,,0.0,0.0,0.0
+information_25337,Young people’s mental health and wellbeing have a big influe,information,,3.67e-06,3.67e-06,0.0
+perception_406,Siobhán,perception,,6.19e-06,6.19e-06,0.0
+agent_4786,Tacú Ballinrobe Family Resource Centre,agent,civil_society,0.0,0.0,0.0
+project_4609,Why Wellbeing Matters,project,,0.0,0.0,0.0
+channel_9506,Unnamed,channel,,0.0,0.0,0.0
+project_4534,INCLUSEA,project,,0.0,0.0,0.0
+information_25827,"And then when they were being diagnosed or fared labelled, h",information,,7.29e-06,7.29e-06,0.0
+information_25588,"At the moment, for us, working with young people I suppose p",information,,3.75e-06,3.75e-06,0.0
+project_4573,School Workshops ,project,,0.0,0.0,0.0
+project_4152,Bounce Back Recycling,project,,0.0,0.0,0.0
+project_4571,Open Event,project,,0.0,0.0,0.0
+project_4158,iScoil,project,,8.66e-06,8.66e-06,0.0
+information_25596,And it is practicing that mindfulness you know which reshape,information,,5.02e-06,5.02e-06,0.0
+theme_781,Education & Youth Empowerment,theme,,0.0,0.0,0.0
+information_25365,"In my opinion, ensuring that mental health support is availa",information,,3.65e-06,3.65e-06,0.0
+project_4597,Health and Wellbeing Programme,project,,0.0,0.0,0.0
+channel_9510,Unnamed,channel,,0.0,0.0,0.0
+project_4535,Connecting for Life - Ireland's national strategy to reduce ,project,,0.0,0.0,0.0
+information_25587,I thought your suggestion for group work was a great idea an,information,,3.86e-06,3.86e-06,0.0
+information_25354,“The traveler counseling service is brilliant … but I think ,information,,3.62e-06,3.62e-06,0.0
+information_25369,The main challenge is always money. We need more funding to ,information,,7.34e-06,7.34e-06,0.0
+project_4599,Place-based Football Coop groups,project,,0.0,0.0,0.0
+project_4554,Mental Health & Wellbeing,project,,0.0,0.0,0.0
+project_4604,Brighter Futures Fund,project,,5.41e-06,5.41e-06,0.0
+channel_9549.0,T_006,channel,,1.5e-05,1.5e-05,0.0
+channel_9511.0,LT 001,channel,,3.67e-06,3.67e-06,0.0
+information_25595,"I do, very yeah. I think… it is a device in a young persons ",information,,3.75e-06,3.75e-06,0.0
+information_25332,The main challenge is sustaining engagement and ownership fr,information,,3.68e-06,3.68e-06,0.0
+project_4155,Educate Together,project,,0.0,0.0,0.0
+information_23087,"Because of the support, recognition and encouragement provid",information,,8.54e-06,8.54e-06,0.0
+channel_9576,Unnamed,channel,,0.0,0.0,0.0
+project_4539,RTE Toy Show Appeal,project,,0.0,0.0,0.0
+information_25829,I think it's really important for everybody to understand th,information,,3.64e-06,3.64e-06,0.0
+challenge_2565,Short-termism and fragmented systems,challenge,,1.005e-05,1.005e-05,0.0
+channel_9490.0,RI_001,channel,,2.45e-06,2.45e-06,0.0
+project_4578,Creative Arts Therapy,project,,5.41e-06,5.41e-06,0.0
+project_4570,Surf Club,project,,0.0,0.0,0.0
+project_4575,LGBTQI+ Inclusion Training,project,,5.41e-06,5.41e-06,0.0
+theme_16,Social innovation,theme,,0.0,0.0,0.0
+project_4581,Limetree Project,project,,0.0,0.0,0.0
+pilot_840,Adopt a practice,pilot,,5.15e-06,5.15e-06,0.0
+channel_8509.0,SS-001,channel,,7.33e-06,7.33e-06,0.0
+information_25334,"Thanks to the HeadStart Fund, we've expanded our reach consi",information,,6.12e-06,6.12e-06,0.0
+information_25360,“To put the funding in because there's lots of nice words be,information,,7.27e-06,7.27e-06,0.0
+project_4177,Social Ecosystems for a Fair and Inclusive Transition (SEFIT,project,,0.0,0.0,0.0
+project_4533,iSURFATLANTIC,project,,0.0,0.0,0.0
+information_25345,“The future models will hopefully see more people get involv,information,,4.86e-06,4.86e-06,0.0
+challenge_2523,Listening as Trust-Building,challenge,,0.0,0.0,0.0
+project_4583,Teen Parent Support Programme,project,,0.0,0.0,0.0
+project_4176,Uplift ,project,,0.0,0.0,0.0
+project_4558,Bord Bia Bloom,project,,0.0,0.0,0.0
+information_25599,"But I do think a paid mentoring program where, you know, hav",information,,2.5e-06,2.5e-06,0.0
+project_4579,Spunout Academy ,project,,0.0,0.0,0.0
+value_7,Self-responsibility,value,,5.41e-06,5.41e-06,0.0
+value_10,Culture,value,,1.22e-06,1.22e-06,0.0
+project_4171,GIY (Grow It Yourself),project,,0.0,0.0,0.0
+information_25339,I think my favourite of all the things so far has been the t,information,,2.45e-06,2.45e-06,0.0
+information_25368,The more important thing is the programs through the surf cl,information,,4.9e-06,4.9e-06,0.0
+project_4154,Change Clothes Crumlin,project,,0.0,0.0,0.0
+value_9,Collectivity / Community,value,,4.89e-06,4.89e-06,0.0
+project_4169,The Great Care Co-op,project,,4.33e-06,4.33e-06,0.0
+information_25586,I believe the main challenge is poverty and its knock on eff,information,,5.16e-06,5.16e-06,0.0
+project_4592,Pride on the PItch,project,,0.0,0.0,0.0
+theme_775,Community & Inclusion ,theme,,0.0,0.0,0.0
+information_23086,"The support from Rethink Ireland has been transformative, al",information,,7.33e-06,7.33e-06,0.0
+project_4585,SPACE,project,,0.0,0.0,0.0
+project_4607,Integrated care programme for children,project,,0.0,0.0,0.0
+information_26119,"“They liked the videos, it wouldn't be a big rugby school, s",information,,5.41e-06,5.41e-06,0.0
+perception_407,Luke,perception,,4.64e-06,4.64e-06,0.0
+challenge_2553,Shift funding toward prevention and partnership,challenge,,3.35e-06,3.35e-06,0.0
+perception_408, Aoibhe,perception,,6.19e-06,6.19e-06,0.0
+channel_9511,Unnamed,channel,,0.0,0.0,0.0
+information_25350,"“If you don’t have the funding often, nothing happens … It s",information,,7.31e-06,7.31e-06,0.0
+information_23090,Our partnership with Rethink Ireland has been pivotal in rea,information,,8.56e-06,8.56e-06,0.0
+project_4536,Area‑Based Childhood Programme (ABC),project,,0.0,0.0,0.0
+theme_620,Mental Health,theme,,0.0,0.0,0.0
+project_4591,"Various groups, camps and workshops",project,,0.0,0.0,0.0
+theme_50,Youth,theme,,0.0,0.0,0.0
+project_4173,The No Barriers Foundation,project,,4.33e-06,4.33e-06,0.0
+project_4547,Tusla Aftercare Drop-In Services,project,,0.0,0.0,0.0
+information_25344,“Having a project with an inclusive feel like the No Barrier,information,,7.29e-06,7.29e-06,0.0
+information_25581,In terms of Mental health in our context we would genuinely ,information,,2.61e-06,2.61e-06,0.0
+information_25366,The use of social media as a platform to help with better aw,information,,2.5e-06,2.5e-06,0.0
+information_25349,“Maybe in the future [we could] come up with a course or inf,information,,4.87e-06,4.87e-06,0.0
+information_25359,“During Covid … people did become very isolated and moved on,information,,4.83e-06,4.83e-06,0.0
+information_25370,The main challenge in the context of school mental health ri,information,,2.46e-06,2.46e-06,0.0
+prototype_512,National listening infrastructure,prototype,,5.36e-06,5.36e-06,0.0
+project_4172,Helium Arts,project,,0.0,0.0,0.0
+channel_9576.0,H-007,channel,,6.07e-06,6.07e-06,0.0
+information_25362,“I had an idea to train traveler women as peer literacy guid,information,,3.62e-06,3.62e-06,0.0
+project_4548,Crosscare Aftercare Service ,project,,0.0,0.0,0.0
+information_25352,“I just we frame it and sometimes write it down as well that,information,,4.86e-06,4.86e-06,0.0
+project_4550,Carbon Neutrality,project,,0.0,0.0,0.0
+information_25598,[...] I am a big believer in social capital and I think if y,information,,6.24e-06,6.24e-06,0.0
+channel_9507.0,RI -03,channel,,2.45e-06,2.45e-06,0.0
+information_25355,“A lot of people in the traveler community are afraid of bei,information,,6.03e-06,6.03e-06,0.0
+project_4580,CHIPPS,project,,0.0,0.0,0.0
+project_4529,Inclusive Surf Programmes,project,,0.0,0.0,0.0
+channel_9603,Unnamed,channel,,0.0,0.0,0.0
+project_4608,Entrepreneurship Impact Fund ,project,,0.0,0.0,0.0
+channel_9603.0,Channel 9603.0,channel,,5.41e-06,5.41e-06,0.0
+value_6,Innovation,value,,2.45e-06,2.45e-06,0.0
+project_4602,Tackle Your Feelings,project,,0.0,0.0,0.0
+information_25594,"One big area for us, I suppose, with anxiety is when we expl",information,,6.25e-06,6.25e-06,0.0
+pilot_837,Community of practice: Teachers as change agents,pilot,,7.43e-06,7.43e-06,0.0
+perception_409,Mary,perception,,7.74e-06,7.74e-06,0.0
+information_23085,The interest-led and student-centred approach of iScoil allo,information,,8.55e-06,8.55e-06,0.0
+project_4603,Sport & Wellness Fund,project,,5.41e-06,5.41e-06,0.0
+project_4568,A Drop in The Ocean [ADITO],project,,0.0,0.0,0.0
+information_23092,"“My little girl, in her autism spectrum disorder report at t",information,,4.89e-06,4.89e-06,0.0
+project_4555,Vocational training,project,,0.0,0.0,0.0
+channel_8510.0,SS-002,channel,,1.22e-06,1.22e-06,0.0
+information_25826,So if we go back to the experience of having worked for thre,information,,3.64e-06,3.64e-06,0.0
+challenge_2562,Early intervention within schools,challenge,,3.35e-06,3.35e-06,0.0
+information_23084,Our involvement in Rethink Ireland has been hugely significa,information,,8.56e-06,8.56e-06,0.0
+project_4531,Community Services Programme,project,,0.0,0.0,0.0
+project_4601,Sanctuary groups nationwide,project,,0.0,0.0,0.0
+information_25592,"For me, the two biggest issues we are facing with mental hea",information,,7.49e-06,7.49e-06,0.0
+information_25828,Severe mental health concerns and so like that wait lists we,information,,8.51e-06,8.51e-06,0.0
+information_25593,"It goes back to the basics of how they are parented, are the",information,,4.99e-06,4.99e-06,0.0
+project_4170,FoodCloud ,project,,0.0,0.0,0.0
+information_25356,"“Some people … may live far away from their family, but they",information,,4.82e-06,4.82e-06,0.0
+project_4551,Tree planting,project,,0.0,0.0,0.0
+project_4605,Women in Sport,project,,0.0,0.0,0.0
+value_4,Collaboration,value,,2.45e-06,2.45e-06,0.0
+project_4564, Headstart Fund,project,,5.41e-06,5.41e-06,0.0
+pilot_835,Students' mental health skills CV,pilot,,2.96e-06,2.96e-06,0.0
+channel_9508.0,P001,channel,,1.22e-06,1.22e-06,0.0
+project_4557,Oberstown coffee van business; Bord Bia Bloom,project,,0.0,0.0,0.0
+project_4595,Traveller Culture & Identity Programme (TCIP),project,,0.0,0.0,0.0
+information_25341,"Public institutions seek measurable impact, yet lack real-ti",information,,3.65e-06,3.65e-06,0.0
+theme_30,Challenges,theme,,0.0,0.0,0.0
+project_4174,Sensational Kids,project,,0.0,0.0,0.0
+project_4159,Not So Different,project,,0.0,0.0,0.0
+challenge_2554,Fragile volunteer infrastructure,challenge,,3.35e-06,3.35e-06,0.0
+information_25338,"I guess beforehand it was social anxiety I guess, like I was",information,,9.78e-06,9.78e-06,0.0
+project_4178,Hair Together,project,,0.0,0.0,0.0
+project_4576,Fair Play - Sports LGBTQ+ Inclusion,project,,5.41e-06,5.41e-06,0.0
+project_4167,Trinity Access 21 (TA21),project,,8.66e-06,8.66e-06,0.0
+project_4577,Training,project,,0.0,0.0,0.0
+project_4537,"Meitheal - Prevention, Partnership & Family Support (PPFS)",project,,0.0,0.0,0.0
+project_4156,Fighting Words,project,,0.0,0.0,0.0
+challenge_2556,Fragmented care between mind and body,challenge,,3.35e-06,3.35e-06,0.0
+channel_9508,Unnamed,channel,,0.0,0.0,0.0
+project_4572,Generation Pride,project,,5.41e-06,5.41e-06,0.0
+project_4590,Parent toddler groups,project,,0.0,0.0,0.0
+information_25351,“One of the frustrations within mental health services … pro,information,,4.86e-06,4.86e-06,0.0
+challenge_2519,Disconnection between funders and frontline,challenge,,1.007e-05,1.007e-05,0.0
+project_4584,Hair Together Programme,project,,0.0,0.0,0.0
+project_4559,Addiction Counselling,project,,0.0,0.0,0.0
+information_25363,Young people from a care-experienced background are more lik,information,,6.12e-06,6.12e-06,0.0
+project_4596,Youth Service,project,,0.0,0.0,0.0
+project_4589,Counselling,project,,0.0,0.0,0.0
+information_25597,"And the school refusal is the other, I mean that is a big… h",information,,6.33e-06,6.33e-06,0.0
+information_25333,"Through our awardees, we advanced the learning of over 22,00",information,,1.101e-05,1.101e-05,0.0
+challenge_2555,Recognise sport as a health asset,challenge,,3.35e-06,3.35e-06,0.0
+project_4616,Connected Communities Fund,project,,0.0,0.0,0.0
+project_4168,Trinity Centre for People with Intellectual Disabilities,project,,2.17e-06,2.17e-06,0.0
+project_4162,SpunOut.ie,project,,0.0,0.0,0.0
+information_23091,We saw an unprecedented surge in interest in food growing wh,information,,3.67e-06,3.67e-06,0.0
+perception_410,Naomi,perception,,4.64e-06,4.64e-06,0.0
+information_25256,Sport Ireland through their Innovation in Sport/Women in Spo,information,,2.45e-06,2.45e-06,0.0
+project_4594,Traveller Voice,project,,0.0,0.0,0.0
+project_4563,Reads & Rhymes Together,project,,0.0,0.0,0.0
+channel_9548.0,004_FF,channel,,6.49e-06,6.49e-06,0.0
+theme_198,Youth engagement,theme,,0.0,0.0,0.0
+project_4593,No Shame,project,,0.0,0.0,0.0
+channel_9507,Why Wellbeing Matters Report ,channel,,0.0,0.0,0.0
+agent_5378,GP Practices and Primary Care Centres,agent,private_company,0.00294638,0.00297135,-0.0042
+agent_5806,Rugby Players Ireland Foundation,agent,NGO,0.04329822,0.0441486,-0.0097
+agent_5850,Portlaoise Prisons,agent,public_administration,0.00153326,0.00156338,-0.0097
+agent_5511,UCC School of Audiloogy ,agent,academy,0.00165126,0.00199109,-0.0933
+agent_5508,Safefood,agent,public_administration,0.00165126,0.00199109,-0.0933
+agent_5360,Special Olympics,agent,NGO,0.03497251,0.04216881,-0.0933
+agent_5510,UCC School of Dentistry ,agent,academy,0.00165126,0.00199109,-0.0933
+agent_5518,Sport Northern Ireland,agent,public_administration,0.00165126,0.00199109,-0.0933
+agent_5513,University of Ulster,agent,academy,0.00165126,0.00199109,-0.0933
+agent_5807,Z Zurich Foundation,agent,foundation,0.00661,0.00816438,-0.1052
+agent_5800,INCLUSEA,agent,international,0.00136337,0.00202343,-0.1949
+agent_5350,Liquid Therapy,agent,NGO,0.04491811,0.06666152,-0.1949
+agent_5799,National Surf Centre Strandhill,agent,private_company,0.00136337,0.00202343,-0.1949
+agent_5797,Donegal County Council,agent,public_administration,0.00136337,0.00202343,-0.1949
+agent_5811,Schools,agent,,0.00696875,0.01159372,-0.2492
+agent_5795,Pobal,agent,,0.00506795,0.01016799,-0.3347
+agent_5813,Foróige - The National Youth Development Organisation,agent,,0.00856489,0.0175294,-0.3435
+agent_5789,Active Connections,agent,NGO,0.02548839,0.05730738,-0.3843
+agent_5817,University of Limerick ,agent,,0.00341311,0.00797817,-0.4007
+agent_5827,Mental Health Reform,agent,,0.00341311,0.00797817,-0.4007
+agent_5792,Sanctuary Runners,agent,,0.00761036,0.01885503,-0.4249
+agent_5790,Football Coop,agent,,0.00761036,0.01885503,-0.4249
+agent_5791,Irish Homeless Street Leagues,agent,,0.00761036,0.01885503,-0.4249
+agent_5826,Comhairle na nOg,agent,,0.0056301,0.01400877,-0.4266
+agent_5823,Zurich Ireland,agent,,0.00322913,0.00870923,-0.459
+agent_5825,National Youth Assembly,agent,,0.00423404,0.01243427,-0.492
+agent_5814,Local health professionals,agent,,0.00301463,0.00925928,-0.5088
+agent_5830,State Street,agent,,0.00182472,0.00697452,-0.5853
+agent_5878,The Department of Rural and Community Development and the Ga,agent,,0.00182472,0.00697452,-0.5853
+agent_5832,Bounce Back Recycling ,agent,,0.00182472,0.00697452,-0.5853
+agent_5835,Universities & 3rd evel Education,agent,,0.00165126,0.00723584,-0.6284
+agent_5809,Rugby Player Ireland Members,agent,,0.00153326,0.00680813,-0.6324
+agent_5829,The Lighthouse Charity,agent,,0.00135916,0.00631963,-0.646
+agent_5816,Caregivers,agent,,0.00136337,0.00726819,-0.6841
+agent_5812,Youth Groups,agent,,0.00136337,0.00726819,-0.6841
+agent_5815,Surf Schools and Clubs,agent,,0.00136337,0.00726819,-0.6841
+agent_5798,Interreg,agent,,0.00136337,0.00726819,-0.6841
+agent_5794,Donegal Sports Partnership,agent,,0.00136337,0.00726819,-0.6841
+agent_5935,Open Specturrm,agent,,0.00154729,0.00872391,-0.6987
+agent_5936,County Councils (Local Area Sport Partnership),agent,,0.00154729,0.00872391,-0.6987
+agent_5932,Vision Sports Ireland,agent,,0.00154729,0.00872391,-0.6987
+agent_5933,Irish Foster Care Association,agent,,0.00154729,0.00872391,-0.6987
+agent_5930,Accessible Adventures Ireland,agent,,0.00154729,0.00872391,-0.6987
+agent_5808,Unnamed,agent,,0.0,0.00524476,-1.0
+agent_5875,Street Feast (t/a Neighbourhood Network),agent,,0.0,0.00524476,-1.0
+agent_5934,Unnamed,agent,,0.0,0.00524476,-1.0
+agent_5828,Philanthropy Ireland ,agent,,0.0,0.00524476,-1.0

@@ -1,0 +1,4 @@
+source_global_id,target_global_id,source_label,target_label,link_type,link_probability,merges_components,components_merged_count,avg_perception_PR_delta,n_perceptions_gaining,n_perceptions_losing,max_perception_PR_delta,max_delta_perception_id,info_reach_expansion,top_gainer_perception,top_gainer_new_infos,sensitivity_score
+agent_5792,agent_5846,Sanctuary Runners,Barnardos,agent -> agent,1.0,True,1,-4.2833333333333335e-05,0,6,-5.5e-05,perception_409,0,,0,0.3032
+project_4167,agent_5935,Trinity Access 21 (TA21),Open Specturrm,project -> agent,1.0,True,1,-2.1666666666666664e-05,0,6,-2.8e-05,perception_409,0,,0,0.3016
+project_4601,project_4549,Sanctuary groups nationwide,2030 Sustainability Roadmap,project -> project,1.0,False,0,0.0,0,0,0.0,perception_406,0,,0,0.0

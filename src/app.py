@@ -12,7 +12,7 @@ import streamlit as st
 
 st.set_page_config(
     layout="wide",
-    page_title="ALC K-Tool — Ecosystem Intelligence",
+    page_title="ALC K-Tool",
     page_icon="K",
 )
 
@@ -36,16 +36,16 @@ NODE_TYPE_COLORS = {
 }
 
 EDGE_FAMILY_LABELS = {
-    "declared_relational": "Declared relational [from Strapi CMS: agent↔project, project↔perception, initiative interconnections]",
-    "interpretive": "AI-inferred [from edges.csv: similarity, contradiction, causality, sequence between quotes]",
-    "listening": "Listening [from pipeline: channel → information → value evidence chain]",
-    "qualitative_narrative": "Qualitative narrative [from platform: perception ↔ challenge, pattern ↔ perception links]",
+    "declared_relational": "Declared links [agent↔project, project↔perception, initiative interconnections]",
+    "interpretive": "AI-inferred [similarity, contradiction, causality, sequence between quotes]",
+    "listening": "Listening [channel → information → value evidence chain]",
+    "qualitative_narrative": "Narrative analysis [perception ↔ challenge, pattern ↔ perception links]",
     "quote_semantic": "Quote semantic [legacy — replaced by AI-inferred]",
 }
 
 STATUS_COLORS = {
     "Robust": "#2a9d8f",
-    "Underdeveloped": "#e9c46a",
+    "Weak": "#e9c46a",
     "Low coherence": "#f4a261",
     "Single channel": "#e76f51",
     "High internal contradiction": "#e63946",
@@ -225,14 +225,14 @@ ROOT = Path(__file__).resolve().parents[1]
 with st.sidebar:
     st.markdown("## Settings")
     platform_id = st.text_input("Platform ID", value="173").strip() or "173"
-    output_subdir = st.text_input("Output subfolder", value="test").strip() or "test"
+    output_subdir = st.text_input("Output folder", value="test").strip() or "test"
     st.caption(f"`data/processed/{platform_id}/{output_subdir}`")
     st.divider()
     is_synthetic = "synthetic" in platform_id.lower()
     if is_synthetic:
-        st.success("Synthetic dataset detected — Financial Portfolio tab active")
+        st.success("Synthetic data — Budget tab active")
     else:
-        st.info("Financial Portfolio tab available on `173_synthetic`")
+        st.info("Switch to `173_synthetic` for the Budget & Finance tab")
 
 DATA_DIR = ROOT / "data" / "processed" / platform_id / output_subdir
 ANALYTICS_DIR = DATA_DIR / "analytics"
@@ -280,10 +280,10 @@ if nodes.empty or edges.empty:
 # ─────────────────────────────────────────────────────────────────────────────
 # HEADER
 # ─────────────────────────────────────────────────────────────────────────────
-st.title("ALC K-Tool — Ecosystem Intelligence")
+st.title("ALC K-Tool: Ecosystem Dashboard")
 st.caption(
-    f"Platform **{platform_id}** · subfolder **{output_subdir}** · "
-    f"{len(nodes):,} entities · {len(edges):,} connections"
+    f"Platform **{platform_id}** · folder **{output_subdir}** · "
+    f"{len(nodes):,} items · {len(edges):,} links"
 )
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -295,21 +295,21 @@ failed_checks = int(quality_gate.get("failed_checks", 0)) if quality_gate else 0
 confidence_text, confidence_level = confidence_label(failed_checks)
 
 c1, c2, c3, c4, c5, c6 = st.columns(6)
-c1.metric("Entities", f"{int(scope.get('node_count', len(nodes.index))):,}")
-c2.metric("Connections", f"{int(scope.get('edge_count', len(edges.index))):,}")
-c3.metric("Connected groups", int(scope.get("component_count", topology.get("connected_components_count", 0))))
-c4.metric("Isolated entities", int(topology.get("total_isolated_nodes", 0)))
+c1.metric("Items", f"{int(scope.get('node_count', len(nodes.index))):,}")
+c2.metric("Links", f"{int(scope.get('edge_count', len(edges.index))):,}")
+c3.metric("Clusters", int(scope.get("component_count", topology.get("connected_components_count", 0))))
+c4.metric("Orphans", int(topology.get("total_isolated_nodes", 0)))
 c5.metric("Data confidence", confidence_text)
 if not perception_diag.empty:
     robust_count = (perception_diag["status_flag"] == "Robust").sum()
-    c6.metric("Robust perceptions", f"{robust_count}/{len(perception_diag)}")
+    c6.metric("Solid perceptions", f"{robust_count}/{len(perception_diag)}")
 
 if confidence_level == "error":
-    st.error("Confidence low — use for directional insight only.")
+    st.error("Low confidence — take these numbers as rough direction only.")
 elif confidence_level == "warning":
-    st.warning("Confidence medium — some relation families need better coverage.")
+    st.warning("Medium confidence — some link types need more data.")
 else:
-    st.success("Data confidence high.")
+    st.success("High confidence.")
 
 st.divider()
 
@@ -318,16 +318,16 @@ st.divider()
 # ═══════════════════════════════════════════════════════════════════════════════
 tab_labels = [
     "Overview",
-    "System Resilience",
+    "Health Check",
     "Listening",
-    "Narrative Profiles",
-    "Stakeholder Perceptions",
-    "Intervention Simulator",
-    "Network Structure",
-    "AI Semantic Links",
+    "Story Clusters",
+    "Perceptions",
+    "What-If Simulator",
+    "Network Layers",
+    "AI-Generated Links",
 ]
 if is_synthetic:
-    tab_labels.append("Investment Intelligence")
+    tab_labels.append("Budget & Finance")
 
 tabs = st.tabs(tab_labels)
 tab_overview = tabs[0]
@@ -345,7 +345,7 @@ tab_financial = tabs[8] if is_synthetic and len(tabs) > 8 else None
 # TAB 0: OVERVIEW
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_overview:
-    st.subheader("Ecosystem shape at a glance")
+    st.subheader("The network at a glance")
 
     left, right = st.columns([0.38, 0.62])
     with left:
@@ -353,7 +353,7 @@ with tab_overview:
         type_counts.columns = ["Node type", "Count"]
         fig_types = px.bar(
             type_counts, x="Count", y="Node type", orientation="h",
-            template="plotly_white", title="Entity composition",
+            template="plotly_white", title="What's in the network",
             color="Node type", color_discrete_sequence=PLOTLY_PALETTE,
         )
         fig_types.update_layout(height=330, margin=dict(l=10, r=10, t=42, b=10), showlegend=False)
@@ -366,16 +366,16 @@ with tab_overview:
                     lambda row: fallback_label(row.get("label"), row.get("global_id")), axis=1
                 )
             top_connectors = top_connectors.sort_values("betweenness_centrality", ascending=False).head(8)
-            st.markdown("**Top bridge connectors**")
+            st.markdown("**Most connected bridges**")
             st.dataframe(
                 top_connectors[["label", "node_type", "betweenness_centrality", "degree"]]
-                .rename(columns={"label": "Entity", "node_type": "Type",
+                .rename(columns={"label": "Item", "node_type": "Type",
                                  "betweenness_centrality": "Bridge score", "degree": "Links"}),
                 use_container_width=True, hide_index=True,
             )
 
     with right:
-        max_nodes = st.slider("Map detail (max entities shown)", 40, 220, 120, 10)
+        max_nodes = st.slider("Items shown on map", 40, 220, 120, 10)
         st.plotly_chart(network_figure(nodes, edges, max_nodes=max_nodes), use_container_width=True)
 
         # Node type legend
@@ -396,7 +396,7 @@ with tab_overview:
 # TAB 1: SYSTEM RESILIENCE
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_alerts:
-    st.subheader("Ecosystem Stress Test & Alerts")
+    st.subheader("Network health check")
 
     targeted_drop = to_float(robustness.get("systemic_drop_delta_targeted", 0.0))
     random_drop = to_float(robustness.get("systemic_drop_delta_random", 0.0))
@@ -406,10 +406,10 @@ with tab_alerts:
     with left:
         st.markdown("**Stress test results**")
         m1, m2 = st.columns(2)
-        m1.metric("Targeted attack drop", f"{targeted_drop:.1%}",
-                  help="How much the main connected component shrinks when the most central nodes are removed.")
-        m2.metric("Random failure drop", f"{random_drop:.1%}",
-                  help="How much the main component shrinks under random node removal.")
+        m1.metric("Hit to core (targeted)", f"{targeted_drop:.1%}",
+                  help="How much the biggest cluster shrinks when the most central nodes are removed.")
+        m2.metric("Hit to core (random)", f"{random_drop:.1%}",
+                  help="Same, but removing random nodes instead.")
         if targeted_drop > random_drop + 0.2:
             st.error(f"{verdict}")
         else:
@@ -421,14 +421,14 @@ with tab_alerts:
                 x="nodes_removed_count",
                 y=[c for c in ["targeted_attack_core_residual_share", "random_failure_core_residual_share"] if c in robustness_decay.columns],
                 template="plotly_white",
-                title="Core resilience under disruption",
-                labels={"value": "Remaining core share", "nodes_removed_count": "Entities removed"},
+                title="How the core holds up",
+                labels={"value": "Core remaining", "nodes_removed_count": "Items removed"},
             )
             fig_decay.update_layout(height=320, legend_title="Scenario")
             st.plotly_chart(fig_decay, use_container_width=True)
 
     with right:
-        st.markdown("**Priority connectors to monitor**")
+        st.markdown("**Priority: weak spots to watch**")
         connector_view = vulnerable_connectors.copy() if not vulnerable_connectors.empty else fragility_nodes.copy()
         if connector_view.empty:
             st.info("No vulnerability table available.")
@@ -449,23 +449,22 @@ with tab_alerts:
     st.markdown("**Recommended actions**")
     action_lines = []
     if targeted_drop > random_drop + 0.2:
-        action_lines.append("Prioritize bridge redundancy: support at least 3 backup connectors for high-fragility entities.")
+        action_lines.append("Add backup bridges for fragile items: aim for at least 3 links each.")
     orphan_project_rate = readiness.get("orphan_node_distributions", {}).get("project", {}).get("orphan_rate", 0.0)
     if to_float(orphan_project_rate) > 0.5:
-        action_lines.append("Run a project-link validation sprint: many projects are disconnected from the active ecosystem.")
+        action_lines.append("Reconnect orphan projects: many sit outside the main network.")
     if failed_checks > 0:
-        action_lines.append("Improve relation capture quality for missing link families before high-stakes decisions.")
+        action_lines.append("Fill in missing link types before big decisions.")
     if not action_lines:
-        action_lines.append("Maintain current monitoring cadence and re-run analytics after each data refresh.")
+        action_lines.append("All looks stable. Re-run after each data refresh.")
     for idx, line in enumerate(action_lines, start=1):
         st.write(f"{idx}. {line}")
 
-    with st.expander("How stress metrics are calculated"):
+    with st.expander("How these numbers work"):
         st.markdown(
-            "- **Targeted attack drop** = `1 - (largest_component_size_after / N)` after removing top-10% highest-betweenness nodes. Quantifies vulnerability to hub loss.\n"
-            "- **Random failure drop** = same formula but removing 10% of nodes uniformly at random. Baseline for comparison.\n"
-            "- **Vulnerable = targeted - random > 0.2** → network is significantly more fragile under targeted attack than random failure.\n"
-            "- **Articulation points** = nodes whose removal increases the number of connected components.\n"
+            "- **Targeted drop** = how much the biggest cluster shrinks after removing the 10% most central nodes.\n"
+            "- **Random drop** = same, removing 10% at random.\n"
+            "- **If targeted − random > 0.2** → too many eggs in one basket.\n"
         )
 
 
@@ -473,7 +472,7 @@ with tab_alerts:
 # TAB 2: LISTENING
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_narrative:
-    st.subheader("Narrative and listening evidence")
+    st.subheader("What people are saying")
 
     c1, c2 = st.columns([0.48, 0.52])
     with c1:
@@ -484,12 +483,12 @@ with tab_narrative:
             channel_counts.columns = ["Channel", "Narratives"]
             fig_ch = px.bar(
                 channel_counts.head(12), x="Narratives", y="Channel", orientation="h",
-                template="plotly_white", title="Narratives by channel",
+                template="plotly_white", title="Stories by channel",
             )
             fig_ch.update_layout(height=340, margin=dict(l=10, r=10, t=42, b=10))
             st.plotly_chart(fig_ch, use_container_width=True)
         else:
-            st.info("Listening pipeline data not available.")
+            st.info("Listening data not available.")
 
         if not diffusion.empty and "diffusion_bias" in diffusion.columns:
             diffusion_plot = diffusion.copy()
@@ -500,13 +499,13 @@ with tab_narrative:
             top_diff = diffusion_plot.sort_values("diffusion_bias", ascending=False).head(12)
             fig_diff = px.bar(
                 top_diff, x="diffusion_bias", y="label", orientation="h",
-                template="plotly_white", title="Narrative diffusion influence (top entities)",
+                template="plotly_white", title="Most influential voices",
             )
             fig_diff.update_layout(height=340, margin=dict(l=10, r=10, t=42, b=10), yaxis_title="")
             st.plotly_chart(fig_diff, use_container_width=True)
 
-    with c2:
-        st.markdown("**Quote explorer**")
+        with c2:
+            st.markdown("**Browse quotes**")
         if listening.empty:
             st.info("No quotes available.")
         else:
@@ -526,11 +525,10 @@ with tab_narrative:
                 use_container_width=True, hide_index=True,
             )
 
-    with st.expander("How narrative diffusion is measured"):
+    with st.expander("How influence is measured"):
         st.markdown(
-            "- **PageRank**: `PR(u) = (1-d)/N + d Σ PR(v) / out_deg(v)` — recursive importance score.\n"
-            "- **Personalized PR**: replace `(1-d)/N` with `(1-d) · p(u)` where `p` is a seed-node preference vector.\n"
-            "- **Diffusion bias** = `personalized_PR(u) - uniform_PR(u)`. Positive = node is preferentially reached from the seed set.\n"
+            "- **PageRank** scores how central each item is in the conversation network.\n"
+            "- **Diffusion bias** = whether a voice gets more attention than expected.\n"
         )
 
 
@@ -538,20 +536,17 @@ with tab_narrative:
 # TAB 3: NARRATIVE PROFILES
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_profiles:
-    st.subheader("Narrative profiles from the listening layer")
+    st.subheader("Story clusters from listening data")
 
     st.markdown(
-        "Each **narrative profile** is a cluster of semantically related quotes extracted from the listening pipeline. "
-        "The auto-generated clusters are produced by `17_cluster_quotes_into_profiles.py`: it builds a graph of quote-to-quote semantic edges "
-        "(similarity, contradiction, causality from `16_detect_quote_semantic_edges.py`), computes TF-IDF features on quote text, "
-        "then runs agglomerative clustering to group related statements. "
-        "The **surface / implicit / meta-narrative** labels below come from `manual_narrative_profiles.json` — "
-        "these are structured annotations that overlay a three-layer narrative analysis onto selected profiles."
+        "Each **story cluster** groups related quotes together. The system finds these automatically "
+        "by measuring how similar quotes are to each other. Below that, you'll see **three-layer profiles** "
+        "(surface / hidden / big-picture) that we wrote by hand for the key stories."
     )
 
     # ── Narrative × perception topic landscape visualization
-    st.markdown("### Narrative-Perception Topic Landscape")
-    st.caption("Topic composition of each narrative profile, sized by quote count.")
+    st.markdown("### Topics across story clusters")
+    st.caption("Each bubble is a topic in a story cluster. Bigger = more quotes.")
 
     if not quote_clusters.empty:
         topic_data = []
@@ -572,21 +567,21 @@ with tab_profiles:
                 topic_matrix, x="cluster", y="topic", size="count",
                     color="topic", color_discrete_sequence=px.colors.qualitative.Set2,
                 template="plotly_white",
-                title="Topic composition by narrative profile",
-                labels={"cluster": "Narrative profile", "topic": "Topic area", "count": "Quote count"},
+                title="What each story cluster talks about",
+                labels={"cluster": "Story cluster", "topic": "Topic", "count": "Quote count"},
             )
             fig_np.update_layout(height=400, showlegend=False, margin=dict(l=10, r=10, t=60, b=10))
             st.plotly_chart(fig_np, use_container_width=True)
 
             # Topic-perception overlay
-            st.caption("Topic overlap: how narrative themes connect to the perception layer.")
+            st.caption("Topics that appear in multiple clusters.")
             topic_pivot = topic_df.groupby("topic")["cluster_id"].nunique().reset_index(name="n_profiles")
             topic_pivot = topic_pivot.sort_values("n_profiles", ascending=False).head(15)
             fig_topic = px.bar(
                 topic_pivot, x="n_profiles", y="topic", orientation="h",
                 template="plotly_white", color="n_profiles", color_continuous_scale="Blues",
-                title="Topics spanning multiple narrative profiles",
-                labels={"n_profiles": "Number of profiles", "topic": "Topic"},
+                title="Topics that cross story clusters",
+                labels={"n_profiles": "Clusters", "topic": "Topic"},
             )
             fig_topic.update_layout(height=320, margin=dict(l=10, r=10, t=60, b=10))
             st.plotly_chart(fig_topic, use_container_width=True)
@@ -601,78 +596,73 @@ with tab_profiles:
                 c1, c2 = st.columns([0.5, 0.5])
                 with c1:
                     st.markdown(f"**Key idea** — {prof.get('key_idea', '')}")
-                    st.markdown(f"**Surface narrative:** {prof.get('surface_narrative', '')}")
-                    st.markdown(f"**Implicit narrative:** {prof.get('implicit_narrative', '')}")
-                    st.markdown(f"**Meta-narrative:** {prof.get('metanarrative', '')}")
+                    st.markdown(f"**Surface story:** {prof.get('surface_narrative', '')}")
+                    st.markdown(f"**Hidden layer:** {prof.get('implicit_narrative', '')}")
+                    st.markdown(f"**Big picture:** {prof.get('metanarrative', '')}")
                 with c2:
-                    st.markdown("**Representative quotes:**")
+                    st.markdown("**What people said:**")
                     for q in prof.get("representative_quotes", []):
                         st.markdown(f"- _{q}_")
-                    st.markdown(f"**Emotional tone:** {prof.get('emotional_tone', '')}")
-                    st.markdown(f"**Associated values:** {', '.join(prof.get('associated_values', []))}")
+                    st.markdown(f"**Tone:** {prof.get('emotional_tone', '')}")
+                    st.markdown(f"**Values:** {', '.join(prof.get('associated_values', []))}")
                     if prof.get("contradiction_with"):
-                        st.markdown(f"**Contradicts:** {', '.join(prof['contradiction_with'])}")
+                        st.markdown(f"**Opposes:** {', '.join(prof['contradiction_with'])}")
     else:
-        st.info("No manual narrative profiles found. Add profiles to `RESSOURCES/manual_narrative_profiles.json`.")
+        st.info("No manual story profiles found. Add profiles to `RESSOURCES/manual_narrative_profiles.json`.")
 
     st.divider()
 
     # ── Surface / Implicit / Meta-narrative illustration
-    with st.expander("📊 Three-layer narrative analysis — quick reference guide"):
+    with st.expander("📊 Three-layer story analysis — quick guide"):
         st.markdown(
-            "Each narrative profile can be annotated with three interpretative layers. "
-            "This framework helps move from *what people say* to *what the narrative reveals about power, values, and structure*."
+            "Each story can be read at three levels."
         )
         st.markdown("---")
 
         col_s, col_i, col_m = st.columns(3)
         with col_s:
-            st.markdown("**🔹 Surface narrative**")
-            st.markdown("*What is explicitly stated*")
+            st.markdown("**🔹 Surface**")
+            st.markdown("*What people say*")
             st.success(
-                "The literal claim or description. "
-                "Usually summarises the direct quote content without inference."
+                "The direct statement. No reading between the lines."
             )
-            st.markdown("How to identify:")
-            st.markdown("- Paraphrase the quote(s) in one sentence\n- Stay close to the text\n- Avoid reading between the lines")
+            st.markdown("How to spot it:")
+            st.markdown("- Paraphrase the quote in one sentence\n- Stick to the words used")
             st.markdown("---")
-            st.info("_Example:_\n'Funding is short-term and creates uncertainty for planning long-term projects.'")
+            st.info("_Example:_\n'Short-term funding makes it hard to plan long-term projects.'")
 
         with col_i:
-            st.markdown("**🔸 Implicit narrative**")
-            st.markdown("*What is assumed or implied*")
+            st.markdown("**🔸 Hidden**")
+            st.markdown("*What's assumed*")
             st.warning(
-                "The belief, assumption, or causal logic hiding underneath. "
-                "Answers: 'what must be true for this statement to make sense?'"
+                "The belief or assumption underneath. Ask: 'what must be true for this to make sense?'"
             )
-            st.markdown("How to identify:")
-            st.markdown("- Ask: 'what does this take for granted?'\n- Look for unstated causation\n- Surface the value judgement")
+            st.markdown("How to spot it:")
+            st.markdown("- Ask what's taken for granted\n- Look for unspoken causes")
             st.markdown("---")
-            st.info("_Example:_\n'Short-term funding implies funders don't trust communities to manage multi-year budgets.'")
+            st.info("_Example:_\n'Short-term funding = funders don't trust communities with multi-year budgets.'")
 
         with col_m:
-            st.markdown("**🔶 Meta-narrative**")
-            st.markdown("*The deeper cultural/power frame*")
+            st.markdown("**🔶 Big picture**")
+            st.markdown("*The deeper pattern*")
             st.error(
-                "The systemic logic or worldview that structures the narrative. "
-                "Answers: 'what power dynamic or institutional logic does this reinforce or resist?'"
+                "The wider context or power dynamic. Ask: 'what system does this reinforce or push against?'"
             )
-            st.markdown("How to identify:")
-            st.markdown("- Connect to broader social/political context\n- Identify whose interests are served\n- Surface the structural contradiction")
+            st.markdown("How to spot it:")
+            st.markdown("- Link to the broader context\n- Ask whose interests it serves")
             st.markdown("---")
-            st.info("_Example:_\n'Performance-based funding regimes produce precarity under the appearance of accountability — a governance technology that masks withdrawal of core support.'")
+            st.info("_Example:_\n'Short-term funding looks like accountability but actually makes long-term planning impossible — a way to cut core support while appearing responsible.'")
 
         st.divider()
         st.markdown(
-            "**How to use this in profile creation:**\n\n"
-            "1. Start with the **surface** — pull the direct claim from the representative quote.\n"
-            "2. Ask **'what is taken for granted?'** to surface the **implicit** layer.\n"
-            "3. Ask **'what systemic logic does this connect to?'** to reach the **meta-narrative**.\n"
-            "4. The three layers should form a coherent stack: surface → implicit → meta (each deeper layer explains why the layer above exists)."
+            "**How to write a three-layer profile:**\n\n"
+            "1. Start with **surface** — what the quote actually says.\n"
+            "2. Ask **'what's taken for granted?'** to find the **hidden** layer.\n"
+            "3. Ask **'what bigger pattern does this fit?'** to reach the **big picture**.\n"
         )
 
     st.divider()
-    st.markdown("### Auto-generated profile clusters")
+    st.markdown("### Auto-detected story clusters")
 
     if not narrative_profiles.empty:
         st.caption(f"{len(narrative_profiles)} clusters from {narrative_profiles['quote_count'].sum()} quotes.")
@@ -694,10 +684,9 @@ with tab_profiles:
 # TAB 4: STAKEHOLDER PERCEPTIONS
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_perception:
-    st.subheader("Perception Diagnostics")
+    st.subheader("Perception health check")
     st.caption(
-        "Quantitative health metrics for each perception archetype in the K-Tool Listening module. "
-        "Based on LLM-generated semantic edge weights between citizen quotes."
+        "How solid each perception is, based on how much the quotes agree."
     )
 
     if perception_diag.empty:
@@ -714,21 +703,21 @@ with tab_perception:
 
         m1, m2, m3, m4 = st.columns(4)
         m1.metric("Perceptions", n_perceptions)
-        m2.metric("Robust", f"{n_robust}/{n_perceptions}")
-        m3.metric("Avg coherence", f"{avg_coherence:.2f}" if avg_coherence is not None else "n/a",
-                  help="Mean similarity of LLM edge weights within each perception. >0.6 = strong internal agreement.")
-        m4.metric("Avg purity", f"{avg_purity:.2f}" if avg_purity is not None else "n/a",
-                  help="Fraction of a quote's top-5 semantic neighbours that belong to the same perception.")
+        m2.metric("Solid", f"{n_robust}/{n_perceptions}")
+        m3.metric("Avg agreement", f"{avg_coherence:.2f}" if avg_coherence is not None else "n/a",
+                  help="How similar the quotes are inside each perception. Above 0.6 = strong agreement.")
+        m4.metric("Avg focus", f"{avg_purity:.2f}" if avg_purity is not None else "n/a",
+                  help="Of each quote's top-5 neighbours, how many share the same perception label.")
 
         st.divider()
 
         # ── Colour-coded status table
-        st.markdown("**Perception health table** (sorted by quote count)")
+        st.markdown("**Perception health table** (by quote count)")
 
         def _status_colour(flag: str) -> str:
             if flag == "Robust":
                 return "background-color: #d4edda; color: #155724;"
-            if "Underdeveloped" in flag:
+            if "Weak" in flag:
                 return "background-color: #fff3cd; color: #856404;"
             if "Low coherence" in flag:
                 return "background-color: #fde8d8; color: #823b00;"
@@ -743,16 +732,16 @@ with tab_perception:
             "perception_label": "Perception",
             "quote_count": "Quotes",
             "n_channels": "Channels",
-            "internal_coherence": "Coherence ↑",
-            "purity_score": "Purity ↑",
-            "source_entropy": "Source entropy",
-            "contradiction_density": "Contradiction %",
+            "internal_coherence": "Agreement ↑",
+            "purity_score": "Focus ↑",
+            "source_entropy": "Source spread",
+            "contradiction_density": "Disagreement %",
             "status_flag": "Status",
         }
         diag_view = diag_view[[c for c in display_rename if c in diag_view.columns]].rename(columns=display_rename)
 
         # Format floats
-        for col in ["Coherence ↑", "Purity ↑", "Source entropy", "Contradiction %"]:
+        for col in ["Agreement ↑", "Focus ↑", "Source spread", "Disagreement %"]:
             if col in diag_view.columns:
                 diag_view[col] = diag_view[col].apply(lambda x: f"{x:.3f}" if pd.notna(x) else "—")
 
@@ -782,15 +771,15 @@ with tab_perception:
                 color="status_flag",
                 size="quote_count" if "quote_count" in scatter_df.columns else None,
                 template="plotly_white",
-                title="Perception Coherence vs Purity",
-                labels={"internal_coherence": "Internal Coherence (LLM edge weights)",
-                        "purity_score": "Purity Score (% top neighbours in same perception)"},
+                title="Agreement vs Focus",
+                labels={"internal_coherence": "Agreement (how similar quotes are)",
+                        "purity_score": "Focus (are quotes close to other perceptions?)"},
                 color_discrete_sequence=PLOTLY_PALETTE,
             )
             fig_scatter.add_vline(x=0.4, line_dash="dot", line_color="orange",
-                                  annotation_text="Coherence threshold", annotation_position="top left")
+                                  annotation_text="Agreement threshold", annotation_position="top left")
             fig_scatter.add_hline(y=0.3, line_dash="dot", line_color="orange",
-                                  annotation_text="Purity threshold", annotation_position="bottom right")
+                                  annotation_text="Focus threshold", annotation_position="bottom right")
             fig_scatter.update_traces(textposition="top center")
             fig_scatter.update_layout(height=480, margin=dict(l=10, r=10, t=60, b=10))
             st.plotly_chart(fig_scatter, use_container_width=True)
@@ -803,30 +792,30 @@ with tab_perception:
                 ent_df.sort_values("source_entropy"),
                 x="source_entropy", y="perception_label", orientation="h",
                 template="plotly_white",
-                title="Source Channel Entropy per Perception",
-                labels={"source_entropy": "Shannon entropy (higher = more diverse channels)",
+                title="Source diversity per perception",
+                labels={"source_entropy": "Channel diversity (higher = more sources)",
                         "perception_label": "Perception"},
                 color="n_channels", color_continuous_scale="Blues",
             )
             fig_entropy.add_vline(x=0.5, line_dash="dot", line_color="red",
-                                  annotation_text="Single-channel risk threshold")
+                                  annotation_text="Single-source risk threshold")
             fig_entropy.update_layout(height=360, margin=dict(l=10, r=10, t=60, b=10))
             st.plotly_chart(fig_entropy, use_container_width=True)
 
         st.info(
-            "**How to interpret these metrics:**\n\n"
-            "- **Coherence < 0.4** → Quotes in this perception disagree semantically; consider splitting it.\n"
-            "- **Purity < 0.3** → Quotes are closer to other perceptions than their own; possible mis-assignment.\n"
-            "- **Source entropy < 0.5** → A single interview channel dominates; the perception may reflect one interviewer's framing, not a systemic narrative.\n"
-            "- **Contradiction > 30%** → Strongly contested perception — valuable to surface, but harder to interpret as a unified viewpoint."
+            "**How to read these:**\n\n"
+            "- **Agreement < 0.4** → Quotes don't agree much. Maybe split into two perceptions.\n"
+            "- **Focus < 0.3** → Quotes are closer to OTHER perceptions than their own. May be mis-labeled.\n"
+            "- **Source diversity < 0.5** → Only one channel feeds this perception. Could be one person's view, not a shared one.\n"
+            "- **Disagreement > 30%** → Strongly contested perception. Important to show, but not a single unified view."
         )
 
-        with st.expander("How each metric is calculated"):
+        with st.expander("How each number is calculated"):
             st.markdown(
-                "- **Coherence** = mean cosine similarity of all within-perception quote embedding pairs. High (>0.6) = quotes agree on direction.\n"
-                "- **Purity** = for each quote, fraction of its top-5 semantic neighbours that share the same perception label. Low (<0.3) = boundary case.\n"
-                "- **Source entropy** = `H = -Σ p(c) log₂ p(c)` over channels feeding the perception. Low (<0.5) = one channel dominates.\n"
-                "- **Contradiction density** = fraction of within-perception semantic edges labelled `contradiction` out of all its intra-perception edges.\n"
+                "- **Agreement** = how similar the quotes are to each other inside a perception. >0.6 = high agreement.\n"
+                "- **Focus** = of each quote's 5 closest neighbours, how many share the same perception. <0.3 = fuzzy boundary.\n"
+                "- **Source diversity** = how many different channels feed this perception. <0.5 = one channel dominates.\n"
+                "- **Disagreement** = fraction of internal links marked as contradiction.\n"
             )
 
 
@@ -835,11 +824,11 @@ with tab_perception:
 # TAB 6: INTERVENTION SIMULATOR
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_gnn:
-    st.subheader("GNN preparation summary")
-    st.caption("Prepared tensors for heterogeneous graph learning and node-level training." )
+    st.subheader("What-if: adding new links")
+    st.caption("Simulates what happens if we connect items that aren't linked yet.")
 
     if not gnn_link_recommendations.empty:
-        st.markdown("**1. Mapping AI: top 3 mapping-layer links**")
+        st.markdown("**1. Top suggested links**")
         aid_view = gnn_link_recommendations.copy()
         show_cols = [
             c for c in [
@@ -868,10 +857,10 @@ with tab_gnn:
                 use_container_width=True,
                 hide_index=True,
             )
-        st.caption("This is the mapping layer output. It answers which agent/project links are worth considering before any narrative-space analysis.")
+        st.caption("Which new connections the AI thinks are worth exploring.")
 
     if not gnn_perception_effects.empty:
-        st.markdown("**2. Effect on perception spaces**")
+        st.markdown("**2. Effect on perceptions**")
         impact_view = gnn_perception_effects.copy()
         show_cols = [
             c for c in [
@@ -889,29 +878,29 @@ with tab_gnn:
             impact_view = impact_view[show_cols].rename(columns={
                 "source_label": "From",
                 "target_label": "To",
-                "perception_effect_type": "Perception effect",
+                "perception_effect_type": "Effect",
                 "source_perception_count": "Source perceptions",
                 "target_perception_count": "Target perceptions",
-                "shared_perception_count": "Shared perceptions",
-                "perception_overlap_ratio": "Overlap ratio",
-                "perception_effect_note": "Effect note",
+                "shared_perception_count": "Shared",
+                "perception_overlap_ratio": "Overlap",
+                "perception_effect_note": "Note",
             })
-            impact_view["Overlap ratio"] = impact_view["Overlap ratio"].apply(lambda value: f"{float(value):.2f}" if pd.notna(value) else "—")
+            impact_view["Overlap"] = impact_view["Overlap"].apply(lambda value: f"{float(value):.2f}" if pd.notna(value) else "—")
             st.dataframe(impact_view.head(3), use_container_width=True, hide_index=True)
-        st.caption("This is the second layer. It asks how a proposed mapping link could reinforce, bridge, or extend the perception space downstream.")
+        st.caption("How each new link would change perception dynamics.")
 
     if not link_intervention_scores.empty:
         st.divider()
-        st.markdown("**3. Link intervention simulation**")
-        st.caption("Simulates adding each proposed link and measures the structural impact on the perception space.")
+        st.markdown("**3. Full simulation results**")
+        st.caption("What changes when we add each proposed link.")
 
         if link_intervention_summary:
             m1, m2, m3 = st.columns(3)
             m1.metric("Simulated links", int(link_intervention_summary.get("n_recommendations_simulated", 0)))
-            m2.metric("Merge components", int(link_intervention_summary.get("n_merging_components", 0)),
-                      help="How many proposed links connect two previously separate graph components.")
+            m2.metric("Merge clusters", int(link_intervention_summary.get("n_merging_components", 0)),
+                      help="How many proposed links connect two separate clusters.")
             m3.metric("Avg sensitivity", f"{link_intervention_summary.get('avg_sensitivity', 0.0):.3f}",
-                      help="Composite score: higher = the structural change has more impact on narrative influence distribution.")
+                      help="Higher = this link would change the conversation flow more.")
 
         view = link_intervention_scores.copy()
         show_cols = [c for c in [
@@ -934,12 +923,11 @@ with tab_gnn:
                 use_container_width=True, hide_index=True,
             )
 
-        with st.expander("How intervention sensitivity is calculated"):
+        with st.expander("How sensitivity is calculated"):
             st.markdown(
-                "- **Sensitivity** = `|avg PR delta| × 10 + 0.3 if merges components + reach_expansion / N_info + min(|max PR delta| × 50, 0.2)`\n"
-                "- **PR delta** = `simulated_PageRank(u) - baseline_PageRank(u)` for each perception node. Measures narrative influence shift.\n"
-                "- **Merges components** = the proposed link connects two previously disconnected parts of the graph — a structural bridge event.\n"
-                "- **Info reach expansion** = number of information nodes that become reachable from any perception after adding the link (within 3 hops).\n"
+                "- **Sensitivity** = combines influence shift, cluster merging, and how many new items become reachable.\n"
+                "- **Influence shift** = how much attention flows change when the link is added.\n"
+                "- **Merges clusters** = link connects two previously separate parts of the network.\n"
             )
 
     if not gnn_summary:
@@ -952,48 +940,24 @@ with tab_gnn:
         m1.metric("Nodes", f"{int(gnn_summary.get('node_count', 0)):,}")
         m2.metric("Edges", f"{int(gnn_summary.get('edge_count', 0)):,}")
         m3.metric("Relations", int(gnn_summary.get('relation_count', 0)))
-        m4.metric("Feature dim", int(gnn_summary.get('feature_dim', 0)))
+        m4.metric("Features per node", int(gnn_summary.get('feature_dim', 0)))
 
         c1, c2 = st.columns([0.58, 0.42])
         with c1:
             semantic_coverage = float(gnn_summary.get('semantic_embedding_coverage_rate', 0.0))
-            semantic_source = gnn_summary.get('semantic_embedding_source') or "None found; using text-hash features"
+            semantic_source = gnn_summary.get('semantic_embedding_source') or "None"
             summary_items = {
                 "Semantic coverage": f"{semantic_coverage:.1%}",
                 "Low-confidence edges": int(gnn_summary.get('low_confidence_edge_count', 0)),
-                "Low-confidence threshold": gnn_summary.get('low_confidence_threshold', 0.0),
                 "Semantic source": semantic_source,
             }
-            st.markdown("**Preparation summary**")
+            st.markdown("**Model setup**")
             st.dataframe(pd.DataFrame(list(summary_items.items()), columns=["Metric", "Value"]), use_container_width=True, hide_index=True)
-            if semantic_coverage == 0.0:
-                st.info("Semantic coverage is 0.0% because no external embedding file was found for this run. The GNN prep is using text-hash features and structural/categorical fields instead.")
-
-            if gnn_summary.get("feature_slices"):
-                st.markdown("**Feature slices**")
-                feature_slice_rows = []
-                for name, bounds in gnn_summary.get("feature_slices", {}).items():
-                    feature_slice_rows.append(
-                        {
-                            "Block": name,
-                            "Start": bounds.get("start", 0),
-                            "End": bounds.get("end", 0),
-                            "Width": int(bounds.get("end", 0)) - int(bounds.get("start", 0)),
-                        }
-                    )
-                st.dataframe(pd.DataFrame(feature_slice_rows), use_container_width=True, hide_index=True)
 
         with c2:
-            st.markdown("**Pipeline stages**")
+            st.markdown("**Pipeline steps**")
             for stage in gnn_summary.get("pipeline_stages", []):
                 st.write(f"- {stage}")
-            if gnn_summary.get("privacy_notes"):
-                st.markdown("**Privacy notes**")
-                for note in gnn_summary.get("privacy_notes", []):
-                    st.write(f"- {note}")
-
-        if gnn_summary.get("sensitive_columns_used"):
-            st.info(f"Sensitive columns projected out or encoded: {', '.join(gnn_summary.get('sensitive_columns_used', []))}")
 
         if gnn_training_report:
             st.divider()
@@ -1041,39 +1005,39 @@ with tab_gnn:
 # TAB 7: NETWORK STRUCTURE
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_layer:
-    st.subheader("What each edge family contributes")
+    st.subheader("What each link type adds")
 
     layer_metrics = readiness.get("layer_family_analysis", {})
     if layer_metrics:
         layer_df = pd.DataFrame([
             {
-                "Edge family": friendly_edge_family(layer),
+                "Link type": friendly_edge_family(layer),
                 "Connections": vals.get("edge_count", 0),
-                "Connected groups": vals.get("component_count", 0),
+                "Clusters": vals.get("component_count", 0),
                 "Density": vals.get("graph_density", 0.0),
             }
             for layer, vals in layer_metrics.items()
         ])
         c1, c2 = st.columns(2)
         with c1:
-            st.plotly_chart(px.bar(layer_df, x="Edge family", y="Connections",
-                                   template="plotly_white", title="Connections by edge family"), use_container_width=True)
+            st.plotly_chart(px.bar(layer_df, x="Link type", y="Connections",
+                                   template="plotly_white", title="Links by type"), use_container_width=True)
         with c2:
-            st.plotly_chart(px.bar(layer_df, x="Edge family", y="Connected groups",
-                                   template="plotly_white", title="Fragmentation by edge family"), use_container_width=True)
+            st.plotly_chart(px.bar(layer_df, x="Link type", y="Clusters",
+                                   template="plotly_white", title="Clusters by link type"), use_container_width=True)
     else:
-        st.info("Edge family report not available for this run.")
+        st.info("Link type report not available.")
 
-    st.markdown("**Interactive edge family filter**")
+    st.markdown("**Filter: show/hide link types**")
     family_source_column = "edge_family_label" if "edge_family_label" in edges.columns else "edge_family"
     available_families_raw = sorted(edges[family_source_column].dropna().astype(str).unique().tolist()) if family_source_column in edges.columns else []
     family_display_map = {k: friendly_edge_family(k) for k in available_families_raw}
     available_family_display = list(family_display_map.values())
     selected_families = st.multiselect(
-        "Choose edge families to include in the graph below",
+        "Link types to show",
         options=available_family_display,
         default=available_family_display,
-        help="Uncheck an edge family to hide those connections and see how the remaining graph changes.",
+        help="Uncheck a type to hide those links and see how the network changes.",
     )
     selected_keys = [k for k, v in family_display_map.items() if v in selected_families]
     filtered_edges = edges[edges[family_source_column].astype(str).isin(selected_keys)].copy() if selected_keys and family_source_column in edges.columns else edges.copy()
@@ -1087,21 +1051,19 @@ with tab_layer:
     largest_share = largest_size / graph.number_of_nodes() if graph.number_of_nodes() else 0.0
 
     m1, m2, m3 = st.columns(3)
-    m1.metric("Filtered connections", int(filtered_edges.shape[0]))
-    m2.metric("Connected groups", int(component_count))
-    m3.metric("Largest group share", f"{largest_share:.1%}")
-    st.caption("If adding an edge family reduces connected groups and grows the largest share, it reveals hidden links.")
+    m1.metric("Links shown", int(filtered_edges.shape[0]))
+    m2.metric("Clusters", int(component_count))
+    m3.metric("Biggest cluster", f"{largest_share:.1%}")
+    st.caption("If a link type reduces clusters and grows the biggest one, it connects previously separate groups.")
 
-    with st.expander("About edge families"):
+    with st.expander("Where each link type comes from"):
         st.markdown(
-            "An **edge family** is a group of connections that share the same origin. "
-            "Each represents a different way of knowing about the ecosystem:\n\n"
-            "| Edge family | What it records | How it was built | Provenance |\n"
-            "| --- | --- | --- | --- |\n"
-            "| **Declared relational** | Agent↔project, project↔perception, initiative interconnections | Extracted directly from Strapi CMS relation fields | Source platform |\n"
-            "| **AI-inferred** | Quote-to-quote semantic links (similarity, contradiction, causality, sequence) | `14_alc_advanced_semantic_edges.py` — sentence embeddings + rule-based classification | Algorithmic inference |\n"
-            "| **Listening** | Channel→information→value evidence chains | Reconstructed from extraction pipeline relational joins | Pipeline derivation |\n"
-            "| **Qualitative narrative** | Perception↔challenge, pattern↔perception links | Extracted from Strapi CMS structured qualitative fields | Source platform |\n"
+            "| Link type | What it records | Where from |\n"
+            "| --- | --- | --- |\n"
+            "| **Declared links** | Agent↔project, project↔perception, initiative interconnections | Source database |\n"
+            "| **AI-inferred** | Quote-to-quote links (similar, contradictory, causal, sequential) | AI analysis of quote text |\n"
+            "| **Listening** | Channel→information→value chains | Data pipeline |\n"
+            "| **Narrative analysis** | Perception↔challenge, pattern↔perception links | Source database |\n"
         )
 
 
@@ -1109,8 +1071,8 @@ with tab_layer:
 # TAB 8: AI SEMANTIC LINKS
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_ai_semantic:
-    st.subheader("AI-generated semantic links")
-    st.caption("Links inferred by the LLM semantic layer — separated so non-technical users can distinguish them from declared source-data relationships.")
+    st.subheader("AI-generated links")
+    st.caption("Links the AI found between quotes. Separated from the source data so you can see what's AI vs what's from the original dataset.")
 
     ai_edges = edges.copy()
     ai_mask = pd.Series([False] * len(ai_edges), index=ai_edges.index)
@@ -1121,17 +1083,17 @@ with tab_ai_semantic:
     ai_edges = ai_edges[ai_mask].copy()
 
     if ai_edges.empty:
-        st.info("No AI semantic links found. Run the semantic edge stage first.")
+        st.info("No AI links found. Run the semantic edge pipeline first.")
     else:
         ai_total = len(ai_edges)
         ai_share = ai_total / len(edges) if len(edges) else 0
         type_col = "edge_type" if "edge_type" in ai_edges.columns else None
 
         m1, m2, m3 = st.columns(3)
-        m1.metric("AI semantic links", ai_total)
+        m1.metric("AI links", ai_total)
         m2.metric("Share of all links", f"{ai_share:.1%}")
         if type_col:
-            m3.metric("Semantic types", int(ai_edges[type_col].nunique()))
+            m3.metric("Link types", int(ai_edges[type_col].nunique()))
 
         c1, c2 = st.columns(2)
         with c1:
@@ -1186,11 +1148,10 @@ with tab_ai_semantic:
 # ═══════════════════════════════════════════════════════════════════════════════
 if tab_financial is not None:
     with tab_financial:
-        st.subheader("Financial Portfolio Analysis")
+        st.subheader("Budget & Finance Analysis")
         st.caption(
-            "Synthetic dataset: same network topology as real Platform 173 but with "
-            "deterministic budget (initiatives) and investment estimates (agents) added. "
-            "Run `04_investment_opportunity_synthetic.py` to generate data."
+            "Synthetic dataset: same network as Platform 173, but with fake budgets added "
+            "so we can test investment scenarios."
         )
 
         if leverage_df.empty and stranded_df.empty and fin_diffusion_df.empty:
@@ -1202,20 +1163,20 @@ if tab_financial is not None:
         else:
             if fin_summary:
                 m1, m2, m3, m4 = st.columns(4)
-                m1.metric("Initiatives with budget", fin_summary.get("n_initiatives_with_budget", "—"))
-                m2.metric("Agents with investment est.", fin_summary.get("n_agents_with_investment", "—"))
+                m1.metric("Items with budget", fin_summary.get("n_initiatives_with_budget", "—"))
+                m2.metric("Agents with investment", fin_summary.get("n_agents_with_investment", "—"))
                 m3.metric("Stranded assets", fin_summary.get("stranded_assets_count", "—"),
-                          help="Initiatives with budget ≥ €500k but zero bridge score and ≤ 3 connections.")
+                          help="Items with budget ≥ €500k but few connections and low bridge score.")
                 if not leverage_df.empty and "leverage_score" in leverage_df.columns:
                     top_leverage = leverage_df["leverage_score"].max()
-                    m4.metric("Max leverage score", f"{top_leverage:.3f}",
-                              help="Betweenness centrality per €1M budget — higher = more impact per euro.")
+                    m4.metric("Top leverage score", f"{top_leverage:.3f}",
+                              help="Bridge score per €1M budget — higher = more impact per euro.")
 
             st.divider()
 
             if not leverage_df.empty:
-                st.markdown("### A. Value Leverage — Budget vs Bridge Score")
-                st.caption("High-leverage initiatives are structurally central (bridge many disconnected groups) but relatively cheap.")
+                st.markdown("### A. Value for money — budget vs bridge score")
+                st.caption("Items that connect many groups and don't cost much.")
                 if "associated_budget" in leverage_df.columns and "betweenness_centrality" in leverage_df.columns:
                     lev_plot = leverage_df.copy()
                     lev_plot["label"] = lev_plot.get("label", lev_plot["global_id"]).astype(str).str[:35]
@@ -1225,18 +1186,18 @@ if tab_financial is not None:
                         lev_plot, x="budget_M", y="betweenness_centrality",
                         color=color_col, size="leverage_score", hover_name="label",
                         template="plotly_white",
-                        title="Budget (€M) vs Network Bridge Score",
-                        labels={"budget_M": "Budget (€M)", "betweenness_centrality": "Bridge score (betweenness)"},
+                        title="Budget vs network bridge score",
+                        labels={"budget_M": "Budget (€M)", "betweenness_centrality": "Bridge score"},
                         color_discrete_sequence=PLOTLY_PALETTE,
                     )
                     fig_lev.update_layout(height=480, legend_title=color_col.replace("_", " ").title())
                     st.plotly_chart(fig_lev, use_container_width=True)
-                    st.markdown("**Top 10 high-leverage initiatives**")
+                    st.markdown("**Top 10 best value items**")
                     show_cols = [c for c in ["label", "node_type", "investment_level", "associated_budget",
                                              "betweenness_centrality", "leverage_score"] if c in leverage_df.columns]
                     st.dataframe(
                         leverage_df[show_cols].head(10).rename(columns={
-                            "label": "Initiative", "node_type": "Type",
+                            "label": "Item", "node_type": "Type",
                             "investment_level": "Budget tier", "associated_budget": "Budget (€)",
                             "betweenness_centrality": "Bridge score", "leverage_score": "Leverage",
                         }), use_container_width=True, hide_index=True,
@@ -1245,33 +1206,32 @@ if tab_financial is not None:
             st.divider()
 
             if not stranded_df.empty:
-                st.markdown("### B. Stranded Assets")
-                st.caption("High-budget initiatives with minimal network integration (bridge score ≈ 0, degree ≤ 3). They represent financial investment not connected to ecosystem flows.")
+                st.markdown("### B. Stranded assets")
+                st.caption("Big budgets, but barely connected to the network.")
                 st.error(f"{len(stranded_df)} stranded assets detected")
                 show_cols = [c for c in ["label", "node_type", "associated_budget", "betweenness_centrality",
                                          "degree", "stranded_reason"] if c in stranded_df.columns]
                 st.dataframe(stranded_df[show_cols].rename(columns={
-                    "label": "Initiative", "node_type": "Type", "associated_budget": "Budget (€)",
+                    "label": "Item", "node_type": "Type", "associated_budget": "Budget (€)",
                     "betweenness_centrality": "Bridge score", "degree": "Connections", "stranded_reason": "Flag",
                 }), use_container_width=True, hide_index=True)
             else:
-                st.success("No stranded assets detected.")
+                st.success("No stranded assets found.")
 
             st.divider()
 
             if not fin_diffusion_df.empty and "financial_bias" in fin_diffusion_df.columns:
-                st.markdown("### C. Financial-Weighted Narrative Diffusion")
+                st.markdown("### C. Where the money flows")
                 st.caption(
-                    "Personalized PageRank seeded by agent investment amounts (€). "
-                    "Positive bias = this node is preferentially reached by financial capital flows. "
-                    "Negative bias = financially under-reached, despite being part of the network."
+                    "Positive = this item gets more attention when weighted by budget. "
+                    "Negative = under-reached by financial flows."
                 )
                 fig_fd = px.histogram(
                     fin_diffusion_df, x="financial_bias", color="node_type",
                     nbins=30, barmode="overlay", opacity=0.6,
                     template="plotly_white",
-                    title="Financial Bias Distribution by Node Type",
-                    labels={"financial_bias": "Financial bias (+ = capital-heavy narrative zone)"},
+                    title="Money-weighted attention by type",
+                    labels={"financial_bias": "Bias (+ = gets more attention with money weight)"},
                     color_discrete_sequence=PLOTLY_PALETTE,
                 )
                 fig_fd.add_vline(x=0, line_dash="dash", line_color="grey")
@@ -1279,7 +1239,7 @@ if tab_financial is not None:
                 st.plotly_chart(fig_fd, use_container_width=True)
                 col_a, col_b = st.columns(2)
                 with col_a:
-                    st.markdown("**Over-reached by financial capital (bias > 0.3)**")
+                    st.markdown("**Gets more budget-attention than expected (bias > 0.3)**")
                     top_fin = fin_diffusion_df[fin_diffusion_df["financial_bias"] > 0.3].nlargest(8, "financial_bias")
                     if not top_fin.empty:
                         show = [c for c in ["label", "node_type", "financial_bias"] if c in top_fin.columns]
@@ -1288,7 +1248,7 @@ if tab_financial is not None:
                     else:
                         st.info("No strongly over-reached nodes.")
                 with col_b:
-                    st.markdown("**Under-reached by financial capital (bias < −0.3)**")
+                    st.markdown("**Gets less budget-attention than expected (bias < −0.3)**")
                     bot_fin = fin_diffusion_df[fin_diffusion_df["financial_bias"] < -0.3].nsmallest(8, "financial_bias")
                     if not bot_fin.empty:
                         show = [c for c in ["label", "node_type", "financial_bias"] if c in bot_fin.columns]
@@ -1299,39 +1259,39 @@ if tab_financial is not None:
 
             st.divider()
 
-            st.markdown("### D. Budget Reallocation Simulation")
-            st.caption("Shuffles budgets across initiatives 1,000 times to test whether the real allocation is better than random at placing money on structurally central nodes.")
+            st.markdown("### D. Budget reallocation test")
+            st.caption("We shuffled budgets 1,000 times to see if the real allocation puts money on central nodes better than random chance.")
             realloc = fin_summary.get("budget_reallocation", {}) if fin_summary else {}
             if realloc:
                 c1, c2, c3 = st.columns(3)
-                c1.metric("Observed mean leverage", f"{realloc.get('observed_mean_leverage', 0):.5f}",
+                c1.metric("Mean leverage score", f"{realloc.get('observed_mean_leverage', 0):.5f}",
                           delta=f"p={realloc.get('mean_leverage_percentile', 0):.0f}%", delta_color="inverse",
-                          help="Lower percentile = budget is on less central nodes than random expectation.")
-                c2.metric("Observed Gini", f"{realloc.get('observed_gini', 0):.3f}",
+                          help="Lower percentile = budgets sit on less central nodes than random.")
+                c2.metric("Inequality (Gini)", f"{realloc.get('observed_gini', 0):.3f}",
                           delta=f"p={realloc.get('gini_percentile', 0):.0f}%", delta_color="inverse",
-                          help="Gini coefficient of leverage — higher = more unequal distribution than random.")
+                          help="Higher = more unequal distribution than random.")
                 c3.metric("Stranded assets", f"{realloc.get('observed_stranded', 0)}",
                           delta=f"p={realloc.get('stranded_percentile', 0):.0f}%", delta_color="inverse",
-                          help=f"Sim mean: {realloc.get('sim_mean_stranded', 0):.1f}")
+                          help=f"Average in simulations: {realloc.get('sim_mean_stranded', 0):.1f}")
                 st.error(
-                    f"**Verdict: {realloc.get('efficiency_verdict', 'N/A').replace('_', ' ').title()}** — "
-                    f"the observed mean leverage sits at the **{realloc.get('mean_leverage_percentile', 0):.0f}th percentile** "
+                    f"**Result: {realloc.get('efficiency_verdict', 'N/A').replace('_', ' ').title()}** — "
+                    f"the current allocation is at the **{realloc.get('mean_leverage_percentile', 0):.0f}th percentile** "
                     f"({realloc.get('n_simulations', 0)} simulations). "
                 )
                 sim_plot_path = ANALYSIS_DIR / "financial_plots" / "budget_reallocation_simulation.png"
                 if sim_plot_path.exists():
                     st.image(str(sim_plot_path), use_container_width=True)
-                with st.expander("How the simulation works"):
+                with st.expander("How the test works"):
                     st.markdown(
-                        "- Budgets are randomly permuted across initiatives (preserving distribution, not assignment).\n"
-                        "- Tracks: mean leverage, Gini coefficient, stranded count.\n"
-                        "- p < 5% or p > 95% means the real allocation is significantly different from random.\n"
+                        "- Budgets get shuffled randomly across items (same amounts, different owners).\n"
+                        "- We track: average bridge score, inequality, stranded count.\n"
+                        "- p < 5% or p > 95% = real allocation is not random.\n"
                     )
 
             st.divider()
 
-            st.markdown("### E. Narrative Profile Budget Exposure")
-            st.caption("For each narrative profile, traces through shared topics to estimate which initiatives' budgets are associated.")
+            st.markdown("### E. Budget by story cluster")
+            st.caption("Which story clusters are linked to which budgets, via shared topics.")
             if not quote_clusters.empty and not leverage_df.empty:
                 effort_data = []
                 for _, row in quote_clusters.iterrows():
@@ -1355,25 +1315,25 @@ if tab_financial is not None:
                     profile_fin["cluster"] = profile_fin["cluster_id"].map(cluster_labels).fillna(profile_fin["cluster_id"])
                     fig_ne = px.bar(profile_fin, x="cluster", y="total_budget",
                         color="mean_leverage", color_continuous_scale="RdYlGn",
-                        template="plotly_white", title="Total associated budget per narrative profile",
-                        labels={"cluster": "Narrative profile", "total_budget": "Associated budget (€)", "mean_leverage": "Mean leverage"})
+                        template="plotly_white", title="Budget linked to each story cluster",
+                        labels={"cluster": "Story cluster", "total_budget": "Linked budget (€)", "mean_leverage": "Avg leverage"})
                     fig_ne.update_layout(height=350)
                     st.plotly_chart(fig_ne, use_container_width=True)
                     show_cols = ["cluster", "n_initiatives", "total_budget", "mean_leverage", "mean_bridge"]
                     st.dataframe(profile_fin[show_cols].rename(columns={
-                        "cluster": "Profile", "n_initiatives": "Initiatives", "total_budget": "Total budget (€)",
-                        "mean_leverage": "Mean leverage", "mean_bridge": "Mean bridge"}), use_container_width=True, hide_index=True)
-                    st.caption("**Note:** Uses fuzzy topic matching — indicative, not a direct graph-traversal link.")
+                        "cluster": "Story cluster", "n_initiatives": "Items", "total_budget": "Budget (€)",
+                        "mean_leverage": "Avg leverage", "mean_bridge": "Avg bridge"}), use_container_width=True, hide_index=True)
+                    st.caption("Topic matching is fuzzy — approximate, not exact.")
                 else:
-                    st.info("No topic-matched initiatives found for narrative profiles.")
+                    st.info("No topic-matched items found.")
             else:
-                st.info("Run the narrative profile pipeline and financial analysis first.")
+                st.info("Run the narrative pipeline and financial analysis first.")
 
             st.divider()
 
             if not link_intervention_scores.empty:
-                st.markdown("### F. Link Intervention Sensitivity")
-                st.caption("Simulates adding each GNN-proposed link. High-sensitivity = high-risk/high-impact allocation decisions.")
+                st.markdown("### F. Link impact sensitivity")
+                st.caption("What happens if we add each proposed link.")
                 if link_intervention_summary:
                     m1, m2, m3 = st.columns(3)
                     m1.metric("Simulated links", int(link_intervention_summary.get("n_recommendations_simulated", 0)))
@@ -1391,15 +1351,11 @@ if tab_financial is not None:
                     st.markdown("- Sensitivity = `|avg PR delta| × 10 + 0.3 if merges components + reach_expansion / N_info + min(|max PR delta| × 50, 0.2)`")
 
             st.info(
-                "**Research interpretation:**\n\n"
-                "The synthetic financial layer tests a core K-Tool hypothesis: *does financial investment track "
-                "network centrality?* If stranded assets exist (high budget, low bridge), it suggests "
-                "that resource allocation in the ecosystem is not optimised for systemic impact.\n\n"
-                "The budget reallocation simulation confirms this: the observed allocation is **worse than random** "
-                "(mean leverage at 1st percentile), meaning the current distribution of financial resources is "
-                "statistically unlikely to maximise network bridge value.\n\n"
-                "The financial-weighted diffusion reveals which narrative spaces are dominated by capital flows, "
-                "operationalizing the concept of institutional narrative capture."
+                "**Bottom line:**\n\n"
+                "This test asks: *does money follow network importance?* "
+                "Stranded assets (high budget, low connections) suggest it doesn't. "
+                "The reallocation simulation confirms: the real budget spread is **worse than random** "
+                "(at the 1st percentile) — almost certainly not maximising impact."
             )
 
 # ═══════════════════════════════════════════════════════════════════════════════

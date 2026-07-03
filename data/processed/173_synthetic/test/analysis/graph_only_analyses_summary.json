@@ -1,0 +1,14 @@
+{
+  "platform_id": "173",
+  "analysis_1": "Agent neighbourhood profiling by type — multi-hop BFS through agent→initiative→perception",
+  "analysis_2": "Semantic centrality — betweenness, PageRank, eigenvector on qualitative_narrative subgraph",
+  "analysis_3": "Narrative diffusion — personalized PageRank contrasting top-2 agent types",
+  "why_graph": {
+    "analysis_1": "BFS multi-hop traversal through heterogeneous node types. Flat tables store only direct relations; graph captures topological 'reach'.",
+    "analysis_2": "Betweenness/PageRank/eigenvector are path-based topological measures requiring full connectivity structure.",
+    "analysis_3": "Personalized PageRank propagates agent-type signals across heterogeneous edges — measures structural narrative segregation undefined outside a graph."
+  },
+  "perceptions_profiled": 0,
+  "semantic_nodes_analyzed": 69,
+  "diffusion_nodes_scored": 384
+}

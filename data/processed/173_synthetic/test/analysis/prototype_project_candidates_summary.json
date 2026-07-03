@@ -1,0 +1,21 @@
+{
+  "platform_id": "173_synthetic",
+  "output_subdir": "test",
+  "candidate_count": 101,
+  "top_candidate": [
+    {
+      "global_id": "project_4603",
+      "label": "Sport & Wellness Fund",
+      "node_type": "project",
+      "associated_budget": 3572047,
+      "impact_level": "small_medium_scale",
+      "degree": 7,
+      "betweenness_centrality": 0.006404,
+      "perception_count": 2,
+      "agent_count": 3,
+      "topic_count": 2,
+      "prototype_candidate_score": 0.51604,
+      "suggestion_reason": "Potentially useful but needs more manual review."
+    }
+  ]
+}

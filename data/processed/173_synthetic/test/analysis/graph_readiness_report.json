@@ -1,0 +1,89 @@
+{
+  "audited_at_utc": "2026-07-02T15:03:55.171526+00:00",
+  "graph_scope_summary": {
+    "node_count": 376,
+    "edge_count": 354,
+    "component_count": 170,
+    "graph_density": 0.005021276595744681
+  },
+  "layer_family_analysis": {
+    "declared_relational": {
+      "edge_count": 197,
+      "component_count": 272,
+      "graph_density": 0.0027943262411347517
+    },
+    "interpretive": {
+      "edge_count": 21,
+      "component_count": 358,
+      "graph_density": 0.0002978723404255319
+    },
+    "listening": {
+      "edge_count": 136,
+      "component_count": 292,
+      "graph_density": 0.0019290780141843972
+    }
+  },
+  "orphan_node_distributions": {
+    "agent": {
+      "total_nodes": 136,
+      "orphan_count": 136,
+      "orphan_rate": 1.0
+    },
+    "challenge": {
+      "total_nodes": 15,
+      "orphan_count": 2,
+      "orphan_rate": 0.13333333333333333
+    },
+    "channel": {
+      "total_nodes": 27,
+      "orphan_count": 0,
+      "orphan_rate": 0.0
+    },
+    "information": {
+      "total_nodes": 72,
+      "orphan_count": 0,
+      "orphan_rate": 0.0
+    },
+    "perception": {
+      "total_nodes": 6,
+      "orphan_count": 0,
+      "orphan_rate": 0.0
+    },
+    "pilot": {
+      "total_nodes": 6,
+      "orphan_count": 3,
+      "orphan_rate": 0.5
+    },
+    "project": {
+      "total_nodes": 101,
+      "orphan_count": 0,
+      "orphan_rate": 0.0
+    },
+    "prototype": {
+      "total_nodes": 3,
+      "orphan_count": 2,
+      "orphan_rate": 0.6666666666666666
+    },
+    "theme": {
+      "total_nodes": 10,
+      "orphan_count": 10,
+      "orphan_rate": 1.0
+    }
+  },
+  "undetected_ontology_relations": [
+    "information_expresses_value",
+    "initiative_addresses_theme",
+    "initiative_has_agent",
+    "initiative_has_lead_agent",
+    "initiative_mentions_perception"
+  ],
+  "analytical_readiness_map": {
+    "information_expresses_value": "blocked",
+    "declared_interconnection": "supported",
+    "initiative_has_lead_agent": "blocked",
+    "initiative_has_agent": "blocked",
+    "initiative_mentions_perception": "blocked",
+    "initiative_addresses_theme": "blocked",
+    "perception_reveals_challenge": "supported"
+  }
+}

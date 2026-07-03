@@ -1,0 +1,161 @@
+{
+  "best_val_accuracy": 0.918918918918919,
+  "class_count": 9,
+  "confidence_filter_edge_count": 559,
+  "confidence_threshold": 0.6,
+  "epochs_ran": 25,
+  "feature_dim": 279,
+  "gnn_dir": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\analysis\\gnn",
+  "hidden_dim": 64,
+  "history_tail": [
+    {
+      "epoch": 21,
+      "loss": 1423.08544921875,
+      "test_accuracy": 0.96,
+      "test_macro_f1": 0.6565656565656566,
+      "train_accuracy": 0.9647577092511013,
+      "train_macro_f1": 0.8157133794814955,
+      "val_accuracy": 0.918918918918919,
+      "val_macro_f1": 0.5572390572390573
+    },
+    {
+      "epoch": 22,
+      "loss": 1328.851318359375,
+      "test_accuracy": 0.96,
+      "test_macro_f1": 0.6565656565656566,
+      "train_accuracy": 0.960352422907489,
+      "train_macro_f1": 0.7938840709051989,
+      "val_accuracy": 0.918918918918919,
+      "val_macro_f1": 0.5572390572390573
+    },
+    {
+      "epoch": 23,
+      "loss": 1925.6060791015625,
+      "test_accuracy": 0.96,
+      "test_macro_f1": 0.6565656565656566,
+      "train_accuracy": 0.960352422907489,
+      "train_macro_f1": 0.7938840709051989,
+      "val_accuracy": 0.918918918918919,
+      "val_macro_f1": 0.5572390572390573
+    },
+    {
+      "epoch": 24,
+      "loss": 1216.1387939453125,
+      "test_accuracy": 0.96,
+      "test_macro_f1": 0.6565656565656566,
+      "train_accuracy": 0.960352422907489,
+      "train_macro_f1": 0.7938840709051989,
+      "val_accuracy": 0.918918918918919,
+      "val_macro_f1": 0.5572390572390573
+    },
+    {
+      "epoch": 25,
+      "loss": 1949.60205078125,
+      "test_accuracy": 0.96,
+      "test_macro_f1": 0.6565656565656566,
+      "train_accuracy": 0.960352422907489,
+      "train_macro_f1": 0.7938840709051989,
+      "val_accuracy": 0.918918918918919,
+      "val_macro_f1": 0.5572390572390573
+    }
+  ],
+  "label_map": {
+    "agent": 0,
+    "challenge": 1,
+    "channel": 2,
+    "information": 3,
+    "perception": 4,
+    "pilot": 5,
+    "project": 6,
+    "prototype": 7,
+    "theme": 8
+  },
+  "metrics": {
+    "test": {
+      "accuracy": 0.96,
+      "macro_f1": 0.6565656565656566
+    },
+    "train": {
+      "accuracy": 0.9515418502202643,
+      "macro_f1": 0.7171953452655208
+    },
+    "validation": {
+      "accuracy": 0.918918918918919,
+      "macro_f1": 0.5572390572390573
+    }
+  },
+  "model": "RGCN",
+  "node_confidence_mean": 0.6839500665664673,
+  "node_count": 376,
+  "output_subdir": "test",
+  "platform_id": "173_synthetic",
+  "relation_count": 8,
+  "source_summary": {
+    "anonymized_node_types": [
+      "citizen",
+      "person",
+      "resident"
+    ],
+    "confidence_threshold": 0.6,
+    "edge_count": 559,
+    "feature_dim": 279,
+    "feature_slices": {
+      "categorical": {
+        "end": 23,
+        "start": 11
+      },
+      "numeric": {
+        "end": 11,
+        "start": 0
+      },
+      "text_hash": {
+        "end": 279,
+        "start": 23
+      }
+    },
+    "low_confidence_edge_count": 0,
+    "low_confidence_threshold": 0.6,
+    "node_count": 376,
+    "node_types": [
+      "agent",
+      "challenge",
+      "channel",
+      "information",
+      "perception",
+      "pilot",
+      "project",
+      "prototype",
+      "theme"
+    ],
+    "pipeline_stages": [
+      "Stage 1: Source Recovery & JSON Validation",
+      "Stage 2: Relational Tabular Extraction",
+      "Stage 3: Multimodal Edge Reconstruction",
+      "Stage 4: Graph Normalization",
+      "Stage 5: Semantic Enrichment & Vector Alignment",
+      "Stage 6: Graph Machine Learning Preparation"
+    ],
+    "privacy_notes": [
+      "Citizen-like node types can be anonymized through the anonymize-node-types flag.",
+      "Sensitive columns are orthogonally projected out of narrative vectors when present."
+    ],
+    "relation_count": 8,
+    "semantic_embedding_coverage_rate": 0.0,
+    "semantic_embedding_dim": 0,
+    "semantic_embedding_source": "",
+    "sensitive_columns_used": [
+      "gender",
+      "age",
+      "lead_agents",
+      "agents",
+      "lead_agent_ids",
+      "agent_ids"
+    ],
+    "stage_notes": {
+      "stage_5": "Semantic enrichment and vector alignment were applied through text hashing and optional external embeddings.",
+      "stage_6": "Graph machine learning tensors were prepared for heterogenous message passing frameworks such as R-GCN and HAN."
+    },
+    "text_hash_dim": 256,
+    "uncertainty_formula": "omega = 0.45*provenance + 0.35*alignment + 0.20*variance_stability"
+  }
+}

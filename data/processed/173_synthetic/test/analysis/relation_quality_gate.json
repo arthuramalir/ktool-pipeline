@@ -1,0 +1,58 @@
+{
+  "quality_gate": "critical_relations",
+  "dataset_dir": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test",
+  "total_checks": 7,
+  "failed_checks": 6,
+  "status": "fail",
+  "checks": [
+    {
+      "file": "initiative_perception_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\initiative_perception_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    },
+    {
+      "file": "initiative_thematic_area_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\initiative_thematic_area_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    },
+    {
+      "file": "initiative_lead_agent_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\initiative_lead_agent_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    },
+    {
+      "file": "agent_initiative_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\agent_initiative_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    },
+    {
+      "file": "channel_information_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\channel_information_links.csv",
+      "rows": 71,
+      "expected_min_rows": 1,
+      "passed": true
+    },
+    {
+      "file": "information_pattern_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\information_pattern_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    },
+    {
+      "file": "information_value_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\information_value_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    }
+  ]
+}

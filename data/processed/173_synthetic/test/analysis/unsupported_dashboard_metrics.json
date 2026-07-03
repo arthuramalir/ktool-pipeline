@@ -1,0 +1,12 @@
+{
+  "initiative_to_perception_coverage_rate": {
+    "status": "BLOCKED",
+    "reason": "The 'initiative_perception_links.csv' table is entirely empty in current sync.",
+    "remediation": "Update frontend forms to force project managers to tag qualitative community insights."
+  },
+  "semantic_alignment_score": {
+    "status": "BLOCKED",
+    "reason": "NLP vector embeddings have not yet been generated for raw description fields.",
+    "remediation": "Run sentence-transformers pipeline across nodes.csv description fields in Sprint 2."
+  }
+}

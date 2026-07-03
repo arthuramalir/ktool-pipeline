@@ -1,0 +1,10 @@
+rule_triggered,raw_sentence,hypergraph_expression,anchored_project,SUBJECT,SYSTEMIC_INDICATOR,EXTRA,CATALYST,ACTION,BENEFICIARY
+Systemic_Identity_With_Context,"Now we’re counsellors, social workers, and sometimes the only stable adult in a child’s life.",(’re/P we/C a_child’s_life/C (in a child’s life)),Implicit Concept,we/C,a child’s life/C,(in a child’s life),,,
+Systemic_Identity_3_Token,"They’re not the problem, they’re the evidence.",(’re/P they/C the_evidence/C),Implicit Concept,they/C,the evidence/C,,,,
+Ecosystem_Catalyst_Action,The interest-led and student-centred approach of iScoil allowed a real sense of buy-in from the young people.,(allowed/P The_interest-led_and_student-centred_approach_of_iScoil/C the_young_people/C (of iScoil of buy-in from the young people)),Young People,,,(of iScoil of buy-in from the young people),The interest-led and student-centred approach of iScoil/C,the young people/C,
+Direct_Impact_With_Context,“Liquid Therapy helped me overcome my fear of the ocean.,(helped/P me/C the_ocean/C (of the ocean)),Liquid Therapy,,,(of the ocean),me/C,,the ocean/C
+Systemic_Identity_With_Context,"Looking ahead, we’re excited to work with the newly-formed government, awardee organisations, our valued donors and other key stakeholders to create the positive change that we all wish to see; a society where each and every one of us has the
+chance to thrive.","(’re/P each_and_every_one_of_us/C the
+chance_to_thrive/C (with the newly-formed government, awardee organisations, our valued donors and other key stakeholders of us))",Implicit Concept,each and every one of us/C,"the
+chance to thrive/C","(with the newly-formed government, awardee organisations, our valued donors and other key stakeholders of us)",,,
+Direct_Impact_With_Context,"And especially being over with all the staff over there, it really helped build my confidence.",(helped/P it/C my_confidence/C (with all the staff)),Rainbow Club,,,(with all the staff),it/C,,my confidence/C

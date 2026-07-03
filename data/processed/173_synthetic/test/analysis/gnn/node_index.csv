@@ -1,0 +1,377 @@
+node_index,global_id,public_label,node_type,methodological_phase,is_anonymized
+0,agent_4722,Rethink Ireland,agent,mapping,False
+1,agent_4753,Helium Arts,agent,mapping,False
+2,agent_4754,Hope and Courage Collective,agent,mapping,False
+3,agent_4757,HSE (Health Service Executive),agent,mapping,False
+4,agent_4786,Tacú Ballinrobe Family Resource Centre,agent,mapping,False
+5,agent_5350,Liquid Therapy,agent,mapping,False
+6,agent_5351,Cruthu Foundation Way2Work,agent,mapping,False
+7,agent_5358,Spraoi & Sport,agent,mapping,False
+8,agent_5360,Special Olympics,agent,mapping,False
+9,agent_5366,First Fortnight,agent,mapping,False
+10,agent_5367,Tacu Family Resource Centre,agent,mapping,False
+11,agent_5369,TUSLA,agent,mapping,False
+12,agent_5370,Focus Ireland,agent,mapping,False
+13,agent_5371,Community Foundation Ireland,agent,mapping,False
+14,agent_5372,Blue Box Creative Arts Centre,agent,mapping,False
+15,agent_5373,Donegal Domestic Violence Refuge (Gloria House),agent,mapping,False
+16,agent_5374,Knocklee House (Kerry Recovery Centre),agent,mapping,False
+17,agent_5375,St. Brigid’s Family Resource Centre (Tralee),agent,mapping,False
+18,agent_5376,Crosscare,agent,mapping,False
+19,agent_5377,NOVAS,agent,mapping,False
+20,agent_5378,GP Practices and Primary Care Centres,agent,mapping,False
+21,agent_5379,Young People,agent,mapping,False
+22,agent_5380,Parents ,agent,mapping,False
+23,agent_5382,Youthreach,agent,mapping,False
+24,agent_5383,"Education Welfare Officers (EWOs, TESS team)",agent,mapping,False
+25,agent_5384,School Guidance Counsellors/Chaplins/School Support Team,agent,mapping,False
+26,agent_5387,JLOs/ Managers/Support staff in International Protection Centre?,agent,mapping,False
+27,agent_5476,Children's Health Ireland,agent,mapping,False
+28,agent_5477,ETBs,agent,mapping,False
+29,agent_5478,Sisk Group,agent,mapping,False
+30,agent_5479,Construction Industry Federation,agent,mapping,False
+31,agent_5480,Society of the Irish Motor Industry (SIMI),agent,mapping,False
+32,agent_5481,"Parents, Guardians & Aftercare workers",agent,mapping,False
+33,agent_5482,DEIS Schools,agent,mapping,False
+34,agent_5483,Oberstown Children Detention Campus ,agent,mapping,False
+35,agent_5488,Involve CLG,agent,mapping,False
+36,agent_5489,Arts Council,agent,mapping,False
+37,agent_5490,Children and young persons committees (CYPSC),agent,mapping,False
+38,agent_5491,Regional Health Areas,agent,mapping,False
+39,agent_5492,Family Resource Centres,agent,mapping,False
+40,agent_5493,Home Liaison Officers,agent,mapping,False
+41,agent_5494,Hospital clinical staff,agent,mapping,False
+42,agent_5497,Patient Support Groups,agent,mapping,False
+43,agent_5499,Sláintecare Healthy Communities (Donegal),agent,mapping,False
+44,agent_5500,Jigsaw,agent,mapping,False
+45,agent_5502,ETB Youthreach Carndonagh,agent,mapping,False
+46,agent_5503,Inishowen Development Partnership (IDP),agent,mapping,False
+47,agent_5504,Inishowen Family Action Network (IFAN),agent,mapping,False
+48,agent_5505,Carndonagh Community School – Pastoral Care Team,agent,mapping,False
+49,agent_5506,Public Health Nurse Network (Carndonagh),agent,mapping,False
+50,agent_5507,Mental Health Ireland,agent,mapping,False
+51,agent_5508,Safefood,agent,mapping,False
+52,agent_5509,Breast Cancer Ireland,agent,mapping,False
+53,agent_5510,UCC School of Dentistry ,agent,mapping,False
+54,agent_5511,UCC School of Audiloogy ,agent,mapping,False
+55,agent_5512,RCSI,agent,mapping,False
+56,agent_5513,University of Ulster,agent,mapping,False
+57,agent_5516,Rosemary Collaboratory,agent,mapping,False
+58,agent_5518,Sport Northern Ireland,agent,mapping,False
+59,agent_5782,Agirre Lehendakaria Center,agent,mapping,False
+60,agent_5783,Shoutout,agent,mapping,False
+61,agent_5785,spunout,agent,mapping,False
+62,agent_5786,Childhood Matters,agent,mapping,False
+63,agent_5787,Hair Together,agent,mapping,False
+64,agent_5788,Bohemian Football Club,agent,mapping,False
+65,agent_5789,Active Connections,agent,mapping,False
+66,agent_5790,Football Coop,agent,mapping,False
+67,agent_5791,Irish Homeless Street Leagues,agent,mapping,False
+68,agent_5792,Sanctuary Runners,agent,mapping,False
+69,agent_5793,Irish Surfing,agent,mapping,False
+70,agent_5794,Donegal Sports Partnership,agent,mapping,False
+71,agent_5795,Pobal,agent,mapping,False
+72,agent_5797,Donegal County Council,agent,mapping,False
+73,agent_5798,Interreg,agent,mapping,False
+74,agent_5799,National Surf Centre Strandhill,agent,mapping,False
+75,agent_5800,INCLUSEA,agent,mapping,False
+76,agent_5806,Rugby Players Ireland Foundation,agent,mapping,False
+77,agent_5807,Z Zurich Foundation,agent,mapping,False
+78,agent_5808,Unnamed,agent,mapping,False
+79,agent_5809,Rugby Player Ireland Members,agent,mapping,False
+80,agent_5811,Schools,agent,mapping,False
+81,agent_5812,Youth Groups,agent,mapping,False
+82,agent_5813,Foróige - The National Youth Development Organisation,agent,mapping,False
+83,agent_5814,Local health professionals,agent,mapping,False
+84,agent_5815,Surf Schools and Clubs,agent,mapping,False
+85,agent_5816,Caregivers,agent,mapping,False
+86,agent_5817,University of Limerick ,agent,mapping,False
+87,agent_5818,ISCOIL,agent,mapping,False
+88,agent_5819,Sport Ireland ,agent,mapping,False
+89,agent_5821,DCU anti-bullying centre,agent,mapping,False
+90,agent_5822,No Barriers,agent,mapping,False
+91,agent_5823,Zurich Ireland,agent,mapping,False
+92,agent_5825,National Youth Assembly,agent,mapping,False
+93,agent_5826,Comhairle na nOg,agent,mapping,False
+94,agent_5827,Mental Health Reform,agent,mapping,False
+95,agent_5828,Philanthropy Ireland ,agent,mapping,False
+96,agent_5829,The Lighthouse Charity,agent,mapping,False
+97,agent_5830,State Street,agent,mapping,False
+98,agent_5831,Nature Worx ,agent,mapping,False
+99,agent_5832,Bounce Back Recycling ,agent,mapping,False
+100,agent_5833, UNESCO Child and Family Research Centre at the University of Galway,agent,mapping,False
+101,agent_5834,Rainbow Club,agent,mapping,False
+102,agent_5835,Universities & 3rd evel Education,agent,mapping,False
+103,agent_5836,Eco Unesco,agent,mapping,False
+104,agent_5837,"Department of Children, Disability and Equality",agent,mapping,False
+105,agent_5838,Department of Education and Youth,agent,mapping,False
+106,agent_5839,YouthMedInfo,agent,mapping,False
+107,agent_5840,Young social innovators,agent,mapping,False
+108,agent_5841,Higher education authority,agent,mapping,False
+109,agent_5842,Gaisce,agent,mapping,False
+110,agent_5843,bodywhys,agent,mapping,False
+111,agent_5844,Atlantic Futures,agent,mapping,False
+112,agent_5845,Pieta,agent,mapping,False
+113,agent_5846,Barnardos,agent,mapping,False
+114,agent_5847,Samaritans,agent,mapping,False
+115,agent_5848,HUGG,agent,mapping,False
+116,agent_5849,Shona project,agent,mapping,False
+117,agent_5850,Portlaoise Prisons,agent,mapping,False
+118,agent_5868,Aware,agent,mapping,False
+119,agent_5869,Common Knowledge Centre for Sustainable Living CLG,agent,mapping,False
+120,agent_5870,Anew Support Services CLG,agent,mapping,False
+121,agent_5871,Childhood Development Initiative,agent,mapping,False
+122,agent_5872,Spiritan Asylum Services Initiative CLG (T/A Spirasi),agent,mapping,False
+123,agent_5873,Women's Collective Ireland - Tallaght,agent,mapping,False
+124,agent_5874,Offaly Traveller Movement,agent,mapping,False
+125,agent_5875,Street Feast (t/a Neighbourhood Network),agent,mapping,False
+126,agent_5876,National Youth Council of Ireland,agent,mapping,False
+127,agent_5877,Mason Hayes & Curran LLP,agent,mapping,False
+128,agent_5878,The Department of Rural and Community Development and the Gaeltacht,agent,mapping,False
+129,agent_5930,Accessible Adventures Ireland,agent,mapping,False
+130,agent_5931,Active Disabilities Ireland,agent,mapping,False
+131,agent_5932,Vision Sports Ireland,agent,mapping,False
+132,agent_5933,Irish Foster Care Association,agent,mapping,False
+133,agent_5934,Unnamed,agent,mapping,False
+134,agent_5935,Open Specturrm,agent,mapping,False
+135,agent_5936,County Councils (Local Area Sport Partnership),agent,mapping,False
+136,project_4152,Bounce Back Recycling,project,mapping/co-creation,False
+137,project_4154,Change Clothes Crumlin,project,mapping/co-creation,False
+138,project_4155,Educate Together,project,mapping/co-creation,False
+139,project_4156,Fighting Words,project,mapping/co-creation,False
+140,project_4158,iScoil,project,mapping/co-creation,False
+141,project_4159,Not So Different,project,mapping/co-creation,False
+142,project_4160,The Shona Project,project,mapping/co-creation,False
+143,project_4162,SpunOut.ie,project,mapping/co-creation,False
+144,project_4164,Social Innovation Campus,project,mapping/co-creation,False
+145,project_4166,Liquid Therapy,project,mapping/co-creation,False
+146,project_4167,Trinity Access 21 (TA21),project,mapping/co-creation,False
+147,project_4168,Trinity Centre for People with Intellectual Disabilities,project,mapping/co-creation,False
+148,project_4169,The Great Care Co-op,project,mapping/co-creation,False
+149,project_4170,FoodCloud ,project,mapping/co-creation,False
+150,project_4171,GIY (Grow It Yourself),project,mapping/co-creation,False
+151,project_4172,Helium Arts,project,mapping/co-creation,False
+152,project_4173,The No Barriers Foundation,project,mapping/co-creation,False
+153,project_4174,Sensational Kids,project,mapping/co-creation,False
+154,project_4175,Gaisce – The President's Award,project,mapping/co-creation,False
+155,project_4176,Uplift ,project,mapping/co-creation,False
+156,project_4177,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,project,mapping/co-creation,False
+157,project_4178,Hair Together,project,mapping/co-creation,False
+158,project_4529,Inclusive Surf Programmes,project,mapping/co-creation,False
+159,project_4530,Innovation in Sport,project,mapping/co-creation,False
+160,project_4531,Community Services Programme,project,mapping/co-creation,False
+161,project_4532,PEACEPlus Initiative ,project,mapping/co-creation,False
+162,project_4533,iSURFATLANTIC,project,mapping/co-creation,False
+163,project_4534,INCLUSEA,project,mapping/co-creation,False
+164,project_4535,Connecting for Life - Ireland's national strategy to reduce suicide ,project,mapping/co-creation,False
+165,project_4536,Area‑Based Childhood Programme (ABC),project,mapping/co-creation,False
+166,project_4537,"Meitheal - Prevention, Partnership & Family Support (PPFS)",project,mapping/co-creation,False
+167,project_4538,Housing-led Supports for homeless/ people at risk of homelessness,project,mapping/co-creation,False
+168,project_4539,RTE Toy Show Appeal,project,mapping/co-creation,False
+169,project_4540,Creative Arts Psychotherapy for vulnerable children - Limerick,project,mapping/co-creation,False
+170,project_4541,Journey to Freedom,project,mapping/co-creation,False
+171,project_4547,Tusla Aftercare Drop-In Services,project,mapping/co-creation,False
+172,project_4548,Crosscare Aftercare Service ,project,mapping/co-creation,False
+173,project_4549,2030 Sustainability Roadmap,project,mapping/co-creation,False
+174,project_4550,Carbon Neutrality,project,mapping/co-creation,False
+175,project_4551,Tree planting,project,mapping/co-creation,False
+176,project_4552,Community Engagement,project,mapping/co-creation,False
+177,project_4553,Lighthouse Industry Construction Federation Charity - 24/7 Support,project,mapping/co-creation,False
+178,project_4554,Mental Health & Wellbeing,project,mapping/co-creation,False
+179,project_4555,Vocational training,project,mapping/co-creation,False
+180,project_4556,STEPS+ programme,project,mapping/co-creation,False
+181,project_4557,Oberstown coffee van business; Bord Bia Bloom,project,mapping/co-creation,False
+182,project_4558,Bord Bia Bloom,project,mapping/co-creation,False
+183,project_4559,Addiction Counselling,project,mapping/co-creation,False
+184,project_4560,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,project,mapping/co-creation,False
+185,project_4561,Green Campus & Sustainability,project,mapping/co-creation,False
+186,project_4562,Innovation Strategy,project,mapping/co-creation,False
+187,project_4563,Reads & Rhymes Together,project,mapping/co-creation,False
+188,project_4564, Headstart Fund,project,mapping/co-creation,False
+189,project_4565,Breaking Barriers Fund,project,mapping/co-creation,False
+190,project_4566,Innovate Together,project,mapping/co-creation,False
+191,project_4567,Ktool,project,mapping/co-creation,False
+192,project_4568,A Drop in The Ocean [ADITO],project,mapping/co-creation,False
+193,project_4569,Big Brother Big Sister,project,mapping/co-creation,False
+194,project_4570,Surf Club,project,mapping/co-creation,False
+195,project_4571,Open Event,project,mapping/co-creation,False
+196,project_4572,Generation Pride,project,mapping/co-creation,False
+197,project_4573,School Workshops ,project,mapping/co-creation,False
+198,project_4574,Corporate Workshops,project,mapping/co-creation,False
+199,project_4575,LGBTQI+ Inclusion Training,project,mapping/co-creation,False
+200,project_4576,Fair Play - Sports LGBTQ+ Inclusion,project,mapping/co-creation,False
+201,project_4577,Training,project,mapping/co-creation,False
+202,project_4578,Creative Arts Therapy,project,mapping/co-creation,False
+203,project_4579,Spunout Academy ,project,mapping/co-creation,False
+204,project_4580,CHIPPS,project,mapping/co-creation,False
+205,project_4581,Limetree Project,project,mapping/co-creation,False
+206,project_4582,Creches,project,mapping/co-creation,False
+207,project_4583,Teen Parent Support Programme,project,mapping/co-creation,False
+208,project_4584,Hair Together Programme,project,mapping/co-creation,False
+209,project_4585,SPACE,project,mapping/co-creation,False
+210,project_4586,Meals on wheels,project,mapping/co-creation,False
+211,project_4587,Family support,project,mapping/co-creation,False
+212,project_4588,Drug & alcohol support,project,mapping/co-creation,False
+213,project_4589,Counselling,project,mapping/co-creation,False
+214,project_4590,Parent toddler groups,project,mapping/co-creation,False
+215,project_4591,"Various groups, camps and workshops",project,mapping/co-creation,False
+216,project_4592,Pride on the PItch,project,mapping/co-creation,False
+217,project_4593,No Shame,project,mapping/co-creation,False
+218,project_4594,Traveller Voice,project,mapping/co-creation,False
+219,project_4595,Traveller Culture & Identity Programme (TCIP),project,mapping/co-creation,False
+220,project_4596,Youth Service,project,mapping/co-creation,False
+221,project_4597,Health and Wellbeing Programme,project,mapping/co-creation,False
+222,project_4598,New Trails,project,mapping/co-creation,False
+223,project_4599,Place-based Football Coop groups,project,mapping/co-creation,False
+224,project_4600,Drop-In Leagues,project,mapping/co-creation,False
+225,project_4601,Sanctuary groups nationwide,project,mapping/co-creation,False
+226,project_4602,Tackle Your Feelings,project,mapping/co-creation,False
+227,project_4603,Sport & Wellness Fund,project,mapping/co-creation,False
+228,project_4604,Brighter Futures Fund,project,mapping/co-creation,False
+229,project_4605,Women in Sport,project,mapping/co-creation,False
+230,project_4606,Erasmus+ Sport program,project,mapping/co-creation,False
+231,project_4607,Integrated care programme for children,project,mapping/co-creation,False
+232,project_4608,Entrepreneurship Impact Fund ,project,mapping/co-creation,False
+233,project_4609,Why Wellbeing Matters,project,mapping/co-creation,False
+234,project_4610,National Wellbeing Framework,project,mapping/co-creation,False
+235,project_4611,Wellbeing Policy Framework of the Department of Education,project,mapping/co-creation,False
+236,project_4616,Connected Communities Fund,project,mapping/co-creation,False
+237,pilot_835,Students' mental health skills CV,pilot,mapping/co-creation,False
+238,pilot_836,Digital wellbeing lab,pilot,mapping/co-creation,False
+239,pilot_837,Community of practice: Teachers as change agents,pilot,mapping/co-creation,False
+240,pilot_838,Transition to adulthood pathways,pilot,mapping/co-creation,False
+241,pilot_839,Cross-sector residencies,pilot,mapping/co-creation,False
+242,pilot_840,Adopt a practice,pilot,mapping/co-creation,False
+243,prototype_511,National digital infrastructure to measure the true cost of mental health,prototype,mapping/co-creation,False
+244,prototype_512,National listening infrastructure,prototype,mapping/co-creation,False
+245,prototype_513,The living map of the mental health ecosystem in Ireland,prototype,mapping/co-creation,False
+246,perception_406,Siobhán,perception,listening,False
+247,perception_407,Luke,perception,listening,False
+248,perception_408, Aoibhe,perception,listening,False
+249,perception_409,Mary,perception,listening,False
+250,perception_410,Naomi,perception,listening,False
+251,perception_411, John,perception,listening,False
+252,challenge_2309,Resource strain and burnout,challenge,listening,False
+253,challenge_2519,Disconnection between funders and frontline,challenge,listening,False
+254,challenge_2523,Listening as Trust-Building,challenge,listening,False
+255,challenge_2553,Shift funding toward prevention and partnership,challenge,listening,False
+256,challenge_2554,Fragile volunteer infrastructure,challenge,listening,False
+257,challenge_2555,Recognise sport as a health asset,challenge,listening,False
+258,challenge_2556,Fragmented care between mind and body,challenge,listening,False
+259,challenge_2557,Chronic underfunding of community work,challenge,listening,False
+260,challenge_2558,Invest in long-term community capacity,challenge,listening,False
+261,challenge_2559,"Reactive, not preventive systems",challenge,listening,False
+262,challenge_2560,Build mentoring and peer-support ecosystems,challenge,listening,False
+263,challenge_2561,Overloaded schools acting as mental health providers,challenge,listening,False
+264,challenge_2562,Early intervention within schools,challenge,listening,False
+265,challenge_2564,"Addressing mental health as a systemic issue, not individual",challenge,listening,False
+266,challenge_2565,Short-termism and fragmented systems,challenge,listening,False
+267,channel_9490,Unnamed,channel,listening,False
+268,channel_9506,Unnamed,channel,listening,False
+269,channel_9507,Why Wellbeing Matters Report ,channel,listening,False
+270,channel_9508,Unnamed,channel,listening,False
+271,channel_9509,Unnamed,channel,listening,False
+272,channel_9510,Unnamed,channel,listening,False
+273,channel_9511,Unnamed,channel,listening,False
+274,channel_9512,Unnamed,channel,listening,False
+275,channel_9548,Unnamed,channel,listening,False
+276,channel_9549,Unnamed,channel,listening,False
+277,channel_9576,Unnamed,channel,listening,False
+278,channel_9603,Unnamed,channel,listening,False
+279,information_23084,Unnamed,information,listening,False
+280,information_23085,Unnamed,information,listening,False
+281,information_23086,Unnamed,information,listening,False
+282,information_23087,Unnamed,information,listening,False
+283,information_23088,Unnamed,information,listening,False
+284,information_23090,Unnamed,information,listening,False
+285,information_23091,Unnamed,information,listening,False
+286,information_23092,Unnamed,information,listening,False
+287,information_23094,Unnamed,information,listening,False
+288,information_25256,Unnamed,information,listening,False
+289,information_25332,Unnamed,information,listening,False
+290,information_25333,Unnamed,information,listening,False
+291,information_25334,Unnamed,information,listening,False
+292,information_25335,Unnamed,information,listening,False
+293,information_25336,Unnamed,information,listening,False
+294,information_25337,Unnamed,information,listening,False
+295,information_25338,Unnamed,information,listening,False
+296,information_25339,Unnamed,information,listening,False
+297,information_25341,Unnamed,information,listening,False
+298,information_25342,Unnamed,information,listening,False
+299,information_25343,Unnamed,information,listening,False
+300,information_25344,Unnamed,information,listening,False
+301,information_25345,Unnamed,information,listening,False
+302,information_25346,Unnamed,information,listening,False
+303,information_25347,Unnamed,information,listening,False
+304,information_25348,Unnamed,information,listening,False
+305,information_25349,Unnamed,information,listening,False
+306,information_25350,Unnamed,information,listening,False
+307,information_25351,Unnamed,information,listening,False
+308,information_25352,Unnamed,information,listening,False
+309,information_25353,Unnamed,information,listening,False
+310,information_25354,Unnamed,information,listening,False
+311,information_25355,Unnamed,information,listening,False
+312,information_25356,Unnamed,information,listening,False
+313,information_25357,Unnamed,information,listening,False
+314,information_25358,Unnamed,information,listening,False
+315,information_25359,Unnamed,information,listening,False
+316,information_25360,Unnamed,information,listening,False
+317,information_25361,Unnamed,information,listening,False
+318,information_25362,Unnamed,information,listening,False
+319,information_25363,Unnamed,information,listening,False
+320,information_25364,Unnamed,information,listening,False
+321,information_25365,Unnamed,information,listening,False
+322,information_25366,Unnamed,information,listening,False
+323,information_25367,Unnamed,information,listening,False
+324,information_25368,Unnamed,information,listening,False
+325,information_25369,Unnamed,information,listening,False
+326,information_25370,Unnamed,information,listening,False
+327,information_25581,Unnamed,information,listening,False
+328,information_25582,Unnamed,information,listening,False
+329,information_25584,Unnamed,information,listening,False
+330,information_25586,Unnamed,information,listening,False
+331,information_25587,Unnamed,information,listening,False
+332,information_25588,Unnamed,information,listening,False
+333,information_25589,Unnamed,information,listening,False
+334,information_25590,Unnamed,information,listening,False
+335,information_25591,Unnamed,information,listening,False
+336,information_25592,Unnamed,information,listening,False
+337,information_25593,Unnamed,information,listening,False
+338,information_25594,Unnamed,information,listening,False
+339,information_25595,Unnamed,information,listening,False
+340,information_25596,Unnamed,information,listening,False
+341,information_25597,Unnamed,information,listening,False
+342,information_25598,Unnamed,information,listening,False
+343,information_25599,Unnamed,information,listening,False
+344,information_25826,Unnamed,information,listening,False
+345,information_25827,Unnamed,information,listening,False
+346,information_25828,Unnamed,information,listening,False
+347,information_25829,Unnamed,information,listening,False
+348,information_25830,Unnamed,information,listening,False
+349,information_26119,Unnamed,information,listening,False
+350,information_26120,Unnamed,information,listening,False
+351,theme_16,Social innovation,theme,mapping,False
+352,theme_30,Challenges,theme,mapping,False
+353,theme_50,Youth,theme,mapping,False
+354,theme_198,Youth engagement,theme,mapping,False
+355,theme_201,Youth support,theme,mapping,False
+356,theme_620,Mental Health,theme,mapping,False
+357,theme_701,Philanthropy & Funding,theme,mapping,False
+358,theme_775,Community & Inclusion ,theme,mapping,False
+359,theme_778,Health & Wellbeing,theme,mapping,False
+360,theme_781,Education & Youth Empowerment,theme,mapping,False
+361,channel_8509.0,SS-001,channel,listening,False
+362,channel_9490.0,RI_001,channel,listening,False
+363,channel_9506.0,RI-002,channel,listening,False
+364,channel_8510.0,SS-002,channel,listening,False
+365,channel_9507.0,RI -03,channel,listening,False
+366,channel_9508.0,P001,channel,listening,False
+367,channel_9509.0,002,channel,listening,False
+368,channel_9510.0,003,channel,listening,False
+369,channel_channel_9508,Unnamed,channel,listening,False
+370,channel_9511.0,LT 001,channel,listening,False
+371,channel_9512.0,003,channel,listening,False
+372,channel_9548.0,004_FF,channel,listening,False
+373,channel_9549.0,T_006,channel,listening,False
+374,channel_9576.0,H-007,channel,listening,False
+375,channel_9603.0,Channel 9603.0,channel,listening,False

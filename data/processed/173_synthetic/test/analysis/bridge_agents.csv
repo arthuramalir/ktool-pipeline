@@ -1,0 +1,16 @@
+global_id,label,node_type,score,reason,interpretation,confidence_flag
+agent_4722,Rethink Ireland,agent,0.3352,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,high
+agent_5785,spunout,agent,0.3157,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,high
+agent_5350,Liquid Therapy,agent,0.3138,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,high
+agent_5360,Special Olympics,agent,0.3111,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,medium
+agent_5806,Rugby Players Ireland Foundation,agent,0.3087,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,high
+agent_5351,Cruthu Foundation Way2Work,agent,0.3084,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,high
+agent_5789,Active Connections,agent,0.3081,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,medium
+agent_4753,Helium Arts,agent,0.3079,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,medium
+agent_5358,Spraoi & Sport,agent,0.3076,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,medium
+agent_5783,Shoutout,agent,0.3072,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,high
+agent_5366,First Fortnight,agent,0.3072,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,high
+agent_5367,Tacu Family Resource Centre,agent,0.3051,Critical articulation bottleneck point.,Ecosystem gatekeeper. Removal fragments local human sub-networks instantly.,high
+agent_4757,HSE (Health Service Executive),agent,0.0058,High topological path betweenness brokerage.,Information corridor; spans the distance between different interest groups.,medium
+agent_5369,TUSLA,agent,0.0026,High topological path betweenness brokerage.,Information corridor; spans the distance between different interest groups.,medium
+agent_5500,Jigsaw,agent,0.0009,High topological path betweenness brokerage.,Information corridor; spans the distance between different interest groups.,medium

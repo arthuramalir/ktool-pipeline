@@ -1,0 +1,21 @@
+global_id,label,node_type,score,reason,interpretation,confidence_flag
+agent_4722,Rethink Ireland,agent,0.1138,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,high
+agent_5785,spunout,agent,0.0867,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,high
+agent_5350,Liquid Therapy,agent,0.0759,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,high
+agent_5806,Rugby Players Ireland Foundation,agent,0.065,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,high
+agent_5783,Shoutout,agent,0.065,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,high
+agent_5351,Cruthu Foundation Way2Work,agent,0.0569,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,high
+agent_5367,Tacu Family Resource Centre,agent,0.0515,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,high
+agent_5366,First Fortnight,agent,0.0515,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,high
+agent_5360,Special Olympics,agent,0.0488,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium
+agent_5789,Active Connections,agent,0.0379,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium
+agent_5488,Involve CLG,agent,0.0379,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium
+agent_5787,Hair Together,agent,0.0298,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium
+agent_5786,Childhood Matters,agent,0.0298,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium
+agent_4753,Helium Arts,agent,0.0298,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium
+agent_5358,Spraoi & Sport,agent,0.0271,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium
+agent_5788,Bohemian Football Club,agent,0.0271,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium
+agent_4757,HSE (Health Service Executive),agent,0.0244,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium
+agent_5369,TUSLA,agent,0.0217,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium
+value_2,Inclusion,value,0.019,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium
+agent_5813,Foróige - The National Youth Development Organisation,agent,0.0163,High direct relationship connection volume.,Primary ecosystem hubs; highly visible actors driving platform activity baseline.,medium

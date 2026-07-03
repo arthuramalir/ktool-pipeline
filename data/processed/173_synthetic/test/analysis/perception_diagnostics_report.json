@@ -1,0 +1,70 @@
+{
+  "platform_id": "173_synthetic",
+  "n_perceptions": 7,
+  "total_quotes_assigned": 72,
+  "perceptions": [
+    {
+      "perception_label": " Aoibhe",
+      "quote_count": 36,
+      "internal_coherence": "n/a",
+      "purity_score": "n/a",
+      "source_entropy": 2.9613,
+      "contradiction_density": "n/a",
+      "status_flag": "Robust"
+    },
+    {
+      "perception_label": "Naomi",
+      "quote_count": 12,
+      "internal_coherence": "n/a",
+      "purity_score": "n/a",
+      "source_entropy": 2.4591,
+      "contradiction_density": "n/a",
+      "status_flag": "Robust"
+    },
+    {
+      "perception_label": " John",
+      "quote_count": 9,
+      "internal_coherence": "n/a",
+      "purity_score": "n/a",
+      "source_entropy": 2.4194,
+      "contradiction_density": "n/a",
+      "status_flag": "Robust"
+    },
+    {
+      "perception_label": "Siobhán",
+      "quote_count": 8,
+      "internal_coherence": "n/a",
+      "purity_score": "n/a",
+      "source_entropy": 2.4056,
+      "contradiction_density": "n/a",
+      "status_flag": "Robust"
+    },
+    {
+      "perception_label": "Mary",
+      "quote_count": 3,
+      "internal_coherence": "n/a",
+      "purity_score": "n/a",
+      "source_entropy": 1.585,
+      "contradiction_density": "n/a",
+      "status_flag": "Robust"
+    },
+    {
+      "perception_label": "__unassigned__",
+      "quote_count": 2,
+      "internal_coherence": "n/a",
+      "purity_score": "n/a",
+      "source_entropy": 1.0,
+      "contradiction_density": "n/a",
+      "status_flag": "Underdeveloped (< 3 quotes)"
+    },
+    {
+      "perception_label": "Luke",
+      "quote_count": 2,
+      "internal_coherence": "n/a",
+      "purity_score": "n/a",
+      "source_entropy": -0.0,
+      "contradiction_density": "n/a",
+      "status_flag": "Underdeveloped (< 3 quotes); Single channel — verify independence"
+    }
+  ]
+}

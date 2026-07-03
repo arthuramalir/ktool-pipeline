@@ -1,0 +1,69 @@
+{
+  "platform_id": "173_synthetic",
+  "n_initiatives_with_budget": 110,
+  "n_agents_with_investment": 136,
+  "top_leverage": [
+    {
+      "label": "Inclusive Surf Programmes",
+      "leverage_score": 0.008644,
+      "associated_budget": 203472
+    },
+    {
+      "label": "Liquid Therapy",
+      "leverage_score": 0.00823,
+      "associated_budget": 693152
+    },
+    {
+      "label": "Why Wellbeing Matters",
+      "leverage_score": 0.007466,
+      "associated_budget": 217051
+    },
+    {
+      "label": "Uplift ",
+      "leverage_score": 0.006919,
+      "associated_budget": 226290
+    },
+    {
+      "label": " Headstart Fund",
+      "leverage_score": 0.006034,
+      "associated_budget": 290787
+    }
+  ],
+  "stranded_assets_count": 26,
+  "top_stranded": [
+    {
+      "label": "Hair Together",
+      "associated_budget": 4419001
+    },
+    {
+      "label": "Bounce Back Recycling",
+      "associated_budget": 4350587
+    },
+    {
+      "label": "Health and Wellbeing Programme",
+      "associated_budget": 4324465
+    },
+    {
+      "label": "GIY (Grow It Yourself)",
+      "associated_budget": 4260934
+    },
+    {
+      "label": "Connecting for Life - Ireland's national strategy ",
+      "associated_budget": 4236552
+    }
+  ],
+  "budget_reallocation": {
+    "n_simulations": 1000,
+    "observed_mean_leverage": 0.001362,
+    "sim_mean_leverage": 0.00166,
+    "sim_std_leverage": 0.000138,
+    "mean_leverage_percentile": 0.9,
+    "observed_gini": 0.5637,
+    "sim_mean_gini": 0.6144,
+    "gini_percentile": 5.2,
+    "observed_stranded": 26,
+    "sim_mean_stranded": 28.4,
+    "stranded_percentile": 4.2,
+    "efficiency_verdict": "below_random"
+  }
+}

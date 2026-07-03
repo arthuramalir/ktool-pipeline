@@ -1,0 +1,7 @@
+{
+  "n_recommendations_simulated": 3,
+  "n_merging_components": 2,
+  "avg_sensitivity": 0.2016,
+  "max_sensitivity": 0.3032,
+  "total_info_reach_expansion": 0
+}
