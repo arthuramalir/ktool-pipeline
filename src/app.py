@@ -357,7 +357,7 @@ with tab_overview:
             color="Node type", color_discrete_sequence=PLOTLY_PALETTE,
         )
         fig_types.update_layout(height=330, margin=dict(l=10, r=10, t=42, b=10), showlegend=False)
-        st.plotly_chart(fig_types, use_container_width=True)
+        st.plotly_chart(fig_types, width='stretch')
 
         if not centrality.empty:
             top_connectors = centrality.copy()
@@ -371,12 +371,12 @@ with tab_overview:
                 top_connectors[["label", "node_type", "betweenness_centrality", "degree"]]
                 .rename(columns={"label": "Item", "node_type": "Type",
                                  "betweenness_centrality": "Bridge score", "degree": "Links"}),
-                use_container_width=True, hide_index=True,
+                width='stretch', hide_index=True,
             )
 
     with right:
         max_nodes = st.slider("Items shown on map", 40, 220, 120, 10)
-        st.plotly_chart(network_figure(nodes, edges, max_nodes=max_nodes), use_container_width=True)
+        st.plotly_chart(network_figure(nodes, edges, max_nodes=max_nodes), width='stretch')
 
         # Node type legend
         counts = nodes["node_type"].fillna("unknown").astype(str).str.lower().value_counts().to_dict()
@@ -425,7 +425,7 @@ with tab_alerts:
                 labels={"value": "Core remaining", "nodes_removed_count": "Items removed"},
             )
             fig_decay.update_layout(height=320, legend_title="Scenario")
-            st.plotly_chart(fig_decay, use_container_width=True)
+            st.plotly_chart(fig_decay, width='stretch')
 
     with right:
         st.markdown("**Priority: weak spots to watch**")
@@ -443,7 +443,7 @@ with tab_alerts:
                     "label": "Entity", "node_type": "Type", "score": "Risk score",
                     "confidence_flag": "Confidence", "interpretation": "Why it matters",
                 }),
-                use_container_width=True, hide_index=True,
+                width='stretch', hide_index=True,
             )
 
     st.markdown("**Recommended actions**")
@@ -486,7 +486,7 @@ with tab_narrative:
                 template="plotly_white", title="Stories by channel",
             )
             fig_ch.update_layout(height=340, margin=dict(l=10, r=10, t=42, b=10))
-            st.plotly_chart(fig_ch, use_container_width=True)
+            st.plotly_chart(fig_ch, width='stretch')
         else:
             st.info("Listening data not available.")
 
@@ -502,7 +502,7 @@ with tab_narrative:
                 template="plotly_white", title="Most influential voices",
             )
             fig_diff.update_layout(height=340, margin=dict(l=10, r=10, t=42, b=10), yaxis_title="")
-            st.plotly_chart(fig_diff, use_container_width=True)
+            st.plotly_chart(fig_diff, width='stretch')
 
         with c2:
             st.markdown("**Browse quotes**")
@@ -522,7 +522,7 @@ with tab_narrative:
                         "information_id": "ID", "channel_display": "Channel",
                         "pattern_names": "Patterns", "value_names": "Values", "information_text": "Quote",
                     }),
-                    use_container_width=True, hide_index=True,
+                    width='stretch', hide_index=True,
                 )
 
     with st.expander("How influence is measured"):
@@ -571,7 +571,7 @@ with tab_profiles:
                 labels={"cluster": "Story cluster", "topic": "Topic", "count": "Quote count"},
             )
             fig_np.update_layout(height=400, showlegend=False, margin=dict(l=10, r=10, t=60, b=10))
-            st.plotly_chart(fig_np, use_container_width=True)
+            st.plotly_chart(fig_np, width='stretch')
 
             # Topic-perception overlay
             st.caption("Topics that appear in multiple clusters.")
@@ -584,7 +584,7 @@ with tab_profiles:
                 labels={"n_profiles": "Clusters", "topic": "Topic"},
             )
             fig_topic.update_layout(height=320, margin=dict(l=10, r=10, t=60, b=10))
-            st.plotly_chart(fig_topic, use_container_width=True)
+            st.plotly_chart(fig_topic, width='stretch')
     else:
         st.info("Run the quote clustering pipeline first.")
 
@@ -677,7 +677,7 @@ with tab_profiles:
     if not quote_clusters.empty:
         with st.expander("All quote-cluster assignments"):
             view = quote_clusters[["cluster_id", "information_id", "quote", "channel_code"]].copy()
-            st.dataframe(view, use_container_width=True, hide_index=True)
+            st.dataframe(view, width='stretch', hide_index=True)
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -752,7 +752,7 @@ with tab_perception:
             return [style if col == "Status" else "" for col in row.index]
 
         styled = diag_view.style.apply(_style_row, axis=1)
-        st.dataframe(styled, use_container_width=True, hide_index=True)
+        st.dataframe(styled, width='stretch', hide_index=True)
 
         st.divider()
 
@@ -782,7 +782,7 @@ with tab_perception:
                                   annotation_text="Focus threshold", annotation_position="bottom right")
             fig_scatter.update_traces(textposition="top center")
             fig_scatter.update_layout(height=480, margin=dict(l=10, r=10, t=60, b=10))
-            st.plotly_chart(fig_scatter, use_container_width=True)
+            st.plotly_chart(fig_scatter, width='stretch')
 
         # ── Source entropy bar chart
         if "source_entropy" in perception_diag.columns and "perception_label" in perception_diag.columns:
@@ -800,7 +800,7 @@ with tab_perception:
             fig_entropy.add_vline(x=0.5, line_dash="dot", line_color="red",
                                   annotation_text="Single-source risk threshold")
             fig_entropy.update_layout(height=360, margin=dict(l=10, r=10, t=60, b=10))
-            st.plotly_chart(fig_entropy, use_container_width=True)
+            st.plotly_chart(fig_entropy, width='stretch')
 
         st.info(
             "**How to read these:**\n\n"
@@ -855,7 +855,7 @@ with tab_gnn:
                     "link_probability": "Score",
                     "rationale": "Dashboard note",
                 }),
-                use_container_width=True,
+                width='stretch',
                 hide_index=True,
             )
         st.caption("Which new connections the AI thinks are worth exploring.")
@@ -887,7 +887,7 @@ with tab_gnn:
                 "perception_effect_note": "Note",
             })
             impact_view["Overlap"] = impact_view["Overlap"].apply(lambda value: f"{float(value):.2f}" if pd.notna(value) else "—")
-            st.dataframe(impact_view.head(3), use_container_width=True, hide_index=True)
+            st.dataframe(impact_view.head(3), width='stretch', hide_index=True)
         st.caption("How each new link would change perception dynamics.")
 
     if not link_intervention_scores.empty:
@@ -921,7 +921,7 @@ with tab_gnn:
                     "max_perception_PR_delta": "Max PR delta (any perception)",
                     "info_reach_expansion": "New info nodes reachable",
                 }),
-                use_container_width=True, hide_index=True,
+                width='stretch', hide_index=True,
             )
 
         with st.expander("How sensitivity is calculated"):
@@ -953,7 +953,9 @@ with tab_gnn:
                 "Semantic source": semantic_source,
             }
             st.markdown("**Model setup**")
-            st.dataframe(pd.DataFrame(list(summary_items.items()), columns=["Metric", "Value"]), use_container_width=True, hide_index=True)
+            summary_df = pd.DataFrame(list(summary_items.items()), columns=["Metric", "Value"])
+            summary_df["Value"] = summary_df["Value"].astype(str)
+            st.dataframe(summary_df, width='stretch', hide_index=True)
 
         with c2:
             st.markdown("**Pipeline steps**")
@@ -1022,10 +1024,10 @@ with tab_layer:
         c1, c2 = st.columns(2)
         with c1:
             st.plotly_chart(px.bar(layer_df, x="Link type", y="Connections",
-                                   template="plotly_white", title="Links by type"), use_container_width=True)
+                                   template="plotly_white", title="Links by type"), width='stretch')
         with c2:
             st.plotly_chart(px.bar(layer_df, x="Link type", y="Clusters",
-                                   template="plotly_white", title="Clusters by link type"), use_container_width=True)
+                                   template="plotly_white", title="Clusters by link type"), width='stretch')
     else:
         st.info("Link type report not available.")
 
@@ -1105,7 +1107,7 @@ with tab_ai_semantic:
                                title="AI links by semantic type", color="Type",
                                color_discrete_sequence=PLOTLY_PALETTE)
                 fig_t.update_layout(height=360, showlegend=False)
-                st.plotly_chart(fig_t, use_container_width=True)
+                st.plotly_chart(fig_t, width='stretch')
         with c2:
             param_col = next((c for c in ["alc_semantic_parameter", "parameter"] if c in ai_edges.columns), None)
             if param_col:
@@ -1114,7 +1116,7 @@ with tab_ai_semantic:
                 fig_p = px.bar(pc.head(12), x="Count", y="Parameter", orientation="h",
                                template="plotly_white", title="AI semantic parameters")
                 fig_p.update_layout(height=360)
-                st.plotly_chart(fig_p, use_container_width=True)
+                st.plotly_chart(fig_p, width='stretch')
 
         node_label_map = {}
         if "global_id" in nodes.columns:
@@ -1140,7 +1142,7 @@ with tab_ai_semantic:
                     "edge_type": "Semantic type", "alc_semantic_parameter": "Parameter",
                     "inference_method": "Method", "generated_by": "Generated by", "description": "Explanation",
                 }),
-                use_container_width=True, hide_index=True,
+                width='stretch', hide_index=True,
             )
 
 
@@ -1192,7 +1194,7 @@ if tab_financial is not None:
                         color_discrete_sequence=PLOTLY_PALETTE,
                     )
                     fig_lev.update_layout(height=480, legend_title=color_col.replace("_", " ").title())
-                    st.plotly_chart(fig_lev, use_container_width=True)
+                    st.plotly_chart(fig_lev, width='stretch')
                     st.markdown("**Top 10 best value items**")
                     show_cols = [c for c in ["label", "node_type", "investment_level", "associated_budget",
                                              "betweenness_centrality", "leverage_score"] if c in leverage_df.columns]
@@ -1201,7 +1203,7 @@ if tab_financial is not None:
                             "label": "Item", "node_type": "Type",
                             "investment_level": "Budget tier", "associated_budget": "Budget (€)",
                             "betweenness_centrality": "Bridge score", "leverage_score": "Leverage",
-                        }), use_container_width=True, hide_index=True,
+                        }), width='stretch', hide_index=True,
                     )
 
             st.divider()
@@ -1215,7 +1217,7 @@ if tab_financial is not None:
                 st.dataframe(stranded_df[show_cols].rename(columns={
                     "label": "Item", "node_type": "Type", "associated_budget": "Budget (€)",
                     "betweenness_centrality": "Bridge score", "degree": "Connections", "stranded_reason": "Flag",
-                }), use_container_width=True, hide_index=True)
+                }), width='stretch', hide_index=True)
             else:
                 st.success("No stranded assets found.")
 
@@ -1237,7 +1239,7 @@ if tab_financial is not None:
                 )
                 fig_fd.add_vline(x=0, line_dash="dash", line_color="grey")
                 fig_fd.update_layout(height=380, bargap=0.05)
-                st.plotly_chart(fig_fd, use_container_width=True)
+                st.plotly_chart(fig_fd, width='stretch')
                 col_a, col_b = st.columns(2)
                 with col_a:
                     st.markdown("**Gets more budget-attention than expected (bias > 0.3)**")
@@ -1245,7 +1247,7 @@ if tab_financial is not None:
                     if not top_fin.empty:
                         show = [c for c in ["label", "node_type", "financial_bias"] if c in top_fin.columns]
                         st.dataframe(top_fin[show].rename(columns={"label": "Entity", "node_type": "Type", "financial_bias": "Bias"}),
-                                     use_container_width=True, hide_index=True)
+                                     width='stretch', hide_index=True)
                     else:
                         st.info("No strongly over-reached nodes.")
                 with col_b:
@@ -1254,7 +1256,7 @@ if tab_financial is not None:
                     if not bot_fin.empty:
                         show = [c for c in ["label", "node_type", "financial_bias"] if c in bot_fin.columns]
                         st.dataframe(bot_fin[show].rename(columns={"label": "Entity", "node_type": "Type", "financial_bias": "Bias"}),
-                                     use_container_width=True, hide_index=True)
+                                     width='stretch', hide_index=True)
                     else:
                         st.info("No strongly under-reached nodes.")
 
@@ -1281,7 +1283,7 @@ if tab_financial is not None:
                 )
                 sim_plot_path = ANALYSIS_DIR / "financial_plots" / "budget_reallocation_simulation.png"
                 if sim_plot_path.exists():
-                    st.image(str(sim_plot_path), use_container_width=True)
+                    st.image(str(sim_plot_path), width='stretch')
                 with st.expander("How the test works"):
                     st.markdown(
                         "- Budgets get shuffled randomly across items (same amounts, different owners).\n"
@@ -1319,11 +1321,11 @@ if tab_financial is not None:
                         template="plotly_white", title="Budget linked to each story cluster",
                         labels={"cluster": "Story cluster", "total_budget": "Linked budget (€)", "mean_leverage": "Avg leverage"})
                     fig_ne.update_layout(height=350)
-                    st.plotly_chart(fig_ne, use_container_width=True)
+                    st.plotly_chart(fig_ne, width='stretch')
                     show_cols = ["cluster", "n_initiatives", "total_budget", "mean_leverage", "mean_bridge"]
                     st.dataframe(profile_fin[show_cols].rename(columns={
                         "cluster": "Story cluster", "n_initiatives": "Items", "total_budget": "Budget (€)",
-                        "mean_leverage": "Avg leverage", "mean_bridge": "Avg bridge"}), use_container_width=True, hide_index=True)
+                        "mean_leverage": "Avg leverage", "mean_bridge": "Avg bridge"}), width='stretch', hide_index=True)
                     st.caption("Topic matching is fuzzy — approximate, not exact.")
                 else:
                     st.info("No topic-matched items found.")
@@ -1347,7 +1349,7 @@ if tab_financial is not None:
                     st.dataframe(view[show_cols].rename(columns={
                         "source_label": "From", "target_label": "To", "link_type": "Type",
                         "merges_components": "Merges", "sensitivity_score": "Sensitivity",
-                        "avg_perception_PR_delta": "Avg PR delta"}), use_container_width=True, hide_index=True)
+                        "avg_perception_PR_delta": "Avg PR delta"}), width='stretch', hide_index=True)
                 with st.expander("How sensitivity is calculated"):
                     st.markdown("- Sensitivity = `|avg PR delta| × 10 + 0.3 if merges components + reach_expansion / N_info + min(|max PR delta| × 50, 0.2)`")
 
