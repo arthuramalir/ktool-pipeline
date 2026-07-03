@@ -44,7 +44,7 @@ PLATFORM_SPECIFIC = {
         ("04_investment_opportunity_p10.py", "Investment analysis for platform 10"),
     ],
     "173": [
-        ("04_investment_oppurtunity.py", "Investment analysis for platform 173"),
+        ("04_investment_opportunity.py", "Investment analysis for platform 173"),
     ],
     "173_synthetic": [
         ("00_enrich_173_synthetic_dataset.py", "Synthetic enrichment for sparse initiative, listening, and edge fields"),
@@ -107,7 +107,7 @@ def main() -> None:
         scripts.extend(CORE_SCRIPTS)
         scripts.extend(
             [
-                ("04_investment_oppurtunity.py", "Investment analysis for synthetic platform 173"),
+                ("04_investment_opportunity.py", "Investment analysis for synthetic platform 173"),
                 ("04_investment_opportunity_synthetic.py", "Financial simulation — value leverage, stranded assets, financial diffusion"),
                 ("05_prototype_project_candidates_synthetic.py", "Prototype-project candidate scoring"),
                 ("18_perception_space_effects.py", "Perception-space effects for mapping proposals"),

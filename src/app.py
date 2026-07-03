@@ -263,7 +263,7 @@ gnn_link_recommendations = load_csv([ANALYSIS_DIR / "gnn" / "gnn_link_recommenda
 gnn_perception_effects = load_csv([ANALYSIS_DIR / "gnn" / "gnn_perception_effects.csv"])
 narrative_profiles = load_csv([ANALYSIS_DIR / "narrative_profiles.csv"])
 quote_clusters = load_csv([ANALYSIS_DIR / "quote_clusters.csv"])
-manual_profiles = load_json(ROOT / "RESSOURCES" / "manual_narrative_profiles.json")
+manual_profiles = load_json(ROOT / "src" / "analysis" / "manual_narrative_profiles.json")
 link_intervention_scores = load_csv([ANALYSIS_DIR / "link_intervention_scores.csv"])
 link_intervention_summary = load_json(ANALYSIS_DIR / "link_intervention_summary.json")
 
@@ -608,7 +608,7 @@ with tab_profiles:
                     if prof.get("contradiction_with"):
                         st.markdown(f"**Opposes:** {', '.join(prof['contradiction_with'])}")
     else:
-        st.info("No manual story profiles found. Add profiles to `RESSOURCES/manual_narrative_profiles.json`.")
+        st.info("No manual story profiles found. Add profiles to `src/analysis/manual_narrative_profiles.json`.")
 
     st.divider()
 

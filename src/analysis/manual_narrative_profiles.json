@@ -1,0 +1,97 @@
+[
+  {
+    "id": "profile_1",
+    "name": "RI success stories",
+    "source_channels": ["SS-001", "RI_001", "RI-002"],
+    "key_idea": "Funding enables transformative impact when deployed through trusted intermediaries.",
+    "surface_narrative": "Grantees praising funder impact — the innovation fund reached €109M and changed organisations.",
+    "implicit_narrative": "Success is defined by institutional growth and measurable outcomes, not by community-defined change.",
+    "metanarrative": "The innovation economy frame: social problems are solvable through entrepreneurial funding models. The funder is the hero; the grantee is the grateful recipient.",
+    "representative_quotes": [
+      "Because of the support, recognition and encouragement provided by Rethink Ireland at a crucial early phase, the Hope & Courage Collective has flourished and grown in ways we didn't think possible.",
+      "The funding has been transformative for our organisation."
+    ],
+    "associated_values": ["impact", "growth", "recognition", "innovation"],
+    "emotional_tone": "optimistic, grateful",
+    "contradiction_with": ["profile_2"]
+  },
+  {
+    "id": "profile_2",
+    "name": "Funding system critique",
+    "source_channels": ["002", "003", "LT 001"],
+    "key_idea": "Short-term project funding undermines sustainable change.",
+    "surface_narrative": "Frustration with short-termism, reactive funding cycles, and lack of long-term support.",
+    "implicit_narrative": "The system is designed for funder accountability, not community resilience. Practitioners are left holding the pieces when projects end.",
+    "metanarrative": "The critique of neoliberal projectification: complex social problems require sustained commitment, not time-boxed interventions. The measurement culture distorts what counts as valuable work.",
+    "representative_quotes": [
+      "One of the frustrations within mental health services … projects are set up with a start and end date … and then that's sort of it afterwards.",
+      "Our goal is to give them the opportunity afterwards to keep doing it … it's about having that kind of lifelong approach to it."
+    ],
+    "associated_values": ["sustainability", "continuity", "community"],
+    "emotional_tone": "frustrated, resigned",
+    "contradiction_with": ["profile_1"]
+  },
+  {
+    "id": "profile_3",
+    "name": "Mental health service gaps",
+    "source_channels": ["002", "H-007"],
+    "key_idea": "Systemic failure: services label without supporting, creating institutional harm.",
+    "surface_narrative": "Mental health services are under-resourced, reactive, and fail to provide continuity of care.",
+    "implicit_narrative": "The medical model pathologises without healing. A diagnosis becomes a label that follows people rather than a gateway to support.",
+    "metanarrative": "Institutional betrayal: the systems designed to help instead reproduce exclusion. The gap between policy rhetoric and frontline reality reveals structural indifference.",
+    "representative_quotes": [
+      "Projects are set up with a start and end date … and then that's sort of it afterwards.",
+      "The main challenge is sustaining engagement and ownership from players in their mental health journey."
+    ],
+    "associated_values": ["care", "continuity", "dignity"],
+    "emotional_tone": "frustrated, urgent",
+    "contradiction_with": []
+  },
+  {
+    "id": "profile_4",
+    "name": "Youth MH / school crisis",
+    "source_channels": ["T_006", "004_FF"],
+    "key_idea": "Poverty, anxiety, and school refusal form a cascading chain that the system cannot break.",
+    "surface_narrative": "Students face hunger, trauma, addiction at home, and school refusal — and schools are expected to solve everything alone.",
+    "implicit_narrative": "The education system has become a de facto mental health and social welfare provider without the resources or mandate.",
+    "metanarrative": "Structural violence through neglect: poverty is the root cause, but the system only intervenes at the symptom level (school refusal, behaviour). The causal chain demands upstream investment, not downstream crisis management.",
+    "representative_quotes": [
+      "I believe the main challenge is poverty and its knock on effects to our students. We have students who are hungry and unhygienic.",
+      "The trauma of growing up in this area impacts the majority of our students in many different ways."
+    ],
+    "associated_values": ["safety", "dignity", "equity"],
+    "emotional_tone": "urgent, despairing",
+    "contradiction_with": []
+  },
+  {
+    "id": "profile_5",
+    "name": "Traveller MH & stigma",
+    "source_channels": ["003"],
+    "key_idea": "Cultural barriers, shame, and intergenerational trauma block access to mental health support.",
+    "surface_narrative": "Traveller communities face cultural stigma around mental health, making help-seeking extremely difficult.",
+    "implicit_narrative": "Shame and community silence are more powerful than any service offer. The system does not understand Traveller cultural context.",
+    "metanarrative": "Cultural safety as a precondition for care: without trust, cultural humility, and community-embedded services, mental health provision is structurally inaccessible to marginalised groups.",
+    "representative_quotes": [
+      "There is a huge stigma in the Traveller community around mental health."
+    ],
+    "associated_values": ["cultural safety", "trust", "community"],
+    "emotional_tone": "resigned, concerned",
+    "contradiction_with": []
+  },
+  {
+    "id": "profile_6",
+    "name": "Sports / inclusive activity",
+    "source_channels": ["RI-002", "LT 001", "RI -03"],
+    "key_idea": "Activity-based interventions build confidence, social capital, and belonging.",
+    "surface_narrative": "Sports and inclusive activities improve mental health, confidence, and social connection, especially for marginalised youth.",
+    "implicit_narrative": "The real value is not physical activity but the relational infrastructure — trusted adults, peer belonging, safe spaces.",
+    "metanarrative": "The social prescription frame: health is produced in communities, not clinics. Investment in social infrastructure (youth clubs, sports, arts) is health investment by another name.",
+    "representative_quotes": [
+      "I think my favourite of all the things so far has been the teen hub because I have made some great friends there.",
+      "I am still quite an anxious person, but I am not nearly as bad as I used to be."
+    ],
+    "associated_values": ["belonging", "confidence", "social capital"],
+    "emotional_tone": "hopeful, grateful",
+    "contradiction_with": []
+  }
+]

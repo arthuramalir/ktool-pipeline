@@ -11,8 +11,19 @@ build/
 archive/
 venv/
 
-# Data (processed + raw — too large, not code)
-data/
+# Data — individual platform outputs are large; only 173_synthetic/test/ is tracked
+data/raw/
+data/processed/173/
+data/processed/10/
+data/processed/155/
+data/processed/*/prod/
+data/processed/*/production/
+
+# Generated binary artifacts (always regeneratable)
+*.npy
+*.npz
+*.pt
+*.db
 
 # Research docs, PDFs, images
 RESSOURCES/

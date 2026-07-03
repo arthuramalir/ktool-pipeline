@@ -1,7 +1,7 @@
 """Investment analysis for Platform 10 (Chile COPOLAD).
 Focus: investment levels (high/medium/low) labelled on agents.
 
-Extends the standard 04_investment_oppurtunity.py with:
+Extends the standard 04_investment_opportunity.py with:
   - Investment-level distribution across agents
   - Agent type vs investment cross-tab
   - People-involved vs investment analysis
