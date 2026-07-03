@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv/
+archive/
+venv/
+
+# Data (processed + raw — too large, not code)
+data/
+
+# Research docs, PDFs, images
+RESSOURCES/
+
+# Environment / secrets
+.env
+*.key
+api_key.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Streamlit config
+.streamlit/
