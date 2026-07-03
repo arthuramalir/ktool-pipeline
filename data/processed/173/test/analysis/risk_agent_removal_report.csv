@@ -1,0 +1,5 @@
+scenario,initial_largest_component,final_largest_component,initial_components,final_components,share_drop
+Remove top-1 bridge agents: Rethink Ireland,126,113,131,143,0.0339
+"Remove top-3 bridge agents: Rethink Ireland, spunout, Liquid Therapy",126,93,131,161,0.0859
+"Remove top-5 bridge agents: Rethink Ireland, spunout, Liquid Therapy, Special Olympics, Rugby Players Ireland Foundati",126,92,131,185,0.0885
+"Remove top-10 bridge agents: Rethink Ireland, spunout, Liquid Therapy, Special Olympics, Rugby Players Ireland Foundati, Cruthu Foundation Way2Work, Active Connections, Helium Arts, Spraoi & Sport, Shoutout",126,92,131,216,0.0885

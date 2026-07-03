@@ -1,0 +1,14 @@
+{
+  "analyzed_at_utc": "2026-07-02T15:09:35.025129+00:00",
+  "topology_metrics": {
+    "total_nodes": 375,
+    "total_edges": 260,
+    "connected_components_count": 263,
+    "largest_component_node_count": 71,
+    "largest_component_population_share": 0.18933333333333333,
+    "total_structural_articulation_points": 17,
+    "total_structural_bridges": 20,
+    "total_isolated_nodes": 258,
+    "max_k_core_layer": 4
+  }
+}

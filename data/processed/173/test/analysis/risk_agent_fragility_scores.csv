@@ -1,0 +1,137 @@
+global_id,agent_bridge_score,label,node_type,methodological_phase
+agent_4722,0.0466,Rethink Ireland,agent,mapping
+agent_4753,0.0105,Helium Arts,agent,mapping
+agent_4754,0.0,Hope and Courage Collective,agent,mapping
+agent_4757,0.0077,HSE (Health Service Executive),agent,mapping
+agent_4786,0.0,Tacú Ballinrobe Family Resource Centre,agent,mapping
+agent_5350,0.0183,Liquid Therapy,agent,mapping
+agent_5351,0.0112,Cruthu Foundation Way2Work,agent,mapping
+agent_5358,0.0101,Spraoi & Sport,agent,mapping
+agent_5360,0.0147,Special Olympics,agent,mapping
+agent_5366,0.0095,First Fortnight,agent,mapping
+agent_5367,0.0067,Tacu Family Resource Centre,agent,mapping
+agent_5369,0.0034,TUSLA,agent,mapping
+agent_5370,0.0,Focus Ireland,agent,mapping
+agent_5371,0.0,Community Foundation Ireland,agent,mapping
+agent_5372,0.0,Blue Box Creative Arts Centre,agent,mapping
+agent_5373,0.0,Donegal Domestic Violence Refuge (Gloria House),agent,mapping
+agent_5374,0.0,Knocklee House (Kerry Recovery Centre),agent,mapping
+agent_5375,0.0,St. Brigid’s Family Resource Centre (Tralee),agent,mapping
+agent_5376,0.0,Crosscare,agent,mapping
+agent_5377,0.0,NOVAS,agent,mapping
+agent_5378,0.0003,GP Practices and Primary Care Centres,agent,mapping
+agent_5379,0.0,Young People,agent,mapping
+agent_5380,0.0,Parents ,agent,mapping
+agent_5382,0.0,Youthreach,agent,mapping
+agent_5383,0.0,"Education Welfare Officers (EWOs, TESS team)",agent,mapping
+agent_5384,0.0001,School Guidance Counsellors/Chaplins/School Support Team,agent,mapping
+agent_5387,0.0,JLOs/ Managers/Support staff in International Protection Centre?,agent,mapping
+agent_5476,0.0,Children's Health Ireland,agent,mapping
+agent_5477,0.0002,ETBs,agent,mapping
+agent_5478,0.0,Sisk Group,agent,mapping
+agent_5479,0.0,Construction Industry Federation,agent,mapping
+agent_5480,0.0,Society of the Irish Motor Industry (SIMI),agent,mapping
+agent_5481,0.0,"Parents, Guardians & Aftercare workers",agent,mapping
+agent_5482,0.0,DEIS Schools,agent,mapping
+agent_5483,0.0,Oberstown Children Detention Campus ,agent,mapping
+agent_5488,0.0009,Involve CLG,agent,mapping
+agent_5489,0.0,Arts Council,agent,mapping
+agent_5490,0.0002,Children and young persons committees (CYPSC),agent,mapping
+agent_5491,0.0,Regional Health Areas,agent,mapping
+agent_5492,0.0,Family Resource Centres,agent,mapping
+agent_5493,0.0,Home Liaison Officers,agent,mapping
+agent_5494,0.0,Hospital clinical staff,agent,mapping
+agent_5497,0.0,Patient Support Groups,agent,mapping
+agent_5499,0.0,Sláintecare Healthy Communities (Donegal),agent,mapping
+agent_5500,0.0012,Jigsaw,agent,mapping
+agent_5502,0.0,ETB Youthreach Carndonagh,agent,mapping
+agent_5503,0.0,Inishowen Development Partnership (IDP),agent,mapping
+agent_5504,0.0,Inishowen Family Action Network (IFAN),agent,mapping
+agent_5505,0.0,Carndonagh Community School – Pastoral Care Team,agent,mapping
+agent_5506,0.0,Public Health Nurse Network (Carndonagh),agent,mapping
+agent_5507,0.0003,Mental Health Ireland,agent,mapping
+agent_5508,0.0,Safefood,agent,mapping
+agent_5509,0.0,Breast Cancer Ireland,agent,mapping
+agent_5510,0.0,UCC School of Dentistry ,agent,mapping
+agent_5511,0.0,UCC School of Audiloogy ,agent,mapping
+agent_5512,0.0005,RCSI,agent,mapping
+agent_5513,0.0,University of Ulster,agent,mapping
+agent_5516,0.0,Rosemary Collaboratory,agent,mapping
+agent_5518,0.0,Sport Northern Ireland,agent,mapping
+agent_5782,0.0,Agirre Lehendakaria Center,agent,mapping
+agent_5783,0.0096,Shoutout,agent,mapping
+agent_5785,0.0208,spunout,agent,mapping
+agent_5786,0.0002,Childhood Matters,agent,mapping
+agent_5787,0.0004,Hair Together,agent,mapping
+agent_5788,0.0001,Bohemian Football Club,agent,mapping
+agent_5789,0.0108,Active Connections,agent,mapping
+agent_5790,0.0,Football Coop,agent,mapping
+agent_5791,0.0,Irish Homeless Street Leagues,agent,mapping
+agent_5792,0.0,Sanctuary Runners,agent,mapping
+agent_5793,0.0,Irish Surfing,agent,mapping
+agent_5794,0.0,Donegal Sports Partnership,agent,mapping
+agent_5795,0.0,Pobal,agent,mapping
+agent_5797,0.0,Donegal County Council,agent,mapping
+agent_5798,0.0,Interreg,agent,mapping
+agent_5799,0.0,National Surf Centre Strandhill,agent,mapping
+agent_5800,0.0,INCLUSEA,agent,mapping
+agent_5806,0.0115,Rugby Players Ireland Foundation,agent,mapping
+agent_5807,0.0002,Z Zurich Foundation,agent,mapping
+agent_5808,0.0,Unnamed,agent,mapping
+agent_5809,0.0,Rugby Player Ireland Members,agent,mapping
+agent_5811,0.0003,Schools,agent,mapping
+agent_5812,0.0,Youth Groups,agent,mapping
+agent_5813,0.0005,Foróige - The National Youth Development Organisation,agent,mapping
+agent_5814,0.0005,Local health professionals,agent,mapping
+agent_5815,0.0,Surf Schools and Clubs,agent,mapping
+agent_5816,0.0,Caregivers,agent,mapping
+agent_5817,0.0,University of Limerick ,agent,mapping
+agent_5818,0.0001,ISCOIL,agent,mapping
+agent_5819,0.0001,Sport Ireland ,agent,mapping
+agent_5821,0.0,DCU anti-bullying centre,agent,mapping
+agent_5822,0.0,No Barriers,agent,mapping
+agent_5823,0.0,Zurich Ireland,agent,mapping
+agent_5825,0.0001,National Youth Assembly,agent,mapping
+agent_5826,0.0001,Comhairle na nOg,agent,mapping
+agent_5827,0.0,Mental Health Reform,agent,mapping
+agent_5828,0.0,Philanthropy Ireland ,agent,mapping
+agent_5829,0.0,The Lighthouse Charity,agent,mapping
+agent_5830,0.0,State Street,agent,mapping
+agent_5831,0.0,Nature Worx ,agent,mapping
+agent_5832,0.0,Bounce Back Recycling ,agent,mapping
+agent_5833,0.0, UNESCO Child and Family Research Centre at the University of Galway,agent,mapping
+agent_5834,0.0,Rainbow Club,agent,mapping
+agent_5835,0.0,Universities & 3rd evel Education,agent,mapping
+agent_5836,0.0,Eco Unesco,agent,mapping
+agent_5837,0.0,"Department of Children, Disability and Equality",agent,mapping
+agent_5838,0.0,Department of Education and Youth,agent,mapping
+agent_5839,0.0,YouthMedInfo,agent,mapping
+agent_5840,0.0,Young social innovators,agent,mapping
+agent_5841,0.0,Higher education authority,agent,mapping
+agent_5842,0.0,Gaisce,agent,mapping
+agent_5843,0.0,bodywhys,agent,mapping
+agent_5844,0.0,Atlantic Futures,agent,mapping
+agent_5845,0.0,Pieta,agent,mapping
+agent_5846,0.0,Barnardos,agent,mapping
+agent_5847,0.0,Samaritans,agent,mapping
+agent_5848,0.0,HUGG,agent,mapping
+agent_5849,0.0,Shona project,agent,mapping
+agent_5850,0.0,Portlaoise Prisons,agent,mapping
+agent_5868,0.0,Aware,agent,mapping
+agent_5869,0.0,Common Knowledge Centre for Sustainable Living CLG,agent,mapping
+agent_5870,0.0,Anew Support Services CLG,agent,mapping
+agent_5871,0.0,Childhood Development Initiative,agent,mapping
+agent_5872,0.0,Spiritan Asylum Services Initiative CLG (T/A Spirasi),agent,mapping
+agent_5873,0.0,Women's Collective Ireland - Tallaght,agent,mapping
+agent_5874,0.0,Offaly Traveller Movement,agent,mapping
+agent_5875,0.0,Street Feast (t/a Neighbourhood Network),agent,mapping
+agent_5876,0.0,National Youth Council of Ireland,agent,mapping
+agent_5877,0.0,Mason Hayes & Curran LLP,agent,mapping
+agent_5878,0.0,The Department of Rural and Community Development and the Gaeltacht,agent,mapping
+agent_5930,0.0,Accessible Adventures Ireland,agent,mapping
+agent_5931,0.0,Active Disabilities Ireland,agent,mapping
+agent_5932,0.0,Vision Sports Ireland,agent,mapping
+agent_5933,0.0,Irish Foster Care Association,agent,mapping
+agent_5934,0.0,Unnamed,agent,mapping
+agent_5935,0.0,Open Specturrm,agent,mapping
+agent_5936,0.0,County Councils (Local Area Sport Partnership),agent,mapping

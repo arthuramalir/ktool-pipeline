@@ -1,0 +1,376 @@
+global_id,degree,degree_centrality,betweenness_centrality,closeness_centrality,label,node_type,methodological_phase
+agent_4722,0,0.0,0.0,0.0,Rethink Ireland,agent,mapping
+agent_4753,0,0.0,0.0,0.0,Helium Arts,agent,mapping
+agent_4754,0,0.0,0.0,0.0,Hope and Courage Collective,agent,mapping
+agent_4757,0,0.0,0.0,0.0,HSE (Health Service Executive),agent,mapping
+agent_4786,0,0.0,0.0,0.0,Tacú Ballinrobe Family Resource Centre,agent,mapping
+agent_5350,0,0.0,0.0,0.0,Liquid Therapy,agent,mapping
+agent_5351,0,0.0,0.0,0.0,Cruthu Foundation Way2Work,agent,mapping
+agent_5358,0,0.0,0.0,0.0,Spraoi & Sport,agent,mapping
+agent_5360,0,0.0,0.0,0.0,Special Olympics,agent,mapping
+agent_5366,0,0.0,0.0,0.0,First Fortnight,agent,mapping
+agent_5367,0,0.0,0.0,0.0,Tacu Family Resource Centre,agent,mapping
+agent_5369,0,0.0,0.0,0.0,TUSLA,agent,mapping
+agent_5370,0,0.0,0.0,0.0,Focus Ireland,agent,mapping
+agent_5371,0,0.0,0.0,0.0,Community Foundation Ireland,agent,mapping
+agent_5372,0,0.0,0.0,0.0,Blue Box Creative Arts Centre,agent,mapping
+agent_5373,0,0.0,0.0,0.0,Donegal Domestic Violence Refuge (Gloria House),agent,mapping
+agent_5374,0,0.0,0.0,0.0,Knocklee House (Kerry Recovery Centre),agent,mapping
+agent_5375,0,0.0,0.0,0.0,St. Brigid’s Family Resource Centre (Tralee),agent,mapping
+agent_5376,0,0.0,0.0,0.0,Crosscare,agent,mapping
+agent_5377,0,0.0,0.0,0.0,NOVAS,agent,mapping
+agent_5378,0,0.0,0.0,0.0,GP Practices and Primary Care Centres,agent,mapping
+agent_5379,0,0.0,0.0,0.0,Young People,agent,mapping
+agent_5380,0,0.0,0.0,0.0,Parents ,agent,mapping
+agent_5382,0,0.0,0.0,0.0,Youthreach,agent,mapping
+agent_5383,0,0.0,0.0,0.0,"Education Welfare Officers (EWOs, TESS team)",agent,mapping
+agent_5384,0,0.0,0.0,0.0,School Guidance Counsellors/Chaplins/School Support Team,agent,mapping
+agent_5387,0,0.0,0.0,0.0,JLOs/ Managers/Support staff in International Protection Centre?,agent,mapping
+agent_5476,0,0.0,0.0,0.0,Children's Health Ireland,agent,mapping
+agent_5477,0,0.0,0.0,0.0,ETBs,agent,mapping
+agent_5478,0,0.0,0.0,0.0,Sisk Group,agent,mapping
+agent_5479,0,0.0,0.0,0.0,Construction Industry Federation,agent,mapping
+agent_5480,0,0.0,0.0,0.0,Society of the Irish Motor Industry (SIMI),agent,mapping
+agent_5481,0,0.0,0.0,0.0,"Parents, Guardians & Aftercare workers",agent,mapping
+agent_5482,0,0.0,0.0,0.0,DEIS Schools,agent,mapping
+agent_5483,0,0.0,0.0,0.0,Oberstown Children Detention Campus ,agent,mapping
+agent_5488,0,0.0,0.0,0.0,Involve CLG,agent,mapping
+agent_5489,0,0.0,0.0,0.0,Arts Council,agent,mapping
+agent_5490,0,0.0,0.0,0.0,Children and young persons committees (CYPSC),agent,mapping
+agent_5491,0,0.0,0.0,0.0,Regional Health Areas,agent,mapping
+agent_5492,0,0.0,0.0,0.0,Family Resource Centres,agent,mapping
+agent_5493,0,0.0,0.0,0.0,Home Liaison Officers,agent,mapping
+agent_5494,0,0.0,0.0,0.0,Hospital clinical staff,agent,mapping
+agent_5497,0,0.0,0.0,0.0,Patient Support Groups,agent,mapping
+agent_5499,0,0.0,0.0,0.0,Sláintecare Healthy Communities (Donegal),agent,mapping
+agent_5500,0,0.0,0.0,0.0,Jigsaw,agent,mapping
+agent_5502,0,0.0,0.0,0.0,ETB Youthreach Carndonagh,agent,mapping
+agent_5503,0,0.0,0.0,0.0,Inishowen Development Partnership (IDP),agent,mapping
+agent_5504,0,0.0,0.0,0.0,Inishowen Family Action Network (IFAN),agent,mapping
+agent_5505,0,0.0,0.0,0.0,Carndonagh Community School – Pastoral Care Team,agent,mapping
+agent_5506,0,0.0,0.0,0.0,Public Health Nurse Network (Carndonagh),agent,mapping
+agent_5507,0,0.0,0.0,0.0,Mental Health Ireland,agent,mapping
+agent_5508,0,0.0,0.0,0.0,Safefood,agent,mapping
+agent_5509,0,0.0,0.0,0.0,Breast Cancer Ireland,agent,mapping
+agent_5510,0,0.0,0.0,0.0,UCC School of Dentistry ,agent,mapping
+agent_5511,0,0.0,0.0,0.0,UCC School of Audiloogy ,agent,mapping
+agent_5512,0,0.0,0.0,0.0,RCSI,agent,mapping
+agent_5513,0,0.0,0.0,0.0,University of Ulster,agent,mapping
+agent_5516,0,0.0,0.0,0.0,Rosemary Collaboratory,agent,mapping
+agent_5518,0,0.0,0.0,0.0,Sport Northern Ireland,agent,mapping
+agent_5782,0,0.0,0.0,0.0,Agirre Lehendakaria Center,agent,mapping
+agent_5783,0,0.0,0.0,0.0,Shoutout,agent,mapping
+agent_5785,0,0.0,0.0,0.0,spunout,agent,mapping
+agent_5786,0,0.0,0.0,0.0,Childhood Matters,agent,mapping
+agent_5787,0,0.0,0.0,0.0,Hair Together,agent,mapping
+agent_5788,0,0.0,0.0,0.0,Bohemian Football Club,agent,mapping
+agent_5789,0,0.0,0.0,0.0,Active Connections,agent,mapping
+agent_5790,0,0.0,0.0,0.0,Football Coop,agent,mapping
+agent_5791,0,0.0,0.0,0.0,Irish Homeless Street Leagues,agent,mapping
+agent_5792,0,0.0,0.0,0.0,Sanctuary Runners,agent,mapping
+agent_5793,0,0.0,0.0,0.0,Irish Surfing,agent,mapping
+agent_5794,0,0.0,0.0,0.0,Donegal Sports Partnership,agent,mapping
+agent_5795,0,0.0,0.0,0.0,Pobal,agent,mapping
+agent_5797,0,0.0,0.0,0.0,Donegal County Council,agent,mapping
+agent_5798,0,0.0,0.0,0.0,Interreg,agent,mapping
+agent_5799,0,0.0,0.0,0.0,National Surf Centre Strandhill,agent,mapping
+agent_5800,0,0.0,0.0,0.0,INCLUSEA,agent,mapping
+agent_5806,0,0.0,0.0,0.0,Rugby Players Ireland Foundation,agent,mapping
+agent_5807,0,0.0,0.0,0.0,Z Zurich Foundation,agent,mapping
+agent_5808,0,0.0,0.0,0.0,Unnamed,agent,mapping
+agent_5809,0,0.0,0.0,0.0,Rugby Player Ireland Members,agent,mapping
+agent_5811,0,0.0,0.0,0.0,Schools,agent,mapping
+agent_5812,0,0.0,0.0,0.0,Youth Groups,agent,mapping
+agent_5813,0,0.0,0.0,0.0,Foróige - The National Youth Development Organisation,agent,mapping
+agent_5814,0,0.0,0.0,0.0,Local health professionals,agent,mapping
+agent_5815,0,0.0,0.0,0.0,Surf Schools and Clubs,agent,mapping
+agent_5816,0,0.0,0.0,0.0,Caregivers,agent,mapping
+agent_5817,0,0.0,0.0,0.0,University of Limerick ,agent,mapping
+agent_5818,0,0.0,0.0,0.0,ISCOIL,agent,mapping
+agent_5819,0,0.0,0.0,0.0,Sport Ireland ,agent,mapping
+agent_5821,0,0.0,0.0,0.0,DCU anti-bullying centre,agent,mapping
+agent_5822,0,0.0,0.0,0.0,No Barriers,agent,mapping
+agent_5823,0,0.0,0.0,0.0,Zurich Ireland,agent,mapping
+agent_5825,0,0.0,0.0,0.0,National Youth Assembly,agent,mapping
+agent_5826,0,0.0,0.0,0.0,Comhairle na nOg,agent,mapping
+agent_5827,0,0.0,0.0,0.0,Mental Health Reform,agent,mapping
+agent_5828,0,0.0,0.0,0.0,Philanthropy Ireland ,agent,mapping
+agent_5829,0,0.0,0.0,0.0,The Lighthouse Charity,agent,mapping
+agent_5830,0,0.0,0.0,0.0,State Street,agent,mapping
+agent_5831,0,0.0,0.0,0.0,Nature Worx ,agent,mapping
+agent_5832,0,0.0,0.0,0.0,Bounce Back Recycling ,agent,mapping
+agent_5833,0,0.0,0.0,0.0, UNESCO Child and Family Research Centre at the University of Galway,agent,mapping
+agent_5834,0,0.0,0.0,0.0,Rainbow Club,agent,mapping
+agent_5835,0,0.0,0.0,0.0,Universities & 3rd evel Education,agent,mapping
+agent_5836,0,0.0,0.0,0.0,Eco Unesco,agent,mapping
+agent_5837,0,0.0,0.0,0.0,"Department of Children, Disability and Equality",agent,mapping
+agent_5838,0,0.0,0.0,0.0,Department of Education and Youth,agent,mapping
+agent_5839,0,0.0,0.0,0.0,YouthMedInfo,agent,mapping
+agent_5840,0,0.0,0.0,0.0,Young social innovators,agent,mapping
+agent_5841,0,0.0,0.0,0.0,Higher education authority,agent,mapping
+agent_5842,0,0.0,0.0,0.0,Gaisce,agent,mapping
+agent_5843,0,0.0,0.0,0.0,bodywhys,agent,mapping
+agent_5844,0,0.0,0.0,0.0,Atlantic Futures,agent,mapping
+agent_5845,0,0.0,0.0,0.0,Pieta,agent,mapping
+agent_5846,0,0.0,0.0,0.0,Barnardos,agent,mapping
+agent_5847,0,0.0,0.0,0.0,Samaritans,agent,mapping
+agent_5848,0,0.0,0.0,0.0,HUGG,agent,mapping
+agent_5849,0,0.0,0.0,0.0,Shona project,agent,mapping
+agent_5850,0,0.0,0.0,0.0,Portlaoise Prisons,agent,mapping
+agent_5868,0,0.0,0.0,0.0,Aware,agent,mapping
+agent_5869,0,0.0,0.0,0.0,Common Knowledge Centre for Sustainable Living CLG,agent,mapping
+agent_5870,0,0.0,0.0,0.0,Anew Support Services CLG,agent,mapping
+agent_5871,0,0.0,0.0,0.0,Childhood Development Initiative,agent,mapping
+agent_5872,0,0.0,0.0,0.0,Spiritan Asylum Services Initiative CLG (T/A Spirasi),agent,mapping
+agent_5873,0,0.0,0.0,0.0,Women's Collective Ireland - Tallaght,agent,mapping
+agent_5874,0,0.0,0.0,0.0,Offaly Traveller Movement,agent,mapping
+agent_5875,0,0.0,0.0,0.0,Street Feast (t/a Neighbourhood Network),agent,mapping
+agent_5876,0,0.0,0.0,0.0,National Youth Council of Ireland,agent,mapping
+agent_5877,0,0.0,0.0,0.0,Mason Hayes & Curran LLP,agent,mapping
+agent_5878,0,0.0,0.0,0.0,The Department of Rural and Community Development and the Gaeltacht,agent,mapping
+agent_5930,0,0.0,0.0,0.0,Accessible Adventures Ireland,agent,mapping
+agent_5931,0,0.0,0.0,0.0,Active Disabilities Ireland,agent,mapping
+agent_5932,0,0.0,0.0,0.0,Vision Sports Ireland,agent,mapping
+agent_5933,0,0.0,0.0,0.0,Irish Foster Care Association,agent,mapping
+agent_5934,0,0.0,0.0,0.0,Unnamed,agent,mapping
+agent_5935,0,0.0,0.0,0.0,Open Specturrm,agent,mapping
+agent_5936,0,0.0,0.0,0.0,County Councils (Local Area Sport Partnership),agent,mapping
+project_4152,0,0.0,0.0,0.0,Bounce Back Recycling,project,mapping/co-creation
+project_4154,0,0.0,0.0,0.0,Change Clothes Crumlin,project,mapping/co-creation
+project_4155,0,0.0,0.0,0.0,Educate Together,project,mapping/co-creation
+project_4156,0,0.0,0.0,0.0,Fighting Words,project,mapping/co-creation
+project_4158,0,0.0,0.0,0.0,iScoil,project,mapping/co-creation
+project_4159,0,0.0,0.0,0.0,Not So Different,project,mapping/co-creation
+project_4160,0,0.0,0.0,0.0,The Shona Project,project,mapping/co-creation
+project_4162,0,0.0,0.0,0.0,SpunOut.ie,project,mapping/co-creation
+project_4164,0,0.0,0.0,0.0,Social Innovation Campus,project,mapping/co-creation
+project_4166,0,0.0,0.0,0.0,Liquid Therapy,project,mapping/co-creation
+project_4167,0,0.0,0.0,0.0,Trinity Access 21 (TA21),project,mapping/co-creation
+project_4168,0,0.0,0.0,0.0,Trinity Centre for People with Intellectual Disabilities,project,mapping/co-creation
+project_4169,0,0.0,0.0,0.0,The Great Care Co-op,project,mapping/co-creation
+project_4170,0,0.0,0.0,0.0,FoodCloud ,project,mapping/co-creation
+project_4171,0,0.0,0.0,0.0,GIY (Grow It Yourself),project,mapping/co-creation
+project_4172,0,0.0,0.0,0.0,Helium Arts,project,mapping/co-creation
+project_4173,0,0.0,0.0,0.0,The No Barriers Foundation,project,mapping/co-creation
+project_4174,0,0.0,0.0,0.0,Sensational Kids,project,mapping/co-creation
+project_4175,0,0.0,0.0,0.0,Gaisce – The President's Award,project,mapping/co-creation
+project_4176,0,0.0,0.0,0.0,Uplift ,project,mapping/co-creation
+project_4177,0,0.0,0.0,0.0,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,project,mapping/co-creation
+project_4178,0,0.0,0.0,0.0,Hair Together,project,mapping/co-creation
+project_4529,0,0.0,0.0,0.0,Inclusive Surf Programmes,project,mapping/co-creation
+project_4530,0,0.0,0.0,0.0,Innovation in Sport,project,mapping/co-creation
+project_4531,0,0.0,0.0,0.0,Community Services Programme,project,mapping/co-creation
+project_4532,0,0.0,0.0,0.0,PEACEPlus Initiative ,project,mapping/co-creation
+project_4533,0,0.0,0.0,0.0,iSURFATLANTIC,project,mapping/co-creation
+project_4534,0,0.0,0.0,0.0,INCLUSEA,project,mapping/co-creation
+project_4535,0,0.0,0.0,0.0,Connecting for Life - Ireland's national strategy to reduce suicide ,project,mapping/co-creation
+project_4536,0,0.0,0.0,0.0,Area‑Based Childhood Programme (ABC),project,mapping/co-creation
+project_4537,0,0.0,0.0,0.0,"Meitheal - Prevention, Partnership & Family Support (PPFS)",project,mapping/co-creation
+project_4538,0,0.0,0.0,0.0,Housing-led Supports for homeless/ people at risk of homelessness,project,mapping/co-creation
+project_4539,0,0.0,0.0,0.0,RTE Toy Show Appeal,project,mapping/co-creation
+project_4540,0,0.0,0.0,0.0,Creative Arts Psychotherapy for vulnerable children - Limerick,project,mapping/co-creation
+project_4541,0,0.0,0.0,0.0,Journey to Freedom,project,mapping/co-creation
+project_4547,0,0.0,0.0,0.0,Tusla Aftercare Drop-In Services,project,mapping/co-creation
+project_4548,0,0.0,0.0,0.0,Crosscare Aftercare Service ,project,mapping/co-creation
+project_4549,0,0.0,0.0,0.0,2030 Sustainability Roadmap,project,mapping/co-creation
+project_4550,0,0.0,0.0,0.0,Carbon Neutrality,project,mapping/co-creation
+project_4551,0,0.0,0.0,0.0,Tree planting,project,mapping/co-creation
+project_4552,0,0.0,0.0,0.0,Community Engagement,project,mapping/co-creation
+project_4553,0,0.0,0.0,0.0,Lighthouse Industry Construction Federation Charity - 24/7 Support,project,mapping/co-creation
+project_4554,0,0.0,0.0,0.0,Mental Health & Wellbeing,project,mapping/co-creation
+project_4555,0,0.0,0.0,0.0,Vocational training,project,mapping/co-creation
+project_4556,0,0.0,0.0,0.0,STEPS+ programme,project,mapping/co-creation
+project_4557,0,0.0,0.0,0.0,Oberstown coffee van business; Bord Bia Bloom,project,mapping/co-creation
+project_4558,0,0.0,0.0,0.0,Bord Bia Bloom,project,mapping/co-creation
+project_4559,0,0.0,0.0,0.0,Addiction Counselling,project,mapping/co-creation
+project_4560,0,0.0,0.0,0.0,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,project,mapping/co-creation
+project_4561,0,0.0,0.0,0.0,Green Campus & Sustainability,project,mapping/co-creation
+project_4562,0,0.0,0.0,0.0,Innovation Strategy,project,mapping/co-creation
+project_4563,0,0.0,0.0,0.0,Reads & Rhymes Together,project,mapping/co-creation
+project_4564,0,0.0,0.0,0.0, Headstart Fund,project,mapping/co-creation
+project_4565,0,0.0,0.0,0.0,Breaking Barriers Fund,project,mapping/co-creation
+project_4566,0,0.0,0.0,0.0,Innovate Together,project,mapping/co-creation
+project_4567,0,0.0,0.0,0.0,Ktool,project,mapping/co-creation
+project_4568,0,0.0,0.0,0.0,A Drop in The Ocean [ADITO],project,mapping/co-creation
+project_4569,0,0.0,0.0,0.0,Big Brother Big Sister,project,mapping/co-creation
+project_4570,0,0.0,0.0,0.0,Surf Club,project,mapping/co-creation
+project_4571,0,0.0,0.0,0.0,Open Event,project,mapping/co-creation
+project_4572,0,0.0,0.0,0.0,Generation Pride,project,mapping/co-creation
+project_4573,0,0.0,0.0,0.0,School Workshops ,project,mapping/co-creation
+project_4574,0,0.0,0.0,0.0,Corporate Workshops,project,mapping/co-creation
+project_4575,0,0.0,0.0,0.0,LGBTQI+ Inclusion Training,project,mapping/co-creation
+project_4576,0,0.0,0.0,0.0,Fair Play - Sports LGBTQ+ Inclusion,project,mapping/co-creation
+project_4577,0,0.0,0.0,0.0,Training,project,mapping/co-creation
+project_4578,0,0.0,0.0,0.0,Creative Arts Therapy,project,mapping/co-creation
+project_4579,0,0.0,0.0,0.0,Spunout Academy ,project,mapping/co-creation
+project_4580,0,0.0,0.0,0.0,CHIPPS,project,mapping/co-creation
+project_4581,0,0.0,0.0,0.0,Limetree Project,project,mapping/co-creation
+project_4582,0,0.0,0.0,0.0,Creches,project,mapping/co-creation
+project_4583,0,0.0,0.0,0.0,Teen Parent Support Programme,project,mapping/co-creation
+project_4584,0,0.0,0.0,0.0,Hair Together Programme,project,mapping/co-creation
+project_4585,0,0.0,0.0,0.0,SPACE,project,mapping/co-creation
+project_4586,0,0.0,0.0,0.0,Meals on wheels,project,mapping/co-creation
+project_4587,0,0.0,0.0,0.0,Family support,project,mapping/co-creation
+project_4588,0,0.0,0.0,0.0,Drug & alcohol support,project,mapping/co-creation
+project_4589,0,0.0,0.0,0.0,Counselling,project,mapping/co-creation
+project_4590,0,0.0,0.0,0.0,Parent toddler groups,project,mapping/co-creation
+project_4591,0,0.0,0.0,0.0,"Various groups, camps and workshops",project,mapping/co-creation
+project_4592,0,0.0,0.0,0.0,Pride on the PItch,project,mapping/co-creation
+project_4593,0,0.0,0.0,0.0,No Shame,project,mapping/co-creation
+project_4594,0,0.0,0.0,0.0,Traveller Voice,project,mapping/co-creation
+project_4595,0,0.0,0.0,0.0,Traveller Culture & Identity Programme (TCIP),project,mapping/co-creation
+project_4596,0,0.0,0.0,0.0,Youth Service,project,mapping/co-creation
+project_4597,0,0.0,0.0,0.0,Health and Wellbeing Programme,project,mapping/co-creation
+project_4598,0,0.0,0.0,0.0,New Trails,project,mapping/co-creation
+project_4599,0,0.0,0.0,0.0,Place-based Football Coop groups,project,mapping/co-creation
+project_4600,0,0.0,0.0,0.0,Drop-In Leagues,project,mapping/co-creation
+project_4601,0,0.0,0.0,0.0,Sanctuary groups nationwide,project,mapping/co-creation
+project_4602,0,0.0,0.0,0.0,Tackle Your Feelings,project,mapping/co-creation
+project_4603,0,0.0,0.0,0.0,Sport & Wellness Fund,project,mapping/co-creation
+project_4604,0,0.0,0.0,0.0,Brighter Futures Fund,project,mapping/co-creation
+project_4605,0,0.0,0.0,0.0,Women in Sport,project,mapping/co-creation
+project_4606,0,0.0,0.0,0.0,Erasmus+ Sport program,project,mapping/co-creation
+project_4607,0,0.0,0.0,0.0,Integrated care programme for children,project,mapping/co-creation
+project_4608,0,0.0,0.0,0.0,Entrepreneurship Impact Fund ,project,mapping/co-creation
+project_4609,0,0.0,0.0,0.0,Why Wellbeing Matters,project,mapping/co-creation
+project_4610,0,0.0,0.0,0.0,National Wellbeing Framework,project,mapping/co-creation
+project_4611,0,0.0,0.0,0.0,Wellbeing Policy Framework of the Department of Education,project,mapping/co-creation
+project_4616,0,0.0,0.0,0.0,Connected Communities Fund,project,mapping/co-creation
+pilot_835,0,0.0,0.0,0.0,Students' mental health skills CV,pilot,mapping/co-creation
+pilot_836,0,0.0,0.0,0.0,Digital wellbeing lab,pilot,mapping/co-creation
+pilot_837,0,0.0,0.0,0.0,Community of practice: Teachers as change agents,pilot,mapping/co-creation
+pilot_838,0,0.0,0.0,0.0,Transition to adulthood pathways,pilot,mapping/co-creation
+pilot_839,0,0.0,0.0,0.0,Cross-sector residencies,pilot,mapping/co-creation
+pilot_840,0,0.0,0.0,0.0,Adopt a practice,pilot,mapping/co-creation
+prototype_511,0,0.0,0.0,0.0,National digital infrastructure to measure the true cost of mental health,prototype,mapping/co-creation
+prototype_512,0,0.0,0.0,0.0,National listening infrastructure,prototype,mapping/co-creation
+prototype_513,0,0.0,0.0,0.0,The living map of the mental health ecosystem in Ireland,prototype,mapping/co-creation
+perception_406,4,0.0106951871657754,0.0006164786167940244,0.019251336898395723,Siobhán,perception,listening
+perception_407,3,0.00802139037433155,0.0004731114966093676,0.015198423867154516,Luke,perception,listening
+perception_408,4,0.0106951871657754,0.0004372697165632034,0.018432131072932074, Aoibhe,perception,listening
+perception_409,5,0.013368983957219251,0.0009247179251910367,0.02221308103661045,Mary,perception,listening
+perception_410,3,0.00802139037433155,0.0004731114966093676,0.01634547472505297,Naomi,perception,listening
+perception_411,2,0.0053475935828877,0.00024372410431391665,0.013750954927425514, John,perception,listening
+challenge_2309,4,0.0106951871657754,0.0009653386092433562,0.021657754010695186,Resource strain and burnout,challenge,listening
+challenge_2519,3,0.00802139037433155,0.0007455090249602155,0.01968886728245017,Disconnection between funders and frontline,challenge,listening
+challenge_2523,0,0.0,0.0,0.0,Listening as Trust-Building,challenge,listening
+challenge_2553,1,0.00267379679144385,0.0,0.010828877005347593,Shift funding toward prevention and partnership,challenge,listening
+challenge_2554,1,0.00267379679144385,0.0,0.012375859434682963,Fragile volunteer infrastructure,challenge,listening
+challenge_2555,1,0.00267379679144385,0.0,0.012375859434682963,Recognise sport as a health asset,challenge,listening
+challenge_2556,1,0.00267379679144385,0.0,0.01353609625668449,Fragmented care between mind and body,challenge,listening
+challenge_2557,1,0.00267379679144385,0.0,0.015469824293353706,Chronic underfunding of community work,challenge,listening
+challenge_2558,2,0.0053475935828877,4.778904006155229e-05,0.016659810777457835,Invest in long-term community capacity,challenge,listening
+challenge_2559,1,0.00267379679144385,0.0,0.011706894059835236,"Reactive, not preventive systems",challenge,listening
+challenge_2560,1,0.00267379679144385,0.0,0.011706894059835236,Build mentoring and peer-support ecosystems,challenge,listening
+challenge_2561,1,0.00267379679144385,0.0,0.013972744523029153,Overloaded schools acting as mental health providers,challenge,listening
+challenge_2562,1,0.00267379679144385,0.0,0.013972744523029153,Early intervention within schools,challenge,listening
+challenge_2564,0,0.0,0.0,0.0,"Addressing mental health as a systemic issue, not individual",challenge,listening
+challenge_2565,3,0.00802139037433155,0.0005065638246524541,0.01804812834224599,Short-termism and fragmented systems,challenge,listening
+channel_9490,2,0.0053475935828877,9.078366019485145e-05,0.04120001345306562,Unnamed,channel,listening
+channel_9506,7,0.01871657754010695,0.001687477114711132,0.058751588690918684,Unnamed,channel,listening
+channel_9507,2,0.0053475935828877,0.0,0.040066068128669315,Why Wellbeing Matters Report ,channel,listening
+channel_9508,1,0.00267379679144385,0.0,0.04081496659836407,Unnamed,channel,listening
+channel_9509,16,0.0427807486631016,0.004491921829307675,0.06616971857613568,Unnamed,channel,listening
+channel_9510,9,0.02406417112299465,0.00212709017313969,0.046624926256494184,Unnamed,channel,listening
+channel_9511,3,0.00802139037433155,0.0003201865684124006,0.044563279857397504,Unnamed,channel,listening
+channel_9512,1,0.00267379679144385,0.0,0.03300152211101982,Unnamed,channel,listening
+channel_9548,5,0.013368983957219251,0.00022938739229545082,0.01933023582011046,Unnamed,channel,listening
+channel_9549,12,0.0320855614973262,0.000711100916115898,0.03186876716288481,Unnamed,channel,listening
+channel_9576,5,0.013368983957219251,6.910481383965633e-05,0.04533427085839054,Unnamed,channel,listening
+channel_9603,1,0.00267379679144385,0.0,0.0035650623885918,Unnamed,channel,listening
+information_23084,5,0.013368983957219251,0.0014609248792271253,0.055515272364724005,Unnamed,information,listening
+information_23085,5,0.013368983957219251,0.002616995069433028,0.055751507566276025,Unnamed,information,listening
+information_23086,5,0.013368983957219251,0.0009757299405476493,0.05598976187211481,Unnamed,information,listening
+information_23087,6,0.0160427807486631,0.002972807985280927,0.0648594271191825,Unnamed,information,listening
+information_23088,5,0.013368983957219251,0.0022820662664535876,0.05848930481283422,Unnamed,information,listening
+information_23090,5,0.013368983957219251,0.0013448953019711853,0.047816074007572505,Unnamed,information,listening
+information_23091,3,0.00802139037433155,2.0481017169236693e-06,0.047298210390161965,Unnamed,information,listening
+information_23092,1,0.00267379679144385,0.0,0.00267379679144385,Unnamed,information,listening
+information_23094,4,0.0106951871657754,0.0038908246632867074,0.05955274671852212,Unnamed,information,listening
+information_25256,3,0.00802139037433155,0.0007577914288929185,0.04613240942984108,Unnamed,information,listening
+information_25332,4,0.0106951871657754,0.002883727217428526,0.049815985848193405,Unnamed,information,listening
+information_25333,6,0.0160427807486631,0.0037433310637279035,0.060099102193003975,Unnamed,information,listening
+information_25334,6,0.0160427807486631,0.0030388408852516893,0.058229352346999406,Unnamed,information,listening
+information_25335,6,0.0160427807486631,0.003137325495427888,0.05598976187211481,Unnamed,information,listening
+information_25336,6,0.0160427807486631,0.0023832867315398036,0.061800020179598424,Unnamed,information,listening
+information_25337,4,0.0106951871657754,0.0009147744470535543,0.05261688465090308,Unnamed,information,listening
+information_25338,5,0.013368983957219251,0.004039615433717311,0.050585344702991766,Unnamed,information,listening
+information_25339,3,0.00802139037433155,7.168356009232842e-06,0.04018897017814376,Unnamed,information,listening
+information_25341,4,0.0106951871657754,0.0022497487092976763,0.051990493166963754,Unnamed,information,listening
+information_25342,3,0.00802139037433155,8.960445011541053e-07,0.04962728893210176,Unnamed,information,listening
+information_25343,4,0.0106951871657754,4.103883815285802e-05,0.05158111920501916,Unnamed,information,listening
+information_25344,7,0.01871657754010695,0.0025787447607564873,0.055751507566276025,Unnamed,information,listening
+information_25345,5,0.013368983957219251,0.00030856643575457644,0.057971700345464006,Unnamed,information,listening
+information_25346,7,0.01871657754010695,0.006693984480503673,0.06518211083619337,Unnamed,information,listening
+information_25347,6,0.0160427807486631,0.000406454319480656,0.058229352346999406,Unnamed,information,listening
+information_25348,6,0.0160427807486631,8.95447138153336e-05,0.051990493166963754,Unnamed,information,listening
+information_25349,5,0.013368983957219251,0.00016387942779679101,0.05528103070917665,Unnamed,information,listening
+information_25350,7,0.01871657754010695,0.004706554315699705,0.06453992255209294,Unnamed,information,listening
+information_25351,5,0.013368983957219251,0.00038332370001449995,0.05901623548682372,Unnamed,information,listening
+information_25352,5,0.013368983957219251,1.4038030518080982e-05,0.05000612319875903,Unnamed,information,listening
+information_25353,5,0.013368983957219251,3.546345014567692e-05,0.05158111920501916,Unnamed,information,listening
+information_25354,4,0.0106951871657754,6.371872008206971e-06,0.03786590831813545,Unnamed,information,listening
+information_25355,6,0.0160427807486631,1.8797022424210566e-05,0.038086058947892056,Unnamed,information,listening
+information_25356,5,0.013368983957219251,8.761324011284586e-06,0.03797566457413005,Unnamed,information,listening
+information_25357,5,0.013368983957219251,4.46031040574488e-06,0.03797566457413005,Unnamed,information,listening
+information_25358,6,0.0160427807486631,2.3098036029750267e-05,0.038086058947892056,Unnamed,information,listening
+information_25359,5,0.013368983957219251,0.0005874865991566836,0.045970541326578476,Unnamed,information,listening
+information_25360,7,0.01871657754010695,0.009637775006013453,0.057971700345464006,Unnamed,information,listening
+information_25361,5,0.013368983957219251,0.0005893981607591457,0.045970541326578476,Unnamed,information,listening
+information_25362,4,0.0106951871657754,6.371872008206971e-06,0.03786590831813545,Unnamed,information,listening
+information_25363,5,0.013368983957219251,0.000986978566332267,0.05481842794173584,Unnamed,information,listening
+information_25364,4,0.0106951871657754,7.071180584821964e-05,0.053475935828877004,Unnamed,information,listening
+information_25365,4,0.0106951871657754,0.0015085864699131897,0.055515272364724005,Unnamed,information,listening
+information_25366,2,0.0053475935828877,4.778904006155228e-06,0.020330075603909276,Unnamed,information,listening
+information_25367,3,0.00802139037433155,4.778904006155228e-06,0.03639334521687463,Unnamed,information,listening
+information_25368,4,0.0106951871657754,0.0003249654724185559,0.04471537296271286,Unnamed,information,listening
+information_25369,6,0.0160427807486631,0.004832898858074126,0.0574631766582231,Unnamed,information,listening
+information_25370,3,0.00802139037433155,0.0019641295465297986,0.039943915481935564,Unnamed,information,listening
+information_25581,3,0.00802139037433155,2.867342403693137e-06,0.015117235705470999,Unnamed,information,listening
+information_25582,4,0.0106951871657754,7.646246409848364e-06,0.015313563441905688,Unnamed,information,listening
+information_25584,4,0.0106951871657754,5.065638246524544e-05,0.0190184578230119,Unnamed,information,listening
+information_25586,5,0.013368983957219251,0.0006743033552685025,0.02508817840482421,Unnamed,information,listening
+information_25587,4,0.0106951871657754,0.00041146363492996504,0.024565508021390375,Unnamed,information,listening
+information_25588,4,0.0106951871657754,4.062068405231944e-06,0.022248007264655437,Unnamed,information,listening
+information_25589,5,0.013368983957219251,1.0752534013849262e-05,0.023120478137779177,Unnamed,information,listening
+information_25590,7,0.01871657754010695,0.00011851681935264965,0.02406417112299465,Unnamed,information,listening
+information_25591,5,0.013368983957219251,4.062068405231944e-06,0.023120478137779177,Unnamed,information,listening
+information_25592,7,0.01871657754010695,4.062068405231943e-05,0.02406417112299465,Unnamed,information,listening
+information_25593,5,0.013368983957219251,1.0752534013849262e-05,0.0226758535582065,Unnamed,information,listening
+information_25594,6,0.0160427807486631,2.6283972033853753e-05,0.02358288770053476,Unnamed,information,listening
+information_25595,4,0.0106951871657754,4.778904006155228e-06,0.0226758535582065,Unnamed,information,listening
+information_25596,5,0.013368983957219251,0.00021051072147113776,0.026798736023334956,Unnamed,information,listening
+information_25597,6,0.0160427807486631,0.0014138387502210244,0.031030115395440476,Unnamed,information,listening
+information_25598,5,0.013368983957219251,8.243609410617769e-05,0.026203208556149733,Unnamed,information,listening
+information_25599,3,0.00802139037433155,1.194726001538807e-06,0.02183600713012478,Unnamed,information,listening
+information_25826,4,0.0106951871657754,2.867342403693137e-06,0.04517794578646506,Unnamed,information,listening
+information_25827,7,0.01871657754010695,0.0038779984859610944,0.053475935828877004,Unnamed,information,listening
+information_25828,8,0.0213903743315508,0.003530098093616896,0.05391606698796242,Unnamed,information,listening
+information_25829,4,0.0106951871657754,2.867342403693137e-06,0.04240001384490248,Unnamed,information,listening
+information_25830,5,0.013368983957219251,6.360907423257781e-05,0.04533427085839054,Unnamed,information,listening
+information_26119,2,0.0053475935828877,1.4336712018465685e-05,0.0053475935828877,Unnamed,information,listening
+information_26120,2,0.0053475935828877,8.960445011541053e-07,0.04944001614367874,Unnamed,information,listening
+theme_16,0,0.0,0.0,0.0,Social innovation,theme,mapping
+theme_30,0,0.0,0.0,0.0,Challenges,theme,mapping
+theme_50,0,0.0,0.0,0.0,Youth,theme,mapping
+theme_198,0,0.0,0.0,0.0,Youth engagement,theme,mapping
+theme_201,0,0.0,0.0,0.0,Youth support,theme,mapping
+theme_620,0,0.0,0.0,0.0,Mental Health,theme,mapping
+theme_701,0,0.0,0.0,0.0,Philanthropy & Funding,theme,mapping
+theme_775,0,0.0,0.0,0.0,Community & Inclusion ,theme,mapping
+theme_778,0,0.0,0.0,0.0,Health & Wellbeing,theme,mapping
+theme_781,0,0.0,0.0,0.0,Education & Youth Empowerment,theme,mapping
+channel_8509.0,6,0.0160427807486631,0.0023259645498036347,0.059824677068835,SS-001,channel,listening
+channel_9490.0,2,0.0053475935828877,9.078366019485145e-05,0.04120001345306562,RI_001,channel,listening
+channel_9506.0,7,0.01871657754010695,0.001687477114711132,0.058751588690918684,RI-002,channel,listening
+channel_8510.0,1,0.00267379679144385,0.0,0.00267379679144385,SS-002,channel,listening
+channel_9507.0,2,0.0053475935828877,0.0,0.040066068128669315,RI -03,channel,listening
+channel_9508.0,1,0.00267379679144385,0.0,0.04081496659836407,P001,channel,listening
+channel_9509.0,16,0.0427807486631016,0.004491921829307675,0.06616971857613568,002,channel,listening
+channel_9510.0,9,0.02406417112299465,0.00212709017313969,0.046624926256494184,003,channel,listening
+channel_9511.0,3,0.00802139037433155,0.0003201865684124006,0.044563279857397504,LT 001,channel,listening
+channel_9512.0,1,0.00267379679144385,0.0,0.03300152211101982,003,channel,listening
+channel_9548.0,5,0.013368983957219251,0.00022938739229545082,0.01933023582011046,004_FF,channel,listening
+channel_9549.0,12,0.0320855614973262,0.000711100916115898,0.03186876716288481,T_006,channel,listening
+channel_9576.0,5,0.013368983957219251,6.910481383965633e-05,0.04533427085839054,H-007,channel,listening
+channel_9603.0,1,0.00267379679144385,0.0,0.0035650623885918,Channel 9603.0,channel,listening

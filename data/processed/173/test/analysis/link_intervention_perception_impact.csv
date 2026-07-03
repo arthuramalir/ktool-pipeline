@@ -1,0 +1,19 @@
+source_global_id,target_global_id,source_label,target_label,perception_id,PR_delta
+project_4603,project_4568,Sport & Wellness Fund,A Drop in The Ocean [ADITO],perception_406,-0.00012
+project_4603,project_4568,Sport & Wellness Fund,A Drop in The Ocean [ADITO],perception_407,-0.000102
+project_4603,project_4568,Sport & Wellness Fund,A Drop in The Ocean [ADITO],perception_408,-0.000112
+project_4603,project_4568,Sport & Wellness Fund,A Drop in The Ocean [ADITO],perception_409,-0.000136
+project_4603,project_4568,Sport & Wellness Fund,A Drop in The Ocean [ADITO],perception_410,-0.0001
+project_4603,project_4568,Sport & Wellness Fund,A Drop in The Ocean [ADITO],perception_411,-6.9e-05
+agent_4722,agent_5476,Rethink Ireland,Children's Health Ireland,perception_406,-0.00012
+agent_4722,agent_5476,Rethink Ireland,Children's Health Ireland,perception_407,-0.000102
+agent_4722,agent_5476,Rethink Ireland,Children's Health Ireland,perception_408,-0.000112
+agent_4722,agent_5476,Rethink Ireland,Children's Health Ireland,perception_409,-0.000136
+agent_4722,agent_5476,Rethink Ireland,Children's Health Ireland,perception_410,-0.0001
+agent_4722,agent_5476,Rethink Ireland,Children's Health Ireland,perception_411,-6.9e-05
+agent_5823,project_4174,Zurich Ireland,Sensational Kids,perception_406,-0.00012
+agent_5823,project_4174,Zurich Ireland,Sensational Kids,perception_407,-0.000102
+agent_5823,project_4174,Zurich Ireland,Sensational Kids,perception_408,-0.000112
+agent_5823,project_4174,Zurich Ireland,Sensational Kids,perception_409,-0.000136
+agent_5823,project_4174,Zurich Ireland,Sensational Kids,perception_410,-0.0001
+agent_5823,project_4174,Zurich Ireland,Sensational Kids,perception_411,-6.9e-05

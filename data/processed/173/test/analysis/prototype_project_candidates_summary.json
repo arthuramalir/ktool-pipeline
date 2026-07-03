@@ -1,0 +1,21 @@
+{
+  "platform_id": "173_synthetic",
+  "output_subdir": "test",
+  "candidate_count": 101,
+  "top_candidate": [
+    {
+      "global_id": "project_4152",
+      "label": "Bounce Back Recycling",
+      "node_type": "project",
+      "associated_budget": 0,
+      "impact_level": "small_medium_scale",
+      "degree": 0,
+      "betweenness_centrality": 0.0,
+      "perception_count": 0,
+      "agent_count": 0,
+      "topic_count": 0,
+      "prototype_candidate_score": 0.0,
+      "suggestion_reason": "Potentially useful but needs more manual review."
+    }
+  ]
+}

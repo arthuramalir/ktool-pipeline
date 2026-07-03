@@ -1,0 +1,58 @@
+{
+  "quality_gate": "critical_relations",
+  "dataset_dir": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test",
+  "total_checks": 7,
+  "failed_checks": 6,
+  "status": "fail",
+  "checks": [
+    {
+      "file": "initiative_perception_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\initiative_perception_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    },
+    {
+      "file": "initiative_thematic_area_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\initiative_thematic_area_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    },
+    {
+      "file": "initiative_lead_agent_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\initiative_lead_agent_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    },
+    {
+      "file": "agent_initiative_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\agent_initiative_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    },
+    {
+      "file": "channel_information_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\channel_information_links.csv",
+      "rows": 71,
+      "expected_min_rows": 1,
+      "passed": true
+    },
+    {
+      "file": "information_pattern_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\information_pattern_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    },
+    {
+      "file": "information_value_links.csv",
+      "path": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\information_value_links.csv",
+      "rows": 0,
+      "expected_min_rows": 1,
+      "passed": false
+    }
+  ]
+}

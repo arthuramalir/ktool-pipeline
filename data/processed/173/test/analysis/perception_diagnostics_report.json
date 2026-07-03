@@ -1,5 +1,5 @@
 {
-  "platform_id": "173_synthetic",
+  "platform_id": "173",
   "n_perceptions": 7,
   "total_quotes_assigned": 72,
   "perceptions": [
@@ -7,7 +7,7 @@
       "perception_label": " Aoibhe",
       "quote_count": 36,
       "internal_coherence": 0.7173,
-      "purity_score": 0.5667,
+      "purity_score": 0.562,
       "source_entropy": 2.9613,
       "contradiction_density": 0.1818,
       "status_flag": "Robust"
@@ -16,7 +16,7 @@
       "perception_label": "Naomi",
       "quote_count": 12,
       "internal_coherence": 0.7,
-      "purity_score": 0.1227,
+      "purity_score": 0.1125,
       "source_entropy": 2.4591,
       "contradiction_density": 0.25,
       "status_flag": "Low purity — quotes closer to other perceptions"

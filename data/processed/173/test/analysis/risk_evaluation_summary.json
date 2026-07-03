@@ -1,0 +1,31 @@
+{
+  "analysis_timestamp": "2026-07-01T09:42:04.735569+00:00",
+  "base_graph": {
+    "nodes": 384,
+    "edges": 496
+  },
+  "scenarios_tested": 5,
+  "key_findings": {
+    "top_bridge_agents": [
+      "Rethink Ireland",
+      "spunout",
+      "Liquid Therapy",
+      "Special Olympics",
+      "Rugby Players Ireland Foundati"
+    ],
+    "top_agent_fragility": {
+      "Rethink Ireland": 0.0466,
+      "spunout": 0.0208,
+      "Liquid Therapy": 0.0183,
+      "Special Olympics": 0.0147,
+      "Rugby Players Ireland Foundati": 0.0115
+    },
+    "n_articulation_points": 40,
+    "semantic_edge_removal_component_increase": -116
+  },
+  "files": {
+    "plots": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\analysis\\risk_plots",
+    "agent_removal_report": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\analysis\\risk_agent_removal_report.csv",
+    "edge_removal_report": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\analysis\\risk_edge_removal_report.csv"
+  }
+}

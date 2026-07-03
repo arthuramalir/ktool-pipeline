@@ -1,0 +1,5 @@
+scenario,edges_removed,nodes_orphaned,components_before,components_after,component_increase,largest_before,largest_after
+Remove semantic edges (qualitative_narrative),105,123,131,15,-116,126,126
+Remove declared relational edges,270,270,131,3,-128,126,92
+Remove listening edges,71,136,131,9,-122,126,126
+Remove interpretive edges,50,150,131,9,-122,126,126

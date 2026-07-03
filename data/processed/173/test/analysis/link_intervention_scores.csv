@@ -1,0 +1,4 @@
+source_global_id,target_global_id,source_label,target_label,link_type,link_probability,merges_components,components_merged_count,avg_perception_PR_delta,n_perceptions_gaining,n_perceptions_losing,max_perception_PR_delta,max_delta_perception_id,info_reach_expansion,top_gainer_perception,top_gainer_new_infos,sensitivity_score
+project_4603,project_4568,Sport & Wellness Fund,A Drop in The Ocean [ADITO],project -> project,0.6224969029426575,True,1,-0.0001065,0,6,-0.000136,perception_409,0,,0,0.3079
+agent_4722,agent_5476,Rethink Ireland,Children's Health Ireland,agent -> agent,0.6015178561210632,True,1,-0.0001065,0,6,-0.000136,perception_409,0,,0,0.3079
+agent_5823,project_4174,Zurich Ireland,Sensational Kids,agent -> project,0.5727921724319458,True,1,-0.0001065,0,6,-0.000136,perception_409,0,,0,0.3079

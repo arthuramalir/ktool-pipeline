@@ -1,0 +1,376 @@
+node_index,global_id,public_label,node_type,true_label,predicted_label,predicted_class_index,split,prediction_confidence,node_confidence,is_anonymized
+0,agent_4722,Rethink Ireland,agent,agent,agent,0,train,0.9998660087585449,0.5,False
+1,agent_4753,Helium Arts,agent,agent,agent,0,val,0.9992724061012268,0.5,False
+2,agent_4754,Hope and Courage Collective,agent,agent,agent,0,train,0.9998496770858765,0.5,False
+3,agent_4757,HSE (Health Service Executive),agent,agent,agent,0,train,0.9997648596763611,0.5,False
+4,agent_4786,Tacú Ballinrobe Family Resource Centre,agent,agent,agent,0,train,0.9998555183410645,0.5,False
+5,agent_5350,Liquid Therapy,agent,agent,agent,0,train,0.9998946189880371,0.5,False
+6,agent_5351,Cruthu Foundation Way2Work,agent,agent,agent,0,test,0.9999328851699829,0.5,False
+7,agent_5358,Spraoi & Sport,agent,agent,agent,0,train,0.999901533126831,0.5,False
+8,agent_5360,Special Olympics,agent,agent,agent,0,train,0.9999061822891235,0.5,False
+9,agent_5366,First Fortnight,agent,agent,agent,0,val,0.9998898506164551,0.5,False
+10,agent_5367,Tacu Family Resource Centre,agent,agent,agent,0,train,0.9998825788497925,0.5,False
+11,agent_5369,TUSLA,agent,agent,agent,0,test,0.9996763467788696,0.5,False
+12,agent_5370,Focus Ireland,agent,agent,agent,0,train,0.999910831451416,0.5,False
+13,agent_5371,Community Foundation Ireland,agent,agent,agent,0,train,0.9999010562896729,0.5,False
+14,agent_5372,Blue Box Creative Arts Centre,agent,agent,agent,0,test,0.9997919201850891,0.5,False
+15,agent_5373,Donegal Domestic Violence Refuge (Gloria House),agent,agent,agent,0,val,0.9995437264442444,0.5,False
+16,agent_5374,Knocklee House (Kerry Recovery Centre),agent,agent,agent,0,val,0.9995829463005066,0.5,False
+17,agent_5375,St. Brigid’s Family Resource Centre (Tralee),agent,agent,agent,0,train,0.9999421834945679,0.5,False
+18,agent_5376,Crosscare,agent,agent,agent,0,train,0.9998446702957153,0.5,False
+19,agent_5377,NOVAS,agent,agent,agent,0,test,0.9997325539588928,0.5,False
+20,agent_5378,GP Practices and Primary Care Centres,agent,agent,agent,0,train,0.9998433589935303,0.5,False
+21,agent_5379,Young People,agent,agent,agent,0,train,0.9998260140419006,0.5,False
+22,agent_5380,Parents ,agent,agent,agent,0,test,0.9997124075889587,0.5,False
+23,agent_5382,Youthreach,agent,agent,agent,0,val,0.999756395816803,0.5,False
+24,agent_5383,"Education Welfare Officers (EWOs, TESS team)",agent,agent,agent,0,train,0.9998327493667603,0.5,False
+25,agent_5384,School Guidance Counsellors/Chaplins/School Support Team,agent,agent,agent,0,train,0.9998751878738403,0.5,False
+26,agent_5387,JLOs/ Managers/Support staff in International Protection Centre?,agent,agent,agent,0,train,0.9998618364334106,0.5,False
+27,agent_5476,Children's Health Ireland,agent,agent,agent,0,train,0.9997159838676453,0.5,False
+28,agent_5477,ETBs,agent,agent,agent,0,train,0.9996809959411621,0.5,False
+29,agent_5478,Sisk Group,agent,agent,agent,0,train,0.9998675584793091,0.5,False
+30,agent_5479,Construction Industry Federation,agent,agent,agent,0,test,0.999792754650116,0.5,False
+31,agent_5480,Society of the Irish Motor Industry (SIMI),agent,agent,agent,0,val,0.9998774528503418,0.5,False
+32,agent_5481,"Parents, Guardians & Aftercare workers",agent,agent,agent,0,val,0.9984694123268127,0.5,False
+33,agent_5482,DEIS Schools,agent,agent,agent,0,train,0.9997077584266663,0.5,False
+34,agent_5483,Oberstown Children Detention Campus ,agent,agent,agent,0,test,0.9995152950286865,0.5,False
+35,agent_5488,Involve CLG,agent,agent,agent,0,test,0.9998325109481812,0.5,False
+36,agent_5489,Arts Council,agent,agent,agent,0,test,0.9997237324714661,0.5,False
+37,agent_5490,Children and young persons committees (CYPSC),agent,agent,agent,0,train,0.9997718930244446,0.5,False
+38,agent_5491,Regional Health Areas,agent,agent,agent,0,train,0.9998090863227844,0.5,False
+39,agent_5492,Family Resource Centres,agent,agent,agent,0,train,0.9995526671409607,0.5,False
+40,agent_5493,Home Liaison Officers,agent,agent,agent,0,train,0.9995748400688171,0.5,False
+41,agent_5494,Hospital clinical staff,agent,agent,agent,0,test,0.9989787340164185,0.5,False
+42,agent_5497,Patient Support Groups,agent,agent,agent,0,train,0.9982123374938965,0.5,False
+43,agent_5499,Sláintecare Healthy Communities (Donegal),agent,agent,agent,0,val,0.9995613694190979,0.5,False
+44,agent_5500,Jigsaw,agent,agent,agent,0,test,0.9983772039413452,0.5,False
+45,agent_5502,ETB Youthreach Carndonagh,agent,agent,agent,0,train,0.9996009469032288,0.5,False
+46,agent_5503,Inishowen Development Partnership (IDP),agent,agent,agent,0,train,0.9987008571624756,0.5,False
+47,agent_5504,Inishowen Family Action Network (IFAN),agent,agent,agent,0,test,0.9992808699607849,0.5,False
+48,agent_5505,Carndonagh Community School – Pastoral Care Team,agent,agent,agent,0,val,0.9993101358413696,0.5,False
+49,agent_5506,Public Health Nurse Network (Carndonagh),agent,agent,agent,0,test,0.9982969164848328,0.5,False
+50,agent_5507,Mental Health Ireland,agent,agent,agent,0,train,0.9995853304862976,0.5,False
+51,agent_5508,Safefood,agent,agent,agent,0,train,0.9997473359107971,0.5,False
+52,agent_5509,Breast Cancer Ireland,agent,agent,agent,0,train,0.9998036026954651,0.5,False
+53,agent_5510,UCC School of Dentistry ,agent,agent,agent,0,train,0.9998397827148438,0.5,False
+54,agent_5511,UCC School of Audiloogy ,agent,agent,agent,0,test,0.9997052550315857,0.5,False
+55,agent_5512,RCSI,agent,agent,agent,0,train,0.9998613595962524,0.5,False
+56,agent_5513,University of Ulster,agent,agent,agent,0,train,0.9998574256896973,0.5,False
+57,agent_5516,Rosemary Collaboratory,agent,agent,agent,0,val,0.9998070597648621,0.5,False
+58,agent_5518,Sport Northern Ireland,agent,agent,agent,0,test,0.9990642666816711,0.5,False
+59,agent_5782,Agirre Lehendakaria Center,agent,agent,agent,0,train,0.9996587038040161,0.5,False
+60,agent_5783,Shoutout,agent,agent,agent,0,val,0.999279797077179,0.5,False
+61,agent_5785,spunout,agent,agent,agent,0,val,0.9982770681381226,0.5,False
+62,agent_5786,Childhood Matters,agent,agent,agent,0,val,0.9991542100906372,0.5,False
+63,agent_5787,Hair Together,agent,agent,agent,0,train,0.9992607235908508,0.5,False
+64,agent_5788,Bohemian Football Club,agent,agent,agent,0,test,0.9995135068893433,0.5,False
+65,agent_5789,Active Connections,agent,agent,agent,0,train,0.9998210072517395,0.5,False
+66,agent_5790,Football Coop,agent,agent,agent,0,train,0.9998037219047546,0.5,False
+67,agent_5791,Irish Homeless Street Leagues,agent,agent,agent,0,test,0.9997759461402893,0.5,False
+68,agent_5792,Sanctuary Runners,agent,agent,agent,0,train,0.9997074007987976,0.5,False
+69,agent_5793,Irish Surfing,agent,agent,agent,0,val,0.9985331296920776,0.5,False
+70,agent_5794,Donegal Sports Partnership,agent,agent,agent,0,train,0.999529242515564,0.5,False
+71,agent_5795,Pobal,agent,agent,agent,0,train,0.9995009899139404,0.5,False
+72,agent_5797,Donegal County Council,agent,agent,agent,0,train,0.9991198182106018,0.5,False
+73,agent_5798,Interreg,agent,agent,agent,0,train,0.9991545677185059,0.5,False
+74,agent_5799,National Surf Centre Strandhill,agent,agent,agent,0,test,0.9988609552383423,0.5,False
+75,agent_5800,INCLUSEA,agent,agent,agent,0,train,0.9990335702896118,0.5,False
+76,agent_5806,Rugby Players Ireland Foundation,agent,agent,agent,0,train,0.9992198944091797,0.5,False
+77,agent_5807,Z Zurich Foundation,agent,agent,agent,0,test,0.9989380240440369,0.5,False
+78,agent_5808,Unnamed,agent,agent,agent,0,train,0.995622456073761,0.5,False
+79,agent_5809,Rugby Player Ireland Members,agent,agent,agent,0,train,0.9984140396118164,0.5,False
+80,agent_5811,Schools,agent,agent,agent,0,train,0.9975040555000305,0.5,False
+81,agent_5812,Youth Groups,agent,agent,agent,0,train,0.9945430755615234,0.5,False
+82,agent_5813,Foróige - The National Youth Development Organisation,agent,agent,agent,0,train,0.9995824694633484,0.5,False
+83,agent_5814,Local health professionals,agent,agent,agent,0,val,0.9953561425209045,0.5,False
+84,agent_5815,Surf Schools and Clubs,agent,agent,agent,0,val,0.9970197081565857,0.5,False
+85,agent_5816,Caregivers,agent,agent,agent,0,train,0.99592125415802,0.5,False
+86,agent_5817,University of Limerick ,agent,agent,agent,0,val,0.9981915354728699,0.5,False
+87,agent_5818,ISCOIL,agent,agent,agent,0,train,0.9989659786224365,0.5,False
+88,agent_5819,Sport Ireland ,agent,agent,agent,0,train,0.9990386962890625,0.5,False
+89,agent_5821,DCU anti-bullying centre,agent,agent,agent,0,train,0.9994763731956482,0.5,False
+90,agent_5822,No Barriers,agent,agent,agent,0,train,0.9995286464691162,0.5,False
+91,agent_5823,Zurich Ireland,agent,agent,agent,0,train,0.9994211196899414,0.5,False
+92,agent_5825,National Youth Assembly,agent,agent,agent,0,train,0.9997518658638,0.5,False
+93,agent_5826,Comhairle na nOg,agent,agent,agent,0,val,0.999398946762085,0.5,False
+94,agent_5827,Mental Health Reform,agent,agent,agent,0,train,0.9983834028244019,0.5,False
+95,agent_5828,Philanthropy Ireland ,agent,agent,agent,0,train,0.9993809461593628,0.5,False
+96,agent_5829,The Lighthouse Charity,agent,agent,agent,0,train,0.9980049729347229,0.5,False
+97,agent_5830,State Street,agent,agent,agent,0,test,0.9994218349456787,0.5,False
+98,agent_5831,Nature Worx ,agent,agent,agent,0,val,0.9993190765380859,0.5,False
+99,agent_5832,Bounce Back Recycling ,agent,agent,agent,0,test,0.9946764707565308,0.5,False
+100,agent_5833, UNESCO Child and Family Research Centre at the University of Galway,agent,agent,agent,0,train,0.9996768236160278,0.5,False
+101,agent_5834,Rainbow Club,agent,agent,agent,0,train,0.9989742040634155,0.5,False
+102,agent_5835,Universities & 3rd evel Education,agent,agent,agent,0,test,0.9977540373802185,0.5,False
+103,agent_5836,Eco Unesco,agent,agent,agent,0,train,0.9993601441383362,0.5,False
+104,agent_5837,"Department of Children, Disability and Equality",agent,agent,agent,0,train,0.9995133876800537,0.5,False
+105,agent_5838,Department of Education and Youth,agent,agent,agent,0,train,0.9981924891471863,0.5,False
+106,agent_5839,YouthMedInfo,agent,agent,agent,0,val,0.9993191957473755,0.5,False
+107,agent_5840,Young social innovators,agent,agent,agent,0,val,0.9979103207588196,0.5,False
+108,agent_5841,Higher education authority,agent,agent,agent,0,val,0.9989842772483826,0.5,False
+109,agent_5842,Gaisce,agent,agent,agent,0,train,0.9989200830459595,0.5,False
+110,agent_5843,bodywhys,agent,agent,agent,0,test,0.9980520009994507,0.5,False
+111,agent_5844,Atlantic Futures,agent,agent,agent,0,train,0.9994217157363892,0.5,False
+112,agent_5845,Pieta,agent,agent,agent,0,val,0.9917030930519104,0.5,False
+113,agent_5846,Barnardos,agent,agent,agent,0,test,0.9961238503456116,0.5,False
+114,agent_5847,Samaritans,agent,agent,agent,0,train,0.9990131855010986,0.5,False
+115,agent_5848,HUGG,agent,agent,agent,0,train,0.9955961108207703,0.5,False
+116,agent_5849,Shona project,agent,agent,agent,0,train,0.9994038343429565,0.5,False
+117,agent_5850,Portlaoise Prisons,agent,agent,agent,0,train,0.9965607523918152,0.5,False
+118,agent_5868,Aware,agent,agent,agent,0,train,0.9987767338752747,0.5,False
+119,agent_5869,Common Knowledge Centre for Sustainable Living CLG,agent,agent,agent,0,train,0.9993467926979065,0.5,False
+120,agent_5870,Anew Support Services CLG,agent,agent,agent,0,train,0.998753547668457,0.5,False
+121,agent_5871,Childhood Development Initiative,agent,agent,agent,0,train,0.9992645382881165,0.5,False
+122,agent_5872,Spiritan Asylum Services Initiative CLG (T/A Spirasi),agent,agent,agent,0,train,0.998969316482544,0.5,False
+123,agent_5873,Women's Collective Ireland - Tallaght,agent,agent,agent,0,test,0.998358428478241,0.5,False
+124,agent_5874,Offaly Traveller Movement,agent,agent,agent,0,val,0.9971619844436646,0.5,False
+125,agent_5875,Street Feast (t/a Neighbourhood Network),agent,agent,agent,0,train,0.9993764758110046,0.5,False
+126,agent_5876,National Youth Council of Ireland,agent,agent,agent,0,test,0.9986530542373657,0.5,False
+127,agent_5877,Mason Hayes & Curran LLP,agent,agent,agent,0,train,0.9985231757164001,0.5,False
+128,agent_5878,The Department of Rural and Community Development and the Gaeltacht,agent,agent,agent,0,train,0.9984083771705627,0.5,False
+129,agent_5930,Accessible Adventures Ireland,agent,agent,agent,0,train,0.9992094039916992,0.5,False
+130,agent_5931,Active Disabilities Ireland,agent,agent,agent,0,train,0.9985950589179993,0.5,False
+131,agent_5932,Vision Sports Ireland,agent,agent,agent,0,test,0.9986944794654846,0.5,False
+132,agent_5933,Irish Foster Care Association,agent,agent,agent,0,val,0.9974154233932495,0.5,False
+133,agent_5934,Unnamed,agent,agent,agent,0,val,0.9843504428863525,0.5,False
+134,agent_5935,Open Specturrm,agent,agent,agent,0,val,0.9993804693222046,0.5,False
+135,agent_5936,County Councils (Local Area Sport Partnership),agent,agent,agent,0,train,0.9924483299255371,0.5,False
+136,project_4152,Bounce Back Recycling,project,project,project,6,train,0.9955910444259644,0.5,False
+137,project_4154,Change Clothes Crumlin,project,project,project,6,train,0.9972233772277832,0.5,False
+138,project_4155,Educate Together,project,project,project,6,train,0.9949122071266174,0.5,False
+139,project_4156,Fighting Words,project,project,project,6,train,0.9963035583496094,0.5,False
+140,project_4158,iScoil,project,project,project,6,train,0.9965492486953735,0.5,False
+141,project_4159,Not So Different,project,project,project,6,train,0.9956654906272888,0.5,False
+142,project_4160,The Shona Project,project,project,project,6,test,0.9896572232246399,0.5,False
+143,project_4162,SpunOut.ie,project,project,project,6,test,0.9886155724525452,0.5,False
+144,project_4164,Social Innovation Campus,project,project,project,6,val,0.9817889332771301,0.5,False
+145,project_4166,Liquid Therapy,project,project,project,6,test,0.9929183125495911,0.5,False
+146,project_4167,Trinity Access 21 (TA21),project,project,project,6,val,0.9905725121498108,0.5,False
+147,project_4168,Trinity Centre for People with Intellectual Disabilities,project,project,project,6,train,0.9973336458206177,0.5,False
+148,project_4169,The Great Care Co-op,project,project,project,6,test,0.9747729897499084,0.5,False
+149,project_4170,FoodCloud ,project,project,project,6,train,0.9963950514793396,0.5,False
+150,project_4171,GIY (Grow It Yourself),project,project,project,6,train,0.9976959824562073,0.5,False
+151,project_4172,Helium Arts,project,project,project,6,val,0.9843059778213501,0.5,False
+152,project_4173,The No Barriers Foundation,project,project,project,6,train,0.9973498582839966,0.5,False
+153,project_4174,Sensational Kids,project,project,project,6,train,0.9977532029151917,0.5,False
+154,project_4175,Gaisce – The President's Award,project,project,project,6,val,0.9647765755653381,0.5,False
+155,project_4176,Uplift ,project,project,project,6,train,0.9925952553749084,0.5,False
+156,project_4177,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,project,project,project,6,test,0.9941249489784241,0.5,False
+157,project_4178,Hair Together,project,project,project,6,val,0.9933452606201172,0.5,False
+158,project_4529,Inclusive Surf Programmes,project,project,project,6,val,0.9968370199203491,0.5,False
+159,project_4530,Innovation in Sport,project,project,project,6,train,0.9938796758651733,0.5,False
+160,project_4531,Community Services Programme,project,project,project,6,train,0.9875273108482361,0.5,False
+161,project_4532,PEACEPlus Initiative ,project,project,project,6,test,0.9876312613487244,0.5,False
+162,project_4533,iSURFATLANTIC,project,project,project,6,train,0.989376425743103,0.5,False
+163,project_4534,INCLUSEA,project,project,project,6,val,0.9940827488899231,0.5,False
+164,project_4535,Connecting for Life - Ireland's national strategy to reduce suicide ,project,project,project,6,train,0.9842807054519653,0.5,False
+165,project_4536,Area‑Based Childhood Programme (ABC),project,project,project,6,test,0.9938883185386658,0.5,False
+166,project_4537,"Meitheal - Prevention, Partnership & Family Support (PPFS)",project,project,project,6,test,0.9810676574707031,0.5,False
+167,project_4538,Housing-led Supports for homeless/ people at risk of homelessness,project,project,project,6,train,0.9955476522445679,0.5,False
+168,project_4539,RTE Toy Show Appeal,project,project,project,6,val,0.9836055636405945,0.5,False
+169,project_4540,Creative Arts Psychotherapy for vulnerable children - Limerick,project,project,project,6,train,0.9975816011428833,0.5,False
+170,project_4541,Journey to Freedom,project,project,project,6,train,0.9976053237915039,0.5,False
+171,project_4547,Tusla Aftercare Drop-In Services,project,project,project,6,train,0.9932509064674377,0.5,False
+172,project_4548,Crosscare Aftercare Service ,project,project,project,6,val,0.9926156997680664,0.5,False
+173,project_4549,2030 Sustainability Roadmap,project,project,project,6,train,0.9990058541297913,0.5,False
+174,project_4550,Carbon Neutrality,project,project,project,6,val,0.9985635876655579,0.5,False
+175,project_4551,Tree planting,project,project,project,6,train,0.9990206956863403,0.5,False
+176,project_4552,Community Engagement,project,project,project,6,train,0.9980096220970154,0.5,False
+177,project_4553,Lighthouse Industry Construction Federation Charity - 24/7 Support,project,project,project,6,train,0.9965083003044128,0.5,False
+178,project_4554,Mental Health & Wellbeing,project,project,project,6,test,0.9959855675697327,0.5,False
+179,project_4555,Vocational training,project,project,project,6,train,0.9988521337509155,0.5,False
+180,project_4556,STEPS+ programme,project,project,project,6,val,0.9985260963439941,0.5,False
+181,project_4557,Oberstown coffee van business; Bord Bia Bloom,project,project,project,6,train,0.9992027878761292,0.5,False
+182,project_4558,Bord Bia Bloom,project,project,project,6,train,0.9990878105163574,0.5,False
+183,project_4559,Addiction Counselling,project,project,project,6,train,0.9989961981773376,0.5,False
+184,project_4560,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,project,project,project,6,test,0.990935742855072,0.5,False
+185,project_4561,Green Campus & Sustainability,project,project,project,6,test,0.9948627352714539,0.5,False
+186,project_4562,Innovation Strategy,project,project,project,6,train,0.9956958293914795,0.5,False
+187,project_4563,Reads & Rhymes Together,project,project,project,6,train,0.9927444458007812,0.5,False
+188,project_4564, Headstart Fund,project,project,project,6,train,0.9931314587593079,0.5,False
+189,project_4565,Breaking Barriers Fund,project,project,project,6,train,0.9879078269004822,0.5,False
+190,project_4566,Innovate Together,project,project,project,6,train,0.9962151646614075,0.5,False
+191,project_4567,Ktool,project,project,project,6,train,0.988267719745636,0.5,False
+192,project_4568,A Drop in The Ocean [ADITO],project,project,project,6,train,0.9941565990447998,0.5,False
+193,project_4569,Big Brother Big Sister,project,project,project,6,train,0.9963902831077576,0.5,False
+194,project_4570,Surf Club,project,project,project,6,train,0.9945757389068604,0.5,False
+195,project_4571,Open Event,project,project,project,6,train,0.9905470013618469,0.5,False
+196,project_4572,Generation Pride,project,project,project,6,train,0.9956179857254028,0.5,False
+197,project_4573,School Workshops ,project,project,project,6,train,0.9880786538124084,0.5,False
+198,project_4574,Corporate Workshops,project,project,project,6,val,0.9827048182487488,0.5,False
+199,project_4575,LGBTQI+ Inclusion Training,project,project,project,6,train,0.9922168254852295,0.5,False
+200,project_4576,Fair Play - Sports LGBTQ+ Inclusion,project,project,project,6,val,0.9933195114135742,0.5,False
+201,project_4577,Training,project,project,project,6,train,0.9891558289527893,0.5,False
+202,project_4578,Creative Arts Therapy,project,project,project,6,test,0.9928592443466187,0.5,False
+203,project_4579,Spunout Academy ,project,project,project,6,test,0.9904482960700989,0.5,False
+204,project_4580,CHIPPS,project,project,project,6,test,0.982591986656189,0.5,False
+205,project_4581,Limetree Project,project,project,project,6,train,0.9944379329681396,0.5,False
+206,project_4582,Creches,project,project,project,6,train,0.9909977912902832,0.5,False
+207,project_4583,Teen Parent Support Programme,project,project,project,6,train,0.990725576877594,0.5,False
+208,project_4584,Hair Together Programme,project,project,project,6,train,0.9931989312171936,0.5,False
+209,project_4585,SPACE,project,project,project,6,test,0.9720325469970703,0.5,False
+210,project_4586,Meals on wheels,project,project,project,6,train,0.9933182001113892,0.5,False
+211,project_4587,Family support,project,project,project,6,train,0.9625433683395386,0.5,False
+212,project_4588,Drug & alcohol support,project,project,project,6,train,0.9868249297142029,0.5,False
+213,project_4589,Counselling,project,project,project,6,train,0.9984567165374756,0.5,False
+214,project_4590,Parent toddler groups,project,project,project,6,train,0.9923082590103149,0.5,False
+215,project_4591,"Various groups, camps and workshops",project,project,project,6,train,0.9943932294845581,0.5,False
+216,project_4592,Pride on the PItch,project,project,project,6,val,0.9881361722946167,0.5,False
+217,project_4593,No Shame,project,project,project,6,train,0.9784587621688843,0.5,False
+218,project_4594,Traveller Voice,project,project,project,6,train,0.9930638670921326,0.5,False
+219,project_4595,Traveller Culture & Identity Programme (TCIP),project,project,project,6,val,0.9959810972213745,0.5,False
+220,project_4596,Youth Service,project,project,project,6,test,0.9551610350608826,0.5,False
+221,project_4597,Health and Wellbeing Programme,project,project,project,6,test,0.9755489826202393,0.5,False
+222,project_4598,New Trails,project,project,project,6,val,0.9890763759613037,0.5,False
+223,project_4599,Place-based Football Coop groups,project,project,project,6,train,0.9951574206352234,0.5,False
+224,project_4600,Drop-In Leagues,project,project,project,6,test,0.995323121547699,0.5,False
+225,project_4601,Sanctuary groups nationwide,project,project,project,6,val,0.9844887256622314,0.5,False
+226,project_4602,Tackle Your Feelings,project,project,project,6,train,0.9914712309837341,0.5,False
+227,project_4603,Sport & Wellness Fund,project,project,project,6,train,0.9864361882209778,0.5,False
+228,project_4604,Brighter Futures Fund,project,project,project,6,test,0.9594963788986206,0.5,False
+229,project_4605,Women in Sport,project,project,project,6,val,0.9908714890480042,0.5,False
+230,project_4606,Erasmus+ Sport program,project,project,project,6,train,0.9876065850257874,0.5,False
+231,project_4607,Integrated care programme for children,project,project,project,6,train,0.9926281571388245,0.5,False
+232,project_4608,Entrepreneurship Impact Fund ,project,project,project,6,val,0.9934967756271362,0.5,False
+233,project_4609,Why Wellbeing Matters,project,project,project,6,val,0.9604734778404236,0.5,False
+234,project_4610,National Wellbeing Framework,project,project,project,6,train,0.9745950102806091,0.5,False
+235,project_4611,Wellbeing Policy Framework of the Department of Education,project,project,project,6,test,0.9740668535232544,0.5,False
+236,project_4616,Connected Communities Fund,project,project,project,6,train,0.9934797286987305,0.5,False
+237,pilot_835,Students' mental health skills CV,pilot,pilot,project,6,val,0.40764084458351135,0.5,False
+238,pilot_836,Digital wellbeing lab,pilot,pilot,project,6,test,0.4942518174648285,0.5,False
+239,pilot_837,Community of practice: Teachers as change agents,pilot,pilot,project,6,train,0.2528192102909088,0.5,False
+240,pilot_838,Transition to adulthood pathways,pilot,pilot,project,6,train,0.2865118980407715,0.5,False
+241,pilot_839,Cross-sector residencies,pilot,pilot,project,6,train,0.16909390687942505,0.5,False
+242,pilot_840,Adopt a practice,pilot,pilot,project,6,train,0.15892358124256134,0.5,False
+243,prototype_511,National digital infrastructure to measure the true cost of mental health,prototype,prototype,information,3,train,0.1547301560640335,0.5,False
+244,prototype_512,National listening infrastructure,prototype,prototype,project,6,val,0.43046343326568604,0.5,False
+245,prototype_513,The living map of the mental health ecosystem in Ireland,prototype,prototype,information,3,train,0.15126511454582214,0.5,False
+246,perception_406,Siobhán,perception,perception,perception,4,train,0.7792654037475586,0.749821662902832,False
+247,perception_407,Luke,perception,perception,perception,4,train,0.7810257077217102,0.7330717444419861,False
+248,perception_408, Aoibhe,perception,perception,perception,4,train,0.783531904220581,0.7536503076553345,False
+249,perception_409,Mary,perception,perception,perception,4,val,0.804673433303833,0.7299399375915527,False
+250,perception_410,Naomi,perception,perception,perception,4,train,0.7742699384689331,0.765156626701355,False
+251,perception_411, John,perception,perception,perception,4,test,0.7578495740890503,0.7525107860565186,False
+252,challenge_2309,Resource strain and burnout,challenge,challenge,challenge,1,test,0.9999998807907104,0.7479632496833801,False
+253,challenge_2519,Disconnection between funders and frontline,challenge,challenge,challenge,1,test,1.0,0.7329005002975464,False
+254,challenge_2523,Listening as Trust-Building,challenge,challenge,agent,0,val,0.28736376762390137,0.5,False
+255,challenge_2553,Shift funding toward prevention and partnership,challenge,challenge,challenge,1,train,1.0,0.7605203986167908,False
+256,challenge_2554,Fragile volunteer infrastructure,challenge,challenge,challenge,1,test,1.0,0.7789856791496277,False
+257,challenge_2555,Recognise sport as a health asset,challenge,challenge,challenge,1,train,1.0,0.7380921244621277,False
+258,challenge_2556,Fragmented care between mind and body,challenge,challenge,challenge,1,train,1.0,0.7721409201622009,False
+259,challenge_2557,Chronic underfunding of community work,challenge,challenge,challenge,1,train,1.0,0.7481019496917725,False
+260,challenge_2558,Invest in long-term community capacity,challenge,challenge,challenge,1,train,1.0,0.7354421019554138,False
+261,challenge_2559,"Reactive, not preventive systems",challenge,challenge,challenge,1,train,1.0,0.7400965690612793,False
+262,challenge_2560,Build mentoring and peer-support ecosystems,challenge,challenge,challenge,1,train,1.0,0.7260748744010925,False
+263,challenge_2561,Overloaded schools acting as mental health providers,challenge,challenge,challenge,1,train,1.0,0.7593832015991211,False
+264,challenge_2562,Early intervention within schools,challenge,challenge,challenge,1,train,1.0,0.7371880412101746,False
+265,challenge_2564,"Addressing mental health as a systemic issue, not individual",challenge,challenge,theme,8,val,0.2599497437477112,0.5,False
+266,challenge_2565,Short-termism and fragmented systems,challenge,challenge,challenge,1,val,0.9999998807907104,0.7470905184745789,False
+267,channel_9490,Unnamed,channel,channel,channel,2,test,1.0,0.7858892679214478,False
+268,channel_9506,Unnamed,channel,channel,channel,2,val,1.0,0.7858633399009705,False
+269,channel_9507,Why Wellbeing Matters Report ,channel,channel,channel,2,test,1.0,0.7793408632278442,False
+270,channel_9508,Unnamed,channel,channel,channel,2,val,1.0,0.7990620136260986,False
+271,channel_9509,Unnamed,channel,channel,channel,2,train,1.0,0.7895050644874573,False
+272,channel_9510,Unnamed,channel,channel,channel,2,val,1.0,0.7886102795600891,False
+273,channel_9511,Unnamed,channel,channel,channel,2,train,1.0,0.7983226180076599,False
+274,channel_9512,Unnamed,channel,channel,channel,2,train,1.0,0.782361626625061,False
+275,channel_9548,Unnamed,channel,channel,channel,2,val,1.0,0.8022032976150513,False
+276,channel_9549,Unnamed,channel,channel,channel,2,train,1.0,0.7872057557106018,False
+277,channel_9576,Unnamed,channel,channel,channel,2,train,1.0,0.7863351702690125,False
+278,channel_9603,Unnamed,channel,channel,channel,2,train,0.9999996423721313,0.7841821312904358,False
+279,information_23084,Unnamed,information,information,information,3,train,1.0,0.7793129682540894,False
+280,information_23085,Unnamed,information,information,information,3,val,1.0,0.765184223651886,False
+281,information_23086,Unnamed,information,information,information,3,train,1.0,0.7809211611747742,False
+282,information_23087,Unnamed,information,information,information,3,train,1.0,0.7545570731163025,False
+283,information_23088,Unnamed,information,information,information,3,train,1.0,0.742695152759552,False
+284,information_23090,Unnamed,information,information,information,3,train,1.0,0.7890321612358093,False
+285,information_23091,Unnamed,information,information,information,3,train,1.0,0.7614327073097229,False
+286,information_23092,Unnamed,information,information,information,3,train,0.4979393482208252,0.8016756176948547,False
+287,information_23094,Unnamed,information,information,information,3,test,1.0,0.7339658737182617,False
+288,information_25256,Unnamed,information,information,information,3,train,1.0,0.7624408602714539,False
+289,information_25332,Unnamed,information,information,information,3,train,0.9999935626983643,0.7776163220405579,False
+290,information_25333,Unnamed,information,information,information,3,test,1.0,0.757146954536438,False
+291,information_25334,Unnamed,information,information,information,3,val,1.0,0.7618419528007507,False
+292,information_25335,Unnamed,information,information,information,3,test,1.0,0.7506618499755859,False
+293,information_25336,Unnamed,information,information,information,3,test,1.0,0.7542590498924255,False
+294,information_25337,Unnamed,information,information,information,3,train,1.0,0.768085241317749,False
+295,information_25338,Unnamed,information,information,information,3,train,1.0,0.7608445286750793,False
+296,information_25339,Unnamed,information,information,information,3,val,1.0,0.7862433195114136,False
+297,information_25341,Unnamed,information,information,information,3,test,1.0,0.7439374923706055,False
+298,information_25342,Unnamed,information,information,information,3,train,1.0,0.7628834843635559,False
+299,information_25343,Unnamed,information,information,information,3,test,1.0,0.7627148032188416,False
+300,information_25344,Unnamed,information,information,information,3,train,1.0,0.7623097896575928,False
+301,information_25345,Unnamed,information,information,information,3,val,1.0,0.7693525552749634,False
+302,information_25346,Unnamed,information,information,information,3,test,1.0,0.75693279504776,False
+303,information_25347,Unnamed,information,information,information,3,val,1.0,0.7697651386260986,False
+304,information_25348,Unnamed,information,information,information,3,test,1.0,0.7589572668075562,False
+305,information_25349,Unnamed,information,information,information,3,test,1.0,0.771789014339447,False
+306,information_25350,Unnamed,information,information,information,3,val,1.0,0.753962516784668,False
+307,information_25351,Unnamed,information,information,information,3,train,1.0,0.7679793834686279,False
+308,information_25352,Unnamed,information,information,information,3,test,1.0,0.7811253070831299,False
+309,information_25353,Unnamed,information,information,information,3,train,1.0,0.7823534607887268,False
+310,information_25354,Unnamed,information,information,information,3,test,1.0,0.7603128552436829,False
+311,information_25355,Unnamed,information,information,information,3,val,1.0,0.7499212622642517,False
+312,information_25356,Unnamed,information,information,information,3,test,1.0,0.762479841709137,False
+313,information_25357,Unnamed,information,information,information,3,test,1.0,0.7564558982849121,False
+314,information_25358,Unnamed,information,information,information,3,train,1.0,0.7666885256767273,False
+315,information_25359,Unnamed,information,information,information,3,train,1.0,0.7717179656028748,False
+316,information_25360,Unnamed,information,information,information,3,val,1.0,0.7406201958656311,False
+317,information_25361,Unnamed,information,information,information,3,train,1.0,0.7646471858024597,False
+318,information_25362,Unnamed,information,information,information,3,train,1.0,0.768840491771698,False
+319,information_25363,Unnamed,information,information,information,3,train,1.0,0.7764959335327148,False
+320,information_25364,Unnamed,information,information,information,3,train,1.0,0.7781796455383301,False
+321,information_25365,Unnamed,information,information,information,3,train,1.0,0.7629427909851074,False
+322,information_25366,Unnamed,information,information,information,3,test,0.9999998807907104,0.7527796626091003,False
+323,information_25367,Unnamed,information,information,information,3,train,1.0,0.7930929660797119,False
+324,information_25368,Unnamed,information,information,information,3,test,1.0,0.7936431169509888,False
+325,information_25369,Unnamed,information,information,information,3,train,1.0,0.7737706899642944,False
+326,information_25370,Unnamed,information,information,information,3,val,1.0,0.7809998393058777,False
+327,information_25581,Unnamed,information,information,information,3,val,0.9999984502792358,0.7541037797927856,False
+328,information_25582,Unnamed,information,information,information,3,train,1.0,0.7448828220367432,False
+329,information_25584,Unnamed,information,information,information,3,train,1.0,0.7625184059143066,False
+330,information_25586,Unnamed,information,information,information,3,train,1.0,0.7634966373443604,False
+331,information_25587,Unnamed,information,information,information,3,train,1.0,0.7706234455108643,False
+332,information_25588,Unnamed,information,information,information,3,val,1.0,0.7728226780891418,False
+333,information_25589,Unnamed,information,information,information,3,train,1.0,0.7724910378456116,False
+334,information_25590,Unnamed,information,information,information,3,train,1.0,0.7587699890136719,False
+335,information_25591,Unnamed,information,information,information,3,train,1.0,0.766821563243866,False
+336,information_25592,Unnamed,information,information,information,3,val,1.0,0.7686723470687866,False
+337,information_25593,Unnamed,information,information,information,3,val,1.0,0.7544972896575928,False
+338,information_25594,Unnamed,information,information,information,3,train,1.0,0.7650117874145508,False
+339,information_25595,Unnamed,information,information,information,3,train,1.0,0.7615549564361572,False
+340,information_25596,Unnamed,information,information,information,3,val,1.0,0.7713818550109863,False
+341,information_25597,Unnamed,information,information,information,3,train,1.0,0.7677331566810608,False
+342,information_25598,Unnamed,information,information,information,3,train,1.0,0.7787010669708252,False
+343,information_25599,Unnamed,information,information,information,3,train,1.0,0.7957196235656738,False
+344,information_25826,Unnamed,information,information,information,3,train,1.0,0.7737101316452026,False
+345,information_25827,Unnamed,information,information,information,3,train,1.0,0.7562246322631836,False
+346,information_25828,Unnamed,information,information,information,3,train,1.0,0.7580044269561768,False
+347,information_25829,Unnamed,information,information,information,3,train,1.0,0.7750439047813416,False
+348,information_25830,Unnamed,information,information,information,3,train,1.0,0.7664996385574341,False
+349,information_26119,Unnamed,information,information,perception,4,train,0.7914730906486511,0.7852319478988647,False
+350,information_26120,Unnamed,information,information,information,3,train,0.9507551789283752,0.7743126153945923,False
+351,theme_16,Social innovation,theme,theme,theme,8,val,0.38097599148750305,0.5,False
+352,theme_30,Challenges,theme,theme,theme,8,train,0.4950617849826813,0.5,False
+353,theme_50,Youth,theme,theme,theme,8,test,0.4952542185783386,0.5,False
+354,theme_198,Youth engagement,theme,theme,theme,8,train,0.4810355603694916,0.5,False
+355,theme_201,Youth support,theme,theme,theme,8,train,0.47899025678634644,0.5,False
+356,theme_620,Mental Health,theme,theme,theme,8,test,0.37850576639175415,0.5,False
+357,theme_701,Philanthropy & Funding,theme,theme,theme,8,val,0.43287381529808044,0.5,False
+358,theme_775,Community & Inclusion ,theme,theme,theme,8,train,0.5008882284164429,0.5,False
+359,theme_778,Health & Wellbeing,theme,theme,theme,8,train,0.42122066020965576,0.5,False
+360,theme_781,Education & Youth Empowerment,theme,theme,theme,8,train,0.5159592032432556,0.5,False
+361,channel_8509.0,SS-001,channel,channel,channel,2,test,1.0,0.7789899110794067,False
+362,channel_9490.0,RI_001,channel,channel,channel,2,test,1.0,0.7706101536750793,False
+363,channel_9506.0,RI-002,channel,channel,channel,2,train,1.0,0.7788280844688416,False
+364,channel_8510.0,SS-002,channel,channel,channel,2,train,0.999974250793457,0.8016756176948547,False
+365,channel_9507.0,RI -03,channel,channel,channel,2,train,1.0,0.7880544066429138,False
+366,channel_9508.0,P001,channel,channel,channel,2,train,1.0,0.8108472228050232,False
+367,channel_9509.0,002,channel,channel,channel,2,train,1.0,0.7786845564842224,False
+368,channel_9510.0,003,channel,channel,channel,2,train,1.0,0.7706101536750793,False
+369,channel_9511.0,LT 001,channel,channel,channel,2,test,1.0,0.7756466865539551,False
+370,channel_9512.0,003,channel,channel,channel,2,train,1.0,0.7706101536750793,False
+371,channel_9548.0,004_FF,channel,channel,channel,2,train,1.0,0.7747440934181213,False
+372,channel_9549.0,T_006,channel,channel,channel,2,val,1.0,0.7804503440856934,False
+373,channel_9576.0,H-007,channel,channel,channel,2,train,1.0,0.7810339331626892,False
+374,channel_9603.0,Channel 9603.0,channel,channel,channel,2,train,0.9999996423721313,0.7862817645072937,False

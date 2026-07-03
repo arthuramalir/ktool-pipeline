@@ -1,0 +1,17 @@
+{
+  "evaluation_timestamp": "2026-07-02T15:09:36.948382+00:00",
+  "database_flat_view": {
+    "total_entities_visible": 375,
+    "total_relations_visible": 260
+  },
+  "graph_topological_view": {
+    "critical_gatekeeper_nodes": 17,
+    "single_point_failure_links": 20,
+    "latent_unstructured_isolates": 258
+  },
+  "value_proof_metrics": {
+    "blind_spots_uncovered_count": 295,
+    "systemic_leverage_quotient": 78.67,
+    "verdict": "A record-based view misses structural context across a significant portion of the data ecosystem. Graph topology is mathematically required to avoid misallocating investment capital."
+  }
+}

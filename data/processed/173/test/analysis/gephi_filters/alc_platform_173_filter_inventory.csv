@@ -1,0 +1,19 @@
+name,description,nodes,edges,gexf,graphml
+full_graph,Full graph — all 783 edges (declared + semantic + listening + interpretive),375,260,analysis\gephi_filters\alc_platform_173_full_graph.gexf,analysis\gephi_filters\alc_platform_173_full_graph.graphml
+source_data_only,Source-data edges only (540 declared + 71 listening + 50 interpretive) — no semantic edges,375,156,analysis\gephi_filters\alc_platform_173_source_data_only.gexf,analysis\gephi_filters\alc_platform_173_source_data_only.graphml
+semantic_only,Semantic edges only (120 manually-analysed quote-to-quote edges),69,104,analysis\gephi_filters\alc_platform_173_semantic_only.gexf,analysis\gephi_filters\alc_platform_173_semantic_only.graphml
+edge_type_similarity,Only similarity edges (33 edges),51,33,analysis\gephi_filters\alc_platform_173_edge_type_similarity.gexf,analysis\gephi_filters\alc_platform_173_edge_type_similarity.graphml
+edge_type_contradiction,Only contradiction edges (10 edges),19,10,analysis\gephi_filters\alc_platform_173_edge_type_contradiction.gexf,analysis\gephi_filters\alc_platform_173_edge_type_contradiction.graphml
+edge_type_causality,Only causality edges (8 edges),15,8,analysis\gephi_filters\alc_platform_173_edge_type_causality.gexf,analysis\gephi_filters\alc_platform_173_edge_type_causality.graphml
+edge_type_sequence,Only sequence edges (53 edges),61,53,analysis\gephi_filters\alc_platform_173_edge_type_sequence.gexf,analysis\gephi_filters\alc_platform_173_edge_type_sequence.graphml
+largest_component,Largest connected component — 71 nodes (18.9% of graph),71,177,analysis\gephi_filters\alc_platform_173_largest_component.gexf,analysis\gephi_filters\alc_platform_173_largest_component.graphml
+largest_component_source_only,Largest component — source-data edges only (semantic hidden),71,98,analysis\gephi_filters\alc_platform_173_largest_component_source_only.gexf,analysis\gephi_filters\alc_platform_173_largest_component_source_only.graphml
+largest_component_semantic_only,Largest component — qualitative_narrative edges only,71,79,analysis\gephi_filters\alc_platform_173_largest_component_semantic_only.gexf,analysis\gephi_filters\alc_platform_173_largest_component_semantic_only.graphml
+node_type_agent,Subgraph centred on agent nodes (136 agents),136,0,analysis\gephi_filters\alc_platform_173_node_type_agent.gexf,analysis\gephi_filters\alc_platform_173_node_type_agent.graphml
+node_type_project,Subgraph centred on project nodes (101 projects),101,0,analysis\gephi_filters\alc_platform_173_node_type_project.gexf,analysis\gephi_filters\alc_platform_173_node_type_project.graphml
+node_type_information,Subgraph centred on information nodes (72 informations),98,239,analysis\gephi_filters\alc_platform_173_node_type_information.gexf,analysis\gephi_filters\alc_platform_173_node_type_information.graphml
+node_type_channel,Subgraph centred on channel nodes (26 channels),97,135,analysis\gephi_filters\alc_platform_173_node_type_channel.gexf,analysis\gephi_filters\alc_platform_173_node_type_channel.graphml
+node_type_challenge,Subgraph centred on challenge nodes (15 challenges),21,21,analysis\gephi_filters\alc_platform_173_node_type_challenge.gexf,analysis\gephi_filters\alc_platform_173_node_type_challenge.graphml
+node_type_perception,Subgraph centred on perception nodes (6 perceptions),19,21,analysis\gephi_filters\alc_platform_173_node_type_perception.gexf,analysis\gephi_filters\alc_platform_173_node_type_perception.graphml
+agents_via_semantic,Agents connected via semantic edges — shows which agents share narrative framings,205,104,analysis\gephi_filters\alc_platform_173_agents_via_semantic.gexf,analysis\gephi_filters\alc_platform_173_agents_via_semantic.graphml
+information_network,Information (quote) nodes and all their connections — the narrative layer,98,239,analysis\gephi_filters\alc_platform_173_information_network.gexf,analysis\gephi_filters\alc_platform_173_information_network.graphml

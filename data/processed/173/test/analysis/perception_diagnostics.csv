@@ -1,6 +1,6 @@
 perception_id,perception_label,quote_count,n_channels,internal_coherence,contradiction_density,purity_score,source_entropy,status_flag
-408, Aoibhe,36,10,0.7173,0.1818,0.5667,2.9613,Robust
-410,Naomi,12,6,0.7,0.25,0.1227,2.4591,Low purity — quotes closer to other perceptions
+408, Aoibhe,36,10,0.7173,0.1818,0.562,2.9613,Robust
+410,Naomi,12,6,0.7,0.25,0.1125,2.4591,Low purity — quotes closer to other perceptions
 411, John,9,6,0.67,0.4,0.1667,2.4194,High internal contradiction — contested perception; Low purity — quotes closer to other perceptions
 406,Siobhán,8,6,,,0.0,2.4056,Low purity — quotes closer to other perceptions
 409,Mary,3,3,,,0.0,1.585,Low purity — quotes closer to other perceptions
