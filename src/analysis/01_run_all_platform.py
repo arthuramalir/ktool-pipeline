@@ -39,6 +39,7 @@ CORE_SCRIPTS = [
     ("11_gnn_preparation.py", "GNN preparation - features, heterographs, uncertainty-aware confidence"),
     ("12_train_gnn_node_type.py", "GNN node-type benchmark"),
     ("13_train_gnn_link_prediction.py", "GNN link prediction and mapping AI shortlist"),
+    ("14_structural_impact_prediction.py", "Structural impact prediction — issue-driven edge recommendations + narrative impact"),
 ]
 
 PLATFORM_SPECIFIC = {

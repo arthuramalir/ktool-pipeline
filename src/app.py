@@ -276,6 +276,10 @@ structural_hypotheses = load_json(ANALYSIS_DIR / "structural_hypotheses.json")
 financial_bridge = load_csv([ANALYSIS_DIR / "financial_perception_bridge.csv"])
 narrative_budget = load_csv([ANALYSIS_DIR / "narrative_level_budget_crosstab.csv"])
 
+# Structural impact predictions
+impact_candidates = load_csv([ANALYSIS_DIR / "structural_impact_candidates.csv"])
+impact_report = load_json(ANALYSIS_DIR / "structural_impact_report.json")
+
 # Financial (synthetic only)
 leverage_df = load_csv([ANALYSIS_DIR / "synthetic_value_leverage.csv"])
 stranded_df = load_csv([ANALYSIS_DIR / "synthetic_stranded_assets.csv"])
@@ -902,6 +906,69 @@ with tab_gnn:
             impact_view["Overlap"] = impact_view["Overlap"].apply(lambda value: f"{float(value):.2f}" if pd.notna(value) else "—")
             st.dataframe(impact_view.head(3), width='stretch', hide_index=True)
         st.caption("How each new link would change perception dynamics.")
+
+    if not impact_candidates.empty:
+        st.divider()
+        st.markdown("**4. Structural impact predictions**")
+        st.caption("Issue-driven edge recommendations: candidates generated from structural weaknesses, scored by governance value (narrative impact + structural benefit).")
+
+        imp_view = impact_candidates.copy()
+        imp_cols = [c for c in [
+            "source_global_id", "target_global_id", "issue_type",
+            "bridge_type_label", "new_perception_nodes",
+            "new_value_dimensions", "composite_governance_score",
+            "impact_statement",
+        ] if c in imp_view.columns]
+
+        if imp_cols:
+            imp_display = imp_view[imp_cols].head(6).rename(columns={
+                "source_global_id": "From",
+                "target_global_id": "To",
+                "issue_type": "Structural issue",
+                "bridge_type_label": "Narrative impact",
+                "new_perception_nodes": "New pathways",
+                "new_value_dimensions": "Values bridged",
+                "composite_governance_score": "Governance score",
+                "impact_statement": "What this means",
+            })
+
+            issue_colors = {
+                "fragility": "#e74c3c",
+                "isolation": "#e67e22",
+                "kcore_exclusion": "#f39c12",
+                "value_underfunding": "#2ecc71",
+                "narrative_cleavage": "#3498db",
+                "perception_isolation": "#9b59b6",
+            }
+
+            for idx, row in imp_display.iterrows():
+                issue = row.get("Structural issue", "")
+                color = issue_colors.get(issue, "#95a5a6")
+                score = float(row.get("Governance score", 0))
+                pathways = int(row.get("New pathways", 0))
+
+                st.markdown(
+                    f'<div style="border-left: 4px solid {color}; padding: 0.5rem 1rem; margin: 0.5rem 0; '
+                    f'background: rgba(128,128,128,0.05); border-radius: 4px;">'
+                    f'<div style="display: flex; justify-content: space-between; align-items: center;">'
+                    f'<span><strong>{row.get("From", "")}</strong> → <strong>{row.get("To", "")}</strong></span>'
+                    f'<span style="font-size: 0.9rem;"><span style="background: {color}; color: white; padding: 0.1rem 0.5rem; border-radius: 3px;">{issue}</span>'
+                    f' Score: <strong>{score:.3f}</strong> | +{pathways} pathways</span>'
+                    f'</div>'
+                    f'<div style="margin-top: 0.3rem; font-size: 0.9rem; color: #bbb;">{row.get("What this means", "")}</div>'
+                    f'<div style="margin-top: 0.2rem; font-size: 0.85rem; color: #888;">{row.get("Narrative impact", "")}</div>'
+                    f'</div>',
+                    unsafe_allow_html=True,
+                )
+
+        if impact_report:
+            m1, m2, m3 = st.columns(3)
+            summary = impact_report.get("impact_summary", {})
+            m1.metric("Total candidates", int(impact_report.get("total_candidates", 0)))
+            m2.metric("With perception impact", int(impact_report.get("candidates_with_impact", 0)),
+                      help="Candidates that open new perception/narrative pathways")
+            m3.metric("Isolation bridges", summary.get("isolation", {}).get("count", 0),
+                      help="Proposed links that bridge isolated clusters into the main network")
 
     if not link_intervention_scores.empty:
         st.divider()
