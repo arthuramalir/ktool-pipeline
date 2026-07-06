@@ -1,0 +1,8 @@
+value_dimension,n_claims,n_entities,total_investment_eur,mean_investment_eur,mean_financial_bias,entity_labels
+cultural_identity,13,20,17598431.0,703937.24,0.06812399999999999,"['Social Ecosystems for a Fair and Inclusive Transit', 'Inishowen Development Partnership (IDP)', 'Crosscare', 'GP Practices and Primary Care Centres', 'Safefood']"
+collaboration,5,8,10135541.0,1126171.2222222222,0.003944444444444454,"['Community Engagement', 'Rethink Ireland', 'Youth Groups', 'Liquid Therapy', 'Young People']"
+innovation_drive,3,6,6962486.0,1160414.3333333333,0.04505,"['Rethink Ireland', 'Helium Arts', 'Liquid Therapy', 'Young People', 'Breaking Down Barriers to Inclusive Care for LGBTQ']"
+social_justice,7,11,5184094.0,370292.4285714286,-0.11089999999999998,"['Young People', 'Accessible Adventures Ireland', 'School Guidance Counsellors/Chaplins/School Suppor', 'JLOs/ Managers/Support staff in International Prot', 'Sport Ireland ']"
+evidence_based,1,2,813738.0,406869.0,-0.08394999999999998,"['School Guidance Counsellors/Chaplins/School Suppor', 'DEIS Schools']"
+austerity_scarcity,1,2,0.0,0.0,-0.4192,"['Social Ecosystems for a Fair and Inclusive Transit', 'Transition to adulthood pathways']"
+community_autonomy,1,2,0.0,0.0,-0.5079,"['2030 Sustainability Roadmap', 'Green Campus & Sustainability']"
