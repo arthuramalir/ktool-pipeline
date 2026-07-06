@@ -130,11 +130,33 @@ KTool captures listening exercises: workshops, consultations, interviews. Each p
 
 ---
 
-## SLIDE 7 — TAB 4: Story Clusters (Narrative Profiles)
+## SLIDE 7 — TAB 4: AI-Generated Links (Semantic Edges)
 
 **What to say:**
 
-We group related quotes into **story clusters** — sets of quotes that share thematic content. The system finds these automatically by measuring semantic similarity.
+The listening tab gives us raw quotes. But relationships between quotes exist too — similarity, contradiction, causality, sequence.
+
+We find these using semantic NLP. Every quote is converted to a mathematical vector. Pairs that are close in vector space get an AI-inferred edge. This sits right after raw quotes because it shows you the latent connections between what people said.
+
+**Provenance is explicit:**
+Every AI-generated edge carries a label: `is_ai_generated=True`, `edge_origin="ai_inferred"`, `generated_by="[script name]"`. Source edges carry no such label. You can always tell them apart.
+
+**Show on dashboard:**
+- "498 AI-inferred edges vs 156 source edges. The AI more than doubles the link count."
+- Semantic type bar chart: "Most AI edges are 'similarity'. Some are 'contradiction' — those are the interesting ones."
+- Filter by type: "Show only contradictions. These are places where the ecosystem disagrees with itself."
+- Browse the table: "Each row shows source, target, semantic type, inference method, and the AI's explanation."
+
+**Why this matters:**
+"This tab makes the AI's work visible. You can inspect every edge, check its reasoning, and decide whether you trust it. Nothing is hidden behind a black box."
+
+---
+
+## SLIDE 8 — TAB 5: Story Clusters (Narrative Profiles)
+
+**What to say:**
+
+With AI links in place, we can now group semantically related quotes into **story clusters** — sets of quotes that share thematic content.
 
 **Two kinds of profiles:**
 1. **Auto-detected:** Algorithm finds clusters in the quote text. [N] clusters found from [M] quotes.
@@ -153,11 +175,13 @@ We group related quotes into **story clusters** — sets of quotes that share th
 
 ---
 
-## SLIDE 8 — TAB 5: Perceptions (How People Think)
+## SLIDE 9 — TAB 6: Perceptions (How People Think)
 
 **What to say:**
 
-KTool captures structured perceptions — how specific actors frame specific challenges. The perception diagnostics tab asks: **how solid are these perceptions?**
+With story clusters identifying narrative themes, the perceptions tab asks: **how solid are these perceptions?**
+
+KTool captures structured perceptions — how specific actors frame specific challenges. The perception diagnostics tab measures robustness.
 
 **Four metrics:**
 
@@ -182,7 +206,7 @@ KTool captures structured perceptions — how specific actors frame specific cha
 
 ---
 
-## SLIDE 9 — TAB 6: Claims (Structured Narrative Extraction)
+## SLIDE 10 — TAB 7: Claims (Structured Narrative Extraction)
 
 **What to say:**
 
@@ -209,28 +233,6 @@ Claims are linked back to graph nodes. If a claim mentions "HSE", the pipeline f
 
 **Why this matters:**
 "This is the layer that turns unstructured text into testable hypotheses. Each claim is traceable back to the original source text. Nothing is invented — it is extracted, classified, and linked."
-
----
-
-## SLIDE 10 — TAB 7: AI-Generated Links (Semantic Edges)
-
-**What to say:**
-
-The listening data gives us quotes. The claims tab extracts structure from individual quotes. But relationships between quotes exist too — similarity, contradiction, causality, sequence.
-
-We find these using semantic NLP. Every quote is converted to a mathematical vector. Pairs that are close in vector space get an AI-inferred edge.
-
-**Provenance is explicit:**
-Every AI-generated edge carries a label: `is_ai_generated=True`, `edge_origin="ai_inferred"`, `generated_by="[script name]"`. Source edges carry no such label. You can always tell them apart.
-
-**Show on dashboard:**
-- "498 AI-inferred edges vs 156 source edges. The AI more than doubles the link count."
-- Semantic type bar chart: "Most AI edges are 'similarity'. Some are 'contradiction' — those are the interesting ones."
-- Filter by type: "Show only contradictions. These are places where the ecosystem disagrees with itself."
-- Browse the table: "Each row shows source, target, semantic type, inference method, and the AI's explanation."
-
-**Why this matters:**
-"This tab makes the AI's work visible. You can inspect every edge, check its reasoning, and decide whether you trust it. Nothing is hidden behind a black box."
 
 ---
 

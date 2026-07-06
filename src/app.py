@@ -330,10 +330,10 @@ tab_labels = [
     "Network Layers",
     "Health Check",
     "Listening",
+    "AI-Generated Links",
     "Story Clusters",
     "Perceptions",
     "Claims",
-    "AI-Generated Links",
     "What-If Simulator",
     "Structural Change",
 ]
@@ -345,10 +345,10 @@ tab_overview = tabs[0]
 tab_layer = tabs[1]
 tab_alerts = tabs[2]
 tab_narrative = tabs[3]
-tab_profiles = tabs[4]
-tab_perception = tabs[5]
-tab_claims = tabs[6]
-tab_ai_semantic = tabs[7]
+tab_ai_semantic = tabs[4]
+tab_profiles = tabs[5]
+tab_perception = tabs[6]
+tab_claims = tabs[7]
 tab_gnn = tabs[8]
 tab_structural = tabs[9]
 tab_financial = tabs[10] if is_synthetic and len(tabs) > 10 else None
@@ -546,7 +546,7 @@ with tab_narrative:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 4 — Story Clusters
+# TAB 5 — Story Clusters
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_profiles:
     st.subheader("Story clusters from listening data")
@@ -694,7 +694,7 @@ with tab_profiles:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 5 — Perceptions
+# TAB 6 — Perceptions
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_perception:
     st.subheader("Perception health check")
@@ -834,7 +834,7 @@ with tab_perception:
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 8 — What-If Simulator (GNN)
+# TAB 8 — What-If Simulator
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_gnn:
     st.subheader("What-if: adding new links")
@@ -1084,7 +1084,7 @@ with tab_layer:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 7 — AI-Generated Links (unchanged index, moved to align with pipeline)
+# TAB 4 — AI-Generated Links
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_ai_semantic:
     st.subheader("AI-generated links")
@@ -1643,7 +1643,7 @@ with tab_structural:
 # CLAIMS TAB
 # ═══════════════════════════════════════════════════════════════════════════════
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 6 — Claims
+# TAB 7 — Claims
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_claims:
     st.header("Narrative Claims")
