@@ -339,7 +339,7 @@ tab_labels = [
     "Story Clusters",
     "Perceptions",
     "Claims",
-    "What-If Simulator",
+    "GNN Predictions",
     "Structural Change",
 ]
 if is_synthetic:
@@ -839,7 +839,7 @@ with tab_perception:
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 8 — What-If Simulator
+# TAB 8 — GNN Predictions
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_gnn:
     st.subheader("What-if: adding new links")
