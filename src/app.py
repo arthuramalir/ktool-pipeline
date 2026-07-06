@@ -225,28 +225,16 @@ def network_figure(nodes: pd.DataFrame, edges: pd.DataFrame, max_nodes: int = 12
 ROOT = Path(__file__).resolve().parents[1]
 
 with st.sidebar:
-    st.markdown("### 🔬 Data Source")
-    platform_id = st.text_input("Platform ID", value="173", help="Which platform's data to load").strip() or "173"
-    output_subdir = st.text_input("Output folder", value="test", help="Pipeline output subdirectory").strip() or "test"
-    st.caption(f"📁 `data/processed/{platform_id}/{output_subdir}`")
+    st.markdown("## Settings")
+    platform_id = st.text_input("Platform ID", value="173").strip() or "173"
+    output_subdir = st.text_input("Output folder", value="test").strip() or "test"
+    st.caption(f"`data/processed/{platform_id}/{output_subdir}`")
+    st.divider()
     is_synthetic = "synthetic" in platform_id.lower()
     if is_synthetic:
-        st.success("💰 Synthetic budget data available")
+        st.success("Synthetic data — Budget tab active")
     else:
-        st.info("ℹ️ Switch to `173_synthetic` for Budget & Finance tab")
-
-    st.divider()
-    st.markdown("### 👁️ Data View")
-    provenance_filter = st.radio(
-        "Show data:",
-        ["All data", "Source data only"],
-        help="'Source data only' hides all AI-inferred nodes, edges, and claims. Toggle to verify what is original vs AI-generated.",
-    )
-    show_all = provenance_filter == "All data"
-
-    st.divider()
-    st.markdown("### 📊 Current Platform")
-    # These will be populated after data load
+        st.info("Switch to `173_synthetic` for the Budget & Finance tab")
 
 DATA_DIR = ROOT / "data" / "processed" / platform_id / output_subdir
 ANALYTICS_DIR = DATA_DIR / "analytics"
@@ -294,132 +282,43 @@ stranded_df = load_csv([ANALYSIS_DIR / "synthetic_stranded_assets.csv"])
 fin_diffusion_df = load_csv([ANALYSIS_DIR / "synthetic_financial_diffusion.csv"])
 fin_summary = load_json(ANALYSIS_DIR / "synthetic_financial_summary.json")
 
-# ── Provenance filter ────────────────────────────────────────────────────────
-n_ai_nodes = n_ai_edges = 0
-if not show_all:
-    if "is_ai_generated" in edges.columns:
-        n_ai_edges = int(edges["is_ai_generated"].apply(normalize_bool).sum())
-        edges = edges[~edges["is_ai_generated"].apply(normalize_bool)].copy()
-    if "edge_origin" in edges.columns:
-        edges = edges[~edges["edge_origin"].astype(str).str.lower().str.contains("ai|inferred", na=False)].copy()
-    if "is_ai_generated" in nodes.columns:
-        n_ai_nodes = int(nodes["is_ai_generated"].apply(normalize_bool).sum())
-        nodes = nodes[~nodes["is_ai_generated"].apply(normalize_bool)].copy()
-    claim_nodes = pd.DataFrame()
-    claim_edges = pd.DataFrame()
-    structural_hypotheses = {}
-    gnn_link_recommendations = pd.DataFrame()
-    gnn_perception_effects = pd.DataFrame()
-    link_intervention_scores = pd.DataFrame()
-    link_intervention_summary = {}
-    gnn_summary = {}
-    gnn_training_report = {}
-    gnn_link_report = {}
-    financial_bridge = pd.DataFrame()
-    narrative_budget = pd.DataFrame()
-    leverage_df = pd.DataFrame()
-    stranded_df = pd.DataFrame()
-    fin_diffusion_df = pd.DataFrame()
-    fin_summary = {}
-
 if nodes.empty or edges.empty:
     st.error("Nodes/edges not found. Run the graph pipeline first for this platform.")
     st.stop()
 
-# Compute confidence text here since it's used in both sidebar and header
-quality_gate = quality_gate or {}
-failed_checks = int(quality_gate.get("failed_checks", 0)) if quality_gate else 0
-confidence_text, _ = confidence_label(failed_checks)
-
-# ── Sidebar: current platform stats (after data is loaded) ───────────────────
-with st.sidebar:
-    scope_stats = readiness.get("graph_scope_summary", {}) if readiness else {}
-    total_nodes = int(scope_stats.get("node_count", len(nodes)))
-    total_edges = int(scope_stats.get("edge_count", len(edges)))
-    st.markdown(f"**Nodes:** {total_nodes:,}")
-    st.markdown(f"**Edges:** {total_edges:,}")
-    st.markdown(f"**Data confidence:** {confidence_text}")
-    if show_all:
-        st.caption("Showing all data including AI-inferred")
-    else:
-        st.caption(f"Source data only ({n_ai_nodes} AI nodes, {n_ai_edges} AI edges hidden)")
-
 # ─────────────────────────────────────────────────────────────────────────────
-# HEADER — Verdict Banner
+# HEADER
 # ─────────────────────────────────────────────────────────────────────────────
 st.title("ALC K-Tool: Ecosystem Dashboard")
 st.caption(
-    f"Platform **{platform_id}** · {len(nodes):,} items · {len(edges):,} links"
+    f"Platform **{platform_id}** · folder **{output_subdir}** · "
+    f"{len(nodes):,} items · {len(edges):,} links"
 )
 
-# Compute verdict from structural change scores
-sc_scores = structural_change.get("change_readiness_scores", {}) if structural_change else {}
-overall = sc_scores.get("overall_readiness", 0.0)
-blockage = sc_scores.get("blockage_score", 0.0)
-lockin = sc_scores.get("lockin_score", 0.0)
-leverage = sc_scores.get("leverage_score", 0.0)
-plasticity = sc_scores.get("plasticity_score", 0.0)
+# ─────────────────────────────────────────────────────────────────────────────
+# TOPLINE METRICS
+# ─────────────────────────────────────────────────────────────────────────────
+scope = readiness.get("graph_scope_summary", {})
+topology = structural.get("topology_metrics", {})
+failed_checks = int(quality_gate.get("failed_checks", 0)) if quality_gate else 0
+confidence_text, confidence_level = confidence_label(failed_checks)
 
-if blockage > 0.6:
-    verdict = "FRAGMENTED"
-    verdict_icon = "🔴"
-    verdict_detail = "Many structural barriers — change cannot propagate without new bridges."
-elif lockin > 0.6:
-    verdict = "LOCKED-IN"
-    verdict_icon = "🔴"
-    verdict_detail = "A dense core controls resources and framing. Change must start at the periphery."
-elif overall > 0.6:
-    verdict = "OPEN TO CHANGE"
-    verdict_icon = "🟢"
-    verdict_detail = "The topology is flexible — targeted link addition and brokerage strengthening can enable change."
-elif overall > 0.4:
-    verdict = "MODERATELY FRAGILE"
-    verdict_icon = "🟡"
-    verdict_detail = "Partial blockages exist but the system is not locked in. Priority: build bridges between isolated components."
+c1, c2, c3, c4, c5, c6 = st.columns(6)
+c1.metric("Items", f"{int(scope.get('node_count', len(nodes.index))):,}")
+c2.metric("Links", f"{int(scope.get('edge_count', len(edges.index))):,}")
+c3.metric("Clusters", int(scope.get("component_count", topology.get("connected_components_count", 0))))
+c4.metric("Orphans", int(topology.get("total_isolated_nodes", 0)))
+c5.metric("Data confidence", confidence_text)
+if not perception_diag.empty:
+    robust_count = (perception_diag["status_flag"] == "Robust").sum()
+    c6.metric("Solid perceptions", f"{robust_count}/{len(perception_diag)}")
+
+if confidence_level == "error":
+    st.error(f"Low confidence ({failed_checks} checks failed)")
+elif confidence_level == "warning":
+    st.warning(f"Medium confidence ({failed_checks} checks failed)")
 else:
-    verdict = "LOW READINESS"
-    verdict_icon = "🟠"
-    verdict_detail = "The system faces significant structural barriers. Requires sequenced intervention — reduce blockages first, then build leverage."
-
-st.markdown(
-    f"<div style='padding:1rem 1.5rem;border-radius:8px;background:"
-    f"{'#f8d7da' if '🔴' in verdict_icon else '#fff3cd' if '🟡' in verdict_icon or '🟠' in verdict_icon else '#d4edda'}"
-    f";border-left:5px solid "
-    f"{'#dc3545' if '🔴' in verdict_icon else '#ffc107' if '🟡' in verdict_icon or '🟠' in verdict_icon else '#28a745'}"
-    f";margin-bottom:1rem;'>"
-    f"<strong style='font-size:1.2rem;'>{verdict_icon} SYSTEM STATUS: {verdict}</strong><br>"
-    f"<span style='color:#555;'>{verdict_detail}</span>"
-    f"</div>",
-    unsafe_allow_html=True,
-)
-
-# Three indicator cards + operational stats
-scope = readiness.get("graph_scope_summary", {}) if readiness else {}
-topology = structural.get("topology_metrics", {}) if structural else {}
-
-ind1, ind2, ind3 = st.columns(3)
-with ind1:
-    gap = structural_change.get("path_dependency", {}).get("robustness_gap_targeted_vs_random", 0) if structural_change else 0
-    gap_label = "Low" if abs(gap) < 0.1 else "Medium" if abs(gap) < 0.2 else "High"
-    gap_color = "🟢" if abs(gap) < 0.1 else "🟡" if abs(gap) < 0.2 else "🔴"
-    st.metric("Fragility", f"{gap_color} {gap_label}", help=f"Robustness gap: {gap:.3f}. Higher = system depends on few irreplaceable nodes.")
-
-with ind2:
-    lockin_label = "Low" if lockin < 0.3 else "Medium" if lockin < 0.6 else "High"
-    lockin_color = "🟢" if lockin < 0.3 else "🟡" if lockin < 0.6 else "🔴"
-    st.metric("Lock-in", f"{lockin_color} {lockin_label}", help=f"Lock-in score: {lockin:.2f}. Higher = a dense core blocks reconfiguration.")
-
-with ind3:
-    blockage_n = structural_change.get("blockages", {}).get("n_fragile_connectors", 0) if structural_change else 0
-    blocked_p = structural_change.get("blockages", {}).get("n_blocked_perceptions", 0) if structural_change else 0
-    st.metric("Blockages", f"🔴 {blockage_n} fragile, {blocked_p} siloed", help="Fragile connectors (articulation points) + perceptions with no information path.")
-
-st.caption(
-    f"📊 {int(scope.get('node_count', len(nodes))):,} items · {int(scope.get('edge_count', len(edges))):,} links · "
-    f"{int(scope.get('component_count', topology.get('connected_components_count', 0)))} clusters · "
-    f"{int(topology.get('total_isolated_nodes', 0))} orphans · "
-    f"Confidence: {confidence_text}"
-)
+    st.success(f"High confidence ({failed_checks} checks failed)")
 
 st.divider()
 
@@ -460,18 +359,6 @@ tab_financial = tabs[10] if is_synthetic and len(tabs) > 10 else None
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_overview:
     st.subheader("The network at a glance")
-
-    # Metrics row
-    n_types = nodes["node_type"].nunique() if "node_type" in nodes.columns else 0
-    giant_share = structural_change.get("graph_summary", {}).get("giant_component_share", 0) if structural_change else 0
-    n_components = int(scope.get("component_count", topology.get("connected_components_count", 0)))
-    ov1, ov2, ov3, ov4 = st.columns(4)
-    ov1.metric("Item types", f"{n_types}", help="Distinct node types in the graph (agent, project, perception, etc.)")
-    ov2.metric("Total items", f"{len(nodes):,}")
-    ov3.metric("Total links", f"{len(edges):,}")
-    ov4.metric("Giant component", f"{giant_share:.0%}", help="Share of nodes in the largest connected cluster. Higher = more integrated.")
-    st.caption(f"{n_components} components · {int(topology.get('total_isolated_nodes', 0))} orphans · data confidence: {confidence_text}")
-    st.divider()
 
     left, right = st.columns([0.38, 0.62])
     with left:
@@ -600,18 +487,6 @@ with tab_alerts:
 with tab_narrative:
     st.subheader("What people are saying")
 
-    n_quotes = len(listening) if not listening.empty else 0
-    n_channels = listening["channel_display"].nunique() if not listening.empty and "channel_display" in listening.columns else 0
-    top_channel = listening["channel_display"].value_counts().index[0] if not listening.empty and "channel_display" in listening.columns else "—"
-    n_values = listening["value_names"].dropna().str.split(";").explode().nunique() if not listening.empty and "value_names" in listening.columns else 0
-    nar1, nar2, nar3, nar4 = st.columns(4)
-    nar1.metric("Quotes", f"{n_quotes:,}")
-    nar2.metric("Channels", n_channels, help=f"Most active: {top_channel}")
-    nar3.metric("Values referenced", n_values, help="Distinct value categories mentioned across quotes")
-    nar4.metric("Data confidence", confidence_text)
-    st.caption(f"Top channel: {top_channel}")
-    st.divider()
-
     c1, c2 = st.columns([0.48, 0.52])
     with c1:
         if not listening.empty:
@@ -675,16 +550,6 @@ with tab_narrative:
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_profiles:
     st.subheader("Story clusters from listening data")
-
-    n_clusters = len(narrative_profiles) if not narrative_profiles.empty else 0
-    total_quotes_in_clusters = int(narrative_profiles["quote_count"].sum()) if not narrative_profiles.empty else 0
-    n_manual = len(manual_profiles) if isinstance(manual_profiles, list) else 0
-    st1, st2, st3, st4 = st.columns(4)
-    st1.metric("Auto-detected clusters", n_clusters)
-    st2.metric("Quotes clustered", total_quotes_in_clusters)
-    st3.metric("Manual profiles", n_manual, help="Expert-curated three-layer story profiles")
-    st4.metric("Topics per cluster (avg)", f"{total_quotes_in_clusters // max(n_clusters, 1):.0f}" if n_clusters else "—")
-    st.divider()
 
     st.markdown(
         "Each **story cluster** groups related quotes together. The system finds these automatically "
@@ -974,11 +839,7 @@ with tab_perception:
 with tab_gnn:
     st.subheader("What-if: adding new links")
     st.caption("Simulates what happens if we connect items that aren't linked yet.")
-
-    if not show_all:
-        st.info("👁️ Switch to 'All data' in the sidebar to see GNN predictions and link simulations.")
-    else:
-        st.info("Note: deeper semantic analysis of what these links would mean can be done, but hasn't been run yet. These results are structural only.")
+    st.info("Note: deeper semantic analysis of what these links would mean can be done, but hasn't been run yet. These results are structural only.")
 
     if not gnn_link_recommendations.empty:
         st.markdown("**1. Top suggested links**")
@@ -1089,16 +950,6 @@ with tab_gnn:
             "```\npython src/analysis/11_gnn_preparation.py\n```"
         )
     else:
-        n_recs = len(gnn_link_recommendations) if not gnn_link_recommendations.empty else 0
-        n_merging = int(link_intervention_summary.get("n_merging_components", 0)) if link_intervention_summary else 0
-        best_auc = gnn_link_report.get("best_validation_auc", gnn_link_report.get("metrics", {}).get("validation", {}).get("auc", 0)) if gnn_link_report else 0
-        g1, g2, g3, g4 = st.columns(4)
-        g1.metric("Link predictions", n_recs, help="Recommended new connections from the GNN")
-        g2.metric("Merge components", n_merging, help="Predicted links that would connect separate clusters")
-        g3.metric("Best validation AUC", f"{float(best_auc):.0%}" if best_auc else "—", help="Model accuracy on held-out data")
-        g4.metric("Graph size", f"{int(gnn_summary.get('node_count', 0)):,} nodes")
-        st.divider()
-
         m1, m2, m3, m4 = st.columns(4)
         m1.metric("Nodes", f"{int(gnn_summary.get('node_count', 0)):,}")
         m2.metric("Edges", f"{int(gnn_summary.get('edge_count', 0)):,}")
@@ -1171,17 +1022,6 @@ with tab_gnn:
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_layer:
     st.subheader("What each link type adds")
-
-    n_declared = len(edges[edges["edge_family"].astype(str).str.contains("declared", na=False)]) if "edge_family" in edges.columns else 0
-    n_interpretive = len(edges[edges["edge_family"].astype(str).str.contains("interpretive|quote_semantic", na=False)]) if "edge_family" in edges.columns else 0
-    n_listening = len(edges[edges["edge_family"].astype(str).str.contains("listening", na=False)]) if "edge_family" in edges.columns else 0
-    n_narrative = len(edges[edges["edge_family"].astype(str).str.contains("narrative", na=False)]) if "edge_family" in edges.columns else 0
-    l1, l2, l3, l4 = st.columns(4)
-    l1.metric("Declared links", n_declared, help="Agent↔project, project↔perception — from source data")
-    l2.metric("Listening links", n_listening, help="Channel→information→value evidence chain")
-    l3.metric("AI-inferred links", n_interpretive, help="Quote-to-quote semantic relationships")
-    l4.metric("Narrative links", n_narrative, help="Perception↔challenge, pattern↔perception")
-    st.divider()
 
     layer_metrics = readiness.get("layer_family_analysis", {})
     if layer_metrics:
@@ -1808,26 +1648,37 @@ with tab_structural:
 with tab_claims:
     st.header("Narrative Claims")
 
-    if not show_all:
-        st.info("👁️ Claims are AI-generated. Switch to 'All data' in the sidebar to view.")
-        st.stop()
+    st.markdown(
+        """
+        Claims are extracted from narrative text via hyperbase semantic hypergraph parsing.
+        Each claim is structured as a **subject→verb→object** triple with entity linking to
+        operational graph nodes (agents, projects). Claims span three narrative levels:
+        **surface** (explicit), **implicit** (inferred via negation/conditional/emergency cues),
+        and **metanarrative** (value dimension classification across 7 political domains).
+        """
+    )
 
-    n_claims = len(claim_nodes) if not claim_nodes.empty else 0
-    n_surface = int((claim_nodes["narrative_level"] == "surface").sum()) if not claim_nodes.empty and "narrative_level" in claim_nodes.columns else 0
-    n_implicit = int((claim_nodes["narrative_level"] == "implicit").sum()) if not claim_nodes.empty and "narrative_level" in claim_nodes.columns else 0
-    n_linked = int(claim_nodes["subject_entity_id"].astype(str).str.strip().ne("").sum()) if not claim_nodes.empty and "subject_entity_id" in claim_nodes.columns else 0
-    n_vdims = claim_nodes["value_dimension"].nunique() if not claim_nodes.empty and "value_dimension" in claim_nodes.columns else 0
-    c1, c2, c3, c4 = st.columns(4)
-    c1.metric("Total Claims", n_claims, help="Extracted Subject→Verb→Object triples from narrative text")
-    c2.metric("Surface / Implicit", f"{n_surface} / {n_implicit}", help="Surface = explicit statements. Implicit = inferred assumptions.")
-    c3.metric("Value dimensions", n_vdims, help="Distinct political value categories detected")
-    c4.metric("Entity linking rate", f"{n_linked / max(n_claims, 1):.0%}" if n_claims else "—", help="Share of claims linked to graph entities")
-    st.caption("All claims are AI-generated with provenance labels. Traceable back to source text.")
-    st.divider()
-
+    claim_nodes_path = ANALYSIS_DIR / "narrative_layers" / "claim_nodes.csv"
+    claim_edges_path = ANALYSIS_DIR / "narrative_layers" / "claim_edges.csv"
     meta_path = ANALYSIS_DIR / "narrative_layers" / "metanarratives.csv"
     summary_path = ANALYSIS_DIR / "narrative_layers" / "narrative_extraction_summary.json"
+
+    claim_nodes = load_csv([claim_nodes_path])
+    claim_edges = load_csv([claim_edges_path])
     meta_df = load_csv([meta_path])
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric("Total Claims", len(claim_nodes) if not claim_nodes.empty else 0)
+    with col2:
+        surface_n = int((claim_nodes["narrative_level"] == "surface").sum()) if not claim_nodes.empty else 0
+        st.metric("Surface", surface_n)
+    with col3:
+        implicit_n = int((claim_nodes["narrative_level"] == "implicit").sum()) if not claim_nodes.empty else 0
+        st.metric("Implicit", implicit_n)
+    with col4:
+        linked_n = int(claim_nodes["subject_entity_id"].astype(str).str.strip().ne("").sum()) if not claim_nodes.empty else 0
+        st.metric("Entity-Linked", linked_n)
 
     if not claim_nodes.empty:
         st.subheader("Value Dimensions")
