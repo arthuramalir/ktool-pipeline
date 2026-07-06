@@ -465,6 +465,181 @@ def main() -> None:
                     p["linked_edge_rationale"] = f"GNN suggests linking {sl} ↔ {tl} (p={prob:.3f}) but {reg.get(nid, {}).get('label', nid)} has no narrative neighbors — a node addition would create a narrative footprint for this structural intervention."
                     all_node_proposals.append(p)
 
+    # ── Node invention: GNN invents a new node for the mapping layer ──
+    print("\n" + "=" * 70)
+    print("GNN INVENTS A NODE: SYNTHESIS FROM STRUCTURAL + SEMANTIC GAPS")
+    print("=" * 70)
+
+    emb_path = ANALYSIS_DIR / "node_semantic_embeddings.parquet"
+    emb_df = None
+    emb_vectors = None
+    emb_index = None
+    if emb_path.exists():
+        emb_df = pd.read_parquet(emb_path)
+        # Build normalized embedding matrix
+        emb_mat = np.stack(emb_df["embedding"].values)
+        emb_mat = emb_mat / (np.linalg.norm(emb_mat, axis=1, keepdims=True) + 1e-8)
+        emb_vectors = {gid: emb_mat[i] for i, gid in enumerate(emb_df["global_id"].values)}
+        emb_index = list(emb_vectors.keys())
+        emb_stack = np.array([emb_vectors[gid] for gid in emb_index])
+        print(f"  Embeddings loaded: {len(emb_index)} nodes (dim={emb_mat.shape[1]})")
+    else:
+        print("  No embeddings found — skipping node invention.")
+
+    invented_nodes: list[dict] = []
+
+    # For each edge candidate that is structural_only, check if both endpoints have embeddings
+    for ec in all_edge_candidates:
+        if ec["bridge_type"] != "structural_only":
+            continue
+        src, tgt = ec["source_global_id"], ec["target_global_id"]
+        if emb_vectors is None or src not in emb_vectors or tgt not in emb_vectors:
+            print(f"\n  Skipping {ec['source_label']} ↔ {ec['target_label']}: missing embeddings")
+            continue
+
+        sl, tl = ec["source_label"], ec["target_label"]
+        st, tt = ec["source_node_type"], ec["target_node_type"]
+        prob = ec["link_probability"]
+
+        # --- Step 1: Invented node position (semantic centroid of src and tgt) ---
+        src_vec = emb_vectors[src]
+        tgt_vec = emb_vectors[tgt]
+        inv_pos = (src_vec + tgt_vec) / 2.0
+        inv_pos = inv_pos / (np.linalg.norm(inv_pos) + 1e-8)
+
+        # --- Step 2: Find k-nearest existing nodes to the invented position ---
+        k_nearest = 8
+        sims = emb_stack @ inv_pos  # cosine similarities
+        nearest_order = np.argsort(sims)[::-1]
+        nearest_nodes: list[tuple[str, float, str]] = []
+        for idx in nearest_order:
+            nid = emb_index[idx]
+            if nid in (src, tgt):
+                continue
+            nt = reg.get(nid, {}).get("node_type", "unknown")
+            nearest_nodes.append((nid, float(sims[idx]), nt))
+            if len(nearest_nodes) >= k_nearest:
+                break
+
+        # --- Step 3: Predict node type (weighted mode of nearest neighbors) ---
+        type_votes: dict[str, float] = {}
+        for nid, sim, nt in nearest_nodes:
+            type_votes[nt] = type_votes.get(nt, 0.0) + sim
+        predicted_type = max(type_votes, key=type_votes.get) if type_votes else "project"
+        type_confidence = type_votes.get(predicted_type, 0.0) / max(1.0, sum(type_votes.values()))
+
+        # --- Step 4: Predict edges (propose edges to nearest nodes with sim > threshold) ---
+        edge_threshold = 0.5
+        predicted_edges = [(nid, sim) for nid, sim, _ in nearest_nodes if sim >= edge_threshold]
+        # Always include src and tgt even if threshold misses them
+        src_sim = float(emb_vectors[src] @ inv_pos)
+        tgt_sim = float(emb_vectors[tgt] @ inv_pos)
+        if src_sim >= edge_threshold and (src, src_sim) not in predicted_edges:
+            predicted_edges.insert(0, (src, src_sim))
+        if tgt_sim >= edge_threshold and (tgt, tgt_sim) not in predicted_edges:
+            predicted_edges.insert(0, (tgt, tgt_sim))
+        predicted_edges = predicted_edges[:6]  # cap at 6 edges
+
+        # --- Step 5: Predict narrative profile ---
+        vd_scores: dict[str, float] = {}
+        for nid, sim, _ in nearest_nodes:
+            reached_n, vds_n, _ = bfs_narrative(G, nid, reg)
+            for claim_id, vd_val in vds_n.items():
+                if vd_val and vd_val != "nan":
+                    vd_scores[vd_val] = vd_scores.get(vd_val, 0.0) + sim
+        total_vd = sum(vd_scores.values())
+        if total_vd > 0:
+            vd_profile = {vd: round(cnt / total_vd, 3) for vd, cnt in sorted(vd_scores.items(), key=lambda x: -x[1])}
+        else:
+            vd_profile = {}
+
+        # Generate a descriptive label for the invented node
+        src_label_short = sl[:20]
+        tgt_label_short = tl[:20]
+        invented_label = f"{src_label_short}–{tgt_label_short} Bridge"
+
+        # --- Step 6: Counterfactual simulation ---
+        # Create a temporary graph with the invented node + its predicted edges
+        G_invent = G.copy()
+        inv_gid = f"invented_{predicted_type}_{len(invented_nodes)}"
+        # Add the invented node
+        inv_attrs = {
+            "node_type": predicted_type,
+            "label": invented_label,
+            "value_dimension": "",
+            "narrative_level": "",
+            "verb": "",
+            "description": f"Invented {predicted_type} bridging {sl} and {tl}",
+        }
+        G_invent.add_node(inv_gid, **inv_attrs)
+        reg[inv_gid] = inv_attrs
+        for edge_nid, edge_sim in predicted_edges:
+            G_invent.add_edge(inv_gid, edge_nid, weight=edge_sim, edge_origin="invented")
+
+        # Compute new pathways: BFS from invented node
+        inv_reached, inv_vds, _ = bfs_narrative(G_invent, inv_gid, reg)
+        new_narrative_nodes = len(inv_reached)
+
+        # Compute which components the invented node merges
+        edge_components = set()
+        if not comp.empty:
+            for edge_nid, _ in predicted_edges:
+                c = comp_map.get(edge_nid, "isolated")
+                edge_components.add(c)
+        merges_count = len(edge_components) - 1 if len(edge_components) > 1 else 0
+
+        # Value dimensions in the new node's reach
+        vd_inv_set = set(inv_vds.values()) if inv_vds else set()
+        vd_inv_set = {v for v in vd_inv_set if v and v != "nan"}
+        inv_vd_str = format_vd_set(vd_inv_set)
+
+        # --- Step 7: Score ---
+        merge_bonus = min(1.0, merges_count * 0.3)
+        pathway_score = min(1.0, new_narrative_nodes / 30.0)
+        vd_score = min(1.0, len(vd_inv_set) / 5.0)
+        type_conf_score = type_confidence
+        composite = pathway_score * 0.30 + vd_score * 0.25 + merge_bonus * 0.25 + type_conf_score * 0.20
+
+        invent_record = {
+            "recommendation_source": "gnn_node_invention",
+            "intervention_type": "node_invention",
+            "invented_global_id": inv_gid,
+            "invented_label": invented_label,
+            "invented_node_type": predicted_type,
+            "type_confidence": round(type_confidence, 3),
+            "invented_from_src": src,
+            "invented_from_tgt": tgt,
+            "invented_from_src_label": sl,
+            "invented_from_tgt_label": tl,
+            "src_node_type": st,
+            "tgt_node_type": tt,
+            "original_link_probability": prob,
+            "predicted_edges": ";".join(f"{e[0]}({e[1]:.2f})" for e in predicted_edges),
+            "nearest_nodes": ";".join(f"{n[0]}({n[1]:.2f})" for n in nearest_nodes),
+            "predicted_narrative_profile": ";".join(f"{VALUE_LABELS.get(vd, vd)}:{w}" for vd, w in vd_profile.items()),
+            "new_narrative_pathways": new_narrative_nodes,
+            "components_merged": merges_count,
+            "new_value_dimensions": inv_vd_str,
+            "narrative_score": round(pathway_score, 3),
+            "composite_governance_score": round(composite, 3),
+        }
+        invented_nodes.append(invent_record)
+
+        print(f"\n  INVENTED: {invented_label} ({predicted_type})")
+        print(f"    Position: between '{sl}' and '{tl}' (p={prob:.3f})")
+        print(f"    Predicted type: {predicted_type} (confidence: {type_confidence:.1%})")
+        edge_labels = []
+        for e in predicted_edges[:4]:
+            en = reg.get(e[0], {}).get("label", e[0])[:20]
+            edge_labels.append(f"{en}({e[1]:.2f})")
+        print(f"    Predicted edges: {len(predicted_edges)} ({', '.join(edge_labels)})")
+        print(f"    Narrative profile: {', '.join(f'{VALUE_LABELS.get(vd, vd)} {w:.0%}' for vd, w in vd_profile.items())}")
+        print(f"    New pathways: {new_narrative_nodes} | Merges {merges_count} components | VDs: {inv_vd_str}")
+        print(f"    Score: {composite:.4f}")
+
+    if not invented_nodes:
+        print("\n  No node inventions generated.")
+
     # ── Detect narrative gaps ──
     print("\n" + "=" * 70)
     print("DETECTING NARRATIVE GAPS")
@@ -570,6 +745,7 @@ def main() -> None:
 
     edge_df = pd.DataFrame(all_edge_candidates)
     node_df = pd.DataFrame(all_node_proposals) if all_node_proposals else pd.DataFrame()
+    invent_df = pd.DataFrame(invented_nodes) if invented_nodes else pd.DataFrame()
 
     if not edge_df.empty:
         edge_df = edge_df.sort_values("composite_governance_score", ascending=False)
@@ -579,6 +755,10 @@ def main() -> None:
     if not node_df.empty:
         node_path = write_frame(node_df, "narrative_impact_node_proposals.csv")
         print(f"  Node proposals: {len(node_df)} → {node_path}")
+
+    if not invent_df.empty:
+        invent_path = write_frame(invent_df, "narrative_impact_invented_nodes.csv")
+        print(f"  Invented nodes: {len(invent_df)} → {invent_path}")
 
     # ── Report ──
     top_edges = []
@@ -607,6 +787,22 @@ def main() -> None:
             "rationale": row.get("rationale", ""),
         })
 
+    top_invented = []
+    for _, row in invent_df.head(5).iterrows() if not invent_df.empty else []:
+        top_invented.append({
+            "intervention_type": "node_invention",
+            "invented_label": row.get("invented_label", ""),
+            "invented_node_type": row.get("invented_node_type", ""),
+            "invented_from_src_label": row.get("invented_from_src_label", ""),
+            "invented_from_tgt_label": row.get("invented_from_tgt_label", ""),
+            "new_narrative_pathways": int(row.get("new_narrative_pathways", 0)),
+            "components_merged": int(row.get("components_merged", 0)),
+            "new_value_dimensions": row.get("new_value_dimensions", ""),
+            "predicted_narrative_profile": row.get("predicted_narrative_profile", ""),
+            "composite_governance_score": float(row.get("composite_governance_score", 0)),
+            "predicted_edges": row.get("predicted_edges", ""),
+        })
+
     # Value dimension summary
     vd_summary = {}
     if vd_gids:
@@ -625,18 +821,20 @@ def main() -> None:
         "graph_edges": G.number_of_edges(),
         "gnn_recommendations_analyzed": len(all_edge_candidates),
         "node_proposals_generated": len(all_node_proposals),
+        "node_inventions_generated": len(invented_nodes),
         "value_dimensions": vd_summary,
         "perception_void_components": len(void_comps) if comp.empty is False and 'void_comps' in dir() else 0,
         "top_recommendations": {
             "edges": top_edges,
             "nodes": top_nodes,
+            "invented_nodes": top_invented,
         },
     }
     write_json(ANALYSIS_DIR / "narrative_impact_report.json", report)
     print(f"  Report → narrative_impact_report.json")
 
     # ── Dashboard JSON (pre-formatted for Streamlit) ──
-    dashboard = {"edge_candidates": [], "node_proposals": [], "vd_summary": []}
+    dashboard = {"edge_candidates": [], "node_proposals": [], "invented_nodes": [], "vd_summary": []}
 
     for _, row in edge_df.head(10).iterrows():
         item = row.to_dict()
@@ -649,6 +847,12 @@ def main() -> None:
         item["color"] = "#9b59b6"
         item["key"] = f"node_{len(dashboard['node_proposals'])}"
         dashboard["node_proposals"].append(item)
+
+    for _, row in invent_df.head(10).iterrows() if not invent_df.empty else []:
+        item = row.to_dict()
+        item["color"] = "#e67e22"
+        item["key"] = f"invented_{len(dashboard['invented_nodes'])}"
+        dashboard["invented_nodes"].append(item)
 
     for vdl, info in vd_summary.items():
         dashboard["vd_summary"].append({"value_dimension": vdl, **info})

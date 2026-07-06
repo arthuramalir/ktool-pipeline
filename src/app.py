@@ -272,6 +272,7 @@ link_intervention_summary = load_json(ANALYSIS_DIR / "link_intervention_summary.
 # Narrative impact of GNN-predicted links
 impact_edge_candidates = load_csv([ANALYSIS_DIR / "narrative_impact_predictions.csv"])
 impact_node_proposals = load_csv([ANALYSIS_DIR / "narrative_impact_node_proposals.csv"])
+impact_invented_nodes = load_csv([ANALYSIS_DIR / "narrative_impact_invented_nodes.csv"])
 impact_dashboard = load_json(ANALYSIS_DIR / "narrative_impact_dashboard.json")
 
 structural_change = load_json(ANALYSIS_DIR / "structural_change_possibility.json")
@@ -1033,11 +1034,59 @@ with tab_gnn:
                 unsafe_allow_html=True,
             )
 
+    if not impact_invented_nodes.empty:
+        st.divider()
+        st.markdown("**6. GNN invents a node — synthesis from structural + semantic gaps**")
+        st.caption(
+            "When a predicted link connects two disconnected nodes with no narrative neighbors, "
+            "the GNN can invent a NEW node that bridges both components AND creates a narrative footprint."
+        )
+
+        for _, row in impact_invented_nodes.head(4).iterrows():
+            label = row.get("invented_label", "?")
+            ntype = row.get("invented_node_type", "?")
+            pathways = int(row.get("new_narrative_pathways", 0))
+            merged = int(row.get("components_merged", 0))
+            profile = row.get("predicted_narrative_profile", "")
+            edges = row.get("predicted_edges", "")
+            score = float(row.get("composite_governance_score", 0))
+
+            st.markdown(
+                f'<div style="border-left: 4px solid #e67e22; padding: 0.3rem 1rem; margin: 0.3rem 0; '
+                f'background: rgba(128,128,128,0.02); border-radius: 4px;">'
+                f'<div style="display: flex; gap: 0.5rem; align-items: center;">'
+                f'<span style="font-size: 1.1rem;">🧬</span>'
+                f'<strong>{label}</strong>'
+                f'<span style="background: #e67e22; color: white; padding: 0.1rem 0.5rem; border-radius: 3px; font-size: 0.8rem;">{ntype}</span>'
+                f'<span style="font-size: 0.85rem; color: #888;">Score: {score:.4f}</span>'
+                f'</div>'
+                f'<div style="font-size: 0.85rem; color: #bbb; margin-top: 0.2rem;">'
+                f'+{pathways} narrative pathways | Merges {merged} components</div>',
+                unsafe_allow_html=True,
+            )
+
+            with st.expander("Details", expanded=False):
+                c1, c2 = st.columns(2)
+                with c1:
+                    st.markdown("**Predicted edges**")
+                    for e in edges.split(";"):
+                        parts = e.strip().split("(")
+                        if len(parts) == 2:
+                            en = parts[0]
+                            es = parts[1].rstrip(")")
+                            st.markdown(f"→ {en} (sim: {es})")
+                with c2:
+                    st.markdown("**Narrative profile**")
+                    for p in profile.split(";"):
+                        parts = p.strip().split(":")
+                        if len(parts) == 2:
+                            st.markdown(f"{parts[0]}: {float(parts[1])*100:.0f}%")
+
     if impact_dashboard:
         vd_list = impact_dashboard.get("vd_summary", [])
         if vd_list:
             st.divider()
-            st.markdown("**6. Value dimension landscape**")
+            st.markdown("**7. Value dimension landscape**")
             st.caption("How claims are distributed across value dimensions — reveals narrative gaps.")
             vd_df = pd.DataFrame(vd_list)
             if not vd_df.empty:
