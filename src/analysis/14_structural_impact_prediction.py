@@ -1,16 +1,19 @@
-"""Structural impact prediction — edge recommendation from structural issues.
+"""Narrative impact of GNN-predicted links + node addition proposals.
 
-Reads all existing outputs and for each structural issue (fragility, isolation,
-k-core lock-in, value underfunding, narrative cleavage, perception isolation):
-
-  1. Generates candidate edges that would remediate the issue
-  2. Runs counterfactual simulation: what new perception/narrative pathways open?
-  3. Scores candidates by governance value
-  4. Outputs ranked candidates with human-readable impact statements
+Flow:
+  1. Load GNN link recommendations (structural holes from graph topology)
+  2. For each recommended link:
+     a. BFS source and target neighborhoods → claim/perception nodes + value dimensions
+     b. Counterfactual: temporarily add edge → Δ narrative reachability
+     c. Classify bridge type (learning_bridge / coalition_reinforcement / cleavage_breach / structural)
+     d. If endpoint is isolated (no narrative neighbors), propose a NODE addition instead
+  3. Detect narrative gaps across the graph (underfunded values, perception-void components)
+  4. Output unified scored results
 
 Outputs per platform:
-  - structural_impact_candidates.csv — scored recommendations
-  - structural_impact_report.json — summary with findings
+  - narrative_impact_predictions.csv — all candidates (edges + nodes) with impact scores
+  - narrative_impact_report.json — summary with findings
+  - narrative_impact_dashboard.json — pre-formatted for Streamlit rendering
 
 Usage:
     set KTOOL_PLATFORM_ID=173 & set KTOOL_OUTPUT_SUBDIR=test
@@ -39,34 +42,13 @@ from graph_utils import (
 )
 
 
-def load_csv(path: Path) -> pd.DataFrame:
+def load_csv_safe(path: Path) -> pd.DataFrame:
     if path.exists() and path.stat().st_size > 2:
         return pd.read_csv(path)
     return pd.DataFrame()
 
 
-def label_for(nid: str, node_labels: dict[str, str]) -> str:
-    return node_labels.get(nid, nid)
-
-
-# ─── Structural issue types ─────────────────────────────────────────────
-ISSUE_TYPES = [
-    "fragility",
-    "isolation",
-    "kcore_exclusion",
-    "value_underfunding",
-    "narrative_cleavage",
-    "perception_isolation",
-]
-
-BRIDGE_TYPE_NAMES = {
-    "coalition_reinforcement": "Reinforces shared perception-narrative space",
-    "learning_bridge": "Bridges separate perception-narrative spaces",
-    "cleavage_breach": "Connects conflicting perception-narrative spaces",
-    "no_immediate_impact": "Mainly structural — no near-term perception change",
-}
-
-VALUE_DIMENSION_NAMES = {
+VALUE_LABELS = {
     "cultural_identity": "Cultural Identity",
     "social_justice": "Social Justice",
     "collaboration": "Collaboration",
@@ -76,643 +58,603 @@ VALUE_DIMENSION_NAMES = {
     "austerity_scarcity": "Austerity & Scarcity",
 }
 
+ISSUE_COLORS = {
+    "fragility": "#e74c3c",
+    "isolation": "#e67e22",
+    "kcore_exclusion": "#f39c12",
+    "value_underfunding": "#2ecc71",
+    "narrative_cleavage": "#3498db",
+    "perception_isolation": "#9b59b6",
+}
 
-# ─── Graph loading ──────────────────────────────────────────────────────
 
-def build_full_graph() -> nx.Graph:
-    """Build the richest possible graph: base edges + claim edges."""
+def load_graph_and_registry() -> tuple[nx.Graph, dict, dict]:
     G_multi = build_graph(directed=False)
     G = simple_graph(G_multi) if hasattr(G_multi, "to_undirected") else nx.Graph(G_multi)
 
-    claim_edges = load_csv(ANALYSIS_DIR / "narrative_layers" / "claim_edges.csv")
-    if not claim_edges.empty:
-        for _, row in claim_edges.iterrows():
-            src = str(row["source_global_id"])
-            tgt = str(row["target_global_id"])
-            if G.has_node(src) and G.has_node(tgt):
-                G.add_edge(src, tgt, weight=row.get("weight", 0.8), edge_origin="claim_edge")
-    return G
+    claim_edges = load_csv_safe(ANALYSIS_DIR / "narrative_layers" / "claim_edges.csv")
+    for _, row in claim_edges.iterrows():
+        s, t = str(row["source_global_id"]), str(row["target_global_id"])
+        if G.has_node(s) and G.has_node(t):
+            G.add_edge(s, t, weight=row.get("weight", 0.8), edge_origin="claim_edge")
 
-
-def build_node_registry(G: nx.Graph) -> pd.DataFrame:
-    """Build a single registry of all nodes with their metadata."""
-    nodes_df, _ = read_csv_safe(ANALYTICS_DIR / "nodes.csv"), read_csv_safe(ANALYTICS_DIR / "edges.csv")
+    nodes_df = read_csv_safe(ANALYTICS_DIR / "nodes.csv")
     if nodes_df.empty:
         nodes_df = read_csv_safe(DATA_DIR / "nodes.csv")
 
-    reg = pd.DataFrame({"global_id": list(G.nodes())})
-    node_type_map = dict(zip(nodes_df["global_id"].astype(str), nodes_df["node_type"])) if not nodes_df.empty else {}
-    node_label_map = dict(zip(nodes_df["global_id"].astype(str), nodes_df["label"])) if not nodes_df.empty else {}
-    reg["node_type"] = reg["global_id"].map(node_type_map).fillna("unknown")
-    reg["label"] = reg["global_id"].map(node_label_map).fillna("")
+    reg: dict[str, dict] = {}
+    for _, row in nodes_df.iterrows():
+        gid = str(row["global_id"])
+        reg[gid] = {
+            "node_type": str(row["node_type"]),
+            "label": str(row.get("label", "") or ""),
+            "value_dimension": "",
+            "narrative_level": "",
+            "verb": "",
+            "description": str(row.get("description", "") or ""),
+        }
 
-    centrality = load_csv(ANALYSIS_DIR / "node_centrality.csv")
-    if not centrality.empty:
-        cent_map = centrality.set_index("global_id")["betweenness_centrality"].to_dict()
-        deg_map = centrality.set_index("global_id")["degree"].to_dict()
-        reg["betweenness"] = reg["global_id"].map(cent_map).fillna(0.0)
-        reg["degree"] = reg["global_id"].map(deg_map).fillna(0)
-    else:
-        deg = dict(G.degree())
-        reg["betweenness"] = 0.0
-        reg["degree"] = reg["global_id"].map(deg).fillna(0)
+    claim_nodes = load_csv_safe(ANALYSIS_DIR / "narrative_layers" / "claim_nodes.csv")
+    for _, row in claim_nodes.iterrows():
+        gid = str(row["global_id"])
+        if gid in reg:
+            reg[gid]["value_dimension"] = str(row.get("value_dimension", "") or "")
+            reg[gid]["narrative_level"] = str(row.get("narrative_level", "") or "")
+            reg[gid]["verb"] = str(row.get("verb", "") or "")
+            reg[gid]["description"] = str(row.get("description", "") or "")
 
-    kcore = load_csv(ANALYSIS_DIR / "kcore_membership.csv")
-    if not kcore.empty:
-        kc_map = kcore.set_index("global_id")["k_core_number"].to_dict()
-        reg["k_core"] = reg["global_id"].map(kc_map).fillna(0)
+    for node in G.nodes():
+        if node not in reg:
+            reg[node] = {"node_type": "unknown", "label": node, "value_dimension": "",
+                         "narrative_level": "", "verb": "", "description": ""}
+        elif not reg[node]["label"]:
+            reg[node]["label"] = node
 
-    comp = load_csv(ANALYSIS_DIR / "component_membership.csv")
-    if not comp.empty:
-        cid_map = comp.set_index("global_id")["component_id"].to_dict()
-        csize_map = comp.set_index("global_id")["component_size"].to_dict()
-        reg["component_id"] = reg["global_id"].map(cid_map).fillna("isolated")
-        reg["component_size"] = reg["global_id"].map(csize_map).fillna(1)
+    vd_gids = {}
+    for gid, info in reg.items():
+        vd = info.get("value_dimension", "")
+        if vd and vd != "nan":
+            vd_gids.setdefault(vd, []).append(gid)
 
-    art = load_csv(ANALYSIS_DIR / "articulation_points.csv")
-    if not art.empty:
-        art_nodes = set(art["global_id"].astype(str))
-        reg["is_articulation"] = reg["global_id"].isin(art_nodes)
-
-    # Claim metadata
-    claim_nodes = load_csv(ANALYSIS_DIR / "narrative_layers" / "claim_nodes.csv")
-    if not claim_nodes.empty:
-        vd_map = claim_nodes.set_index("global_id")["value_dimension"].to_dict()
-        nl_map = claim_nodes.set_index("global_id")["narrative_level"].to_dict()
-        reg["value_dimension"] = reg["global_id"].map(vd_map).fillna("")
-        reg["narrative_level"] = reg["global_id"].map(nl_map).fillna("")
-
-    return reg
+    return G, reg, vd_gids
 
 
-def node_index_for(G: nx.Graph, reg: pd.DataFrame) -> tuple[dict[str, int], dict[int, str]]:
-    nid_to_idx = {nid: i for i, nid in enumerate(G.nodes())}
-    idx_to_nid = {i: nid for nid, i in nid_to_idx.items()}
-    return nid_to_idx, idx_to_nid
-
-
-# ─── BFS utilities ─────────────────────────────────────────────────────
-
-def bfs_perception_nodes(
-    start_nodes: list[str],
-    G: nx.Graph,
-    reg: pd.DataFrame,
-    max_hops: int = 3,
-    exclude: set[str] | None = None,
-) -> dict[str, set[str]]:
-    """BFS from each start node up to max_hops; return sets of perception and claim nodes reachable."""
+def bfs_narrative(
+    G: nx.Graph, start: str, reg: dict, max_hops: int = 3, exclude: set | None = None,
+) -> tuple[set[str], dict[str, str], set[str]]:
     exclude = exclude or set()
-    result: dict[str, set[str]] = {}
-    for start in start_nodes:
-        if start not in G:
-            result[start] = set()
-            continue
-        seen = {start} | exclude
-        frontier = {start}
-        reached: set[str] = set()
-        for _ in range(max_hops):
-            next_frontier: set[str] = set()
-            for node in frontier:
-                for neighbor in G.neighbors(node):
-                    if neighbor in seen:
-                        continue
-                    seen.add(neighbor)
-                    next_frontier.add(neighbor)
-                    nt = reg.loc[reg["global_id"] == neighbor, "node_type"].values
-                    if len(nt) > 0 and nt[0] in ("perception", "claim"):
-                        reached.add(neighbor)
-            frontier = next_frontier
-            if not frontier:
-                break
-        result[start] = reached
-    return result
+    if start not in G:
+        return set(), {}, set()
+    seen = {start} | exclude
+    frontier = {start}
+    reached_nodes: set[str] = set()
+    for _ in range(max_hops):
+        nf: set[str] = set()
+        for node in frontier:
+            for nb in G.neighbors(node):
+                if nb in seen:
+                    continue
+                seen.add(nb)
+                nf.add(nb)
+                info = reg.get(nb, {})
+                if info.get("node_type") in ("perception", "claim"):
+                    reached_nodes.add(nb)
+        frontier = nf
+        if not frontier:
+            break
+    vd_map = {}
+    for nid in reached_nodes:
+        vd = reg.get(nid, {}).get("value_dimension", "")
+        if vd and vd != "nan":
+            vd_map[nid] = vd
+    return reached_nodes, vd_map, seen
 
 
-# ─── Issue detection ────────────────────────────────────────────────────
+def format_vd_set(vd_set: set[str]) -> str:
+    return ", ".join(sorted(VALUE_LABELS.get(v, v) for v in vd_set if v and v != "nan")) or "none"
 
-def find_fragility_candidates(
-    G: nx.Graph, reg: pd.DataFrame, top_n: int = 5
+
+def format_nodes(nids: set[str], reg: dict, limit: int = 5) -> str:
+    if not nids:
+        return "none"
+    items = []
+    for nid in sorted(nids)[:limit]:
+        info = reg.get(nid, {})
+        label = info.get("label", nid)[:40]
+        vd = info.get("value_dimension", "")
+        vd_label = VALUE_LABELS.get(vd, vd) if vd and vd != "nan" else ""
+        vd_part = f" [{vd_label}]" if vd_label else ""
+        items.append(f"{label}{vd_part}")
+    if len(nids) > limit:
+        items.append(f"+{len(nids) - limit} more")
+    return "; ".join(items)
+
+
+def classify_bridge_type(
+    src_vds: dict[str, str], tgt_vds: dict[str, str],
+    new_total: set[str], new_vds: set[str],
+) -> tuple[str, str]:
+    src_vd_set = set(src_vds.values()) if src_vds else set()
+    tgt_vd_set = set(tgt_vds.values()) if tgt_vds else set()
+    src_vd_set = {v for v in src_vd_set if v and v != "nan"}
+    tgt_vd_set = {v for v in tgt_vd_set if v and v != "nan"}
+
+    if not new_total:
+        return "structural_only", "No new perception/narrative pathways open — this link is purely structural."
+    if new_vds and new_vds - (src_vd_set | tgt_vd_set):
+        return "cleavage_breach", f"Breaches narrative cleavage — unlocks value dimensions ({format_vd_set(new_vds)}) that exist in NEITHER side's current neighborhood."
+    if new_vds and new_vds & (src_vd_set | tgt_vd_set):
+        return "learning_bridge", f"Learning bridge — unlocks {format_vd_set(new_vds)} across previously separate narrative spaces."
+    if src_vd_set and tgt_vd_set and not (src_vd_set & tgt_vd_set):
+        return "learning_bridge", f"Connects two different value spaces ({format_vd_set(src_vd_set)} vs {format_vd_set(tgt_vd_set)}) — creates cross-belief dialogue."
+    if src_vd_set and tgt_vd_set:
+        return "coalition_reinforcement", f"Both sides share value dimensions ({format_vd_set(src_vd_set & tgt_vd_set)}). Reinforces existing narrative coalition."
+    return "structural_only", "Neither side has identifiable value dimensions. Primarily structural."
+
+
+def simulate_edge_impact(
+    G: nx.Graph, src: str, tgt: str, reg: dict,
+) -> dict:
+    src_reached, src_vds, _ = bfs_narrative(G, src, reg)
+    tgt_reached, tgt_vds, _ = bfs_narrative(G, tgt, reg)
+
+    G_temp = G.copy()
+    G_temp.add_edge(src, tgt)
+    src_post, src_post_vds, _ = bfs_narrative(G_temp, src, reg)
+    tgt_post, tgt_post_vds, _ = bfs_narrative(G_temp, tgt, reg)
+
+    new_src = src_post - src_reached
+    new_tgt = tgt_post - tgt_reached
+    new_total = new_src | new_tgt
+
+    src_vd_set = {v for v in src_vds.values() if v and v != "nan"} if src_vds else set()
+    tgt_vd_set = {v for v in tgt_vds.values() if v and v != "nan"} if tgt_vds else set()
+    new_vds_from_src = {v for v in src_post_vds.values() if v and v != "nan"} - src_vd_set if src_post_vds else set()
+    new_vds_from_tgt = {v for v in tgt_post_vds.values() if v and v != "nan"} - tgt_vd_set if tgt_post_vds else set()
+    all_new_vds = new_vds_from_src | new_vds_from_tgt
+    only_src_vds = src_vd_set - tgt_vd_set
+    only_tgt_vds = tgt_vd_set - src_vd_set
+    bridge_type, bridge_note = classify_bridge_type(src_vds, tgt_vds, new_total, all_new_vds)
+
+    return {
+        "src_reached": src_reached,
+        "tgt_reached": tgt_reached,
+        "src_vds": src_vds,
+        "tgt_vds": tgt_vds,
+        "new_total": new_total,
+        "all_new_vds": all_new_vds,
+        "only_src_vds": only_src_vds,
+        "only_tgt_vds": only_tgt_vds,
+        "bridge_type": bridge_type,
+        "bridge_note": bridge_note,
+        "src_vd_set": src_vd_set,
+        "tgt_vd_set": tgt_vd_set,
+    }
+
+
+def propose_node_addition(
+    node_id: str, reg: dict, vd_gids: dict, G: nx.Graph,
 ) -> list[dict]:
-    """Articulation points with few redundant paths → connect to a high-degree neighbor in same component."""
-    candidates = []
-    art_nodes = reg[reg["is_articulation"] == True].nsmallest(top_n, "degree")
-    for _, node in art_nodes.iterrows():
-        nid = node["global_id"]
-        if nid not in G:
-            continue
-        neighbors = list(G.neighbors(nid))
-        # Find highest-degree neighbor that is NOT an articulation point itself
-        best_target = None
-        best_deg = -1
-        for nb in neighbors:
-            nb_art = reg.loc[reg["global_id"] == nb, "is_articulation"].values
-            if len(nb_art) > 0 and nb_art[0]:
-                continue
-            nb_deg = reg.loc[reg["global_id"] == nb, "degree"].values
-            d = int(nb_deg[0]) if len(nb_deg) > 0 else 0
-            if d > best_deg:
-                best_deg = d
-                best_target = nb
-        if best_target:
-            candidates.append({
-                "source": nid,
-                "target": best_target,
-                "issue_type": "fragility",
-                "source_type": node["node_type"],
-                "target_type": reg.loc[reg["global_id"] == best_target, "node_type"].values[0] if len(reg.loc[reg["global_id"] == best_target, "node_type"].values) > 0 else "unknown",
-                "rationale": f"Articulation point {label_for(nid, {})} has degree {int(node['degree'])} — adding redundant path to {label_for(best_target, {})} reduces fragility",
+    """For an isolated or narratively-poor node, propose what new node would help."""
+    proposals = []
+    info = reg.get(node_id, {})
+    node_type = info.get("node_type", "unknown")
+    label = info.get("label", node_id)
+
+    reached, vds, _ = bfs_narrative(G, node_id, reg)
+    vd_set = {v for v in vds.values() if v and v != "nan"}
+
+    # 1. If node has no claim neighbors → propose a claim node
+    reached_types = [reg.get(n, {}).get("node_type", "") for n in reached]
+    claim_count = reached_types.count("claim")
+    if claim_count == 0:
+        # Find which value dimensions are UNDERPEPRESENTED in this node's type vicinity
+        nearby = list(G.neighbors(node_id)) if node_id in G else []
+        nearby_types = [reg.get(n, {}).get("node_type", "") for n in nearby]
+        agent_or_proj_nearby = any(t in ("agent", "project") for t in nearby_types)
+        # Find most under-represented value dimension
+        vd_counts = {vd: len(gids) for vd, gids in vd_gids.items()} if vd_gids else {}
+        rarest_vd = min(vd_counts, key=vd_counts.get) if vd_counts else "community_autonomy"
+        rarest_vd_label = VALUE_LABELS.get(rarest_vd, rarest_vd)
+        proposals.append({
+            "proposal_type": "node_addition",
+            "proposal_subtype": "claim_node",
+            "anchor_node": node_id,
+            "anchor_label": label,
+            "proposed_value_dimension": rarest_vd,
+            "rationale": f"{label} ({node_type}) has no claim nodes nearby. "
+                         f"Adding a claim expressing '{rarest_vd_label}' (currently {vd_counts.get(rarest_vd, 0)} claims in graph) "
+                         f"would give this node a narrative voice in an under-represented value space.",
+        })
+
+    # 2. If node's nearby claims lack a specific value dimension → propose filling that gap
+    present_vds = vd_set
+    all_vds = set(VALUE_LABELS.keys())
+    missing_vds = all_vds - present_vds
+    if missing_vds and claim_count > 0:
+        rarest_missing = min(missing_vds, key=lambda v: len(vd_gids.get(v, []))) if missing_vds and vd_gids else None
+        if rarest_missing:
+            proposals.append({
+                "proposal_type": "node_addition",
+                "proposal_subtype": "claim_value_gap",
+                "anchor_node": node_id,
+                "anchor_label": label,
+                "proposed_value_dimension": rarest_missing,
+                "rationale": f"{label}'s neighborhood expresses {format_vd_set(present_vds)} but lacks '{VALUE_LABELS.get(rarest_missing, rarest_missing)}'. "
+                             f"Adding a claim in this value dimension would diversify the narrative portfolio.",
             })
-    return candidates
+
+    # 3. If component has no perception node → propose one
+    comp_membership = load_csv_safe(ANALYSIS_DIR / "component_membership.csv")
+    if not comp_membership.empty:
+        node_row = comp_membership[comp_membership["global_id"] == node_id]
+        if not node_row.empty:
+            comp_id = str(node_row.iloc[0]["component_id"])
+            comp_nodes = comp_membership[comp_membership["component_id"] == comp_id]["global_id"].tolist()
+            has_perception = any(reg.get(n, {}).get("node_type") == "perception" for n in comp_nodes)
+            if not has_perception:
+                proposals.append({
+                    "proposal_type": "node_addition",
+                    "proposal_subtype": "perception_node",
+                    "anchor_node": node_id,
+                    "anchor_label": label,
+                    "proposed_value_dimension": "",
+                    "rationale": f"The component containing {label} has no perception nodes. "
+                                 f"Adding a perception node would give this community a voice in the perception space.",
+                })
+
+    return proposals
 
 
-def find_isolation_candidates(
-    G: nx.Graph, reg: pd.DataFrame, top_n: int = 5
-) -> list[dict]:
-    """Small components → bridge to largest component via highest-betweenness node."""
-    candidates = []
-    comp_size_map = dict(zip(reg["global_id"], reg["component_size"]))
-    comp_id_map = dict(zip(reg["global_id"], reg["component_id"]))
-    # Find the largest component
-    largest_comp_nodes = reg[reg["component_id"] == reg["component_id"].mode().values[0]]["global_id"].tolist() if not reg.empty else []
-    largest_set = set(largest_comp_nodes)
+def main() -> None:
+    print("=" * 70)
+    print("NARRATIVE IMPACT OF GNN-PREDICTED LINKS")
+    print("=" * 70)
 
-    # Small components (size <= 5) that are NOT the largest component
-    small_comp_ids = reg[reg["component_id"] != reg["component_id"].mode().values[0] if not reg.empty else ""].groupby("component_id")["global_id"].apply(list).to_dict()
+    # ── Build graph ──
+    print("\nBuilding graph + registry...")
+    G, reg, vd_gids = load_graph_and_registry()
+    print(f"  Graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
+    print(f"  Registry: {len(reg)} nodes")
+    print(f"  Value dimension groups: {len(vd_gids)}")
 
-    # Actually simpler: filter by component_size <= 5
-    small_nodes = reg[
-        (reg["component_size"] <= 5)
-        & (reg["component_size"] > 0)
-        & (~reg["global_id"].isin(largest_set))
-    ]
-    # Take the highest-betweenness node per small component
-    grouped = small_nodes.sort_values("betweenness", ascending=False).groupby("component_id").head(1)
-    for _, node in grouped.head(top_n).iterrows():
-        nid = node["global_id"]
-        # Find closest node in largest component (shortest path in whole graph)
-        # Fallback: use lowest degree centrality difference
-        if not largest_set:
-            continue
-        candidates.append({
-            "source": nid,
-            "target": list(largest_set)[0],
-            "issue_type": "isolation",
-            "source_type": node["node_type"],
-            "target_type": reg.loc[reg["global_id"] == list(largest_set)[0], "node_type"].values[0] if len(reg.loc[reg["global_id"] == list(largest_set)[0], "node_type"].values) > 0 else "unknown",
-            "rationale": f"Node {label_for(nid, {})} sits in a small component (size {int(node['component_size'])}) — bridging to the main component reduces isolation",
-        })
-    return candidates
+    # ── Structural data ──
+    comp = load_csv_safe(ANALYSIS_DIR / "component_membership.csv")
+    art = load_csv_safe(ANALYSIS_DIR / "articulation_points.csv")
+    kcore = load_csv_safe(ANALYSIS_DIR / "kcore_membership.csv")
+    cent = load_csv_safe(ANALYSIS_DIR / "node_centrality.csv")
 
+    art_nodes = set(art["global_id"].astype(str)) if not art.empty else set()
+    comp_map = dict(zip(comp["global_id"].astype(str), comp["component_id"])) if not comp.empty else {}
+    kcore_map = dict(zip(kcore["global_id"].astype(str), kcore["k_core_number"])) if not kcore.empty else {}
+    deg_map = dict(zip(cent["global_id"].astype(str), cent["degree"])) if not cent.empty else {}
+    bt_map = dict(zip(cent["global_id"].astype(str), cent["betweenness_centrality"])) if not cent.empty else {}
 
-def find_kcore_exclusion_candidates(
-    G: nx.Graph, reg: pd.DataFrame, top_n: int = 5
-) -> list[dict]:
-    """Peripheral high-betweenness nodes → connect to a core node."""
-    candidates = []
-    if "k_core" not in reg.columns:
-        return candidates
-    max_k = reg["k_core"].max()
-    # Nodes with k_core <= 2 but high betweenness
-    peripheral = reg[(reg["k_core"] <= 2) & (reg["betweenness"] > 0.01)].nsmallest(top_n, "k_core")
-    core_nodes = reg[reg["k_core"] >= max_k * 0.7]
-    for _, node in peripheral.iterrows():
-        nid = node["global_id"]
-        # Find highest-betweenness core node
-        best_core = core_nodes.sort_values("betweenness", ascending=False).iloc[0] if not core_nodes.empty else None
-        if best_core is None:
-            continue
-        target = best_core["global_id"]
-        candidates.append({
-            "source": nid,
-            "target": target,
-            "issue_type": "kcore_exclusion",
-            "source_type": node["node_type"],
-            "target_type": best_core["node_type"],
-            "rationale": f"Node {label_for(nid, {})} has k-core={int(node['k_core'])} with high betweenness ({node['betweenness']:.4f}) but sits outside the core — linking to core node {label_for(target, {})} (k-core={int(best_core['k_core'])}) brings it into the influential coalition",
-        })
-    return candidates
-
-
-def find_value_underfunding_candidates(
-    G: nx.Graph, reg: pd.DataFrame, top_n: int = 5
-) -> list[dict]:
-    """Claims in underfunded value dimensions → connect to well-funded projects/agents."""
-    candidates = []
-    # Read financial-perception bridge if available
-    fin_bridge = load_csv(ANALYSIS_DIR / "financial_perception_bridge.csv")
-    budget_by_value: dict[str, float] = {}
+    # ── Financial-perception bridge ──
+    fin_bridge = load_csv_safe(ANALYSIS_DIR / "financial_perception_bridge.csv")
+    budget_by_vd: dict[str, float] = {}
     if not fin_bridge.empty and "budget" in fin_bridge.columns:
         for _, row in fin_bridge.iterrows():
             vd = str(row.get("value_dimension", "")).strip()
             b = float(row.get("budget", 0))
             if vd and vd != "nan":
-                budget_by_value[vd] = budget_by_value.get(vd, 0) + b
+                budget_by_vd[vd] = budget_by_vd.get(vd, 0) + b
 
-    # Determine underfunded dimensions
-    if budget_by_value:
-        min_budget = min(budget_by_value.values())
-        underfunded = {vd for vd, b in budget_by_value.items() if b <= min_budget + 1}
-    else:
-        # Fallback: use claim count as proxy (less counts = less attention)
-        vd_counts = reg[reg["value_dimension"] != ""]["value_dimension"].value_counts()
-        min_count = vd_counts.min() if not vd_counts.empty else 0
-        underfunded = set(vd_counts[vd_counts <= min_count].index)
+    # ── Load GNN recommendations ──
+    gnn_recs = load_csv_safe(ANALYSIS_DIR / "gnn" / "gnn_link_recommendations.csv")
+    print(f"\nGNN recommendations: {len(gnn_recs)}")
+    for _, rec in gnn_recs.iterrows():
+        s, t = str(rec["source_global_id"]), str(rec["target_global_id"])
+        sl = reg.get(s, {}).get("label", s)
+        tl = reg.get(t, {}).get("label", t)
+        prob = float(rec.get("link_probability", 0))
+        print(f"  {sl} → {tl}  [p={prob:.3f}]")
 
-    # Find claims in underfunded dimensions
-    underfunded_claims = reg[reg["value_dimension"].isin(underfunded) & (reg["node_type"] == "claim")]
-    # Find well-funded initiatives (projects with high degree)
-    well_funded = reg[(reg["node_type"].isin(("project", "pilot", "prototype")))].nlargest(top_n, "degree")
+    # ── Process each recommendation ──
+    print("\n" + "=" * 70)
+    print("PROCESSING GNN RECOMMENDATIONS")
+    print("=" * 70)
 
-    for _, claim_node in underfunded_claims.head(top_n).iterrows():
-        cid = claim_node["global_id"]
-        for _, proj in well_funded.iterrows():
-            pid = proj["global_id"]
-            if pid == cid:
-                continue
-            vd_name = VALUE_DIMENSION_NAMES.get(claim_node["value_dimension"], claim_node["value_dimension"])
-            candidates.append({
-                "source": cid,
-                "target": pid,
-                "issue_type": "value_underfunding",
-                "source_type": "claim",
-                "target_type": proj["node_type"],
-                "rationale": f"Claim '{label_for(cid, {})}' expresses '{vd_name}' which has low budget/resource allocation — linking to {label_for(pid, {})} creates a narrative-to-resource pipeline",
-            })
-            if len([c for c in candidates if c["issue_type"] == "value_underfunding"]) >= top_n:
-                break
-    return candidates
+    all_edge_candidates: list[dict] = []
+    all_node_proposals: list[dict] = []
 
+    for idx, rec in gnn_recs.iterrows():
+        src = str(rec["source_global_id"])
+        tgt = str(rec["target_global_id"])
+        sl = reg.get(src, {}).get("label", src)
+        tl = reg.get(tgt, {}).get("label", tgt)
+        st = reg.get(src, {}).get("node_type", "?")
+        tt = reg.get(tgt, {}).get("node_type", "?")
+        prob = float(rec.get("link_probability", 0))
+        category = str(rec.get("recommendation_category", ""))
+        rationale = str(rec.get("rationale", ""))
 
-def find_narrative_cleavage_candidates(
-    G: nx.Graph, reg: pd.DataFrame, top_n: int = 5
-) -> list[dict]:
-    """Claims with different value dimensions that are NOT connected → bridge them."""
-    candidates = []
-    claims = reg[reg["node_type"] == "claim"]
-    if claims.empty or "value_dimension" not in claims.columns:
-        return candidates
+        G_temp = G.copy()
+        sim = simulate_edge_impact(G_temp, src, tgt, reg)
 
-    value_groups = claims.groupby("value_dimension")["global_id"].apply(list).to_dict()
-    vd_pairs = list(value_groups.keys())
-    for i, vd1 in enumerate(vd_pairs):
-        if not vd1:
-            continue
-        for vd2 in vd_pairs[i + 1:]:
-            if not vd2:
-                continue
-            if vd1 == vd2:
-                continue
-            # Connect one claim from each group
-            c1 = value_groups[vd1][0]
-            c2 = value_groups[vd2][0]
-            if len(value_groups[vd1]) > 0 and len(value_groups[vd2]) > 0:
-                vd1_name = VALUE_DIMENSION_NAMES.get(vd1, vd1)
-                vd2_name = VALUE_DIMENSION_NAMES.get(vd2, vd2)
-                candidates.append({
-                    "source": c1,
-                    "target": c2,
-                    "issue_type": "narrative_cleavage",
-                    "source_type": "claim",
-                    "target_type": "claim",
-                    "rationale": f"Claim in '{vd1_name}' narrative and claim in '{vd2_name}' narrative are disconnected — bridging them may create a cross-value dialogue pathway",
-                })
-            if len(candidates) >= top_n:
-                return candidates
+        src_vd_set = sim["src_vd_set"]
+        tgt_vd_set = sim["tgt_vd_set"]
 
-    return candidates
+        # ── Structural context ──
+        src_comp = comp_map.get(src, "?")
+        tgt_comp = comp_map.get(tgt, "?")
+        merges_components = src_comp != tgt_comp and src_comp != "?" and tgt_comp != "?"
+        src_deg = G.degree(src) if src in G else 0
+        tgt_deg = G.degree(tgt) if tgt in G else 0
+        src_art = src in art_nodes
+        tgt_art = tgt in art_nodes
+        src_k = kcore_map.get(src, 0)
+        tgt_k = kcore_map.get(tgt, 0)
+        src_bt = bt_map.get(src, 0.0)
+        tgt_bt = bt_map.get(tgt, 0.0)
 
-
-def find_perception_isolation_candidates(
-    G: nx.Graph, reg: pd.DataFrame, top_n: int = 5
-) -> list[dict]:
-    """Perception nodes with few connections → connect to nearest high-centrality project/agent."""
-    candidates = []
-    perception_nodes = reg[reg["node_type"] == "perception"]
-    if perception_nodes.empty:
-        return candidates
-
-    high_centrality = reg[(reg["node_type"].isin(("project", "agent")))].nlargest(top_n, "degree")
-
-    for _, perc in perception_nodes.iterrows():
-        pid = perc["global_id"]
-        deg = int(perc["degree"]) if "degree" in perc else 0
-        if deg >= 3:
-            continue  # Already well-connected
-        for _, target in high_centrality.iterrows():
-            tid = target["global_id"]
-            if tid == pid:
-                continue
-            candidates.append({
-                "source": pid,
-                "target": tid,
-                "issue_type": "perception_isolation",
-                "source_type": "perception",
-                "target_type": target["node_type"],
-                "rationale": f"Perception node '{label_for(pid, {})}' has only {deg} connections — linking to high-centrality {target['node_type']} '{label_for(tid, {})}' amplifies its narrative reach",
-            })
-            break
-
-    return candidates
-
-
-# ─── Counterfactual simulation ──────────────────────────────────────────
-
-def simulate_impact(
-    candidate: dict,
-    G: nx.Graph,
-    reg: pd.DataFrame,
-    nid_to_idx: dict[str, int],
-) -> dict:
-    """Pre/post counterfactual: what perception/narrative pathways does the new edge open?"""
-    src = candidate["source"]
-    tgt = candidate["target"]
-
-    # Pre-state: perception/claim nodes reachable from src and tgt individually
-    src_pre = bfs_perception_nodes([src], G, reg)
-    tgt_pre = bfs_perception_nodes([tgt], G, reg)
-    src_reached = src_pre.get(src, set())
-    tgt_reached = tgt_pre.get(tgt, set())
-
-    # Value dimensions present in each side's neighborhood
-    src_values = set()
-    tgt_values = set()
-    if "value_dimension" in reg.columns:
-        for nid in src_reached:
-            vals = reg.loc[reg["global_id"] == nid, "value_dimension"].values
-            if len(vals) > 0 and vals[0]:
-                src_values.add(vals[0])
-        for nid in tgt_reached:
-            vals = reg.loc[reg["global_id"] == nid, "value_dimension"].values
-            if len(vals) > 0 and vals[0]:
-                tgt_values.add(vals[0])
-
-    # Post-state: temporarily add edge, BFS from src can now pass through tgt (and vice versa)
-    G_temp = G.copy()
-    G_temp.add_edge(src, tgt)
-
-    # From src through tgt: nodes reachable from src that include tgt's pre-reached set
-    src_post = bfs_perception_nodes([src], G_temp, reg)
-    tgt_post = bfs_perception_nodes([tgt], G_temp, reg)
-    src_reached_post = src_post.get(src, set())
-    tgt_reached_post = tgt_post.get(tgt, set())
-
-    # New nodes reachable via the new edge
-    new_src = src_reached_post - src_reached
-    new_tgt = tgt_reached_post - tgt_reached
-    new_total = new_src | new_tgt
-
-    # Value dimensions in newly reachable nodes
-    new_values = set()
-    if "value_dimension" in reg.columns:
-        for nid in new_total:
-            vals = reg.loc[reg["global_id"] == nid, "value_dimension"].values
-            if len(vals) > 0 and vals[0]:
-                new_values.add(vals[0])
-
-    # Bridge type
-    common_values = src_values & tgt_values
-    if not new_total:
-        bridge_type = "no_immediate_impact"
-    elif new_values and not (new_values & src_values):
-        bridge_type = "learning_bridge"
-    elif new_values and (new_values & src_values):
-        bridge_type = "coalition_reinforcement"
-    else:
-        common_source = src_values & set(
-            reg.loc[reg["global_id"].isin(new_total), "value_dimension"].values
-            if "value_dimension" in reg.columns else []
-        )
-        if common_source:
-            bridge_type = "coalition_reinforcement"
-        else:
-            bridge_type = "learning_bridge"
-
-    return {
-        "source_perception_count_pre": len(src_reached),
-        "target_perception_count_pre": len(tgt_reached),
-        "source_perception_count_post": len(src_reached_post),
-        "target_perception_count_post": len(tgt_reached_post),
-        "new_perception_nodes": len(new_total),
-        "new_perception_node_ids": ";".join(sorted(new_total)) if new_total else "",
-        "src_value_dimensions": ";".join(sorted(src_values)) if src_values else "",
-        "tgt_value_dimensions": ";".join(sorted(tgt_values)) if tgt_values else "",
-        "new_value_dimensions": ";".join(sorted(new_values)) if new_values else "",
-        "bridge_type": bridge_type,
-    }
-
-
-# ─── Scoring ────────────────────────────────────────────────────────────
-
-def score_candidates(
-    candidates: list[dict],
-    simulations: list[dict],
-    reg: pd.DataFrame,
-) -> pd.DataFrame:
-    """Compute composite governance score for each candidate."""
-    rows = []
-    for cand, sim in zip(candidates, simulations):
-        # Normalized new perception/claim reachability
-        max_reach = max(s["new_perception_nodes"] for s in simulations) if simulations else 1
-        reach_score = sim["new_perception_nodes"] / max(1, max_reach)
-
-        # New value dimensions bridged
-        new_vds = len([v for v in sim.get("new_value_dimensions", "").split(";") if v])
-        max_vd = max(len([v for v in s.get("new_value_dimensions", "").split(";") if v]) for s in simulations) if simulations else 1
-        vd_score = new_vds / max(1, max_vd)
-
-        # Bridge type score
-        bridge_scores = {
-            "learning_bridge": 1.0,
-            "coalition_reinforcement": 0.6,
-            "cleavage_breach": 0.8,
-            "no_immediate_impact": 0.2,
-        }
+        # ── Score ──
+        new_count = len(sim["new_total"])
+        new_vd_count = len(sim["all_new_vds"])
+        bridge_scores = {"learning_bridge": 1.0, "coalition_reinforcement": 0.6, "cleavage_breach": 0.8, "structural_only": 0.2}
         bridge_score = bridge_scores.get(sim["bridge_type"], 0.2)
+        merge_score = 0.3 if merges_components else -0.1
+        deg_score = min(1.0, (src_deg + tgt_deg) / 20.0)  # higher degree = more potential for diffusion
+        art_score = 0.2 if src_art or tgt_art else 0.0
+        narrative_score = min(1.0, new_count / 30.0) * 0.5 + min(1.0, new_vd_count / 5.0) * 0.5
+        composite = (
+            narrative_score * 0.40 +
+            bridge_score * 0.25 +
+            merge_score * 0.15 +
+            deg_score * 0.10 +
+            art_score * 0.10
+        )
 
-        # Structural issue priority
-        issue_priority = {
-            "fragility": 0.9,
-            "perception_isolation": 0.9,
-            "isolation": 0.8,
-            "kcore_exclusion": 0.7,
-            "value_underfunding": 0.7,
-            "narrative_cleavage": 0.6,
-        }
-        priority = issue_priority.get(cand["issue_type"], 0.5)
-
-        composite = reach_score * 0.25 + vd_score * 0.25 + bridge_score * 0.25 + priority * 0.25
-
-        rows.append({
-            "source_global_id": cand["source"],
-            "target_global_id": cand["target"],
-            "source_node_type": cand["source_type"],
-            "target_node_type": cand["target_type"],
-            "issue_type": cand["issue_type"],
+        impact = {
+            "recommendation_source": "gnn_link_prediction",
+            "intervention_type": "edge_addition",
+            "source_global_id": src,
+            "target_global_id": tgt,
+            "source_label": sl,
+            "target_label": tl,
+            "source_node_type": st,
+            "target_node_type": tt,
+            "link_probability": round(prob, 4),
+            "gnn_rationale": rationale,
+            "source_perception_claim_count": len(sim["src_reached"]),
+            "target_perception_claim_count": len(sim["tgt_reached"]),
+            "source_vds": format_vd_set(src_vd_set),
+            "target_vds": format_vd_set(tgt_vd_set),
+            "only_source_vds": format_vd_set(sim["only_src_vds"]),
+            "only_target_vds": format_vd_set(sim["only_tgt_vds"]),
+            "new_narrative_pathways": new_count,
+            "new_vds_unlocked": format_vd_set(sim["all_new_vds"]),
             "bridge_type": sim["bridge_type"],
-            "bridge_type_label": BRIDGE_TYPE_NAMES.get(sim["bridge_type"], sim["bridge_type"]),
-            "new_perception_nodes": sim["new_perception_nodes"],
-            "new_value_dimensions": sim["new_value_dimensions"],
-            "reachability_score": round(reach_score, 4),
-            "value_flow_score": round(vd_score, 4),
-            "bridge_type_score": round(bridge_score, 4),
-            "issue_priority": round(priority, 4),
+            "bridge_note": sim["bridge_note"],
+            "source_degree": src_deg,
+            "target_degree": tgt_deg,
+            "source_kcore": src_k,
+            "target_kcore": tgt_k,
+            "source_betweenness": round(src_bt, 4),
+            "target_betweenness": round(tgt_bt, 4),
+            "source_is_articulation": src_art,
+            "target_is_articulation": tgt_art,
+            "merges_components": merges_components,
+            "source_component": src_comp,
+            "target_component": tgt_comp,
+            "new_pathway_nodes": format_nodes(sim["new_total"], reg),
+            "narrative_score": round(narrative_score, 4),
             "composite_governance_score": round(composite, 4),
-            "rationale": cand["rationale"],
+        }
+        all_edge_candidates.append(impact)
+
+        print(f"\n  [{idx+1}] {sl} ({st}) → {tl} ({tt})  p={prob:.3f}")
+        print(f"    Source neighborhood: {len(sim['src_reached'])} nodes | {impact['source_vds']}")
+        print(f"    Target neighborhood: {len(sim['tgt_reached'])} nodes | {impact['target_vds']}")
+        print(f"    New pathways: {new_count} | New VDs: {impact['new_vds_unlocked']}")
+        print(f"    Bridge: {sim['bridge_type']} | Score: {composite:.4f}")
+        print(f"    Merges components: {merges_components}")
+
+        # ── Node proposals for isolated endpoints ──
+        for nid in [src, tgt]:
+            node_deg = G.degree(nid) if nid in G else 0
+            node_nt = reg.get(nid, {}).get("node_type", "")
+            reached_n, vds_n, _ = bfs_narrative(G, nid, reg)
+            if node_deg <= 2 or len(reached_n) == 0:
+                proposals = propose_node_addition(nid, reg, vd_gids, G)
+                for p in proposals:
+                    p["linked_edge_source"] = src
+                    p["linked_edge_target"] = tgt
+                    p["linked_edge_probability"] = prob
+                    p["linked_edge_bridge_type"] = sim["bridge_type"]
+                    p["linked_edge_rationale"] = f"GNN suggests linking {sl} ↔ {tl} (p={prob:.3f}) but {reg.get(nid, {}).get('label', nid)} has no narrative neighbors — a node addition would create a narrative footprint for this structural intervention."
+                    all_node_proposals.append(p)
+
+    # ── Detect narrative gaps ──
+    print("\n" + "=" * 70)
+    print("DETECTING NARRATIVE GAPS")
+    print("=" * 70)
+
+    if vd_gids and budget_by_vd:
+        print("\n  Value underfunding gaps:")
+        min_budget = min(budget_by_vd.values())
+        for vd, b in sorted(budget_by_vd.items(), key=lambda x: x[1]):
+            vdl = VALUE_LABELS.get(vd, vd)
+            claim_count = len(vd_gids.get(vd, []))
+            gap = b == min_budget
+            marker = " <<< UNDERFUNDED" if gap else ""
+            print(f"    {vdl:25s}: €{b:>8,.0f} | {claim_count} claims{marker}")
+            if gap:
+                # Find which projects could host a new claim in this dimension
+                host_candidates = []
+                for nid, info in reg.items():
+                    if info.get("node_type") in ("project", "pilot", "prototype"):
+                        host_candidates.append((nid, info.get("label", nid)))
+                for hn, hl in host_candidates[:3]:
+                    all_node_proposals.append({
+                        "proposal_type": "gap_filling",
+                        "proposal_subtype": "value_underfunding",
+                        "anchor_node": hn,
+                        "anchor_label": hl,
+                        "proposed_value_dimension": vd,
+                        "rationale": f"'{vdl}' has €{b:,.0f} budget (lowest across all value dimensions). "
+                                     f"Adding a claim node expressing '{vdl}' near '{hl}' ({info.get('node_type', '')}) "
+                                     f"would connect this underfunded narrative to a concrete initiative.",
+                        "linked_edge_source": "",
+                        "linked_edge_target": "",
+                        "linked_edge_probability": 0.0,
+                        "linked_edge_bridge_type": "",
+                        "linked_edge_rationale": "",
+                    })
+    elif vd_gids:
+        # Budget data not available — use claim frequency as proxy
+        print("\n  Narrative representation gaps (no budget data, using claim frequency):")
+        vd_counts = {vd: len(gids) for vd, gids in vd_gids.items()}
+        min_count = min(vd_counts.values())
+        for vd, cnt in sorted(vd_counts.items(), key=lambda x: x[1]):
+            vdl = VALUE_LABELS.get(vd, vd)
+            gap = cnt == min_count
+            marker = " <<< UNDER-REPRESENTED" if gap else ""
+            print(f"    {vdl:25s}: {cnt} claims{marker}")
+            if gap:
+                for nid, info in list(reg.items())[:5]:
+                    if info.get("node_type") in ("project", "pilot", "prototype"):
+                        all_node_proposals.append({
+                            "proposal_type": "gap_filling",
+                            "proposal_subtype": "value_under_representation",
+                            "anchor_node": nid,
+                            "anchor_label": info.get("label", nid),
+                            "proposed_value_dimension": vd,
+                            "rationale": f"'{vdl}' has only {cnt} claims (least represented). "
+                                         f"Adding a claim near '{info.get('label', nid)}' would diversify the narrative landscape.",
+                            "linked_edge_source": "",
+                            "linked_edge_target": "",
+                            "linked_edge_probability": 0.0,
+                            "linked_edge_bridge_type": "",
+                            "linked_edge_rationale": "",
+                        })
+
+    # Perception-void components
+    print("\n  Perception-void components:")
+    if not comp.empty:
+        comp_perception_map: dict[str, bool] = {}
+        for _, row in comp.iterrows():
+            cid = str(row["component_id"])
+            gid = str(row["global_id"])
+            is_perc = reg.get(gid, {}).get("node_type") == "perception"
+            if cid not in comp_perception_map:
+                comp_perception_map[cid] = False
+            if is_perc:
+                comp_perception_map[cid] = True
+        void_comps = [cid for cid, has_perc in comp_perception_map.items() if not has_perc]
+        print(f"    Components without perception nodes: {len(void_comps)} / {len(comp_perception_map)}")
+        # Propose perception node for largest void component
+        if void_comps:
+            comp_gids_map = comp.groupby("component_id")["global_id"].apply(list).to_dict()
+            largest_void = max(void_comps, key=lambda c: len(comp_gids_map.get(c, [])))
+            anchor = reg.get(comp_gids_map[largest_void][0], {}).get("label", comp_gids_map[largest_void][0]) if comp_gids_map.get(largest_void) else ""
+            all_node_proposals.append({
+                "proposal_type": "gap_filling",
+                "proposal_subtype": "perception_void",
+                "anchor_node": comp_gids_map[largest_void][0] if comp_gids_map.get(largest_void) else "",
+                "anchor_label": anchor,
+                "proposed_value_dimension": "",
+                "rationale": f"Component '{largest_void}' has {len(comp_gids_map.get(largest_void, []))} nodes but zero perception nodes. "
+                             f"Adding a perception node would give this structural cluster a voice in the perception space.",
+                "linked_edge_source": "",
+                "linked_edge_target": "",
+                "linked_edge_probability": 0.0,
+                "linked_edge_bridge_type": "",
+                "linked_edge_rationale": "",
+            })
+
+    # ── Combine and score ──
+    print("\n" + "=" * 70)
+    print("SCORING AND OUTPUT")
+    print("=" * 70)
+
+    edge_df = pd.DataFrame(all_edge_candidates)
+    node_df = pd.DataFrame(all_node_proposals) if all_node_proposals else pd.DataFrame()
+
+    if not edge_df.empty:
+        edge_df = edge_df.sort_values("composite_governance_score", ascending=False)
+        edge_path = write_frame(edge_df, "narrative_impact_predictions.csv")
+        print(f"\n  Edge candidates: {len(edge_df)} → {edge_path}")
+
+    if not node_df.empty:
+        node_path = write_frame(node_df, "narrative_impact_node_proposals.csv")
+        print(f"  Node proposals: {len(node_df)} → {node_path}")
+
+    # ── Report ──
+    top_edges = []
+    for _, row in edge_df.head(5).iterrows():
+        top_edges.append({
+            "intervention_type": "edge_addition",
+            "source": row["source_global_id"],
+            "target": row["target_global_id"],
+            "source_label": row["source_label"],
+            "target_label": row["target_label"],
+            "bridge_type": row["bridge_type"],
+            "new_narrative_pathways": int(row["new_narrative_pathways"]),
+            "new_vds_unlocked": row["new_vds_unlocked"],
+            "composite_governance_score": float(row["composite_governance_score"]),
+            "bridge_note": row["bridge_note"],
         })
-    return pd.DataFrame(rows).sort_values("composite_governance_score", ascending=False)
 
+    top_nodes = []
+    for _, row in node_df.head(5).iterrows() if not node_df.empty else []:
+        top_nodes.append({
+            "intervention_type": "node_addition",
+            "proposal_subtype": row.get("proposal_subtype", ""),
+            "anchor_node": row.get("anchor_node", ""),
+            "anchor_label": row.get("anchor_label", ""),
+            "proposed_value_dimension": row.get("proposed_value_dimension", ""),
+            "rationale": row.get("rationale", ""),
+        })
 
-# ─── Impact statement generator ─────────────────────────────────────────
-
-def generate_impact_statement(row: dict, reg: pd.DataFrame) -> str:
-    """Generate a human-readable impact statement for a candidate."""
-    src_label = label_for(row["source_global_id"], dict(zip(reg["global_id"], reg["label"])))
-    tgt_label = label_for(row["target_global_id"], dict(zip(reg["global_id"], reg["label"])))
-
-    parts = [f"Connecting **{src_label}** ({row['source_node_type']}) to **{tgt_label}** ({row['target_node_type']})"]
-
-    if row["issue_type"] == "fragility":
-        parts.append("addresses a structural fragility — the source is an articulation point whose removal would fragment the network.")
-    elif row["issue_type"] == "isolation":
-        parts.append("bridges an isolated cluster into the main network component.")
-    elif row["issue_type"] == "kcore_exclusion":
-        parts.append("brings a peripheral high-brokerage node into the core coalition.")
-    elif row["issue_type"] == "value_underfunding":
-        parts.append("creates a pipeline from an underfunded value dimension to a resource-connected node.")
-    elif row["issue_type"] == "narrative_cleavage":
-        parts.append("spans two disconnected value narratives, potentially creating a cross-belief dialogue.")
-    elif row["issue_type"] == "perception_isolation":
-        parts.append("connects an isolated perception to a high-centrality actor, amplifying its narrative reach.")
-
-    if row["new_perception_nodes"] > 0:
-        parts.append(f"Would open **{row['new_perception_nodes']} new perception/narrative pathways**.")
-    else:
-        parts.append("No immediate perception impact — the link is primarily structural.")
-
-    if row["bridge_type"] == "learning_bridge":
-        parts.append("This is a **learning bridge** — it connects value dimensions that were previously separate, enabling cross-coalition diffusion.")
-    elif row["bridge_type"] == "coalition_reinforcement":
-        parts.append("This **reinforces an existing perception coalition** — it connects nodes in a shared value space.")
-    elif row["bridge_type"] == "cleavage_breach":
-        parts.append("This **breaches a narrative cleavage** — it connects conflicting value frames, which carries both risk and dialogue potential.")
-
-    return " ".join(parts)
-
-
-# ─── Main ────────────────────────────────────────────────────────────────
-
-def main() -> None:
-    print("=" * 60)
-    print("STRUCTURAL IMPACT PREDICTION")
-    print("=" * 60)
-
-    print("\nBuilding graph...")
-    G = build_full_graph()
-    print(f"  Nodes: {G.number_of_nodes()}, Edges: {G.number_of_edges()}")
-
-    reg = build_node_registry(G)
-    print(f"  Registry: {len(reg)} nodes with metadata")
-
-    # ── Generate candidates for each issue ──
-    print("\n--- Identifying structural issues and generating candidates ---")
-    all_candidates: list[dict] = []
-
-    # Fragility
-    fc = find_fragility_candidates(G, reg)
-    all_candidates.extend(fc)
-    print(f"  Fragility: {len(fc)} candidates")
-
-    # Isolation
-    ic = find_isolation_candidates(G, reg)
-    all_candidates.extend(ic)
-    print(f"  Isolation: {len(ic)} candidates")
-
-    # K-core exclusion
-    kc = find_kcore_exclusion_candidates(G, reg)
-    all_candidates.extend(kc)
-    print(f"  K-core exclusion: {len(kc)} candidates")
-
-    # Value underfunding
-    vc = find_value_underfunding_candidates(G, reg)
-    all_candidates.extend(vc)
-    print(f"  Value underfunding: {len(vc)} candidates")
-
-    # Narrative cleavage
-    nc = find_narrative_cleavage_candidates(G, reg)
-    all_candidates.extend(nc)
-    print(f"  Narrative cleavage: {len(nc)} candidates")
-
-    # Perception isolation
-    pc = find_perception_isolation_candidates(G, reg)
-    all_candidates.extend(pc)
-    print(f"  Perception isolation: {len(pc)} candidates")
-
-    print(f"\n  Total candidates: {len(all_candidates)}")
-
-    if not all_candidates:
-        print("No candidates found. Exiting.")
-        return
-
-    # ── Counterfactual simulation ──
-    print("\n--- Running counterfactual simulation ---")
-    nid_to_idx, idx_to_nid = node_index_for(G, reg)
-    simulations = []
-    for cand in all_candidates:
-        sim = simulate_impact(cand, G, reg, nid_to_idx)
-        simulations.append(sim)
-
-    did_open = sum(1 for s in simulations if s["new_perception_nodes"] > 0)
-    print(f"  Candidates that open new perception pathways: {did_open}/{len(simulations)}")
-
-    # ── Score ──
-    print("\n--- Scoring candidates ---")
-    scored = score_candidates(all_candidates, simulations, reg)
-    print(f"  Top-3 by governance score:")
-    for _, row in scored.head(3).iterrows():
-        print(f"    {row['composite_governance_score']:.4f} — {row['issue_type']}: {row['source_global_id'][:20]} → {row['target_global_id'][:20]} ({row['bridge_type']})")
-
-    # ── Generate impact statements ──
-    print("\n--- Generating impact statements ---")
-    scored["impact_statement"] = scored.apply(lambda r: generate_impact_statement(r.to_dict(), reg), axis=1)
-
-    # ── Write outputs ──
-    print("\n--- Writing outputs ---")
-    write_frame(scored, "structural_impact_candidates.csv")
-    print(f"  → structural_impact_candidates.csv ({len(scored)} candidates)")
+    # Value dimension summary
+    vd_summary = {}
+    if vd_gids:
+        for vd, gids in sorted(vd_gids.items(), key=lambda x: -len(x[1])):
+            vdl = VALUE_LABELS.get(vd, vd)
+            budget = budget_by_vd.get(vd, 0)
+            vd_summary[vdl] = {
+                "claim_count": len(gids),
+                "budget": budget,
+                "underfunded": bool(budget_by_vd and budget == min(budget_by_vd.values())),
+            }
 
     report = {
         "platform_id": os.environ.get("KTOOL_PLATFORM_ID", "?"),
-        "output_subdir": os.environ.get("KTOOL_OUTPUT_SUBDIR", "test"),
-        "total_nodes": G.number_of_nodes(),
-        "total_edges": G.number_of_edges(),
-        "total_candidates": len(all_candidates),
-        "candidates_with_impact": did_open,
-        "impact_summary": {
-            issue: {
-                "count": len([c for c in all_candidates if c["issue_type"] == issue]),
-                "with_impact": len([c for c, s in zip(all_candidates, simulations) if c["issue_type"] == issue and s["new_perception_nodes"] > 0]),
-            }
-            for issue in ISSUE_TYPES
+        "graph_nodes": G.number_of_nodes(),
+        "graph_edges": G.number_of_edges(),
+        "gnn_recommendations_analyzed": len(all_edge_candidates),
+        "node_proposals_generated": len(all_node_proposals),
+        "value_dimensions": vd_summary,
+        "perception_void_components": len(void_comps) if comp.empty is False and 'void_comps' in dir() else 0,
+        "top_recommendations": {
+            "edges": top_edges,
+            "nodes": top_nodes,
         },
-        "top_recommendations": [],
     }
+    write_json(ANALYSIS_DIR / "narrative_impact_report.json", report)
+    print(f"  Report → narrative_impact_report.json")
 
-    for _, row in scored.head(5).iterrows():
-        report["top_recommendations"].append({
-            "source": row["source_global_id"],
-            "target": row["target_global_id"],
-            "source_type": row["source_node_type"],
-            "target_type": row["target_node_type"],
-            "issue_type": row["issue_type"],
-            "bridge_type": row["bridge_type"],
-            "new_perception_nodes": int(row["new_perception_nodes"]),
-            "governance_score": float(row["composite_governance_score"]),
-            "impact_statement": row["impact_statement"],
-        })
+    # ── Dashboard JSON (pre-formatted for Streamlit) ──
+    dashboard = {"edge_candidates": [], "node_proposals": [], "vd_summary": []}
 
-    write_json(ANALYSIS_DIR / "structural_impact_report.json", report)
-    print(f"  → structural_impact_report.json")
+    for _, row in edge_df.head(10).iterrows():
+        item = row.to_dict()
+        item["color"] = ISSUE_COLORS.get(row.get("bridge_type", ""), "#95a5a6")
+        item["key"] = f"edge_{len(dashboard['edge_candidates'])}"
+        dashboard["edge_candidates"].append(item)
 
+    for _, row in node_df.head(10).iterrows() if not node_df.empty else []:
+        item = row.to_dict()
+        item["color"] = "#9b59b6"
+        item["key"] = f"node_{len(dashboard['node_proposals'])}"
+        dashboard["node_proposals"].append(item)
+
+    for vdl, info in vd_summary.items():
+        dashboard["vd_summary"].append({"value_dimension": vdl, **info})
+
+    write_json(ANALYSIS_DIR / "narrative_impact_dashboard.json", dashboard)
+    print(f"  Dashboard JSON → narrative_impact_dashboard.json")
     print("\nDone.")
 
 

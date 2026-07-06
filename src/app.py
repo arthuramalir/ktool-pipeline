@@ -269,16 +269,17 @@ manual_profiles = load_json(ROOT / "src" / "analysis" / "manual_narrative_profil
 link_intervention_scores = load_csv([ANALYSIS_DIR / "link_intervention_scores.csv"])
 link_intervention_summary = load_json(ANALYSIS_DIR / "link_intervention_summary.json")
 
+# Narrative impact of GNN-predicted links
+impact_edge_candidates = load_csv([ANALYSIS_DIR / "narrative_impact_predictions.csv"])
+impact_node_proposals = load_csv([ANALYSIS_DIR / "narrative_impact_node_proposals.csv"])
+impact_dashboard = load_json(ANALYSIS_DIR / "narrative_impact_dashboard.json")
+
 structural_change = load_json(ANALYSIS_DIR / "structural_change_possibility.json")
 change_nodes = load_csv([ANALYSIS_DIR / "change_readiness_nodes.csv"])
 
 structural_hypotheses = load_json(ANALYSIS_DIR / "structural_hypotheses.json")
 financial_bridge = load_csv([ANALYSIS_DIR / "financial_perception_bridge.csv"])
 narrative_budget = load_csv([ANALYSIS_DIR / "narrative_level_budget_crosstab.csv"])
-
-# Structural impact predictions
-impact_candidates = load_csv([ANALYSIS_DIR / "structural_impact_candidates.csv"])
-impact_report = load_json(ANALYSIS_DIR / "structural_impact_report.json")
 
 # Financial (synthetic only)
 leverage_df = load_csv([ANALYSIS_DIR / "synthetic_value_leverage.csv"])
@@ -907,72 +908,157 @@ with tab_gnn:
             st.dataframe(impact_view.head(3), width='stretch', hide_index=True)
         st.caption("How each new link would change perception dynamics.")
 
-    if not impact_candidates.empty:
+    if not impact_edge_candidates.empty:
         st.divider()
-        st.markdown("**4. Structural impact predictions**")
-        st.caption("Issue-driven edge recommendations: candidates generated from structural weaknesses, scored by governance value (narrative impact + structural benefit).")
+        st.markdown("**4. Narrative impact of predicted links**")
+        st.caption(
+            "The GNN detects structural holes — links that should exist based on graph topology. "
+            "Below: what each predicted link would change in the narrative/perception space."
+        )
 
-        imp_view = impact_candidates.copy()
-        imp_cols = [c for c in [
-            "source_global_id", "target_global_id", "issue_type",
-            "bridge_type_label", "new_perception_nodes",
-            "new_value_dimensions", "composite_governance_score",
-            "impact_statement",
-        ] if c in imp_view.columns]
+        bridge_colors = {
+            "learning_bridge": "#2ecc71",
+            "coalition_reinforcement": "#3498db",
+            "cleavage_breach": "#e74c3c",
+            "structural_only": "#95a5a6",
+        }
+        bridge_labels = {
+            "learning_bridge": "Learning Bridge",
+            "coalition_reinforcement": "Coalition Reinforcement",
+            "cleavage_breach": "Cleavage Breach",
+            "structural_only": "Structural Only",
+        }
 
-        if imp_cols:
-            imp_display = imp_view[imp_cols].head(6).rename(columns={
-                "source_global_id": "From",
-                "target_global_id": "To",
-                "issue_type": "Structural issue",
-                "bridge_type_label": "Narrative impact",
-                "new_perception_nodes": "New pathways",
-                "new_value_dimensions": "Values bridged",
-                "composite_governance_score": "Governance score",
-                "impact_statement": "What this means",
-            })
+        for idx, (_, row) in enumerate(impact_edge_candidates.iterrows()):
+            src = row.get("source_label", row.get("source_global_id", "?"))
+            tgt = row.get("target_label", row.get("target_global_id", "?"))
+            st_src_t = row.get("source_node_type", "")
+            st_tgt_t = row.get("target_node_type", "")
+            bridge = row.get("bridge_type", "structural_only")
+            color = bridge_colors.get(bridge, "#95a5a6")
+            label = bridge_labels.get(bridge, bridge)
+            pathways = int(row.get("new_narrative_pathways", 0))
+            new_vds = row.get("new_vds_unlocked", "none")
+            src_vds = row.get("source_vds", "none")
+            tgt_vds = row.get("target_vds", "none")
+            note = row.get("bridge_note", "")
+            prob = float(row.get("link_probability", 0))
+            merges = row.get("merges_components", False)
+            only_src = row.get("only_source_vds", "")
+            only_tgt = row.get("only_target_vds", "")
 
-            issue_colors = {
-                "fragility": "#e74c3c",
-                "isolation": "#e67e22",
-                "kcore_exclusion": "#f39c12",
-                "value_underfunding": "#2ecc71",
-                "narrative_cleavage": "#3498db",
-                "perception_isolation": "#9b59b6",
-            }
+            with st.container():
+                cols = st.columns([0.65, 0.35])
+                with cols[0]:
+                    st.markdown(
+                        f'<div style="border-left: 4px solid {color}; padding: 0.3rem 1rem; '
+                        f'background: rgba(128,128,128,0.03); border-radius: 4px;">'
+                        f'<div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">'
+                        f'<strong>#{idx+1}</strong> '
+                        f'<span style="background: {color}; color: white; padding: 0.1rem 0.5rem; border-radius: 3px; font-size: 0.8rem;">{label}</span>'
+                        f'<span style="font-size: 0.85rem; color: #aaa;">p={prob:.3f}</span>'
+                        f'</div>'
+                        f'<div style="margin: 0.3rem 0; font-size: 1.05rem;">'
+                        f'{src} '
+                        f'<span style="font-size: 0.75rem; color: #888;">({st_src_t})</span>'
+                        f' &rarr; {tgt} '
+                        f'<span style="font-size: 0.75rem; color: #888;">({st_tgt_t})</span>'
+                        f'</div>'
+                        f'<div style="font-size: 0.85rem; color: #bbb;">{note}</div>'
+                        f'</div>',
+                        unsafe_allow_html=True,
+                    )
+                with cols[1]:
+                    st.markdown(
+                        f'<div style="text-align: right; font-size: 0.85rem;">'
+                        f'<div><span style="color: #888;">New pathways:</span> <strong>{pathways}</strong></div>'
+                        f'<div><span style="color: #888;">New VDs:</span> {new_vds}</div>'
+                        f'<div><span style="color: #888;">Merges:</span> {"Yes" if merges else "No"}</div>'
+                        f'</div>',
+                        unsafe_allow_html=True,
+                    )
 
-            for idx, row in imp_display.iterrows():
-                issue = row.get("Structural issue", "")
-                color = issue_colors.get(issue, "#95a5a6")
-                score = float(row.get("Governance score", 0))
-                pathways = int(row.get("New pathways", 0))
+                with st.expander("Narrative neighborhoods", expanded=False):
+                    c1, c2 = st.columns(2)
+                    with c1:
+                        st.markdown(f"**{src}** ({st_src_t})")
+                        st.markdown(f"Claims/Perceptions reachable: {int(row.get('source_perception_claim_count', 0))}")
+                        st.markdown(f"Values: {src_vds}")
+                        if only_src and only_src != "none":
+                            st.markdown(f"Unique to source: {only_src}")
+                    with c2:
+                        st.markdown(f"**{tgt}** ({st_tgt_t})")
+                        st.markdown(f"Claims/Perceptions reachable: {int(row.get('target_perception_claim_count', 0))}")
+                        st.markdown(f"Values: {tgt_vds}")
+                        if only_tgt and only_tgt != "none":
+                            st.markdown(f"Unique to target: {only_tgt}")
+                    new_nodes = row.get("new_pathway_nodes", "")
+                    if new_nodes and new_nodes != "none":
+                        st.markdown(f"**New pathways opened:** {new_nodes}")
 
-                st.markdown(
-                    f'<div style="border-left: 4px solid {color}; padding: 0.5rem 1rem; margin: 0.5rem 0; '
-                    f'background: rgba(128,128,128,0.05); border-radius: 4px;">'
-                    f'<div style="display: flex; justify-content: space-between; align-items: center;">'
-                    f'<span><strong>{row.get("From", "")}</strong> → <strong>{row.get("To", "")}</strong></span>'
-                    f'<span style="font-size: 0.9rem;"><span style="background: {color}; color: white; padding: 0.1rem 0.5rem; border-radius: 3px;">{issue}</span>'
-                    f' Score: <strong>{score:.3f}</strong> | +{pathways} pathways</span>'
-                    f'</div>'
-                    f'<div style="margin-top: 0.3rem; font-size: 0.9rem; color: #bbb;">{row.get("What this means", "")}</div>'
-                    f'<div style="margin-top: 0.2rem; font-size: 0.85rem; color: #888;">{row.get("Narrative impact", "")}</div>'
-                    f'</div>',
-                    unsafe_allow_html=True,
+            if idx < len(impact_edge_candidates) - 1:
+                st.divider()
+
+    if not impact_node_proposals.empty:
+        st.divider()
+        st.markdown("**5. What's missing — node addition proposals**")
+        st.caption(
+            "For nodes with no narrative footprint, adding a new node (claim or perception) "
+            "would create a narrative voice where none exists."
+        )
+
+        np_view = impact_node_proposals.copy()
+        for _, row in np_view.head(6).iterrows():
+            sub = row.get("proposal_subtype", "")
+            anchor = row.get("anchor_label", row.get("anchor_node", ""))
+            vd = row.get("proposed_value_dimension", "")
+            rationale = row.get("rationale", "")
+
+            icon = {"claim_node": "💬", "claim_value_gap": "🧩", "perception_node": "👤",
+                    "perception_void": "👥", "value_underfunding": "💰", "value_under_representation": "📊"}
+            icon_char = icon.get(sub, "◆")
+
+            st.markdown(
+                f'<div style="border-left: 4px solid #9b59b6; padding: 0.3rem 1rem; margin: 0.3rem 0; '
+                f'background: rgba(128,128,128,0.02); border-radius: 4px;">'
+                f'<div style="display: flex; gap: 0.5rem; align-items: center;">'
+                f'<span>{icon_char}</span>'
+                f'<span style="font-size: 0.85rem; background: #9b59b6; color: white; padding: 0.1rem 0.5rem; border-radius: 3px;">{sub.replace("_", " ")}</span>'
+                f'<span style="font-size: 0.85rem;">near <strong>{anchor}</strong></span>'
+                f'<span style="font-size: 0.85rem; color: #888;">'
+                f'{f"VD: {vd}" if vd else ""}</span>'
+                f'</div>'
+                f'<div style="font-size: 0.85rem; color: #bbb; margin-top: 0.2rem;">{rationale}</div>'
+                f'</div>',
+                unsafe_allow_html=True,
+            )
+
+    if impact_dashboard:
+        vd_list = impact_dashboard.get("vd_summary", [])
+        if vd_list:
+            st.divider()
+            st.markdown("**6. Value dimension landscape**")
+            st.caption("How claims are distributed across value dimensions — reveals narrative gaps.")
+            vd_df = pd.DataFrame(vd_list)
+            if not vd_df.empty:
+                vd_df["budget_display"] = vd_df["budget"].apply(
+                    lambda b: f"€{b:,.0f}" if pd.notna(b) and b > 0 else "—"
                 )
-
-        if impact_report:
-            m1, m2, m3 = st.columns(3)
-            summary = impact_report.get("impact_summary", {})
-            m1.metric("Total candidates", int(impact_report.get("total_candidates", 0)))
-            m2.metric("With perception impact", int(impact_report.get("candidates_with_impact", 0)),
-                      help="Candidates that open new perception/narrative pathways")
-            m3.metric("Isolation bridges", summary.get("isolation", {}).get("count", 0),
-                      help="Proposed links that bridge isolated clusters into the main network")
+                st.dataframe(
+                    vd_df.rename(columns={
+                        "value_dimension": "Value dimension",
+                        "claim_count": "Claims",
+                        "budget_display": "Budget",
+                    }),
+                    column_config={
+                        "underfunded": st.column_config.CheckboxColumn("Underfunded", help="Lowest budget allocation"),
+                    },
+                    width='stretch', hide_index=True,
+                )
 
     if not link_intervention_scores.empty:
         st.divider()
-        st.markdown("**3. Full simulation results**")
+        st.markdown("**7. Full simulation results**")
         st.caption("What changes when we add each proposed link.")
 
         if link_intervention_summary:
