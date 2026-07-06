@@ -1,8 +1,9 @@
 from __future__ import annotations
+import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
-from graph_utils import ANALYTICS_DIR, load_nodes_edges, write_frame
+from graph_utils import ANALYSIS_DIR, ANALYTICS_DIR, load_nodes_edges, write_frame
 
 def run_listening_layer_nlp(similarity_threshold: float = 0.65) -> None:
     print("Initializing Semantic Listening Layer...")
@@ -19,6 +20,23 @@ def run_listening_layer_nlp(similarity_threshold: float = 0.65) -> None:
     corpus_text = nodes_with_text["description"].tolist()
     embeddings = model.encode(corpus_text, show_progress_bar=True)
     similarity_matrix = cosine_similarity(embeddings)
+
+    # Also save per-node embeddings for GNN pipeline
+    all_nodes = nodes.copy()
+    all_nodes.set_index("global_id", inplace=True)
+    embedding_dim = embeddings.shape[1]
+    full_embedding_matrix = np.zeros((len(all_nodes), embedding_dim), dtype=np.float32)
+    for idx, node_id in enumerate(nodes_with_text["global_id"].tolist()):
+        if node_id in all_nodes.index:
+            pos = all_nodes.index.get_loc(node_id)
+            full_embedding_matrix[pos] = embeddings[idx]
+    embed_df = pd.DataFrame({
+        "global_id": all_nodes.index,
+        "embedding": [full_embedding_matrix[i].tolist() for i in range(len(all_nodes))],
+    })
+    embed_out = ANALYSIS_DIR / "node_semantic_embeddings.parquet"
+    embed_df.to_parquet(embed_out, index=False)
+    print(f"Saved {len(embed_df)} node embeddings to {embed_out}")
 
     new_semantic_edges = []
     edge_counter = 1

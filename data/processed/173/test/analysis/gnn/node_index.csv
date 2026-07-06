@@ -374,3 +374,125 @@ node_index,global_id,public_label,node_type,methodological_phase,is_anonymized
 372,channel_9549.0,T_006,channel,listening,False
 373,channel_9576.0,H-007,channel,listening,False
 374,channel_9603.0,Channel 9603.0,channel,listening,False
+375,claim_1,used:  → ,claim,narrative_extraction,False
+376,claim_3,tell: lot → system,claim,narrative_extraction,False
+377,claim_5,talk: holistic care → time,claim,narrative_extraction,False
+378,claim_6,seek: public institutions → measurable impact,claim,narrative_extraction,False
+379,claim_7,want: and donors → of part,claim,narrative_extraction,False
+380,claim_8,fill: and community → structural gaps,claim,narrative_extraction,False
+381,claim_10,face: focus funders → on visibility,claim,narrative_extraction,False
+382,claim_11,allows: listening practices → +/. policy,claim,narrative_extraction,False
+383,claim_13,make: and lifestyle → into care,claim,narrative_extraction,False
+384,claim_14,depend: and sports → exhausted volunteers,claim,narrative_extraction,False
+385,claim_15,turn: in sport → +/. health,claim,narrative_extraction,False
+386,claim_16,deteriorates: +/. patients → physical health,claim,narrative_extraction,False
+387,claim_17,face: local organisations → systemic problems,claim,narrative_extraction,False
+388,claim_18,rebuild: sustained funding → +/. support,claim,narrative_extraction,False
+389,claim_19,address: +/. youth → +/. prevention,claim,narrative_extraction,False
+390,claim_20,valued: social connections → young people,claim,narrative_extraction,False
+391,claim_21,filling: and teachers → +/. health,claim,narrative_extraction,False
+392,claim_23,prevent: at support → younger ages,claim,narrative_extraction,False
+393,claim_25,prioritises: and funding → sustained systems,claim,narrative_extraction,False
+394,claim_26,allowed: led interest → real sense,claim,narrative_extraction,False
+395,claim_28,rethink: support → rethink ireland,claim,narrative_extraction,False
+396,claim_29,rethink: rethink ireland → early phase,claim,narrative_extraction,False
+397,claim_31,thank: your commitment → ,claim,narrative_extraction,False
+398,claim_32,rethink: our partnership → rethink ireland,claim,narrative_extraction,False
+399,claim_34,saw: unprecedented surge → in interest,claim,narrative_extraction,False
+400,claim_36,talk: little girl → +/. autism,claim,narrative_extraction,False
+401,claim_38,reaching: our target → social impact,claim,narrative_extraction,False
+402,claim_39,funded: +/. sport → their innovation,claim,narrative_extraction,False
+403,claim_40,sustaining: main challenge → and engagement,claim,narrative_extraction,False
+404,claim_41,advanced: learning → 722# people,claim,narrative_extraction,False
+405,claim_42,expanded: to thanks → +/. headstart,claim,narrative_extraction,False
+406,claim_44,helped: +/. liquid → my fear,claim,narrative_extraction,False
+407,claim_46,have: young people → mental health,claim,narrative_extraction,False
+408,claim_48,guess: social anxiety → with people,claim,narrative_extraction,False
+409,claim_49,think: my favourite → things,claim,narrative_extraction,False
+410,claim_51,seek: public institutions → measurable impact,claim,narrative_extraction,False
+411,claim_52,deemed: my role → service,claim,narrative_extraction,False
+412,claim_54,delivered: +/. health → +/. consultant,claim,narrative_extraction,False
+413,claim_55,helps: project → inclusive feel,claim,narrative_extraction,False
+414,claim_57,see: future models → more people,claim,narrative_extraction,False
+415,claim_59,setting: approach → road,claim,narrative_extraction,False
+416,claim_60,knock: great thing → physical activity,claim,narrative_extraction,False
+417,claim_61,come: future → +/. information,claim,narrative_extraction,False
+418,claim_63,embedded: funding → of part,claim,narrative_extraction,False
+419,claim_65,set: frustrations → +/. health,claim,narrative_extraction,False
+420,claim_67,write: their goal → week,claim,narrative_extraction,False
+421,claim_69,supports: +/. link → +/. hse,claim,narrative_extraction,False
+422,claim_71,think: +/. traveler → +/. traveler,claim,narrative_extraction,False
+423,claim_72,live: people → their family,claim,narrative_extraction,False
+424,claim_74,read: lot → young traveler,claim,narrative_extraction,False
+425,claim_76,become: during covid → community,claim,narrative_extraction,False
+426,claim_77,put: nice words → funding,claim,narrative_extraction,False
+427,claim_79,have: right people → to travelers,claim,narrative_extraction,False
+428,claim_81,had: idea → +/. traveler,claim,narrative_extraction,False
+429,claim_83,experienced: young people → +/. health,claim,narrative_extraction,False
+430,claim_84,ensuring: my opinion → +/. health,claim,narrative_extraction,False
+431,claim_86,seek: use → social media,claim,narrative_extraction,False
+432,claim_88,getting: main focus → our programmes,claim,narrative_extraction,False
+433,claim_90,getting: programs → +/. surf,claim,narrative_extraction,False
+434,claim_92,bridging: main challenge → context,claim,narrative_extraction,False
+435,claim_94,lost: of terms → mental health,claim,narrative_extraction,False
+436,claim_96,say: most students → therapeutic services,claim,narrative_extraction,False
+437,claim_97,see: +/. lot → of students,claim,narrative_extraction,False
+438,claim_98,believe: main challenge → and poverty,claim,narrative_extraction,False
+439,claim_99,thought: your suggestion → +/. group,claim,narrative_extraction,False
+440,claim_100,suppose: moment → young people,claim,narrative_extraction,False
+441,claim_101,suppose: young people → greater awareness,claim,narrative_extraction,False
+442,claim_103,find: social media → significant role,claim,narrative_extraction,False
+443,claim_104,suppose: big area → is anxiety,claim,narrative_extraction,False
+444,claim_105,do:  → ,claim,narrative_extraction,False
+445,claim_107,reconnects: mindfulness → your brain,claim,narrative_extraction,False
+446,claim_109,mean: +/. school → huge challenge,claim,narrative_extraction,False
+447,claim_110,think: big believer → social capital,claim,narrative_extraction,False
+448,claim_112,think: good person → your life,claim,narrative_extraction,False
+449,claim_114,funded: experience → three# years,claim,narrative_extraction,False
+450,claim_116,labelled: +/. gps → case,claim,narrative_extraction,False
+451,claim_117,think: +/. matter → any time,claim,narrative_extraction,False
+452,claim_119,come: to jama → service,claim,narrative_extraction,False
+453,claim_121,engaging: videos → +/. rugby,claim,narrative_extraction,False
+454,claim_2,used:  → ,claim,narrative_extraction,False
+455,claim_4,lacks: lot → system,claim,narrative_extraction,False
+456,claim_9,lacks: and community → structural gaps,claim,narrative_extraction,False
+457,claim_12,lacks: listening practices → +/. policy,claim,narrative_extraction,False
+458,claim_22,lacks: and teachers → +/. health,claim,narrative_extraction,False
+459,claim_24,prevent: at support → younger ages,claim,narrative_extraction,False
+460,claim_27,allowed: led interest → real sense,claim,narrative_extraction,False
+461,claim_30,rethink: rethink ireland → early phase,claim,narrative_extraction,False
+462,claim_33,rethink: our partnership → rethink ireland,claim,narrative_extraction,False
+463,claim_35,lacks: unprecedented surge → in interest,claim,narrative_extraction,False
+464,claim_37,lacks: little girl → +/. autism,claim,narrative_extraction,False
+465,claim_43,lacks: to thanks → +/. headstart,claim,narrative_extraction,False
+466,claim_45,helped: +/. liquid → my fear,claim,narrative_extraction,False
+467,claim_47,needs_protection: young people → mental health,claim,narrative_extraction,False
+468,claim_50,lacks: my favourite → things,claim,narrative_extraction,False
+469,claim_53,lacks: my role → service,claim,narrative_extraction,False
+470,claim_56,lacks: project → inclusive feel,claim,narrative_extraction,False
+471,claim_58,see: future models → more people,claim,narrative_extraction,False
+472,claim_62,come: future → +/. information,claim,narrative_extraction,False
+473,claim_64,lacks: funding → of part,claim,narrative_extraction,False
+474,claim_66,set: frustrations → +/. health,claim,narrative_extraction,False
+475,claim_68,lacks: their goal → week,claim,narrative_extraction,False
+476,claim_70,supports: +/. link → +/. hse,claim,narrative_extraction,False
+477,claim_73,lacks: people → their family,claim,narrative_extraction,False
+478,claim_75,lacks: lot → young traveler,claim,narrative_extraction,False
+479,claim_78,lacks: nice words → funding,claim,narrative_extraction,False
+480,claim_80,lacks: right people → to travelers,claim,narrative_extraction,False
+481,claim_82,contingent_on: idea → +/. traveler,claim,narrative_extraction,False
+482,claim_85,needs_protection: my opinion → +/. health,claim,narrative_extraction,False
+483,claim_87,seek: use → social media,claim,narrative_extraction,False
+484,claim_89,getting: main focus → our programmes,claim,narrative_extraction,False
+485,claim_91,lacks: programs → +/. surf,claim,narrative_extraction,False
+486,claim_93,bridging: main challenge → context,claim,narrative_extraction,False
+487,claim_95,lacks: of terms → mental health,claim,narrative_extraction,False
+488,claim_102,lacks: young people → greater awareness,claim,narrative_extraction,False
+489,claim_106,contingent_on:  → ,claim,narrative_extraction,False
+490,claim_108,lacks: mindfulness → your brain,claim,narrative_extraction,False
+491,claim_111,contingent_on: big believer → social capital,claim,narrative_extraction,False
+492,claim_113,think: good person → your life,claim,narrative_extraction,False
+493,claim_115,contingent_on: experience → three# years,claim,narrative_extraction,False
+494,claim_118,lacks: +/. matter → any time,claim,narrative_extraction,False
+495,claim_120,lacks: to jama → service,claim,narrative_extraction,False
+496,claim_122,lacks: videos → +/. rugby,claim,narrative_extraction,False

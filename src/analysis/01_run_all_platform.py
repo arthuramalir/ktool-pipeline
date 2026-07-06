@@ -34,6 +34,8 @@ CORE_SCRIPTS = [
     ("05_robustness.py", "Node-removal decay simulation"),
     ("06_value_proof_comparison.py", "Record-vs-graph contrast matrix"),
     ("09_perception_diagnostics.py", "Perception diagnostics — coherence, purity, source entropy"),
+    ("21_extract_narrative_layers.py", "Narrative extraction — surface/implicit claims + metanarrative classification"),
+    ("00_prepare_graph_tables.py", "Re-prepare graph with claim nodes/edges from narrative extraction"),
     ("11_gnn_preparation.py", "GNN preparation - features, heterographs, uncertainty-aware confidence"),
     ("12_train_gnn_node_type.py", "GNN node-type benchmark"),
     ("13_train_gnn_link_prediction.py", "GNN link prediction and mapping AI shortlist"),
@@ -73,7 +75,7 @@ def run_script(script_name: str, description: str) -> int:
         [sys.executable, str(path)],
         capture_output=True,
         text=True,
-        timeout=180,
+        timeout=600,
     )
 
     if result.stdout.strip():

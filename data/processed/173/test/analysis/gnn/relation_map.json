@@ -1,6 +1,12 @@
 {
+  "challenge__narrative_claim__claim__fwd": 8,
+  "claim__narrative_claim__agent__fwd": 5,
+  "claim__narrative_claim__pilot__fwd": 6,
+  "claim__narrative_claim__project__fwd": 7,
   "information__listening__channel__fwd": 0,
+  "information__narrative_claim__claim__fwd": 9,
   "information__qualitative_narrative__information__fwd": 2,
   "information__qualitative_narrative__information__rev": 3,
-  "perception__interpretive__challenge__fwd": 1
+  "perception__interpretive__challenge__fwd": 1,
+  "perception__narrative_claim__claim__fwd": 4
 }

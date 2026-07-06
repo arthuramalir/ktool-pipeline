@@ -1,0 +1,19 @@
+{
+  "narrative_nodes_processed": 93,
+  "total_claims": 122,
+  "surface_claims": 79,
+  "implicit_claims": 43,
+  "claims_with_subject_link": 95,
+  "claims_with_object_link": 89,
+  "total_claim_edges": 306,
+  "value_dimensions_found": {
+    "social_justice": 7,
+    "community_autonomy": 1,
+    "innovation_drive": 3,
+    "austerity_scarcity": 1,
+    "collaboration": 6,
+    "evidence_based": 1,
+    "cultural_identity": 14
+  },
+  "metanarrative_classifications": 42
+}

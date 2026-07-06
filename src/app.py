@@ -10,6 +10,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 
+from structural_change import framework as scf
+
 st.set_page_config(
     layout="wide",
     page_title="ALC K-Tool",
@@ -267,6 +269,9 @@ manual_profiles = load_json(ROOT / "src" / "analysis" / "manual_narrative_profil
 link_intervention_scores = load_csv([ANALYSIS_DIR / "link_intervention_scores.csv"])
 link_intervention_summary = load_json(ANALYSIS_DIR / "link_intervention_summary.json")
 
+structural_change = load_json(ANALYSIS_DIR / "structural_change_possibility.json")
+change_nodes = load_csv([ANALYSIS_DIR / "change_readiness_nodes.csv"])
+
 # Financial (synthetic only)
 leverage_df = load_csv([ANALYSIS_DIR / "synthetic_value_leverage.csv"])
 stranded_df = load_csv([ANALYSIS_DIR / "synthetic_stranded_assets.csv"])
@@ -325,6 +330,8 @@ tab_labels = [
     "What-If Simulator",
     "Network Layers",
     "AI-Generated Links",
+    "Structural Change",
+    "Claims",
 ]
 if is_synthetic:
     tab_labels.append("Budget & Finance")
@@ -338,11 +345,13 @@ tab_perception = tabs[4]
 tab_gnn = tabs[5]
 tab_layer = tabs[6]
 tab_ai_semantic = tabs[7]
-tab_financial = tabs[8] if is_synthetic and len(tabs) > 8 else None
+tab_structural = tabs[8]
+tab_claims = tabs[9]
+tab_financial = tabs[10] if is_synthetic and len(tabs) > 10 else None
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 0: OVERVIEW
+# TAB 0 — Overview
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_overview:
     st.subheader("The network at a glance")
@@ -393,7 +402,7 @@ with tab_overview:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 1: SYSTEM RESILIENCE
+# TAB 1 — Health Check
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_alerts:
     st.subheader("Network health check")
@@ -469,7 +478,7 @@ with tab_alerts:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 2: LISTENING
+# TAB 2 — Listening
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_narrative:
     st.subheader("What people are saying")
@@ -533,7 +542,7 @@ with tab_narrative:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 3: NARRATIVE PROFILES
+# TAB 3 — Story Clusters
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_profiles:
     st.subheader("Story clusters from listening data")
@@ -681,7 +690,7 @@ with tab_profiles:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 4: STAKEHOLDER PERCEPTIONS
+# TAB 4 — Perceptions
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_perception:
     st.subheader("Perception health check")
@@ -821,7 +830,7 @@ with tab_perception:
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 6: INTERVENTION SIMULATOR
+# TAB 5 — What-If Simulator (GNN)
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_gnn:
     st.subheader("What-if: adding new links")
@@ -1005,7 +1014,7 @@ with tab_gnn:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 7: NETWORK STRUCTURE
+# TAB 6 — Network Layers
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_layer:
     st.subheader("What each link type adds")
@@ -1071,7 +1080,7 @@ with tab_layer:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 8: AI SEMANTIC LINKS
+# TAB 7 — AI-Generated Links
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_ai_semantic:
     st.subheader("AI-generated links")
@@ -1147,7 +1156,7 @@ with tab_ai_semantic:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 9: INVESTMENT INTELLIGENCE (173_synthetic only)
+# TAB 10 — Budget & Finance (synthetic only)
 # ═══════════════════════════════════════════════════════════════════════════════
 if tab_financial is not None:
     with tab_financial:
@@ -1360,5 +1369,263 @@ if tab_financial is not None:
                 "The reallocation simulation confirms: the real budget spread is **worse than random** "
                 "(at the 1st percentile) — almost certainly not maximising impact."
             )
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAB 8 — Structural Change
+# ═══════════════════════════════════════════════════════════════════════════════
+with tab_structural:
+    if not structural_change:
+        st.info("Structural change analysis not available. Run `20_structural_change_possibility.py` first.")
+    else:
+        scores = structural_change.get("change_readiness_scores", {})
+        narrative_lines = structural_change.get("narrative", [])
+        graph_summ = structural_change.get("graph_summary", {})
+
+        st.subheader("Is structural change possible?")
+        st.markdown(
+            "This tab asks: *given the current relational structure, what kinds of change are feasible?* "
+            "It bridges network metrics with political science frameworks to identify leverage points, "
+            "blockages, path dependency, and actionable intervention strategies."
+        )
+
+        st.markdown("### Change Readiness Scores")
+        st.caption("0 = rigid/locked-in, 1 = open to change. Each score has a political interpretation.")
+        col_a, col_b, col_c, col_d, col_e = st.columns(5)
+        score_labels = [
+            ("Leverage", "leverage_score", "Are there bridges to amplify change?"),
+            ("Plasticity", "plasticity_score", "Can the network accept new links?"),
+            ("Blockage", "blockage_score", "How many structural barriers exist?"),
+            ("Lock-in", "lockin_score", "Is a dense core blocking reconfiguration?"),
+            ("Overall Readiness", "overall_readiness", "Composite of all four dimensions."),
+        ]
+        cols = [col_a, col_b, col_c, col_d, col_e]
+        for col, (label, key, help_text) in zip(cols, score_labels):
+            val = scores.get(key, 0.0)
+            with col:
+                st.metric(label, f"{val:.2f}", help=help_text)
+                pol_narrative = scf.framework_narrative(key, val)
+                if pol_narrative:
+                    st.caption(pol_narrative)
+                gov_action = scf.governance_action(key, val)
+                if gov_action:
+                    st.caption(gov_action)
+
+        if narrative_lines:
+            st.markdown("### What the scores mean for this network")
+            for line in narrative_lines:
+                st.write(f"- {line}")
+
+        if graph_summ:
+            st.markdown("### Network context")
+            ctx_a, ctx_b, ctx_c, ctx_d = st.columns(4)
+            ctx_a.metric("Nodes", graph_summ.get("nodes", 0))
+            ctx_b.metric("Edges", graph_summ.get("edges", 0))
+            ctx_c.metric("Components", graph_summ.get("components", 0))
+            ctx_d.metric("Giant component share", f"{graph_summ.get('giant_component_share', 0):.0%}")
+            cnt_e, cnt_f = st.columns(2)
+            cnt_e.metric("Max k-core level", graph_summ.get("max_k_core", 0))
+            cnt_f.metric("Fraction in densest core", f"{graph_summ.get('fraction_in_dense_core', 0):.0%}")
+
+        leverage_pts = structural_change.get("leverage_points", {})
+        if leverage_pts.get("top_betweenness_nodes"):
+            st.markdown("### Top leverage points")
+            st.caption("Nodes with highest betweenness centrality — the policy brokers (Gould & Fernandez, 1989).")
+            lev_df = pd.DataFrame(leverage_pts["top_betweenness_nodes"])
+            if not lev_df.empty and "global_id" in lev_df.columns:
+                if "label" in nodes.columns:
+                    label_map = dict(zip(nodes["global_id"].astype(str), nodes["label"]))
+                    lev_df["raw_label"] = lev_df["global_id"].map(label_map)
+                    lev_df["label"] = lev_df.apply(
+                        lambda r: fallback_label(r["raw_label"], r["global_id"]), axis=1
+                    )
+                st.dataframe(
+                    lev_df[["label", "betweenness_centrality", "degree"]]
+                    .rename(columns={"label": "Entity", "betweenness_centrality": "Bridge score", "degree": "Links"}),
+                    width='stretch', hide_index=True,
+                )
+
+        with st.expander("Metric-to-Political Mapping — reference table"):
+            st.markdown(
+                "How each network metric maps to a political science concept. "
+                "Sources: Sabatier & Jenkins-Smith (1993), Baumgartner & Jones (1993), "
+                "Gould & Fernandez (1989), Cairney (2019), Provan & Kenis (2007)."
+            )
+            map_df = pd.DataFrame(scf.METRIC_MAP)
+            st.dataframe(
+                map_df[["metric", "concept", "interpretation", "relevance"]]
+                .rename(columns={"metric": "Network Metric", "concept": "Political Concept",
+                                 "interpretation": "What It Means", "relevance": "Why It Matters"}),
+                width='stretch', hide_index=True,
+            )
+
+        with st.expander("Governance Risk & Intervention Matrix"):
+            st.markdown(
+                "Translate graph findings into governance actions. "
+                "Sources: Baumgartner & Jones (1993), Provan & Kenis (2007), Cairney (2019)."
+            )
+            gov_df = pd.DataFrame(scf.GOVERNANCE_MATRIX)
+            st.dataframe(
+                gov_df[["finding", "interpretation", "risk", "action"]]
+                .rename(columns={"finding": "Network Finding", "interpretation": "Political Interpretation",
+                                 "risk": "Governance Risk", "action": "Intervention Strategy"}),
+                width='stretch', hide_index=True,
+            )
+
+        with st.expander("Intervention Strategy by Subsystem Maturity"):
+            st.markdown(
+                "The deep research recommends tailoring strategy to subsystem maturity:"
+            )
+            mat_df = pd.DataFrame(scf.INTERVENTION_MATURITY)
+            st.dataframe(
+                mat_df[["subsystem_type", "profile", "strategy", "alc_role"]]
+                .rename(columns={"subsystem_type": "Subsystem Type", "profile": "Profile",
+                                 "strategy": "Recommended Strategy", "alc_role": "ALC's Role"}),
+                width='stretch', hide_index=True,
+            )
+
+        with st.expander("The three political science frameworks behind this analysis"):
+            for fw in scf.FRAMEWORKS:
+                st.markdown(f"**{fw['name']}** — {fw['author']}")
+                st.markdown(f"*{fw['core_idea']}*")
+                st.markdown(f"**Dashboard use:** {fw['dashboard_use']}")
+                st.markdown(f"**Key insight:** {fw['key_insight']}")
+                if "belief_hierarchy" in fw:
+                    st.markdown("Belief hierarchy:")
+                    for level, desc in fw["belief_hierarchy"].items():
+                        st.markdown(f"- **{level}:** {desc}")
+                if "pillars" in fw:
+                    for name, desc in fw["pillars"].items():
+                        st.markdown(f"- **{name}:** {desc}")
+                if "governance_modes" in fw:
+                    for mode, desc in fw["governance_modes"].items():
+                        st.markdown(f"- **{mode}:** {desc}")
+                st.divider()
+
+        if not change_nodes.empty:
+            with st.expander("Top nodes by k-core level"):
+                st.markdown("Nodes in the highest k-core level represent the policy monopoly (Sabatier & Jenkins-Smith, 1993).")
+                st.dataframe(
+                    change_nodes[["global_id", "node_type", "k_core", "is_peripheral"]]
+                    .rename(columns={"global_id": "Entity ID", "node_type": "Type",
+                                     "k_core": "Core level", "is_peripheral": "Peripheral?"}),
+                    width='stretch', hide_index=True,
+                )
+
+        with st.expander("Full research output & recommended reading"):
+            st.markdown(
+                "This analysis is based on the deep research report "
+                "`deep_research_political_framework.md`. It synthesizes Advocacy Coalition "
+                "Framework (ACF), Punctuated Equilibrium Theory (PET), and New Public "
+                "Governance (NPG) to bridge network metrics to governance action."
+            )
+            st.markdown("**Recommended reading:**")
+            st.markdown("- Sabatier & Jenkins-Smith (1993) *Policy Change and Learning*")
+            st.markdown("- Baumgartner & Jones (1993) *Agendas and Instability in American Politics*")
+            st.markdown("- Gould & Fernandez (1989) *Sovereignty, Conflict, and Alliance*")
+            st.markdown("- Cairney (2019) *Understanding Public Policy*")
+            st.markdown("- Provan & Kenis (2007) *Modes of Network Governance*")
+            st.markdown("- Fischer & Maggetti (2020) *QCA and the Study of Policy Processes*")
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CLAIMS TAB
+# ═══════════════════════════════════════════════════════════════════════════════
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAB 9 — Claims
+# ═══════════════════════════════════════════════════════════════════════════════
+with tab_claims:
+    st.header("Narrative Claims")
+
+    st.markdown(
+        """
+        Claims are extracted from narrative text via hyperbase semantic hypergraph parsing.
+        Each claim is structured as a **subject→verb→object** triple with entity linking to
+        operational graph nodes (agents, projects). Claims span three narrative levels:
+        **surface** (explicit), **implicit** (inferred via negation/conditional/emergency cues),
+        and **metanarrative** (value dimension classification across 7 political domains).
+        """
+    )
+
+    claim_nodes_path = ANALYSIS_DIR / "narrative_layers" / "claim_nodes.csv"
+    claim_edges_path = ANALYSIS_DIR / "narrative_layers" / "claim_edges.csv"
+    meta_path = ANALYSIS_DIR / "narrative_layers" / "metanarratives.csv"
+    summary_path = ANALYSIS_DIR / "narrative_layers" / "narrative_extraction_summary.json"
+
+    claim_nodes = load_csv([claim_nodes_path])
+    claim_edges = load_csv([claim_edges_path])
+    meta_df = load_csv([meta_path])
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric("Total Claims", len(claim_nodes) if not claim_nodes.empty else 0)
+    with col2:
+        surface_n = int((claim_nodes["narrative_level"] == "surface").sum()) if not claim_nodes.empty else 0
+        st.metric("Surface", surface_n)
+    with col3:
+        implicit_n = int((claim_nodes["narrative_level"] == "implicit").sum()) if not claim_nodes.empty else 0
+        st.metric("Implicit", implicit_n)
+    with col4:
+        linked_n = int(claim_nodes["subject_entity_id"].astype(str).str.strip().ne("").sum()) if not claim_nodes.empty else 0
+        st.metric("Entity-Linked", linked_n)
+
+    if not claim_nodes.empty:
+        st.subheader("Value Dimensions")
+        dim_counts = (
+            claim_nodes[claim_nodes["value_dimension"].notna() & (claim_nodes["value_dimension"] != "")]
+            ["value_dimension"].value_counts()
+        )
+        if not dim_counts.empty:
+            fig = px.bar(
+                x=dim_counts.index, y=dim_counts.values,
+                labels={"x": "Value Dimension", "y": "Claim Count"},
+                color=dim_counts.index, color_discrete_sequence=PLOTLY_PALETTE,
+            )
+            fig.update_layout(showlegend=False)
+            st.plotly_chart(fig, width='stretch')
+        else:
+            st.info("No value dimension classifications available.")
+
+        st.subheader("Sample Claims")
+
+        level_filter = st.selectbox(
+            "Narrative level", ["All", "surface", "implicit"],
+        )
+
+        sample_df = claim_nodes.copy()
+        if level_filter != "All":
+            sample_df = sample_df[sample_df["narrative_level"] == level_filter]
+
+        display_cols = ["global_id", "narrative_level", "verb", "subject_raw", "object_raw",
+                        "value_dimension", "belief_level"]
+        available = [c for c in display_cols if c in sample_df.columns]
+        st.dataframe(
+            sample_df[available].head(50),
+            width='stretch', hide_index=True,
+        )
+
+        st.subheader("Claim Graph")
+        st.markdown(
+            f"**{len(claim_edges)} edges** connecting narrative sources → claims → operational entities."
+        )
+        if not claim_edges.empty:
+            edge_type_counts = claim_edges["edge_type"].value_counts()
+            fig2 = px.bar(
+                x=edge_type_counts.index, y=edge_type_counts.values,
+                labels={"x": "Edge Type", "y": "Count"},
+                color=edge_type_counts.index, color_discrete_sequence=PLOTLY_PALETTE,
+            )
+            fig2.update_layout(showlegend=False)
+            st.plotly_chart(fig2, width='stretch')
+
+    else:
+        st.warning("No narrative extraction output found. Run `21_extract_narrative_layers.py` first.")
+
+    # Summary sidebar data
+    if summary_path.exists():
+        try:
+            summary = json.loads(summary_path.read_text(encoding="utf-8"))
+            with st.expander("Extraction Summary"):
+                st.json(summary)
+        except Exception:
+            pass
 
 # ═══════════════════════════════════════════════════════════════════════════════

@@ -1,95 +1,96 @@
 {
-  "best_val_accuracy": 0.918918918918919,
-  "class_count": 9,
-  "confidence_filter_edge_count": 559,
+  "best_val_accuracy": 0.9591836734693877,
+  "class_count": 10,
+  "confidence_filter_edge_count": 1625,
   "confidence_threshold": 0.6,
-  "epochs_ran": 25,
-  "feature_dim": 279,
+  "epochs_ran": 37,
+  "feature_dim": 665,
   "gnn_dir": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\analysis\\gnn",
   "hidden_dim": 64,
   "history_tail": [
     {
-      "epoch": 21,
-      "loss": 1423.08544921875,
+      "epoch": 33,
+      "loss": 44.29595947265625,
       "test_accuracy": 0.96,
-      "test_macro_f1": 0.6565656565656566,
-      "train_accuracy": 0.9647577092511013,
-      "train_macro_f1": 0.8157133794814955,
-      "val_accuracy": 0.918918918918919,
-      "val_macro_f1": 0.5572390572390573
+      "test_macro_f1": 0.6893677156177157,
+      "train_accuracy": 0.98,
+      "train_macro_f1": 0.8934782608695653,
+      "val_accuracy": 0.9387755102040817,
+      "val_macro_f1": 0.6332427937915742
     },
     {
-      "epoch": 22,
-      "loss": 1328.851318359375,
+      "epoch": 34,
+      "loss": 6157.9814453125,
       "test_accuracy": 0.96,
-      "test_macro_f1": 0.6565656565656566,
-      "train_accuracy": 0.960352422907489,
-      "train_macro_f1": 0.7938840709051989,
-      "val_accuracy": 0.918918918918919,
-      "val_macro_f1": 0.5572390572390573
+      "test_macro_f1": 0.6893677156177157,
+      "train_accuracy": 0.98,
+      "train_macro_f1": 0.8934782608695653,
+      "val_accuracy": 0.9387755102040817,
+      "val_macro_f1": 0.6332427937915742
     },
     {
-      "epoch": 23,
-      "loss": 1925.6060791015625,
-      "test_accuracy": 0.96,
-      "test_macro_f1": 0.6565656565656566,
-      "train_accuracy": 0.960352422907489,
-      "train_macro_f1": 0.7938840709051989,
-      "val_accuracy": 0.918918918918919,
-      "val_macro_f1": 0.5572390572390573
+      "epoch": 35,
+      "loss": 505.6457214355469,
+      "test_accuracy": 0.98,
+      "test_macro_f1": 0.7956177156177157,
+      "train_accuracy": 0.99,
+      "train_macro_f1": 0.9763855421686747,
+      "val_accuracy": 0.9591836734693877,
+      "val_macro_f1": 0.7124094604582409
     },
     {
-      "epoch": 24,
-      "loss": 1216.1387939453125,
-      "test_accuracy": 0.96,
-      "test_macro_f1": 0.6565656565656566,
-      "train_accuracy": 0.960352422907489,
-      "train_macro_f1": 0.7938840709051989,
-      "val_accuracy": 0.918918918918919,
-      "val_macro_f1": 0.5572390572390573
+      "epoch": 36,
+      "loss": 99.61015319824219,
+      "test_accuracy": 0.98,
+      "test_macro_f1": 0.7956177156177157,
+      "train_accuracy": 0.99,
+      "train_macro_f1": 0.9763855421686747,
+      "val_accuracy": 0.9591836734693877,
+      "val_macro_f1": 0.7124094604582409
     },
     {
-      "epoch": 25,
-      "loss": 1949.60205078125,
-      "test_accuracy": 0.96,
-      "test_macro_f1": 0.6565656565656566,
-      "train_accuracy": 0.960352422907489,
-      "train_macro_f1": 0.7938840709051989,
-      "val_accuracy": 0.918918918918919,
-      "val_macro_f1": 0.5572390572390573
+      "epoch": 37,
+      "loss": 267.9798889160156,
+      "test_accuracy": 0.98,
+      "test_macro_f1": 0.7956177156177157,
+      "train_accuracy": 0.99,
+      "train_macro_f1": 0.9763855421686747,
+      "val_accuracy": 0.9591836734693877,
+      "val_macro_f1": 0.7124094604582409
     }
   ],
   "label_map": {
     "agent": 0,
     "challenge": 1,
     "channel": 2,
-    "information": 3,
-    "perception": 4,
-    "pilot": 5,
-    "project": 6,
-    "prototype": 7,
-    "theme": 8
+    "claim": 3,
+    "information": 4,
+    "perception": 5,
+    "pilot": 6,
+    "project": 7,
+    "prototype": 8,
+    "theme": 9
   },
   "metrics": {
     "test": {
-      "accuracy": 0.96,
-      "macro_f1": 0.6565656565656566
+      "accuracy": 0.99,
+      "macro_f1": 0.7981818181818182
     },
     "train": {
-      "accuracy": 0.9515418502202643,
-      "macro_f1": 0.7171953452655208
+      "accuracy": 0.99,
+      "macro_f1": 0.9763855421686747
     },
     "validation": {
-      "accuracy": 0.918918918918919,
-      "macro_f1": 0.5572390572390573
+      "accuracy": 0.9591836734693877,
+      "macro_f1": 0.7124094604582409
     }
   },
   "model": "RGCN",
-  "node_confidence_mean": 0.6839500665664673,
-  "node_count": 376,
+  "node_confidence_mean": 0.687028706073761,
+  "node_count": 498,
   "output_subdir": "test",
   "platform_id": "173_synthetic",
-  "relation_count": 8,
+  "relation_count": 24,
   "source_summary": {
     "anonymized_node_types": [
       "citizen",
@@ -97,29 +98,34 @@
       "resident"
     ],
     "confidence_threshold": 0.6,
-    "edge_count": 559,
-    "feature_dim": 279,
+    "edge_count": 1625,
+    "feature_dim": 665,
     "feature_slices": {
       "categorical": {
-        "end": 23,
+        "end": 25,
         "start": 11
       },
       "numeric": {
         "end": 11,
         "start": 0
       },
+      "semantic": {
+        "end": 665,
+        "start": 281
+      },
       "text_hash": {
-        "end": 279,
-        "start": 23
+        "end": 281,
+        "start": 25
       }
     },
     "low_confidence_edge_count": 0,
     "low_confidence_threshold": 0.6,
-    "node_count": 376,
+    "node_count": 498,
     "node_types": [
       "agent",
       "challenge",
       "channel",
+      "claim",
       "information",
       "perception",
       "pilot",
@@ -139,10 +145,10 @@
       "Citizen-like node types can be anonymized through the anonymize-node-types flag.",
       "Sensitive columns are orthogonally projected out of narrative vectors when present."
     ],
-    "relation_count": 8,
-    "semantic_embedding_coverage_rate": 0.0,
-    "semantic_embedding_dim": 0,
-    "semantic_embedding_source": "",
+    "relation_count": 24,
+    "semantic_embedding_coverage_rate": 0.7550200803212851,
+    "semantic_embedding_dim": 384,
+    "semantic_embedding_source": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\analysis\\node_semantic_embeddings.parquet",
     "sensitive_columns_used": [
       "gender",
       "age",

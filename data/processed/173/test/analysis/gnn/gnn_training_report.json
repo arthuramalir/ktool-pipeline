@@ -1,95 +1,96 @@
 {
-  "best_val_accuracy": 0.9459459459459459,
-  "class_count": 9,
-  "confidence_filter_edge_count": 329,
+  "best_val_accuracy": 0.9591836734693877,
+  "class_count": 10,
+  "confidence_filter_edge_count": 789,
   "confidence_threshold": 0.6,
-  "epochs_ran": 39,
-  "feature_dim": 279,
+  "epochs_ran": 40,
+  "feature_dim": 665,
   "gnn_dir": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\analysis\\gnn",
   "hidden_dim": 64,
   "history_tail": [
     {
-      "epoch": 35,
-      "loss": 0.05931135267019272,
-      "test_accuracy": 0.9864864864864865,
-      "test_macro_f1": 0.7750677506775068,
-      "train_accuracy": 0.973568281938326,
-      "train_macro_f1": 0.7725694444444444,
-      "val_accuracy": 0.9459459459459459,
-      "val_macro_f1": 0.67989417989418
-    },
-    {
       "epoch": 36,
-      "loss": 0.05363255739212036,
-      "test_accuracy": 0.9864864864864865,
-      "test_macro_f1": 0.7750677506775068,
-      "train_accuracy": 0.973568281938326,
-      "train_macro_f1": 0.773403324584427,
-      "val_accuracy": 0.9459459459459459,
-      "val_macro_f1": 0.67989417989418
+      "loss": 0.024558328092098236,
+      "test_accuracy": 0.98989898989899,
+      "test_macro_f1": 0.7975609756097561,
+      "train_accuracy": 0.9933333333333333,
+      "train_macro_f1": 0.8880758807588076,
+      "val_accuracy": 0.9591836734693877,
+      "val_macro_f1": 0.6952380952380952
     },
     {
       "epoch": 37,
-      "loss": 0.04997728392481804,
-      "test_accuracy": 0.9864864864864865,
-      "test_macro_f1": 0.7750677506775068,
-      "train_accuracy": 0.9823788546255506,
-      "train_macro_f1": 0.8315412186379929,
-      "val_accuracy": 0.9459459459459459,
-      "val_macro_f1": 0.67989417989418
+      "loss": 0.026846377179026604,
+      "test_accuracy": 0.98989898989899,
+      "test_macro_f1": 0.7967741935483871,
+      "train_accuracy": 0.9933333333333333,
+      "train_macro_f1": 0.8811965811965813,
+      "val_accuracy": 0.9591836734693877,
+      "val_macro_f1": 0.697560975609756
     },
     {
       "epoch": 38,
-      "loss": 0.04407312348484993,
-      "test_accuracy": 0.9864864864864865,
-      "test_macro_f1": 0.7750677506775068,
-      "train_accuracy": 0.9911894273127754,
-      "train_macro_f1": 0.8666666666666667,
-      "val_accuracy": 0.9459459459459459,
-      "val_macro_f1": 0.67989417989418
+      "loss": 0.02933141402900219,
+      "test_accuracy": 0.98989898989899,
+      "test_macro_f1": 0.7967741935483871,
+      "train_accuracy": 0.9933333333333333,
+      "train_macro_f1": 0.8882828282828283,
+      "val_accuracy": 0.9591836734693877,
+      "val_macro_f1": 0.697560975609756
     },
     {
       "epoch": 39,
-      "loss": 0.03846568986773491,
-      "test_accuracy": 0.9864864864864865,
-      "test_macro_f1": 0.7750677506775068,
-      "train_accuracy": 0.9911894273127754,
-      "train_macro_f1": 0.8666666666666667,
-      "val_accuracy": 0.9459459459459459,
-      "val_macro_f1": 0.67989417989418
+      "loss": 0.03152529150247574,
+      "test_accuracy": 0.98989898989899,
+      "test_macro_f1": 0.7967741935483871,
+      "train_accuracy": 0.9933333333333333,
+      "train_macro_f1": 0.8811965811965813,
+      "val_accuracy": 0.9591836734693877,
+      "val_macro_f1": 0.697560975609756
+    },
+    {
+      "epoch": 40,
+      "loss": 0.02454574778676033,
+      "test_accuracy": 0.98989898989899,
+      "test_macro_f1": 0.7967741935483871,
+      "train_accuracy": 0.9933333333333333,
+      "train_macro_f1": 0.8811965811965813,
+      "val_accuracy": 0.9591836734693877,
+      "val_macro_f1": 0.697560975609756
     }
   ],
   "label_map": {
     "agent": 0,
     "challenge": 1,
     "channel": 2,
-    "information": 3,
-    "perception": 4,
-    "pilot": 5,
-    "project": 6,
-    "prototype": 7,
-    "theme": 8
+    "claim": 3,
+    "information": 4,
+    "perception": 5,
+    "pilot": 6,
+    "project": 7,
+    "prototype": 8,
+    "theme": 9
   },
   "metrics": {
     "test": {
-      "accuracy": 0.9864864864864865,
-      "macro_f1": 0.7750677506775068
+      "accuracy": 0.98989898989899,
+      "macro_f1": 0.7975609756097561
     },
     "train": {
-      "accuracy": 0.9691629955947136,
-      "macro_f1": 0.7580733442802408
+      "accuracy": 0.99,
+      "macro_f1": 0.8830715801880047
     },
     "validation": {
-      "accuracy": 0.9459459459459459,
-      "macro_f1": 0.6926887926887927
+      "accuracy": 0.9591836734693877,
+      "macro_f1": 0.7098639455782313
     }
   },
   "model": "RGCN",
-  "node_confidence_mean": 0.5835425853729248,
-  "node_count": 375,
+  "node_confidence_mean": 0.617633581161499,
+  "node_count": 497,
   "output_subdir": "test",
   "platform_id": "173",
-  "relation_count": 4,
+  "relation_count": 10,
   "source_summary": {
     "anonymized_node_types": [
       "citizen",
@@ -97,29 +98,34 @@
       "resident"
     ],
     "confidence_threshold": 0.6,
-    "edge_count": 329,
-    "feature_dim": 279,
+    "edge_count": 789,
+    "feature_dim": 665,
     "feature_slices": {
       "categorical": {
-        "end": 23,
+        "end": 25,
         "start": 11
       },
       "numeric": {
         "end": 11,
         "start": 0
       },
+      "semantic": {
+        "end": 665,
+        "start": 281
+      },
       "text_hash": {
-        "end": 279,
-        "start": 23
+        "end": 281,
+        "start": 25
       }
     },
     "low_confidence_edge_count": 0,
     "low_confidence_threshold": 0.6,
-    "node_count": 375,
+    "node_count": 497,
     "node_types": [
       "agent",
       "challenge",
       "channel",
+      "claim",
       "information",
       "perception",
       "pilot",
@@ -139,10 +145,10 @@
       "Citizen-like node types can be anonymized through the anonymize-node-types flag.",
       "Sensitive columns are orthogonally projected out of narrative vectors when present."
     ],
-    "relation_count": 4,
-    "semantic_embedding_coverage_rate": 0.0,
-    "semantic_embedding_dim": 0,
-    "semantic_embedding_source": "",
+    "relation_count": 10,
+    "semantic_embedding_coverage_rate": 0.7545271629778671,
+    "semantic_embedding_dim": 384,
+    "semantic_embedding_source": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\analysis\\node_semantic_embeddings.parquet",
     "sensitive_columns_used": [
       "age",
       "gender"

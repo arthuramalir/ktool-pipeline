@@ -273,6 +273,39 @@ def build_nodes() -> pd.DataFrame:
         )
         existing_ids.add(channel_gid)
 
+    # Optionally include claim nodes from narrative extraction
+    claim_path = ANALYSIS_DIR / "narrative_layers" / "claim_nodes.csv"
+    if claim_path.exists():
+        claim_df = pd.read_csv(claim_path)
+        required_claim_cols = ["global_id", "node_type", "label"]
+        if all(c in claim_df.columns for c in required_claim_cols):
+            for _, cr in claim_df.iterrows():
+                def _v(k, d=""):
+                    v = cr.get(k, d)
+                    return d if pd.isna(v) else str(v)
+                add_node(
+                    rows,
+                    _v("global_id"),
+                    _v("global_id"),
+                    "claim",
+                    _v("label", "Unnamed Claim"),
+                    _v("description"),
+                    "narrative_extraction",
+                    "narrative_layers/claim_nodes.csv",
+                    extra_attrs={
+                        "narrative_level": _v("narrative_level"),
+                        "verb": _v("verb"),
+                        "subject_raw": _v("subject_raw"),
+                        "object_raw": _v("object_raw"),
+                        "source_node_id": _v("source_node_id"),
+                        "value_dimension": _v("value_dimension"),
+                        "belief_level": _v("belief_level"),
+                        "is_ai_generated": True,
+                        "generated_by": "21_extract_narrative_layers.py",
+                    },
+                )
+            print(f"  + {len(claim_df)} claim nodes from narrative extraction")
+
     nodes = pd.DataFrame(rows).fillna("")
     if not nodes.empty:
         nodes = nodes.drop_duplicates(subset=["global_id"], keep="first")
@@ -646,7 +679,36 @@ def build_edges(valid_nodes: set[str]) -> tuple[pd.DataFrame, dict]:
             inference_method=text_value(row, "inference_method", default="sentence_transformer_cross_encoder"),
         )
 
-    # --- 4. VALIDATION, CLEANUP, & DEDUPLICATION ---
+    # --- 5. OPTIONAL NARRATIVE CLAIM EDGES ---
+    claim_edges_path = ANALYSIS_DIR / "narrative_layers" / "claim_edges.csv"
+    if claim_edges_path.exists():
+        claim_edge_df = pd.read_csv(claim_edges_path)
+        required_edge_cols = ["source_global_id", "target_global_id", "edge_type"]
+        if all(c in claim_edge_df.columns for c in required_edge_cols):
+            for _, er in claim_edge_df.iterrows():
+                def _v(k, d=""):
+                    v = er.get(k, d)
+                    return d if pd.isna(v) else str(v)
+                add_edge(
+                    rows,
+                    _v("source_global_id"),
+                    _v("target_global_id"),
+                    _v("edge_type", "claim_relation"),
+                    _v("edge_family", "narrative_claim"),
+                    _v("methodological_phase", "narrative_extraction"),
+                    str(_v("directed", "True")).strip().lower() in {"true", "1", "yes"},
+                    _v("evidence_source", "narrative_layers/claim_edges.csv"),
+                    extra_attrs={
+                        "weight": er.get("weight", 1.0),
+                    },
+                    ai_generated=True,
+                    edge_origin="ai_inferred",
+                    generated_by="21_extract_narrative_layers.py",
+                    inference_method="hyperbase_alphabeta_parser",
+                )
+            print(f"  + {len(claim_edge_df)} claim edges from narrative extraction")
+
+    # --- VALIDATION, CLEANUP, & DEDUPLICATION ---
     edges = pd.DataFrame(rows).fillna("")
     before_dedupe = len(edges)
     if edges.empty:

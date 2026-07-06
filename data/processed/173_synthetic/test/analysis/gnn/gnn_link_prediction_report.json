@@ -1,78 +1,78 @@
 {
-  "best_validation_auc": 0.5938208616780045,
+  "best_validation_auc": 0.986327600107498,
   "confidence_threshold": 0.6,
-  "edge_count_after_filter": 559,
-  "epochs_ran": 29,
+  "edge_count_after_filter": 1625,
+  "epochs_ran": 21,
   "gnn_dir": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\analysis\\gnn",
   "hidden_dim": 64,
   "history_tail": [
     {
-      "epoch": 25,
-      "loss": 5963419.0,
-      "test_auc": 0.06448412698412699,
-      "test_average_precision": 0.7793555387244169,
-      "train_auc": 0.10067961355564131,
-      "train_average_precision": 0.6008676678480468,
-      "validation_auc": 0.10572562358276644,
-      "validation_average_precision": 0.7043893928242285
+      "epoch": 17,
+      "loss": 156031904.0,
+      "test_auc": 0.7086148791681485,
+      "test_average_precision": 0.5907922385501564,
+      "train_auc": 0.6943030507071575,
+      "train_average_precision": 0.6027735496200924,
+      "validation_auc": 0.701743482934695,
+      "validation_average_precision": 0.520552786311591
     },
     {
-      "epoch": 26,
-      "loss": 4766313.5,
-      "test_auc": 0.05215419501133787,
-      "test_average_precision": 0.7908424718050553,
-      "train_auc": 0.07263819572085478,
-      "train_average_precision": 0.6113456861423733,
-      "validation_auc": 0.07227891156462585,
-      "validation_average_precision": 0.7001330255969921
+      "epoch": 18,
+      "loss": 185557872.0,
+      "test_auc": 0.7136107300716354,
+      "test_average_precision": 0.5866720154056159,
+      "train_auc": 0.6943316211649951,
+      "train_average_precision": 0.6091330544031665,
+      "validation_auc": 0.6786314162859446,
+      "validation_average_precision": 0.5331581021585561
     },
     {
-      "epoch": 27,
-      "loss": 1454.81787109375,
-      "test_auc": 0.05215419501133787,
-      "test_average_precision": 0.7908424718050553,
-      "train_auc": 0.07263819572085478,
-      "train_average_precision": 0.6113456861423733,
-      "validation_auc": 0.07227891156462585,
-      "validation_average_precision": 0.7001330255969921
+      "epoch": 19,
+      "loss": 158097616.0,
+      "test_auc": 0.7167945265796203,
+      "test_average_precision": 0.5807906096790537,
+      "train_auc": 0.6805606604872112,
+      "train_average_precision": 0.6082416427975358,
+      "validation_auc": 0.6825450147809728,
+      "validation_average_precision": 0.5359131315877445
     },
     {
-      "epoch": 28,
-      "loss": 1490.5582275390625,
-      "test_auc": 0.05215419501133787,
-      "test_average_precision": 0.7908424718050553,
-      "train_auc": 0.07263819572085478,
-      "train_average_precision": 0.6113456861423733,
-      "validation_auc": 0.07227891156462585,
-      "validation_average_precision": 0.7001330255969921
+      "epoch": 20,
+      "loss": 127372768.0,
+      "test_auc": 0.7315111178851462,
+      "test_average_precision": 0.5827258904565719,
+      "train_auc": 0.7284833565500477,
+      "train_average_precision": 0.5731050171473224,
+      "validation_auc": 0.7139713786616501,
+      "validation_average_precision": 0.5180466384655006
     },
     {
-      "epoch": 29,
-      "loss": 3146626.25,
-      "test_auc": 0.05215419501133787,
-      "test_average_precision": 0.7908424718050553,
-      "train_auc": 0.07263819572085478,
-      "train_average_precision": 0.6113456861423733,
-      "validation_auc": 0.07227891156462585,
-      "validation_average_precision": 0.7001330255969921
+      "epoch": 21,
+      "loss": 148634080.0,
+      "test_auc": 0.719538010804586,
+      "test_average_precision": 0.583728591411769,
+      "train_auc": 0.7220117617625347,
+      "train_average_precision": 0.5692503827883676,
+      "validation_auc": 0.694336199946251,
+      "validation_average_precision": 0.5257435567200424
     }
   ],
   "metrics": {
     "test": {
-      "auc": 0.05215419501133787,
-      "average_precision": 0.7908424718050553
+      "auc": 0.719538010804586,
+      "average_precision": 0.583728591411769
     },
     "train": {
-      "auc": 0.07263819572085478,
-      "average_precision": 0.6113456861423733
+      "auc": 0.7220117617625347,
+      "average_precision": 0.5692503827883676
     },
     "validation": {
-      "auc": 0.07227891156462585,
-      "average_precision": 0.7001330255969921
+      "auc": 0.694336199946251,
+      "average_precision": 0.5257435567200424
     }
   },
   "model": "GCN-Encoder + dot-product decoder",
-  "node_count": 376,
+  "node_count": 498,
   "output_subdir": "test",
   "perception_effect_count": 3,
   "platform_id": "173_synthetic",
@@ -84,29 +84,34 @@
       "resident"
     ],
     "confidence_threshold": 0.6,
-    "edge_count": 559,
-    "feature_dim": 279,
+    "edge_count": 1625,
+    "feature_dim": 665,
     "feature_slices": {
       "categorical": {
-        "end": 23,
+        "end": 25,
         "start": 11
       },
       "numeric": {
         "end": 11,
         "start": 0
       },
+      "semantic": {
+        "end": 665,
+        "start": 281
+      },
       "text_hash": {
-        "end": 279,
-        "start": 23
+        "end": 281,
+        "start": 25
       }
     },
     "low_confidence_edge_count": 0,
     "low_confidence_threshold": 0.6,
-    "node_count": 376,
+    "node_count": 498,
     "node_types": [
       "agent",
       "challenge",
       "channel",
+      "claim",
       "information",
       "perception",
       "pilot",
@@ -126,10 +131,10 @@
       "Citizen-like node types can be anonymized through the anonymize-node-types flag.",
       "Sensitive columns are orthogonally projected out of narrative vectors when present."
     ],
-    "relation_count": 8,
-    "semantic_embedding_coverage_rate": 0.0,
-    "semantic_embedding_dim": 0,
-    "semantic_embedding_source": "",
+    "relation_count": 24,
+    "semantic_embedding_coverage_rate": 0.7550200803212851,
+    "semantic_embedding_dim": 384,
+    "semantic_embedding_source": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test\\analysis\\node_semantic_embeddings.parquet",
     "sensitive_columns_used": [
       "gender",
       "age",
@@ -145,7 +150,7 @@
     "text_hash_dim": 256,
     "uncertainty_formula": "omega = 0.45*provenance + 0.35*alignment + 0.20*variance_stability"
   },
-  "test_positive_edges": 84,
-  "train_positive_edges": 391,
-  "validation_positive_edges": 84
+  "test_positive_edges": 243,
+  "train_positive_edges": 1138,
+  "validation_positive_edges": 244
 }

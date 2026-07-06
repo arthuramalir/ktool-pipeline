@@ -269,6 +269,7 @@ def provenance_score(row: pd.Series) -> float:
         "qualitative_narrative": 0.82,
         "interpretive": 0.74,
         "quote_semantic": 0.72,
+        "narrative_claim": 0.78,
     }
     score = family_scores.get(family, 0.8)
     if bool(row.get("is_ai_generated")):

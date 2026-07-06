@@ -1,14 +1,18 @@
 {
   "categorical": {
-    "end": 23,
+    "end": 25,
     "start": 11
   },
   "numeric": {
     "end": 11,
     "start": 0
   },
+  "semantic": {
+    "end": 665,
+    "start": 281
+  },
   "text_hash": {
-    "end": 279,
-    "start": 23
+    "end": 281,
+    "start": 25
   }
 }

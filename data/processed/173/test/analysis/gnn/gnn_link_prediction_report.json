@@ -1,78 +1,78 @@
 {
-  "best_validation_auc": 0.8983756768013328,
+  "best_validation_auc": 0.9088623958632577,
   "confidence_threshold": 0.6,
-  "edge_count_after_filter": 329,
-  "epochs_ran": 24,
+  "edge_count_after_filter": 789,
+  "epochs_ran": 22,
   "gnn_dir": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\analysis\\gnn",
   "hidden_dim": 64,
   "history_tail": [
     {
+      "epoch": 18,
+      "loss": 0.5517651438713074,
+      "test_auc": 0.8264953040039545,
+      "test_average_precision": 0.8324323244606794,
+      "train_auc": 0.9891369985297207,
+      "train_average_precision": 0.9881385337554438,
+      "validation_auc": 0.8288566503878196,
+      "validation_average_precision": 0.8604041026009951
+    },
+    {
+      "epoch": 19,
+      "loss": 0.5097969770431519,
+      "test_auc": 0.8243061930654615,
+      "test_average_precision": 0.821063716792677,
+      "train_auc": 0.9909846933417349,
+      "train_average_precision": 0.99002750145196,
+      "validation_auc": 0.8356794024705544,
+      "validation_average_precision": 0.8607139045204886
+    },
+    {
       "epoch": 20,
-      "loss": 0.3851114511489868,
-      "test_auc": 0.9084,
-      "test_average_precision": 0.9027615662552134,
-      "train_auc": 0.9986389413988658,
-      "train_average_precision": 0.9983861763534064,
-      "validation_auc": 0.8604748021657642,
-      "validation_average_precision": 0.9016709587914553
+      "loss": 0.4926634132862091,
+      "test_auc": 0.8281194830873526,
+      "test_average_precision": 0.8180419129931931,
+      "train_auc": 0.9925534289014912,
+      "train_average_precision": 0.991613295108996,
+      "validation_auc": 0.8431485205400747,
+      "validation_average_precision": 0.8596674450753141
     },
     {
       "epoch": 21,
-      "loss": 0.3578193485736847,
-      "test_auc": 0.9084,
-      "test_average_precision": 0.9025506160460991,
-      "train_auc": 0.9987712665406427,
-      "train_average_precision": 0.9985483672873486,
-      "validation_auc": 0.8588088296543107,
-      "validation_average_precision": 0.8991524017643328
+      "loss": 0.4498174786567688,
+      "test_auc": 0.832850787373773,
+      "test_average_precision": 0.8164378807224012,
+      "train_auc": 0.9936922390254148,
+      "train_average_precision": 0.9928690990413805,
+      "validation_auc": 0.8513358230393565,
+      "validation_average_precision": 0.8603965305041651
     },
     {
       "epoch": 22,
-      "loss": 0.3110041320323944,
-      "test_auc": 0.904,
-      "test_average_precision": 0.9003143535503227,
-      "train_auc": 0.9991115311909263,
-      "train_average_precision": 0.9990368497474853,
-      "validation_auc": 0.846314035818409,
-      "validation_average_precision": 0.8912041860145302
-    },
-    {
-      "epoch": 23,
-      "loss": 0.2937147617340088,
-      "test_auc": 0.908,
-      "test_average_precision": 0.9066793075846167,
-      "train_auc": 0.999413988657845,
-      "train_average_precision": 0.9994023470777,
-      "validation_auc": 0.8413161182840483,
-      "validation_average_precision": 0.88872277478983
-    },
-    {
-      "epoch": 24,
-      "loss": 0.2548663318157196,
-      "test_auc": 0.9084,
-      "test_average_precision": 0.9079250938938259,
-      "train_auc": 0.9994328922495274,
-      "train_average_precision": 0.9994077877141366,
-      "validation_auc": 0.8425655976676385,
-      "validation_average_precision": 0.8893156956610853
+      "loss": 0.4271899461746216,
+      "test_auc": 0.826212838076407,
+      "test_average_precision": 0.8088984974551393,
+      "train_auc": 0.9945619355177484,
+      "train_average_precision": 0.9937997606580671,
+      "validation_auc": 0.8493249066360241,
+      "validation_average_precision": 0.8525907511537849
     }
   ],
   "metrics": {
     "test": {
-      "auc": 0.9084,
-      "average_precision": 0.9079250938938259
+      "auc": 0.826212838076407,
+      "average_precision": 0.8088984974551393
     },
     "train": {
-      "auc": 0.9994328922495274,
-      "average_precision": 0.9994077877141366
+      "auc": 0.9945619355177484,
+      "average_precision": 0.9937997606580671
     },
     "validation": {
-      "auc": 0.8425655976676385,
-      "average_precision": 0.8893156956610853
+      "auc": 0.8493249066360241,
+      "average_precision": 0.8525907511537849
     }
   },
   "model": "GCN-Encoder + dot-product decoder",
-  "node_count": 375,
+  "node_count": 497,
   "output_subdir": "test",
   "perception_effect_count": 3,
   "platform_id": "173",
@@ -84,29 +84,34 @@
       "resident"
     ],
     "confidence_threshold": 0.6,
-    "edge_count": 329,
-    "feature_dim": 279,
+    "edge_count": 789,
+    "feature_dim": 665,
     "feature_slices": {
       "categorical": {
-        "end": 23,
+        "end": 25,
         "start": 11
       },
       "numeric": {
         "end": 11,
         "start": 0
       },
+      "semantic": {
+        "end": 665,
+        "start": 281
+      },
       "text_hash": {
-        "end": 279,
-        "start": 23
+        "end": 281,
+        "start": 25
       }
     },
     "low_confidence_edge_count": 0,
     "low_confidence_threshold": 0.6,
-    "node_count": 375,
+    "node_count": 497,
     "node_types": [
       "agent",
       "challenge",
       "channel",
+      "claim",
       "information",
       "perception",
       "pilot",
@@ -126,10 +131,10 @@
       "Citizen-like node types can be anonymized through the anonymize-node-types flag.",
       "Sensitive columns are orthogonally projected out of narrative vectors when present."
     ],
-    "relation_count": 4,
-    "semantic_embedding_coverage_rate": 0.0,
-    "semantic_embedding_dim": 0,
-    "semantic_embedding_source": "",
+    "relation_count": 10,
+    "semantic_embedding_coverage_rate": 0.7545271629778671,
+    "semantic_embedding_dim": 384,
+    "semantic_embedding_source": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\analysis\\node_semantic_embeddings.parquet",
     "sensitive_columns_used": [
       "age",
       "gender"
@@ -141,7 +146,7 @@
     "text_hash_dim": 256,
     "uncertainty_formula": "omega = 0.45*provenance + 0.35*alignment + 0.20*variance_stability"
   },
-  "test_positive_edges": 50,
-  "train_positive_edges": 230,
-  "validation_positive_edges": 49
+  "test_positive_edges": 119,
+  "train_positive_edges": 552,
+  "validation_positive_edges": 118
 }

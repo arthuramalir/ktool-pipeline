@@ -5,29 +5,34 @@
     "resident"
   ],
   "confidence_threshold": 0.6,
-  "edge_count": 329,
-  "feature_dim": 279,
+  "edge_count": 789,
+  "feature_dim": 665,
   "feature_slices": {
     "categorical": {
-      "end": 23,
+      "end": 25,
       "start": 11
     },
     "numeric": {
       "end": 11,
       "start": 0
     },
+    "semantic": {
+      "end": 665,
+      "start": 281
+    },
     "text_hash": {
-      "end": 279,
-      "start": 23
+      "end": 281,
+      "start": 25
     }
   },
   "low_confidence_edge_count": 0,
   "low_confidence_threshold": 0.6,
-  "node_count": 375,
+  "node_count": 497,
   "node_types": [
     "agent",
     "challenge",
     "channel",
+    "claim",
     "information",
     "perception",
     "pilot",
@@ -47,10 +52,10 @@
     "Citizen-like node types can be anonymized through the anonymize-node-types flag.",
     "Sensitive columns are orthogonally projected out of narrative vectors when present."
   ],
-  "relation_count": 4,
-  "semantic_embedding_coverage_rate": 0.0,
-  "semantic_embedding_dim": 0,
-  "semantic_embedding_source": "",
+  "relation_count": 10,
+  "semantic_embedding_coverage_rate": 0.7545271629778671,
+  "semantic_embedding_dim": 384,
+  "semantic_embedding_source": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test\\analysis\\node_semantic_embeddings.parquet",
   "sensitive_columns_used": [
     "age",
     "gender"

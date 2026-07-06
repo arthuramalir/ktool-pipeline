@@ -1,376 +1,498 @@
 global_id,public_label,label,node_type,methodological_phase,is_anonymized,degree,degree_centrality,betweenness_centrality,closeness_centrality,pagerank,clustering_coefficient,core_number,component_id,component_size,articulation_flag,bridge_incident_flag,node_index,semantic_embedding_covered,sensitive_columns_used,feature_dim
-agent_4722,Rethink Ireland,Rethink Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,0,1,0.0,0.0,0,False,"age,gender",279
-agent_4753,Helium Arts,Helium Arts,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,1,1,0.0,0.0,1,False,"age,gender",279
-agent_4754,Hope and Courage Collective,Hope and Courage Collective,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,2,1,0.0,0.0,2,False,"age,gender",279
-agent_4757,HSE (Health Service Executive),HSE (Health Service Executive),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,3,1,0.0,0.0,3,False,"age,gender",279
-agent_4786,Tacú Ballinrobe Family Resource Centre,Tacú Ballinrobe Family Resource Centre,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,4,1,0.0,0.0,4,False,"age,gender",279
-agent_5350,Liquid Therapy,Liquid Therapy,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,5,1,0.0,0.0,5,False,"age,gender",279
-agent_5351,Cruthu Foundation Way2Work,Cruthu Foundation Way2Work,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,6,1,0.0,0.0,6,False,"age,gender",279
-agent_5358,Spraoi & Sport,Spraoi & Sport,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,7,1,0.0,0.0,7,False,"age,gender",279
-agent_5360,Special Olympics,Special Olympics,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,8,1,0.0,0.0,8,False,"age,gender",279
-agent_5366,First Fortnight,First Fortnight,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,9,1,0.0,0.0,9,False,"age,gender",279
-agent_5367,Tacu Family Resource Centre,Tacu Family Resource Centre,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,10,1,0.0,0.0,10,False,"age,gender",279
-agent_5369,TUSLA,TUSLA,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,11,1,0.0,0.0,11,False,"age,gender",279
-agent_5370,Focus Ireland,Focus Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,12,1,0.0,0.0,12,False,"age,gender",279
-agent_5371,Community Foundation Ireland,Community Foundation Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,13,1,0.0,0.0,13,False,"age,gender",279
-agent_5372,Blue Box Creative Arts Centre,Blue Box Creative Arts Centre,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,14,1,0.0,0.0,14,False,"age,gender",279
-agent_5373,Donegal Domestic Violence Refuge (Gloria House),Donegal Domestic Violence Refuge (Gloria House),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,15,1,0.0,0.0,15,False,"age,gender",279
-agent_5374,Knocklee House (Kerry Recovery Centre),Knocklee House (Kerry Recovery Centre),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,16,1,0.0,0.0,16,False,"age,gender",279
-agent_5375,St. Brigid’s Family Resource Centre (Tralee),St. Brigid’s Family Resource Centre (Tralee),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,17,1,0.0,0.0,17,False,"age,gender",279
-agent_5376,Crosscare,Crosscare,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,18,1,0.0,0.0,18,False,"age,gender",279
-agent_5377,NOVAS,NOVAS,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,19,1,0.0,0.0,19,False,"age,gender",279
-agent_5378,GP Practices and Primary Care Centres,GP Practices and Primary Care Centres,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,20,1,0.0,0.0,20,False,"age,gender",279
-agent_5379,Young People,Young People,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,21,1,0.0,0.0,21,False,"age,gender",279
-agent_5380,Parents ,Parents ,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,22,1,0.0,0.0,22,False,"age,gender",279
-agent_5382,Youthreach,Youthreach,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,23,1,0.0,0.0,23,False,"age,gender",279
-agent_5383,"Education Welfare Officers (EWOs, TESS team)","Education Welfare Officers (EWOs, TESS team)",agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,24,1,0.0,0.0,24,False,"age,gender",279
-agent_5384,School Guidance Counsellors/Chaplins/School Support Team,School Guidance Counsellors/Chaplins/School Support Team,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,25,1,0.0,0.0,25,False,"age,gender",279
-agent_5387,JLOs/ Managers/Support staff in International Protection Centre?,JLOs/ Managers/Support staff in International Protection Centre?,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,26,1,0.0,0.0,26,False,"age,gender",279
-agent_5476,Children's Health Ireland,Children's Health Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,27,1,0.0,0.0,27,False,"age,gender",279
-agent_5477,ETBs,ETBs,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,28,1,0.0,0.0,28,False,"age,gender",279
-agent_5478,Sisk Group,Sisk Group,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,29,1,0.0,0.0,29,False,"age,gender",279
-agent_5479,Construction Industry Federation,Construction Industry Federation,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,30,1,0.0,0.0,30,False,"age,gender",279
-agent_5480,Society of the Irish Motor Industry (SIMI),Society of the Irish Motor Industry (SIMI),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,31,1,0.0,0.0,31,False,"age,gender",279
-agent_5481,"Parents, Guardians & Aftercare workers","Parents, Guardians & Aftercare workers",agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,32,1,0.0,0.0,32,False,"age,gender",279
-agent_5482,DEIS Schools,DEIS Schools,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,33,1,0.0,0.0,33,False,"age,gender",279
-agent_5483,Oberstown Children Detention Campus ,Oberstown Children Detention Campus ,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,34,1,0.0,0.0,34,False,"age,gender",279
-agent_5488,Involve CLG,Involve CLG,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,35,1,0.0,0.0,35,False,"age,gender",279
-agent_5489,Arts Council,Arts Council,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,36,1,0.0,0.0,36,False,"age,gender",279
-agent_5490,Children and young persons committees (CYPSC),Children and young persons committees (CYPSC),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,37,1,0.0,0.0,37,False,"age,gender",279
-agent_5491,Regional Health Areas,Regional Health Areas,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,38,1,0.0,0.0,38,False,"age,gender",279
-agent_5492,Family Resource Centres,Family Resource Centres,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,39,1,0.0,0.0,39,False,"age,gender",279
-agent_5493,Home Liaison Officers,Home Liaison Officers,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,40,1,0.0,0.0,40,False,"age,gender",279
-agent_5494,Hospital clinical staff,Hospital clinical staff,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,41,1,0.0,0.0,41,False,"age,gender",279
-agent_5497,Patient Support Groups,Patient Support Groups,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,42,1,0.0,0.0,42,False,"age,gender",279
-agent_5499,Sláintecare Healthy Communities (Donegal),Sláintecare Healthy Communities (Donegal),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,43,1,0.0,0.0,43,False,"age,gender",279
-agent_5500,Jigsaw,Jigsaw,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,44,1,0.0,0.0,44,False,"age,gender",279
-agent_5502,ETB Youthreach Carndonagh,ETB Youthreach Carndonagh,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,45,1,0.0,0.0,45,False,"age,gender",279
-agent_5503,Inishowen Development Partnership (IDP),Inishowen Development Partnership (IDP),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,46,1,0.0,0.0,46,False,"age,gender",279
-agent_5504,Inishowen Family Action Network (IFAN),Inishowen Family Action Network (IFAN),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,47,1,0.0,0.0,47,False,"age,gender",279
-agent_5505,Carndonagh Community School – Pastoral Care Team,Carndonagh Community School – Pastoral Care Team,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,48,1,0.0,0.0,48,False,"age,gender",279
-agent_5506,Public Health Nurse Network (Carndonagh),Public Health Nurse Network (Carndonagh),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,49,1,0.0,0.0,49,False,"age,gender",279
-agent_5507,Mental Health Ireland,Mental Health Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,50,1,0.0,0.0,50,False,"age,gender",279
-agent_5508,Safefood,Safefood,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,51,1,0.0,0.0,51,False,"age,gender",279
-agent_5509,Breast Cancer Ireland,Breast Cancer Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,52,1,0.0,0.0,52,False,"age,gender",279
-agent_5510,UCC School of Dentistry ,UCC School of Dentistry ,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,53,1,0.0,0.0,53,False,"age,gender",279
-agent_5511,UCC School of Audiloogy ,UCC School of Audiloogy ,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,54,1,0.0,0.0,54,False,"age,gender",279
-agent_5512,RCSI,RCSI,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,55,1,0.0,0.0,55,False,"age,gender",279
-agent_5513,University of Ulster,University of Ulster,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,56,1,0.0,0.0,56,False,"age,gender",279
-agent_5516,Rosemary Collaboratory,Rosemary Collaboratory,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,57,1,0.0,0.0,57,False,"age,gender",279
-agent_5518,Sport Northern Ireland,Sport Northern Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,58,1,0.0,0.0,58,False,"age,gender",279
-agent_5782,Agirre Lehendakaria Center,Agirre Lehendakaria Center,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,59,1,0.0,0.0,59,False,"age,gender",279
-agent_5783,Shoutout,Shoutout,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,60,1,0.0,0.0,60,False,"age,gender",279
-agent_5785,spunout,spunout,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,61,1,0.0,0.0,61,False,"age,gender",279
-agent_5786,Childhood Matters,Childhood Matters,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,62,1,0.0,0.0,62,False,"age,gender",279
-agent_5787,Hair Together,Hair Together,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,63,1,0.0,0.0,63,False,"age,gender",279
-agent_5788,Bohemian Football Club,Bohemian Football Club,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,64,1,0.0,0.0,64,False,"age,gender",279
-agent_5789,Active Connections,Active Connections,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,65,1,0.0,0.0,65,False,"age,gender",279
-agent_5790,Football Coop,Football Coop,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,66,1,0.0,0.0,66,False,"age,gender",279
-agent_5791,Irish Homeless Street Leagues,Irish Homeless Street Leagues,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,67,1,0.0,0.0,67,False,"age,gender",279
-agent_5792,Sanctuary Runners,Sanctuary Runners,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,68,1,0.0,0.0,68,False,"age,gender",279
-agent_5793,Irish Surfing,Irish Surfing,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,69,1,0.0,0.0,69,False,"age,gender",279
-agent_5794,Donegal Sports Partnership,Donegal Sports Partnership,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,70,1,0.0,0.0,70,False,"age,gender",279
-agent_5795,Pobal,Pobal,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,71,1,0.0,0.0,71,False,"age,gender",279
-agent_5797,Donegal County Council,Donegal County Council,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,72,1,0.0,0.0,72,False,"age,gender",279
-agent_5798,Interreg,Interreg,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,73,1,0.0,0.0,73,False,"age,gender",279
-agent_5799,National Surf Centre Strandhill,National Surf Centre Strandhill,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,74,1,0.0,0.0,74,False,"age,gender",279
-agent_5800,INCLUSEA,INCLUSEA,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,75,1,0.0,0.0,75,False,"age,gender",279
-agent_5806,Rugby Players Ireland Foundation,Rugby Players Ireland Foundation,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,76,1,0.0,0.0,76,False,"age,gender",279
-agent_5807,Z Zurich Foundation,Z Zurich Foundation,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,77,1,0.0,0.0,77,False,"age,gender",279
-agent_5808,Unnamed,Unnamed,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,78,1,0.0,0.0,78,False,"age,gender",279
-agent_5809,Rugby Player Ireland Members,Rugby Player Ireland Members,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,79,1,0.0,0.0,79,False,"age,gender",279
-agent_5811,Schools,Schools,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,80,1,0.0,0.0,80,False,"age,gender",279
-agent_5812,Youth Groups,Youth Groups,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,81,1,0.0,0.0,81,False,"age,gender",279
-agent_5813,Foróige - The National Youth Development Organisation,Foróige - The National Youth Development Organisation,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,82,1,0.0,0.0,82,False,"age,gender",279
-agent_5814,Local health professionals,Local health professionals,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,83,1,0.0,0.0,83,False,"age,gender",279
-agent_5815,Surf Schools and Clubs,Surf Schools and Clubs,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,84,1,0.0,0.0,84,False,"age,gender",279
-agent_5816,Caregivers,Caregivers,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,85,1,0.0,0.0,85,False,"age,gender",279
-agent_5817,University of Limerick ,University of Limerick ,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,86,1,0.0,0.0,86,False,"age,gender",279
-agent_5818,ISCOIL,ISCOIL,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,87,1,0.0,0.0,87,False,"age,gender",279
-agent_5819,Sport Ireland ,Sport Ireland ,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,88,1,0.0,0.0,88,False,"age,gender",279
-agent_5821,DCU anti-bullying centre,DCU anti-bullying centre,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,89,1,0.0,0.0,89,False,"age,gender",279
-agent_5822,No Barriers,No Barriers,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,90,1,0.0,0.0,90,False,"age,gender",279
-agent_5823,Zurich Ireland,Zurich Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,91,1,0.0,0.0,91,False,"age,gender",279
-agent_5825,National Youth Assembly,National Youth Assembly,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,92,1,0.0,0.0,92,False,"age,gender",279
-agent_5826,Comhairle na nOg,Comhairle na nOg,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,93,1,0.0,0.0,93,False,"age,gender",279
-agent_5827,Mental Health Reform,Mental Health Reform,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,94,1,0.0,0.0,94,False,"age,gender",279
-agent_5828,Philanthropy Ireland ,Philanthropy Ireland ,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,95,1,0.0,0.0,95,False,"age,gender",279
-agent_5829,The Lighthouse Charity,The Lighthouse Charity,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,96,1,0.0,0.0,96,False,"age,gender",279
-agent_5830,State Street,State Street,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,97,1,0.0,0.0,97,False,"age,gender",279
-agent_5831,Nature Worx ,Nature Worx ,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,98,1,0.0,0.0,98,False,"age,gender",279
-agent_5832,Bounce Back Recycling ,Bounce Back Recycling ,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,99,1,0.0,0.0,99,False,"age,gender",279
-agent_5833, UNESCO Child and Family Research Centre at the University of Galway, UNESCO Child and Family Research Centre at the University of Galway,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,100,1,0.0,0.0,100,False,"age,gender",279
-agent_5834,Rainbow Club,Rainbow Club,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,101,1,0.0,0.0,101,False,"age,gender",279
-agent_5835,Universities & 3rd evel Education,Universities & 3rd evel Education,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,102,1,0.0,0.0,102,False,"age,gender",279
-agent_5836,Eco Unesco,Eco Unesco,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,103,1,0.0,0.0,103,False,"age,gender",279
-agent_5837,"Department of Children, Disability and Equality","Department of Children, Disability and Equality",agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,104,1,0.0,0.0,104,False,"age,gender",279
-agent_5838,Department of Education and Youth,Department of Education and Youth,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,105,1,0.0,0.0,105,False,"age,gender",279
-agent_5839,YouthMedInfo,YouthMedInfo,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,106,1,0.0,0.0,106,False,"age,gender",279
-agent_5840,Young social innovators,Young social innovators,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,107,1,0.0,0.0,107,False,"age,gender",279
-agent_5841,Higher education authority,Higher education authority,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,108,1,0.0,0.0,108,False,"age,gender",279
-agent_5842,Gaisce,Gaisce,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,109,1,0.0,0.0,109,False,"age,gender",279
-agent_5843,bodywhys,bodywhys,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,110,1,0.0,0.0,110,False,"age,gender",279
-agent_5844,Atlantic Futures,Atlantic Futures,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,111,1,0.0,0.0,111,False,"age,gender",279
-agent_5845,Pieta,Pieta,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,112,1,0.0,0.0,112,False,"age,gender",279
-agent_5846,Barnardos,Barnardos,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,113,1,0.0,0.0,113,False,"age,gender",279
-agent_5847,Samaritans,Samaritans,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,114,1,0.0,0.0,114,False,"age,gender",279
-agent_5848,HUGG,HUGG,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,115,1,0.0,0.0,115,False,"age,gender",279
-agent_5849,Shona project,Shona project,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,116,1,0.0,0.0,116,False,"age,gender",279
-agent_5850,Portlaoise Prisons,Portlaoise Prisons,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,117,1,0.0,0.0,117,False,"age,gender",279
-agent_5868,Aware,Aware,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,118,1,0.0,0.0,118,False,"age,gender",279
-agent_5869,Common Knowledge Centre for Sustainable Living CLG,Common Knowledge Centre for Sustainable Living CLG,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,119,1,0.0,0.0,119,False,"age,gender",279
-agent_5870,Anew Support Services CLG,Anew Support Services CLG,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,120,1,0.0,0.0,120,False,"age,gender",279
-agent_5871,Childhood Development Initiative,Childhood Development Initiative,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,121,1,0.0,0.0,121,False,"age,gender",279
-agent_5872,Spiritan Asylum Services Initiative CLG (T/A Spirasi),Spiritan Asylum Services Initiative CLG (T/A Spirasi),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,122,1,0.0,0.0,122,False,"age,gender",279
-agent_5873,Women's Collective Ireland - Tallaght,Women's Collective Ireland - Tallaght,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,123,1,0.0,0.0,123,False,"age,gender",279
-agent_5874,Offaly Traveller Movement,Offaly Traveller Movement,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,124,1,0.0,0.0,124,False,"age,gender",279
-agent_5875,Street Feast (t/a Neighbourhood Network),Street Feast (t/a Neighbourhood Network),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,125,1,0.0,0.0,125,False,"age,gender",279
-agent_5876,National Youth Council of Ireland,National Youth Council of Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,126,1,0.0,0.0,126,False,"age,gender",279
-agent_5877,Mason Hayes & Curran LLP,Mason Hayes & Curran LLP,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,127,1,0.0,0.0,127,False,"age,gender",279
-agent_5878,The Department of Rural and Community Development and the Gaeltacht,The Department of Rural and Community Development and the Gaeltacht,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,128,1,0.0,0.0,128,False,"age,gender",279
-agent_5930,Accessible Adventures Ireland,Accessible Adventures Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,129,1,0.0,0.0,129,False,"age,gender",279
-agent_5931,Active Disabilities Ireland,Active Disabilities Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,130,1,0.0,0.0,130,False,"age,gender",279
-agent_5932,Vision Sports Ireland,Vision Sports Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,131,1,0.0,0.0,131,False,"age,gender",279
-agent_5933,Irish Foster Care Association,Irish Foster Care Association,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,132,1,0.0,0.0,132,False,"age,gender",279
-agent_5934,Unnamed,Unnamed,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,133,1,0.0,0.0,133,False,"age,gender",279
-agent_5935,Open Specturrm,Open Specturrm,agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,134,1,0.0,0.0,134,False,"age,gender",279
-agent_5936,County Councils (Local Area Sport Partnership),County Councils (Local Area Sport Partnership),agent,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,135,1,0.0,0.0,135,False,"age,gender",279
-project_4152,Bounce Back Recycling,Bounce Back Recycling,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,136,1,0.0,0.0,136,False,"age,gender",279
-project_4154,Change Clothes Crumlin,Change Clothes Crumlin,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,137,1,0.0,0.0,137,False,"age,gender",279
-project_4155,Educate Together,Educate Together,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,138,1,0.0,0.0,138,False,"age,gender",279
-project_4156,Fighting Words,Fighting Words,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,139,1,0.0,0.0,139,False,"age,gender",279
-project_4158,iScoil,iScoil,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,140,1,0.0,0.0,140,False,"age,gender",279
-project_4159,Not So Different,Not So Different,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,141,1,0.0,0.0,141,False,"age,gender",279
-project_4160,The Shona Project,The Shona Project,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,142,1,0.0,0.0,142,False,"age,gender",279
-project_4162,SpunOut.ie,SpunOut.ie,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,143,1,0.0,0.0,143,False,"age,gender",279
-project_4164,Social Innovation Campus,Social Innovation Campus,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,144,1,0.0,0.0,144,False,"age,gender",279
-project_4166,Liquid Therapy,Liquid Therapy,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,145,1,0.0,0.0,145,False,"age,gender",279
-project_4167,Trinity Access 21 (TA21),Trinity Access 21 (TA21),project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,146,1,0.0,0.0,146,False,"age,gender",279
-project_4168,Trinity Centre for People with Intellectual Disabilities,Trinity Centre for People with Intellectual Disabilities,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,147,1,0.0,0.0,147,False,"age,gender",279
-project_4169,The Great Care Co-op,The Great Care Co-op,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,148,1,0.0,0.0,148,False,"age,gender",279
-project_4170,FoodCloud ,FoodCloud ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,149,1,0.0,0.0,149,False,"age,gender",279
-project_4171,GIY (Grow It Yourself),GIY (Grow It Yourself),project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,150,1,0.0,0.0,150,False,"age,gender",279
-project_4172,Helium Arts,Helium Arts,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,151,1,0.0,0.0,151,False,"age,gender",279
-project_4173,The No Barriers Foundation,The No Barriers Foundation,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,152,1,0.0,0.0,152,False,"age,gender",279
-project_4174,Sensational Kids,Sensational Kids,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,153,1,0.0,0.0,153,False,"age,gender",279
-project_4175,Gaisce – The President's Award,Gaisce – The President's Award,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,154,1,0.0,0.0,154,False,"age,gender",279
-project_4176,Uplift ,Uplift ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,155,1,0.0,0.0,155,False,"age,gender",279
-project_4177,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,156,1,0.0,0.0,156,False,"age,gender",279
-project_4178,Hair Together,Hair Together,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,157,1,0.0,0.0,157,False,"age,gender",279
-project_4529,Inclusive Surf Programmes,Inclusive Surf Programmes,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,158,1,0.0,0.0,158,False,"age,gender",279
-project_4530,Innovation in Sport,Innovation in Sport,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,159,1,0.0,0.0,159,False,"age,gender",279
-project_4531,Community Services Programme,Community Services Programme,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,160,1,0.0,0.0,160,False,"age,gender",279
-project_4532,PEACEPlus Initiative ,PEACEPlus Initiative ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,161,1,0.0,0.0,161,False,"age,gender",279
-project_4533,iSURFATLANTIC,iSURFATLANTIC,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,162,1,0.0,0.0,162,False,"age,gender",279
-project_4534,INCLUSEA,INCLUSEA,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,163,1,0.0,0.0,163,False,"age,gender",279
-project_4535,Connecting for Life - Ireland's national strategy to reduce suicide ,Connecting for Life - Ireland's national strategy to reduce suicide ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,164,1,0.0,0.0,164,False,"age,gender",279
-project_4536,Area‑Based Childhood Programme (ABC),Area‑Based Childhood Programme (ABC),project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,165,1,0.0,0.0,165,False,"age,gender",279
-project_4537,"Meitheal - Prevention, Partnership & Family Support (PPFS)","Meitheal - Prevention, Partnership & Family Support (PPFS)",project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,166,1,0.0,0.0,166,False,"age,gender",279
-project_4538,Housing-led Supports for homeless/ people at risk of homelessness,Housing-led Supports for homeless/ people at risk of homelessness,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,167,1,0.0,0.0,167,False,"age,gender",279
-project_4539,RTE Toy Show Appeal,RTE Toy Show Appeal,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,168,1,0.0,0.0,168,False,"age,gender",279
-project_4540,Creative Arts Psychotherapy for vulnerable children - Limerick,Creative Arts Psychotherapy for vulnerable children - Limerick,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,169,1,0.0,0.0,169,False,"age,gender",279
-project_4541,Journey to Freedom,Journey to Freedom,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,170,1,0.0,0.0,170,False,"age,gender",279
-project_4547,Tusla Aftercare Drop-In Services,Tusla Aftercare Drop-In Services,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,171,1,0.0,0.0,171,False,"age,gender",279
-project_4548,Crosscare Aftercare Service ,Crosscare Aftercare Service ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,172,1,0.0,0.0,172,False,"age,gender",279
-project_4549,2030 Sustainability Roadmap,2030 Sustainability Roadmap,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,173,1,0.0,0.0,173,False,"age,gender",279
-project_4550,Carbon Neutrality,Carbon Neutrality,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,174,1,0.0,0.0,174,False,"age,gender",279
-project_4551,Tree planting,Tree planting,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,175,1,0.0,0.0,175,False,"age,gender",279
-project_4552,Community Engagement,Community Engagement,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,176,1,0.0,0.0,176,False,"age,gender",279
-project_4553,Lighthouse Industry Construction Federation Charity - 24/7 Support,Lighthouse Industry Construction Federation Charity - 24/7 Support,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,177,1,0.0,0.0,177,False,"age,gender",279
-project_4554,Mental Health & Wellbeing,Mental Health & Wellbeing,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,178,1,0.0,0.0,178,False,"age,gender",279
-project_4555,Vocational training,Vocational training,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,179,1,0.0,0.0,179,False,"age,gender",279
-project_4556,STEPS+ programme,STEPS+ programme,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,180,1,0.0,0.0,180,False,"age,gender",279
-project_4557,Oberstown coffee van business; Bord Bia Bloom,Oberstown coffee van business; Bord Bia Bloom,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,181,1,0.0,0.0,181,False,"age,gender",279
-project_4558,Bord Bia Bloom,Bord Bia Bloom,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,182,1,0.0,0.0,182,False,"age,gender",279
-project_4559,Addiction Counselling,Addiction Counselling,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,183,1,0.0,0.0,183,False,"age,gender",279
-project_4560,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,184,1,0.0,0.0,184,False,"age,gender",279
-project_4561,Green Campus & Sustainability,Green Campus & Sustainability,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,185,1,0.0,0.0,185,False,"age,gender",279
-project_4562,Innovation Strategy,Innovation Strategy,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,186,1,0.0,0.0,186,False,"age,gender",279
-project_4563,Reads & Rhymes Together,Reads & Rhymes Together,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,187,1,0.0,0.0,187,False,"age,gender",279
-project_4564, Headstart Fund, Headstart Fund,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,188,1,0.0,0.0,188,False,"age,gender",279
-project_4565,Breaking Barriers Fund,Breaking Barriers Fund,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,189,1,0.0,0.0,189,False,"age,gender",279
-project_4566,Innovate Together,Innovate Together,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,190,1,0.0,0.0,190,False,"age,gender",279
-project_4567,Ktool,Ktool,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,191,1,0.0,0.0,191,False,"age,gender",279
-project_4568,A Drop in The Ocean [ADITO],A Drop in The Ocean [ADITO],project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,192,1,0.0,0.0,192,False,"age,gender",279
-project_4569,Big Brother Big Sister,Big Brother Big Sister,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,193,1,0.0,0.0,193,False,"age,gender",279
-project_4570,Surf Club,Surf Club,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,194,1,0.0,0.0,194,False,"age,gender",279
-project_4571,Open Event,Open Event,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,195,1,0.0,0.0,195,False,"age,gender",279
-project_4572,Generation Pride,Generation Pride,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,196,1,0.0,0.0,196,False,"age,gender",279
-project_4573,School Workshops ,School Workshops ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,197,1,0.0,0.0,197,False,"age,gender",279
-project_4574,Corporate Workshops,Corporate Workshops,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,198,1,0.0,0.0,198,False,"age,gender",279
-project_4575,LGBTQI+ Inclusion Training,LGBTQI+ Inclusion Training,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,199,1,0.0,0.0,199,False,"age,gender",279
-project_4576,Fair Play - Sports LGBTQ+ Inclusion,Fair Play - Sports LGBTQ+ Inclusion,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,200,1,0.0,0.0,200,False,"age,gender",279
-project_4577,Training,Training,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,201,1,0.0,0.0,201,False,"age,gender",279
-project_4578,Creative Arts Therapy,Creative Arts Therapy,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,202,1,0.0,0.0,202,False,"age,gender",279
-project_4579,Spunout Academy ,Spunout Academy ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,203,1,0.0,0.0,203,False,"age,gender",279
-project_4580,CHIPPS,CHIPPS,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,204,1,0.0,0.0,204,False,"age,gender",279
-project_4581,Limetree Project,Limetree Project,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,205,1,0.0,0.0,205,False,"age,gender",279
-project_4582,Creches,Creches,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,206,1,0.0,0.0,206,False,"age,gender",279
-project_4583,Teen Parent Support Programme,Teen Parent Support Programme,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,207,1,0.0,0.0,207,False,"age,gender",279
-project_4584,Hair Together Programme,Hair Together Programme,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,208,1,0.0,0.0,208,False,"age,gender",279
-project_4585,SPACE,SPACE,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,209,1,0.0,0.0,209,False,"age,gender",279
-project_4586,Meals on wheels,Meals on wheels,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,210,1,0.0,0.0,210,False,"age,gender",279
-project_4587,Family support,Family support,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,211,1,0.0,0.0,211,False,"age,gender",279
-project_4588,Drug & alcohol support,Drug & alcohol support,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,212,1,0.0,0.0,212,False,"age,gender",279
-project_4589,Counselling,Counselling,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,213,1,0.0,0.0,213,False,"age,gender",279
-project_4590,Parent toddler groups,Parent toddler groups,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,214,1,0.0,0.0,214,False,"age,gender",279
-project_4591,"Various groups, camps and workshops","Various groups, camps and workshops",project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,215,1,0.0,0.0,215,False,"age,gender",279
-project_4592,Pride on the PItch,Pride on the PItch,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,216,1,0.0,0.0,216,False,"age,gender",279
-project_4593,No Shame,No Shame,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,217,1,0.0,0.0,217,False,"age,gender",279
-project_4594,Traveller Voice,Traveller Voice,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,218,1,0.0,0.0,218,False,"age,gender",279
-project_4595,Traveller Culture & Identity Programme (TCIP),Traveller Culture & Identity Programme (TCIP),project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,219,1,0.0,0.0,219,False,"age,gender",279
-project_4596,Youth Service,Youth Service,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,220,1,0.0,0.0,220,False,"age,gender",279
-project_4597,Health and Wellbeing Programme,Health and Wellbeing Programme,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,221,1,0.0,0.0,221,False,"age,gender",279
-project_4598,New Trails,New Trails,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,222,1,0.0,0.0,222,False,"age,gender",279
-project_4599,Place-based Football Coop groups,Place-based Football Coop groups,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,223,1,0.0,0.0,223,False,"age,gender",279
-project_4600,Drop-In Leagues,Drop-In Leagues,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,224,1,0.0,0.0,224,False,"age,gender",279
-project_4601,Sanctuary groups nationwide,Sanctuary groups nationwide,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,225,1,0.0,0.0,225,False,"age,gender",279
-project_4602,Tackle Your Feelings,Tackle Your Feelings,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,226,1,0.0,0.0,226,False,"age,gender",279
-project_4603,Sport & Wellness Fund,Sport & Wellness Fund,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,227,1,0.0,0.0,227,False,"age,gender",279
-project_4604,Brighter Futures Fund,Brighter Futures Fund,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,228,1,0.0,0.0,228,False,"age,gender",279
-project_4605,Women in Sport,Women in Sport,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,229,1,0.0,0.0,229,False,"age,gender",279
-project_4606,Erasmus+ Sport program,Erasmus+ Sport program,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,230,1,0.0,0.0,230,False,"age,gender",279
-project_4607,Integrated care programme for children,Integrated care programme for children,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,231,1,0.0,0.0,231,False,"age,gender",279
-project_4608,Entrepreneurship Impact Fund ,Entrepreneurship Impact Fund ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,232,1,0.0,0.0,232,False,"age,gender",279
-project_4609,Why Wellbeing Matters,Why Wellbeing Matters,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,233,1,0.0,0.0,233,False,"age,gender",279
-project_4610,National Wellbeing Framework,National Wellbeing Framework,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,234,1,0.0,0.0,234,False,"age,gender",279
-project_4611,Wellbeing Policy Framework of the Department of Education,Wellbeing Policy Framework of the Department of Education,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,235,1,0.0,0.0,235,False,"age,gender",279
-project_4616,Connected Communities Fund,Connected Communities Fund,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,236,1,0.0,0.0,236,False,"age,gender",279
-pilot_835,Students' mental health skills CV,Students' mental health skills CV,pilot,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,237,1,0.0,0.0,237,False,"age,gender",279
-pilot_836,Digital wellbeing lab,Digital wellbeing lab,pilot,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,238,1,0.0,0.0,238,False,"age,gender",279
-pilot_837,Community of practice: Teachers as change agents,Community of practice: Teachers as change agents,pilot,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,239,1,0.0,0.0,239,False,"age,gender",279
-pilot_838,Transition to adulthood pathways,Transition to adulthood pathways,pilot,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,240,1,0.0,0.0,240,False,"age,gender",279
-pilot_839,Cross-sector residencies,Cross-sector residencies,pilot,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,241,1,0.0,0.0,241,False,"age,gender",279
-pilot_840,Adopt a practice,Adopt a practice,pilot,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,242,1,0.0,0.0,242,False,"age,gender",279
-prototype_511,National digital infrastructure to measure the true cost of mental health,National digital infrastructure to measure the true cost of mental health,prototype,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,243,1,0.0,0.0,243,False,"age,gender",279
-prototype_512,National listening infrastructure,National listening infrastructure,prototype,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,244,1,0.0,0.0,244,False,"age,gender",279
-prototype_513,The living map of the mental health ecosystem in Ireland,The living map of the mental health ecosystem in Ireland,prototype,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,245,1,0.0,0.0,245,False,"age,gender",279
-perception_406,Siobhán,Siobhán,perception,listening,False,4.0,0.0106951871657754,0.0006164786167940244,0.019251336898395723,0.01111730524797622,0.0,2.0,246,19,1.0,1.0,246,False,"age,gender",279
-perception_407,Luke,Luke,perception,listening,False,3.0,0.00802139037433155,0.0004731114966093676,0.015198423867154516,0.009478735517909547,0.0,1.0,246,19,1.0,1.0,247,False,"age,gender",279
-perception_408, Aoibhe, Aoibhe,perception,listening,False,4.0,0.0106951871657754,0.0004372697165632034,0.018432131072932074,0.01037378061316298,0.0,2.0,246,19,1.0,1.0,248,False,"age,gender",279
-perception_409,Mary,Mary,perception,listening,False,5.0,0.013368983957219251,0.0009247179251910367,0.02221308103661045,0.012638229043380113,0.0,2.0,246,19,1.0,1.0,249,False,"age,gender",279
-perception_410,Naomi,Naomi,perception,listening,False,3.0,0.00802139037433155,0.0004731114966093676,0.01634547472505297,0.00923959537705904,0.0,1.0,246,19,1.0,1.0,250,False,"age,gender",279
-perception_411, John, John,perception,listening,False,2.0,0.0053475935828877,0.00024372410431391665,0.013750954927425514,0.006344496236458179,0.0,1.0,246,19,1.0,1.0,251,False,"age,gender",279
-challenge_2309,Resource strain and burnout,Resource strain and burnout,challenge,listening,False,4.0,0.0106951871657754,0.0009653386092433562,0.021657754010695186,0.010296630500300573,0.0,2.0,246,19,1.0,1.0,252,False,"age,gender",279
-challenge_2519,Disconnection between funders and frontline,Disconnection between funders and frontline,challenge,listening,False,3.0,0.00802139037433155,0.0007455090249602155,0.01968886728245017,0.008159958662293177,0.0,2.0,246,19,1.0,1.0,253,False,"age,gender",279
-challenge_2523,Listening as Trust-Building,Listening as Trust-Building,challenge,listening,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,247,1,0.0,0.0,254,False,"age,gender",279
-challenge_2553,Shift funding toward prevention and partnership,Shift funding toward prevention and partnership,challenge,listening,False,1.0,0.00267379679144385,0.0,0.010828877005347593,0.0036598018682464186,0.0,1.0,246,19,0.0,1.0,255,False,"age,gender",279
-challenge_2554,Fragile volunteer infrastructure,Fragile volunteer infrastructure,challenge,listening,False,1.0,0.00267379679144385,0.0,0.012375859434682963,0.0035812763245848807,0.0,1.0,246,19,0.0,1.0,256,False,"age,gender",279
-challenge_2555,Recognise sport as a health asset,Recognise sport as a health asset,challenge,listening,False,1.0,0.00267379679144385,0.0,0.012375859434682963,0.0035812763245848807,0.0,1.0,246,19,0.0,1.0,257,False,"age,gender",279
-challenge_2556,Fragmented care between mind and body,Fragmented care between mind and body,challenge,listening,False,1.0,0.00267379679144385,0.0,0.01353609625668449,0.0031678193480485753,0.0,1.0,246,19,0.0,1.0,258,False,"age,gender",279
-challenge_2557,Chronic underfunding of community work,Chronic underfunding of community work,challenge,listening,False,1.0,0.00267379679144385,0.0,0.015469824293353706,0.003111889905125856,0.0,1.0,246,19,0.0,1.0,259,False,"age,gender",279
-challenge_2558,Invest in long-term community capacity,Invest in long-term community capacity,challenge,listening,False,2.0,0.0053475935828877,4.778904006155229e-05,0.016659810777457835,0.005316318116372889,0.0,2.0,246,19,0.0,0.0,260,False,"age,gender",279
-challenge_2559,"Reactive, not preventive systems","Reactive, not preventive systems",challenge,listening,False,1.0,0.00267379679144385,0.0,0.011706894059835236,0.003649032697824519,0.0,1.0,246,19,0.0,1.0,261,False,"age,gender",279
-challenge_2560,Build mentoring and peer-support ecosystems,Build mentoring and peer-support ecosystems,challenge,listening,False,1.0,0.00267379679144385,0.0,0.011706894059835236,0.003649032697824519,0.0,1.0,246,19,0.0,1.0,262,False,"age,gender",279
-challenge_2561,Overloaded schools acting as mental health providers,Overloaded schools acting as mental health providers,challenge,listening,False,1.0,0.00267379679144385,0.0,0.013972744523029153,0.003325818332945885,0.0,1.0,246,19,0.0,1.0,263,False,"age,gender",279
-challenge_2562,Early intervention within schools,Early intervention within schools,challenge,listening,False,1.0,0.00267379679144385,0.0,0.013972744523029153,0.003325818332945885,0.0,1.0,246,19,0.0,1.0,264,False,"age,gender",279
-challenge_2564,"Addressing mental health as a systemic issue, not individual","Addressing mental health as a systemic issue, not individual",challenge,listening,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,248,1,0.0,0.0,265,False,"age,gender",279
-challenge_2565,Short-termism and fragmented systems,Short-termism and fragmented systems,challenge,listening,False,3.0,0.00802139037433155,0.0005065638246524541,0.01804812834224599,0.008012728847817766,0.0,2.0,246,19,1.0,1.0,266,False,"age,gender",279
-channel_9490,Unnamed,Unnamed,channel,listening,False,2.0,0.0053475935828877,9.078366019485145e-05,0.04120001345306562,0.0037574789309717817,0.0,2.0,249,71,0.0,0.0,267,False,"age,gender",279
-channel_9506,Unnamed,Unnamed,channel,listening,False,7.0,0.01871657754010695,0.001687477114711132,0.058751588690918684,0.009164697469391525,0.2857142857142857,3.0,249,71,0.0,0.0,268,False,"age,gender",279
-channel_9507,Why Wellbeing Matters Report ,Why Wellbeing Matters Report ,channel,listening,False,2.0,0.0053475935828877,0.0,0.040066068128669315,0.003963469422598275,1.0,2.0,249,71,0.0,0.0,269,False,"age,gender",279
-channel_9508,Unnamed,Unnamed,channel,listening,False,1.0,0.00267379679144385,0.0,0.04081496659836407,0.002562642156035081,0.0,1.0,249,71,0.0,1.0,270,False,"age,gender",279
-channel_9509,Unnamed,Unnamed,channel,listening,False,16.0,0.0427807486631016,0.004491921829307675,0.06616971857613568,0.01637072714549156,0.16666666666666666,4.0,249,71,0.0,0.0,271,False,"age,gender",279
-channel_9510,Unnamed,Unnamed,channel,listening,False,9.0,0.02406417112299465,0.00212709017313969,0.046624926256494184,0.009876418291391027,0.3611111111111111,4.0,249,71,0.0,0.0,272,False,"age,gender",279
-channel_9511,Unnamed,Unnamed,channel,listening,False,3.0,0.00802139037433155,0.0003201865684124006,0.044563279857397504,0.004990665083256029,0.6666666666666666,3.0,249,71,0.0,0.0,273,False,"age,gender",279
-channel_9512,Unnamed,Unnamed,channel,listening,False,1.0,0.00267379679144385,0.0,0.03300152211101982,0.0031385047982886625,0.0,1.0,249,71,0.0,1.0,274,False,"age,gender",279
-channel_9548,Unnamed,Unnamed,channel,listening,False,5.0,0.013368983957219251,0.00022938739229545082,0.01933023582011046,0.007085252617449903,0.4,3.0,250,22,0.0,0.0,275,False,"age,gender",279
-channel_9549,Unnamed,Unnamed,channel,listening,False,12.0,0.0320855614973262,0.000711100916115898,0.03186876716288481,0.012611542497674998,0.25757575757575757,4.0,250,22,0.0,0.0,276,False,"age,gender",279
-channel_9576,Unnamed,Unnamed,channel,listening,False,5.0,0.013368983957219251,6.910481383965633e-05,0.04533427085839054,0.006260536124435294,0.7,4.0,249,71,0.0,0.0,277,False,"age,gender",279
-channel_9603,Unnamed,Unnamed,channel,listening,False,1.0,0.00267379679144385,0.0,0.0035650623885918,0.004947143538399483,0.0,1.0,251,3,0.0,1.0,278,False,"age,gender",279
-information_23084,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.0014609248792271253,0.055515272364724005,0.006814043526270756,0.5,3.0,249,71,0.0,0.0,279,False,"age,gender",279
-information_23085,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.002616995069433028,0.055751507566276025,0.006656794964500749,0.5,3.0,249,71,0.0,0.0,280,False,"age,gender",279
-information_23086,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.0009757299405476493,0.05598976187211481,0.0066853147299413595,0.6,3.0,249,71,0.0,0.0,281,False,"age,gender",279
-information_23087,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,0.002972807985280927,0.0648594271191825,0.007368590794079447,0.13333333333333333,3.0,249,71,0.0,0.0,282,False,"age,gender",279
-information_23088,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.0022820662664535876,0.05848930481283422,0.006923353859404006,0.2,3.0,249,71,0.0,0.0,283,False,"age,gender",279
-information_23090,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.0013448953019711853,0.047816074007572505,0.007583794275932525,0.3,3.0,249,71,0.0,0.0,284,False,"age,gender",279
-information_23091,Unnamed,Unnamed,information,listening,False,3.0,0.00802139037433155,2.0481017169236693e-06,0.047298210390161965,0.004325677204280857,0.6666666666666666,3.0,249,71,0.0,0.0,285,False,"age,gender",279
-information_23092,Unnamed,Unnamed,information,listening,False,1.0,0.00267379679144385,0.0,0.00267379679144385,0.006422607578676942,0.0,1.0,252,2,0.0,1.0,286,False,"age,gender",279
-information_23094,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,0.0038908246632867074,0.05955274671852212,0.005388742308737632,0.16666666666666666,3.0,249,71,0.0,0.0,287,False,"age,gender",279
-information_25256,Unnamed,Unnamed,information,listening,False,3.0,0.00802139037433155,0.0007577914288929185,0.04613240942984108,0.0053112097663507735,0.0,2.0,249,71,0.0,0.0,288,False,"age,gender",279
-information_25332,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,0.002883727217428526,0.049815985848193405,0.006484811538552742,0.3333333333333333,3.0,249,71,1.0,1.0,289,False,"age,gender",279
-information_25333,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,0.0037433310637279035,0.060099102193003975,0.007910078806055492,0.26666666666666666,3.0,249,71,0.0,0.0,290,False,"age,gender",279
-information_25334,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,0.0030388408852516893,0.058229352346999406,0.008145610856627754,0.26666666666666666,3.0,249,71,0.0,0.0,291,False,"age,gender",279
-information_25335,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,0.003137325495427888,0.05598976187211481,0.008022874056888526,0.4,3.0,249,71,0.0,0.0,292,False,"age,gender",279
-information_25336,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,0.0023832867315398036,0.061800020179598424,0.0075738913417060846,0.26666666666666666,3.0,249,71,0.0,0.0,293,False,"age,gender",279
-information_25337,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,0.0009147744470535543,0.05261688465090308,0.0052403648878752715,0.3333333333333333,3.0,249,71,0.0,0.0,294,False,"age,gender",279
-information_25338,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.004039615433717311,0.050585344702991766,0.00812489798730517,0.2,2.0,249,71,1.0,0.0,295,False,"age,gender",279
-information_25339,Unnamed,Unnamed,information,listening,False,3.0,0.00802139037433155,7.168356009232842e-06,0.04018897017814376,0.005713572804060354,0.6666666666666666,2.0,249,71,0.0,0.0,296,False,"age,gender",279
-information_25341,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,0.0022497487092976763,0.051990493166963754,0.007525887149548244,0.0,2.0,249,71,1.0,1.0,297,False,"age,gender",279
-information_25342,Unnamed,Unnamed,information,listening,False,3.0,0.00802139037433155,8.960445011541053e-07,0.04962728893210176,0.0036917073620671703,0.6666666666666666,3.0,249,71,0.0,0.0,298,False,"age,gender",279
-information_25343,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,4.103883815285801e-05,0.05158111920501916,0.0046537716048265605,0.6666666666666666,3.0,249,71,0.0,0.0,299,False,"age,gender",279
-information_25344,Unnamed,Unnamed,information,listening,False,7.0,0.01871657754010695,0.0025787447607564873,0.055751507566276025,0.007452998462717131,0.47619047619047616,4.0,249,71,0.0,0.0,300,False,"age,gender",279
-information_25345,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.00030856643575457644,0.057971700345464006,0.005421720334190629,0.8,4.0,249,71,0.0,0.0,301,False,"age,gender",279
-information_25346,Unnamed,Unnamed,information,listening,False,7.0,0.01871657754010695,0.006693984480503673,0.06518211083619337,0.007532928365423729,0.3333333333333333,4.0,249,71,0.0,0.0,302,False,"age,gender",279
-information_25347,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,0.000406454319480656,0.058229352346999406,0.00634743354261319,0.7333333333333333,4.0,249,71,0.0,0.0,303,False,"age,gender",279
-information_25348,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,8.954471381533359e-05,0.051990493166963754,0.006375815318618235,0.6,4.0,249,71,0.0,0.0,304,False,"age,gender",279
-information_25349,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.000163879427796791,0.05528103070917665,0.005507167812510291,0.6,4.0,249,71,0.0,0.0,305,False,"age,gender",279
-information_25350,Unnamed,Unnamed,information,listening,False,7.0,0.01871657754010695,0.004706554315699705,0.06453992255209294,0.007886664821094718,0.19047619047619047,4.0,249,71,0.0,0.0,306,False,"age,gender",279
-information_25351,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.00038332370001449995,0.05901623548682372,0.005507749255073311,0.6,4.0,249,71,0.0,0.0,307,False,"age,gender",279
-information_25352,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,1.4038030518080982e-05,0.05000612319875903,0.005485818743293416,0.6,4.0,249,71,0.0,0.0,308,False,"age,gender",279
-information_25353,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,3.546345014567692e-05,0.05158111920501916,0.00554988217880247,0.6,4.0,249,71,0.0,0.0,309,False,"age,gender",279
-information_25354,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,6.371872008206971e-06,0.03786590831813545,0.004787305741210604,0.6666666666666666,4.0,249,71,0.0,0.0,310,False,"age,gender",279
-information_25355,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,1.8797022424210566e-05,0.038086058947892056,0.006752416568845351,0.6666666666666666,4.0,249,71,0.0,0.0,311,False,"age,gender",279
-information_25356,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,8.761324011284586e-06,0.03797566457413005,0.00574244272850758,0.7,4.0,249,71,0.0,0.0,312,False,"age,gender",279
-information_25357,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,4.46031040574488e-06,0.03797566457413005,0.00571940721902405,0.8,4.0,249,71,0.0,0.0,313,False,"age,gender",279
-information_25358,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,2.3098036029750267e-05,0.038086058947892056,0.006759972668429974,0.6,4.0,249,71,0.0,0.0,314,False,"age,gender",279
-information_25359,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.0005874865991566836,0.045970541326578476,0.005791849063408903,0.6,4.0,249,71,0.0,0.0,315,False,"age,gender",279
-information_25360,Unnamed,Unnamed,information,listening,False,7.0,0.01871657754010695,0.009637775006013453,0.057971700345464006,0.00847439922467416,0.19047619047619047,4.0,249,71,1.0,0.0,316,False,"age,gender",279
-information_25361,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.0005893981607591457,0.045970541326578476,0.005892803414969003,0.6,4.0,249,71,0.0,0.0,317,False,"age,gender",279
-information_25362,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,6.371872008206971e-06,0.03786590831813545,0.0047883761886536235,0.6666666666666666,4.0,249,71,0.0,0.0,318,False,"age,gender",279
-information_25363,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.000986978566332267,0.05481842794173584,0.005754668048481412,0.4,4.0,249,71,0.0,0.0,319,False,"age,gender",279
-information_25364,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,7.071180584821964e-05,0.053475935828877004,0.00468155126260958,0.6666666666666666,4.0,249,71,0.0,0.0,320,False,"age,gender",279
-information_25365,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,0.0015085864699131897,0.055515272364724005,0.00470812610964302,0.3333333333333333,4.0,249,71,0.0,0.0,321,False,"age,gender",279
-information_25366,Unnamed,Unnamed,information,listening,False,2.0,0.0053475935828877,4.778904006155228e-06,0.020330075603909276,0.0029160423111630604,0.0,2.0,250,22,0.0,0.0,322,False,"age,gender",279
-information_25367,Unnamed,Unnamed,information,listening,False,3.0,0.00802139037433155,4.778904006155228e-06,0.03639334521687463,0.005161723825673612,0.6666666666666666,3.0,249,71,0.0,0.0,323,False,"age,gender",279
-information_25368,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,0.0003249654724185559,0.04471537296271286,0.0064484194890893414,0.6666666666666666,3.0,249,71,0.0,0.0,324,False,"age,gender",279
-information_25369,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,0.004832898858074125,0.0574631766582231,0.008431739205871454,0.13333333333333333,3.0,249,71,1.0,0.0,325,False,"age,gender",279
-information_25370,Unnamed,Unnamed,information,listening,False,3.0,0.00802139037433155,0.0019641295465297986,0.039943915481935564,0.00767687174610329,0.0,1.0,249,71,1.0,1.0,326,False,"age,gender",279
-information_25581,Unnamed,Unnamed,information,listening,False,3.0,0.00802139037433155,2.867342403693137e-06,0.015117235705470999,0.004628718958822797,0.6666666666666666,3.0,250,22,0.0,0.0,327,False,"age,gender",279
-information_25582,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,7.646246409848364e-06,0.015313563441905688,0.005912197326447552,0.6666666666666666,3.0,250,22,0.0,0.0,328,False,"age,gender",279
-information_25584,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,5.065638246524544e-05,0.0190184578230119,0.005780470248262837,0.6666666666666666,3.0,250,22,0.0,0.0,329,False,"age,gender",279
-information_25586,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.0006743033552685025,0.02508817840482421,0.0067750075846050506,0.5,3.0,250,22,0.0,0.0,330,False,"age,gender",279
-information_25587,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,0.00041146363492996504,0.024565508021390375,0.005524460986526474,0.5,3.0,250,22,0.0,0.0,331,False,"age,gender",279
-information_25588,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,4.062068405231944e-06,0.022248007264655437,0.004617127608692197,0.6666666666666666,4.0,250,22,0.0,0.0,332,False,"age,gender",279
-information_25589,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,1.0752534013849262e-05,0.023120478137779177,0.005622255263979123,0.7,4.0,250,22,0.0,0.0,333,False,"age,gender",279
-information_25590,Unnamed,Unnamed,information,listening,False,7.0,0.01871657754010695,0.00011851681935264965,0.02406417112299465,0.0077860667759880875,0.47619047619047616,4.0,250,22,0.0,0.0,334,False,"age,gender",279
-information_25591,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,4.062068405231944e-06,0.023120478137779177,0.00556257857432046,0.8,4.0,250,22,0.0,0.0,335,False,"age,gender",279
-information_25592,Unnamed,Unnamed,information,listening,False,7.0,0.01871657754010695,4.062068405231943e-05,0.02406417112299465,0.007504970858384104,0.5714285714285714,4.0,250,22,0.0,0.0,336,False,"age,gender",279
-information_25593,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,1.0752534013849262e-05,0.0226758535582065,0.005574620355707762,0.7,4.0,250,22,0.0,0.0,337,False,"age,gender",279
-information_25594,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,2.6283972033853753e-05,0.02358288770053476,0.006600212710490824,0.6,4.0,250,22,0.0,0.0,338,False,"age,gender",279
-information_25595,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,4.778904006155228e-06,0.0226758535582065,0.004630507423512395,0.6666666666666666,4.0,250,22,0.0,0.0,339,False,"age,gender",279
-information_25596,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,0.00021051072147113776,0.026798736023334956,0.005924707110313705,0.4,4.0,250,22,0.0,0.0,340,False,"age,gender",279
-information_25597,Unnamed,Unnamed,information,listening,False,6.0,0.0160427807486631,0.0014138387502210244,0.031030115395440476,0.007061171789691818,0.3333333333333333,4.0,250,22,1.0,0.0,341,False,"age,gender",279
-information_25598,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,8.243609410617769e-05,0.026203208556149733,0.005754388281906431,0.6,4.0,250,22,0.0,0.0,342,False,"age,gender",279
-information_25599,Unnamed,Unnamed,information,listening,False,3.0,0.00802139037433155,1.194726001538807e-06,0.02183600713012478,0.0037282723318282614,0.6666666666666666,3.0,250,22,0.0,0.0,343,False,"age,gender",279
-information_25826,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,2.867342403693137e-06,0.04517794578646506,0.005139627377957118,0.8333333333333334,4.0,249,71,0.0,0.0,344,False,"age,gender",279
-information_25827,Unnamed,Unnamed,information,listening,False,7.0,0.01871657754010695,0.0038779984859610944,0.053475935828877004,0.008541139669451477,0.38095238095238093,4.0,249,71,0.0,0.0,345,False,"age,gender",279
-information_25828,Unnamed,Unnamed,information,listening,False,8.0,0.0213903743315508,0.003530098093616896,0.05391606698796242,0.00951073477886165,0.39285714285714285,4.0,249,71,0.0,0.0,346,False,"age,gender",279
-information_25829,Unnamed,Unnamed,information,listening,False,4.0,0.0106951871657754,2.867342403693137e-06,0.04240001384490248,0.00516272923748767,0.8333333333333334,4.0,249,71,0.0,0.0,347,False,"age,gender",279
-information_25830,Unnamed,Unnamed,information,listening,False,5.0,0.013368983957219251,6.360907423257781e-05,0.04533427085839054,0.006236707340963633,0.8,4.0,249,71,0.0,0.0,348,False,"age,gender",279
-information_26119,Unnamed,Unnamed,information,listening,False,2.0,0.0053475935828877,1.4336712018465685e-05,0.0053475935828877,0.009373535659231862,0.0,1.0,251,3,1.0,1.0,349,False,"age,gender",279
-information_26120,Unnamed,Unnamed,information,listening,False,2.0,0.0053475935828877,8.960445011541053e-07,0.04944001614367874,0.0027027808960315308,0.0,2.0,249,71,0.0,0.0,350,False,"age,gender",279
-theme_16,Social innovation,Social innovation,theme,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,253,1,0.0,0.0,351,False,"age,gender",279
-theme_30,Challenges,Challenges,theme,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,254,1,0.0,0.0,352,False,"age,gender",279
-theme_50,Youth,Youth,theme,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,255,1,0.0,0.0,353,False,"age,gender",279
-theme_198,Youth engagement,Youth engagement,theme,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,256,1,0.0,0.0,354,False,"age,gender",279
-theme_201,Youth support,Youth support,theme,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,257,1,0.0,0.0,355,False,"age,gender",279
-theme_620,Mental Health,Mental Health,theme,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,258,1,0.0,0.0,356,False,"age,gender",279
-theme_701,Philanthropy & Funding,Philanthropy & Funding,theme,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,259,1,0.0,0.0,357,False,"age,gender",279
-theme_775,Community & Inclusion ,Community & Inclusion ,theme,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,260,1,0.0,0.0,358,False,"age,gender",279
-theme_778,Health & Wellbeing,Health & Wellbeing,theme,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,261,1,0.0,0.0,359,False,"age,gender",279
-theme_781,Education & Youth Empowerment,Education & Youth Empowerment,theme,mapping,False,0.0,0.0,0.0,0.0,0.0009633911368015415,0.0,0.0,262,1,0.0,0.0,360,False,"age,gender",279
-channel_8509.0,SS-001,SS-001,channel,listening,False,6.0,0.0160427807486631,0.0023259645498036347,0.059824677068835,0.00775589877704779,0.4,3.0,249,71,0.0,0.0,361,False,"age,gender",279
-channel_9490.0,RI_001,RI_001,channel,listening,False,2.0,0.0053475935828877,9.078366019485145e-05,0.04120001345306562,0.0037574789309717817,0.0,2.0,249,71,0.0,0.0,362,False,"age,gender",279
-channel_9506.0,RI-002,RI-002,channel,listening,False,7.0,0.01871657754010695,0.001687477114711132,0.058751588690918684,0.009164697469391525,0.2857142857142857,3.0,249,71,0.0,0.0,363,False,"age,gender",279
-channel_8510.0,SS-002,SS-002,channel,listening,False,1.0,0.00267379679144385,0.0,0.00267379679144385,0.006422607578676942,0.0,1.0,252,2,0.0,1.0,364,False,"age,gender",279
-channel_9507.0,RI -03,RI -03,channel,listening,False,2.0,0.0053475935828877,0.0,0.040066068128669315,0.003963469422598275,1.0,2.0,249,71,0.0,0.0,365,False,"age,gender",279
-channel_9508.0,P001,P001,channel,listening,False,1.0,0.00267379679144385,0.0,0.04081496659836407,0.002562642156035081,0.0,1.0,249,71,0.0,1.0,366,False,"age,gender",279
-channel_9509.0,002,002,channel,listening,False,16.0,0.0427807486631016,0.004491921829307675,0.06616971857613568,0.01637072714549156,0.16666666666666666,4.0,249,71,0.0,0.0,367,False,"age,gender",279
-channel_9510.0,003,003,channel,listening,False,9.0,0.02406417112299465,0.00212709017313969,0.046624926256494184,0.009876418291391027,0.3611111111111111,4.0,249,71,0.0,0.0,368,False,"age,gender",279
-channel_9511.0,LT 001,LT 001,channel,listening,False,3.0,0.00802139037433155,0.0003201865684124006,0.044563279857397504,0.004990665083256029,0.6666666666666666,3.0,249,71,0.0,0.0,369,False,"age,gender",279
-channel_9512.0,003,003,channel,listening,False,1.0,0.00267379679144385,0.0,0.03300152211101982,0.0031385047982886625,0.0,1.0,249,71,0.0,1.0,370,False,"age,gender",279
-channel_9548.0,004_FF,004_FF,channel,listening,False,5.0,0.013368983957219251,0.00022938739229545082,0.01933023582011046,0.007085252617449903,0.4,3.0,250,22,0.0,0.0,371,False,"age,gender",279
-channel_9549.0,T_006,T_006,channel,listening,False,12.0,0.0320855614973262,0.000711100916115898,0.03186876716288481,0.012611542497674998,0.25757575757575757,4.0,250,22,0.0,0.0,372,False,"age,gender",279
-channel_9576.0,H-007,H-007,channel,listening,False,5.0,0.013368983957219251,6.910481383965633e-05,0.04533427085839054,0.006260536124435294,0.7,4.0,249,71,0.0,0.0,373,False,"age,gender",279
-channel_9603.0,Channel 9603.0,Channel 9603.0,channel,listening,False,1.0,0.00267379679144385,0.0,0.0035650623885918,0.004947143538399483,0.0,1.0,251,3,0.0,1.0,374,False,"age,gender",279
+agent_4722,Rethink Ireland,Rethink Ireland,agent,mapping,False,8.0,0.016129032258064516,0.003459324892264557,0.11127617430673457,0.005588426569904478,0.0,3.0,0,287,0.0,0.0,0,True,"age,gender",665
+agent_4753,Helium Arts,Helium Arts,agent,mapping,False,1.0,0.0020161290322580645,0.0,0.09116157563437295,0.001171415233728806,0.0,1.0,0,287,0.0,1.0,1,True,"age,gender",665
+agent_4754,Hope and Courage Collective,Hope and Courage Collective,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,1,1,0.0,0.0,2,True,"age,gender",665
+agent_4757,HSE (Health Service Executive),HSE (Health Service Executive),agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,2,1,0.0,0.0,3,True,"age,gender",665
+agent_4786,Tacú Ballinrobe Family Resource Centre,Tacú Ballinrobe Family Resource Centre,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,3,1,0.0,0.0,4,True,"age,gender",665
+agent_5350,Liquid Therapy,Liquid Therapy,agent,mapping,False,5.0,0.010080645161290322,0.0005344072704004792,0.10129686137750656,0.0036116031454762887,0.0,2.0,0,287,0.0,0.0,5,True,"age,gender",665
+agent_5351,Cruthu Foundation Way2Work,Cruthu Foundation Way2Work,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,4,1,0.0,0.0,6,True,"age,gender",665
+agent_5358,Spraoi & Sport,Spraoi & Sport,agent,mapping,False,1.0,0.0020161290322580645,0.0,0.060540121263796126,0.001793009166921111,0.0,1.0,0,287,0.0,1.0,7,True,"age,gender",665
+agent_5360,Special Olympics,Special Olympics,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,5,1,0.0,0.0,8,True,"age,gender",665
+agent_5366,First Fortnight,First Fortnight,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,6,1,0.0,0.0,9,True,"age,gender",665
+agent_5367,Tacu Family Resource Centre,Tacu Family Resource Centre,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,7,1,0.0,0.0,10,True,"age,gender",665
+agent_5369,TUSLA,TUSLA,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,8,1,0.0,0.0,11,True,"age,gender",665
+agent_5370,Focus Ireland,Focus Ireland,agent,mapping,False,3.0,0.006048387096774193,0.0002867778759638117,0.10530733737074116,0.002266713894000838,0.0,3.0,0,287,0.0,0.0,12,True,"age,gender",665
+agent_5371,Community Foundation Ireland,Community Foundation Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,9,1,0.0,0.0,13,True,"age,gender",665
+agent_5372,Blue Box Creative Arts Centre,Blue Box Creative Arts Centre,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,10,1,0.0,0.0,14,True,"age,gender",665
+agent_5373,Donegal Domestic Violence Refuge (Gloria House),Donegal Domestic Violence Refuge (Gloria House),agent,mapping,False,6.0,0.012096774193548387,0.0040938319737912985,0.11958759269222673,0.003993099296251432,0.0,3.0,0,287,0.0,0.0,15,True,"age,gender",665
+agent_5374,Knocklee House (Kerry Recovery Centre),Knocklee House (Kerry Recovery Centre),agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,11,1,0.0,0.0,16,True,"age,gender",665
+agent_5375,St. Brigid’s Family Resource Centre (Tralee),St. Brigid’s Family Resource Centre (Tralee),agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,12,1,0.0,0.0,17,True,"age,gender",665
+agent_5376,Crosscare,Crosscare,agent,mapping,False,1.0,0.0020161290322580645,0.0,0.05917161475514196,0.0018172252779904286,0.0,1.0,0,287,0.0,1.0,18,True,"age,gender",665
+agent_5377,NOVAS,NOVAS,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,13,1,0.0,0.0,19,True,"age,gender",665
+agent_5378,GP Practices and Primary Care Centres,GP Practices and Primary Care Centres,agent,mapping,False,1.0,0.0020161290322580645,0.0,0.05917161475514196,0.0018172252779904286,0.0,1.0,0,287,0.0,1.0,20,True,"age,gender",665
+agent_5379,Young People,Young People,agent,mapping,False,25.0,0.05040322580645161,0.07978010958391123,0.15426687588641783,0.01527933326767436,0.0,3.0,0,287,0.0,0.0,21,True,"age,gender",665
+agent_5380,Parents ,Parents ,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,14,1,0.0,0.0,22,True,"age,gender",665
+agent_5382,Youthreach,Youthreach,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,15,1,0.0,0.0,23,True,"age,gender",665
+agent_5383,"Education Welfare Officers (EWOs, TESS team)","Education Welfare Officers (EWOs, TESS team)",agent,mapping,False,2.0,0.004032258064516129,2.715325295970457e-06,0.10332787614196783,0.001745238847392467,0.0,2.0,0,287,0.0,0.0,24,True,"age,gender",665
+agent_5384,School Guidance Counsellors/Chaplins/School Support Team,School Guidance Counsellors/Chaplins/School Support Team,agent,mapping,False,9.0,0.01814516129032258,0.020694552265306497,0.12099140889404303,0.006364957662698886,0.0,3.0,0,287,0.0,0.0,25,True,"age,gender",665
+agent_5387,JLOs/ Managers/Support staff in International Protection Centre?,JLOs/ Managers/Support staff in International Protection Centre?,agent,mapping,False,4.0,0.008064516129032258,0.00015415479006091842,0.10885233684658789,0.0028577818949936024,0.0,3.0,0,287,0.0,0.0,26,True,"age,gender",665
+agent_5476,Children's Health Ireland,Children's Health Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,16,1,0.0,0.0,27,True,"age,gender",665
+agent_5477,ETBs,ETBs,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,17,1,0.0,0.0,28,True,"age,gender",665
+agent_5478,Sisk Group,Sisk Group,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,18,1,0.0,0.0,29,True,"age,gender",665
+agent_5479,Construction Industry Federation,Construction Industry Federation,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,19,1,0.0,0.0,30,True,"age,gender",665
+agent_5480,Society of the Irish Motor Industry (SIMI),Society of the Irish Motor Industry (SIMI),agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,20,1,0.0,0.0,31,True,"age,gender",665
+agent_5481,"Parents, Guardians & Aftercare workers","Parents, Guardians & Aftercare workers",agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,21,1,0.0,0.0,32,True,"age,gender",665
+agent_5482,DEIS Schools,DEIS Schools,agent,mapping,False,3.0,0.006048387096774193,0.0010244642990097621,0.10411066308243729,0.002559032524059295,0.0,3.0,0,287,0.0,0.0,33,True,"age,gender",665
+agent_5483,Oberstown Children Detention Campus ,Oberstown Children Detention Campus ,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,22,1,0.0,0.0,34,True,"age,gender",665
+agent_5488,Involve CLG,Involve CLG,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,23,1,0.0,0.0,35,True,"age,gender",665
+agent_5489,Arts Council,Arts Council,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,24,1,0.0,0.0,36,True,"age,gender",665
+agent_5490,Children and young persons committees (CYPSC),Children and young persons committees (CYPSC),agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,25,1,0.0,0.0,37,True,"age,gender",665
+agent_5491,Regional Health Areas,Regional Health Areas,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,26,1,0.0,0.0,38,True,"age,gender",665
+agent_5492,Family Resource Centres,Family Resource Centres,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,27,1,0.0,0.0,39,True,"age,gender",665
+agent_5493,Home Liaison Officers,Home Liaison Officers,agent,mapping,False,2.0,0.004032258064516129,2.715325295970457e-06,0.1166275037642013,0.0016288107184621256,0.0,2.0,0,287,0.0,0.0,40,True,"age,gender",665
+agent_5494,Hospital clinical staff,Hospital clinical staff,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,28,1,0.0,0.0,41,True,"age,gender",665
+agent_5497,Patient Support Groups,Patient Support Groups,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,29,1,0.0,0.0,42,True,"age,gender",665
+agent_5499,Sláintecare Healthy Communities (Donegal),Sláintecare Healthy Communities (Donegal),agent,mapping,False,5.0,0.010080645161290322,0.0013554371842249646,0.10424228212552507,0.0036572027526624146,0.0,3.0,0,287,0.0,0.0,43,True,"age,gender",665
+agent_5500,Jigsaw,Jigsaw,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,30,1,0.0,0.0,44,True,"age,gender",665
+agent_5502,ETB Youthreach Carndonagh,ETB Youthreach Carndonagh,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,31,1,0.0,0.0,45,True,"age,gender",665
+agent_5503,Inishowen Development Partnership (IDP),Inishowen Development Partnership (IDP),agent,mapping,False,1.0,0.0020161290322580645,0.0,0.06575410299943407,0.0017419096356347079,0.0,1.0,0,287,0.0,1.0,46,True,"age,gender",665
+agent_5504,Inishowen Family Action Network (IFAN),Inishowen Family Action Network (IFAN),agent,mapping,False,1.0,0.0020161290322580645,0.0,0.09269887033309762,0.001424727868858287,0.0,1.0,0,287,0.0,1.0,47,True,"age,gender",665
+agent_5505,Carndonagh Community School – Pastoral Care Team,Carndonagh Community School – Pastoral Care Team,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,32,1,0.0,0.0,48,True,"age,gender",665
+agent_5506,Public Health Nurse Network (Carndonagh),Public Health Nurse Network (Carndonagh),agent,mapping,False,1.0,0.0020161290322580645,0.0,0.09269887033309762,0.001424727868858287,0.0,1.0,0,287,0.0,1.0,49,True,"age,gender",665
+agent_5507,Mental Health Ireland,Mental Health Ireland,agent,mapping,False,2.0,0.004032258064516129,2.715325295970457e-06,0.08923771121351767,0.0019696147208565253,0.0,2.0,0,287,0.0,0.0,50,True,"age,gender",665
+agent_5508,Safefood,Safefood,agent,mapping,False,2.0,0.004032258064516129,2.715325295970457e-06,0.09359324081871774,0.0019408248860101618,0.0,2.0,0,287,0.0,0.0,51,True,"age,gender",665
+agent_5509,Breast Cancer Ireland,Breast Cancer Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,33,1,0.0,0.0,52,True,"age,gender",665
+agent_5510,UCC School of Dentistry ,UCC School of Dentistry ,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,34,1,0.0,0.0,53,True,"age,gender",665
+agent_5511,UCC School of Audiloogy ,UCC School of Audiloogy ,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,35,1,0.0,0.0,54,True,"age,gender",665
+agent_5512,RCSI,RCSI,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,36,1,0.0,0.0,55,True,"age,gender",665
+agent_5513,University of Ulster,University of Ulster,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,37,1,0.0,0.0,56,True,"age,gender",665
+agent_5516,Rosemary Collaboratory,Rosemary Collaboratory,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,38,1,0.0,0.0,57,True,"age,gender",665
+agent_5518,Sport Northern Ireland,Sport Northern Ireland,agent,mapping,False,1.0,0.0020161290322580645,0.0,0.060540121263796126,0.001793009166921111,0.0,1.0,0,287,0.0,1.0,58,True,"age,gender",665
+agent_5782,Agirre Lehendakaria Center,Agirre Lehendakaria Center,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,39,1,0.0,0.0,59,True,"age,gender",665
+agent_5783,Shoutout,Shoutout,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,40,1,0.0,0.0,60,True,"age,gender",665
+agent_5785,spunout,spunout,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,41,1,0.0,0.0,61,True,"age,gender",665
+agent_5786,Childhood Matters,Childhood Matters,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,42,1,0.0,0.0,62,True,"age,gender",665
+agent_5787,Hair Together,Hair Together,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,43,1,0.0,0.0,63,True,"age,gender",665
+agent_5788,Bohemian Football Club,Bohemian Football Club,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,44,1,0.0,0.0,64,True,"age,gender",665
+agent_5789,Active Connections,Active Connections,agent,mapping,False,2.0,0.004032258064516129,4.072987943955686e-06,0.09740773202751368,0.0018731528107276804,0.0,2.0,0,287,0.0,0.0,65,True,"age,gender",665
+agent_5790,Football Coop,Football Coop,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,45,1,0.0,0.0,66,True,"age,gender",665
+agent_5791,Irish Homeless Street Leagues,Irish Homeless Street Leagues,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,46,1,0.0,0.0,67,True,"age,gender",665
+agent_5792,Sanctuary Runners,Sanctuary Runners,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,47,1,0.0,0.0,68,True,"age,gender",665
+agent_5793,Irish Surfing,Irish Surfing,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,48,1,0.0,0.0,69,True,"age,gender",665
+agent_5794,Donegal Sports Partnership,Donegal Sports Partnership,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,49,1,0.0,0.0,70,True,"age,gender",665
+agent_5795,Pobal,Pobal,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,50,1,0.0,0.0,71,True,"age,gender",665
+agent_5797,Donegal County Council,Donegal County Council,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,51,1,0.0,0.0,72,True,"age,gender",665
+agent_5798,Interreg,Interreg,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,52,1,0.0,0.0,73,True,"age,gender",665
+agent_5799,National Surf Centre Strandhill,National Surf Centre Strandhill,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,53,1,0.0,0.0,74,True,"age,gender",665
+agent_5800,INCLUSEA,INCLUSEA,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,54,1,0.0,0.0,75,True,"age,gender",665
+agent_5806,Rugby Players Ireland Foundation,Rugby Players Ireland Foundation,agent,mapping,False,3.0,0.006048387096774193,0.0011660981723794997,0.100006846769303,0.002664630875476653,0.0,2.0,0,287,0.0,0.0,76,True,"age,gender",665
+agent_5807,Z Zurich Foundation,Z Zurich Foundation,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,55,1,0.0,0.0,77,True,"age,gender",665
+agent_5808,Unnamed,Unnamed,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,56,1,0.0,0.0,78,True,"age,gender",665
+agent_5809,Rugby Player Ireland Members,Rugby Player Ireland Members,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,57,1,0.0,0.0,79,True,"age,gender",665
+agent_5811,Schools,Schools,agent,mapping,False,4.0,0.008064516129032258,0.0024674442882469546,0.11373192436040046,0.0029369598099730247,0.0,2.0,0,287,0.0,0.0,80,True,"age,gender",665
+agent_5812,Youth Groups,Youth Groups,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,58,1,0.0,0.0,81,True,"age,gender",665
+agent_5813,Foróige - The National Youth Development Organisation,Foróige - The National Youth Development Organisation,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,59,1,0.0,0.0,82,True,"age,gender",665
+agent_5814,Local health professionals,Local health professionals,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,60,1,0.0,0.0,83,True,"age,gender",665
+agent_5815,Surf Schools and Clubs,Surf Schools and Clubs,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,61,1,0.0,0.0,84,True,"age,gender",665
+agent_5816,Caregivers,Caregivers,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,62,1,0.0,0.0,85,True,"age,gender",665
+agent_5817,University of Limerick ,University of Limerick ,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,63,1,0.0,0.0,86,True,"age,gender",665
+agent_5818,ISCOIL,ISCOIL,agent,mapping,False,2.0,0.004032258064516129,2.715325295970457e-06,0.09269887033309762,0.0019606136678348377,0.0,2.0,0,287,0.0,0.0,87,True,"age,gender",665
+agent_5819,Sport Ireland ,Sport Ireland ,agent,mapping,False,3.0,0.006048387096774193,0.0009485857279974925,0.09700664136622392,0.0025380146190183174,0.0,2.0,0,287,0.0,0.0,88,True,"age,gender",665
+agent_5821,DCU anti-bullying centre,DCU anti-bullying centre,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,64,1,0.0,0.0,89,True,"age,gender",665
+agent_5822,No Barriers,No Barriers,agent,mapping,False,2.0,0.004032258064516129,2.715325295970457e-06,0.08739337060020172,0.0020058115794381235,0.0,2.0,0,287,0.0,0.0,90,True,"age,gender",665
+agent_5823,Zurich Ireland,Zurich Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,65,1,0.0,0.0,91,True,"age,gender",665
+agent_5825,National Youth Assembly,National Youth Assembly,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,66,1,0.0,0.0,92,True,"age,gender",665
+agent_5826,Comhairle na nOg,Comhairle na nOg,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,67,1,0.0,0.0,93,True,"age,gender",665
+agent_5827,Mental Health Reform,Mental Health Reform,agent,mapping,False,2.0,0.004032258064516129,2.715325295970457e-06,0.08923771121351767,0.0019696147208565253,0.0,2.0,0,287,0.0,0.0,94,True,"age,gender",665
+agent_5828,Philanthropy Ireland ,Philanthropy Ireland ,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,68,1,0.0,0.0,95,True,"age,gender",665
+agent_5829,The Lighthouse Charity,The Lighthouse Charity,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,69,1,0.0,0.0,96,True,"age,gender",665
+agent_5830,State Street,State Street,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,70,1,0.0,0.0,97,True,"age,gender",665
+agent_5831,Nature Worx ,Nature Worx ,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,71,1,0.0,0.0,98,True,"age,gender",665
+agent_5832,Bounce Back Recycling ,Bounce Back Recycling ,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,72,1,0.0,0.0,99,True,"age,gender",665
+agent_5833, UNESCO Child and Family Research Centre at the University of Galway, UNESCO Child and Family Research Centre at the University of Galway,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,73,1,0.0,0.0,100,True,"age,gender",665
+agent_5834,Rainbow Club,Rainbow Club,agent,mapping,False,3.0,0.006048387096774193,2.715325295970457e-05,0.10217552064596076,0.0024959060983190985,0.0,2.0,0,287,0.0,0.0,101,True,"age,gender",665
+agent_5835,Universities & 3rd evel Education,Universities & 3rd evel Education,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,74,1,0.0,0.0,102,True,"age,gender",665
+agent_5836,Eco Unesco,Eco Unesco,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,75,1,0.0,0.0,103,True,"age,gender",665
+agent_5837,"Department of Children, Disability and Equality","Department of Children, Disability and Equality",agent,mapping,False,2.0,0.004032258064516129,2.715325295970457e-06,0.10625727469238445,0.0017352575318164845,0.0,2.0,0,287,0.0,0.0,104,True,"age,gender",665
+agent_5838,Department of Education and Youth,Department of Education and Youth,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,76,1,0.0,0.0,105,True,"age,gender",665
+agent_5839,YouthMedInfo,YouthMedInfo,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,77,1,0.0,0.0,106,True,"age,gender",665
+agent_5840,Young social innovators,Young social innovators,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,78,1,0.0,0.0,107,True,"age,gender",665
+agent_5841,Higher education authority,Higher education authority,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,79,1,0.0,0.0,108,True,"age,gender",665
+agent_5842,Gaisce,Gaisce,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,80,1,0.0,0.0,109,True,"age,gender",665
+agent_5843,bodywhys,bodywhys,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,81,1,0.0,0.0,110,True,"age,gender",665
+agent_5844,Atlantic Futures,Atlantic Futures,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,82,1,0.0,0.0,111,True,"age,gender",665
+agent_5845,Pieta,Pieta,agent,mapping,False,2.0,0.004032258064516129,2.715325295970457e-06,0.09758064516129034,0.001813479046704986,0.0,2.0,0,287,0.0,0.0,112,True,"age,gender",665
+agent_5846,Barnardos,Barnardos,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,83,1,0.0,0.0,113,True,"age,gender",665
+agent_5847,Samaritans,Samaritans,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,84,1,0.0,0.0,114,True,"age,gender",665
+agent_5848,HUGG,HUGG,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,85,1,0.0,0.0,115,True,"age,gender",665
+agent_5849,Shona project,Shona project,agent,mapping,False,2.0,0.004032258064516129,2.715325295970457e-06,0.08739337060020172,0.0020058115794381235,0.0,2.0,0,287,0.0,0.0,116,True,"age,gender",665
+agent_5850,Portlaoise Prisons,Portlaoise Prisons,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,86,1,0.0,0.0,117,True,"age,gender",665
+agent_5868,Aware,Aware,agent,mapping,False,5.0,0.010080645161290322,0.0034526306202624464,0.12179563539333875,0.003658889774115887,0.0,2.0,0,287,0.0,0.0,118,True,"age,gender",665
+agent_5869,Common Knowledge Centre for Sustainable Living CLG,Common Knowledge Centre for Sustainable Living CLG,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,87,1,0.0,0.0,119,True,"age,gender",665
+agent_5870,Anew Support Services CLG,Anew Support Services CLG,agent,mapping,False,5.0,0.010080645161290322,0.003183803083291136,0.1155650247530348,0.0035675146693631378,0.0,3.0,0,287,0.0,0.0,120,True,"age,gender",665
+agent_5871,Childhood Development Initiative,Childhood Development Initiative,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,88,1,0.0,0.0,121,True,"age,gender",665
+agent_5872,Spiritan Asylum Services Initiative CLG (T/A Spirasi),Spiritan Asylum Services Initiative CLG (T/A Spirasi),agent,mapping,False,5.0,0.010080645161290322,0.003183803083291136,0.1155650247530348,0.0035675146693631378,0.0,3.0,0,287,0.0,0.0,122,True,"age,gender",665
+agent_5873,Women's Collective Ireland - Tallaght,Women's Collective Ireland - Tallaght,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,89,1,0.0,0.0,123,True,"age,gender",665
+agent_5874,Offaly Traveller Movement,Offaly Traveller Movement,agent,mapping,False,2.0,0.004032258064516129,2.715325295970457e-06,0.08870967741935486,0.001897670370546048,0.0,2.0,0,287,0.0,0.0,124,True,"age,gender",665
+agent_5875,Street Feast (t/a Neighbourhood Network),Street Feast (t/a Neighbourhood Network),agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,90,1,0.0,0.0,125,True,"age,gender",665
+agent_5876,National Youth Council of Ireland,National Youth Council of Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,91,1,0.0,0.0,126,True,"age,gender",665
+agent_5877,Mason Hayes & Curran LLP,Mason Hayes & Curran LLP,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,92,1,0.0,0.0,127,True,"age,gender",665
+agent_5878,The Department of Rural and Community Development and the Gaeltacht,The Department of Rural and Community Development and the Gaeltacht,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,93,1,0.0,0.0,128,True,"age,gender",665
+agent_5930,Accessible Adventures Ireland,Accessible Adventures Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,94,1,0.0,0.0,129,True,"age,gender",665
+agent_5931,Active Disabilities Ireland,Active Disabilities Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,95,1,0.0,0.0,130,True,"age,gender",665
+agent_5932,Vision Sports Ireland,Vision Sports Ireland,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,96,1,0.0,0.0,131,True,"age,gender",665
+agent_5933,Irish Foster Care Association,Irish Foster Care Association,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,97,1,0.0,0.0,132,True,"age,gender",665
+agent_5934,Unnamed,Unnamed,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,98,1,0.0,0.0,133,True,"age,gender",665
+agent_5935,Open Specturrm,Open Specturrm,agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,99,1,0.0,0.0,134,True,"age,gender",665
+agent_5936,County Councils (Local Area Sport Partnership),County Councils (Local Area Sport Partnership),agent,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,100,1,0.0,0.0,135,True,"age,gender",665
+project_4152,Bounce Back Recycling,Bounce Back Recycling,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,101,1,0.0,0.0,136,True,"age,gender",665
+project_4154,Change Clothes Crumlin,Change Clothes Crumlin,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,102,1,0.0,0.0,137,True,"age,gender",665
+project_4155,Educate Together,Educate Together,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,103,1,0.0,0.0,138,True,"age,gender",665
+project_4156,Fighting Words,Fighting Words,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,104,1,0.0,0.0,139,True,"age,gender",665
+project_4158,iScoil,iScoil,project,mapping/co-creation,False,2.0,0.004032258064516129,2.715325295970457e-06,0.09269887033309762,0.0019606136678348377,0.0,2.0,0,287,0.0,0.0,140,True,"age,gender",665
+project_4159,Not So Different,Not So Different,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,105,1,0.0,0.0,141,True,"age,gender",665
+project_4160,The Shona Project,The Shona Project,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,106,1,0.0,0.0,142,True,"age,gender",665
+project_4162,SpunOut.ie,SpunOut.ie,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,107,1,0.0,0.0,143,True,"age,gender",665
+project_4164,Social Innovation Campus,Social Innovation Campus,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,108,1,0.0,0.0,144,True,"age,gender",665
+project_4166,Liquid Therapy,Liquid Therapy,project,mapping/co-creation,False,2.0,0.004032258064516129,2.715325295970457e-06,0.09280320220741736,0.0017551042500601765,0.0,2.0,0,287,0.0,0.0,145,True,"age,gender",665
+project_4167,Trinity Access 21 (TA21),Trinity Access 21 (TA21),project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,109,1,0.0,0.0,146,True,"age,gender",665
+project_4168,Trinity Centre for People with Intellectual Disabilities,Trinity Centre for People with Intellectual Disabilities,project,mapping/co-creation,False,8.0,0.016129032258064516,0.00899624170886388,0.127937385820466,0.005242575755394016,0.0,3.0,0,287,0.0,0.0,147,True,"age,gender",665
+project_4169,The Great Care Co-op,The Great Care Co-op,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,110,1,0.0,0.0,148,True,"age,gender",665
+project_4170,FoodCloud ,FoodCloud ,project,mapping/co-creation,False,2.0,0.004032258064516129,2.715325295970457e-06,0.09359324081871774,0.0019408248860101618,0.0,2.0,0,287,0.0,0.0,149,True,"age,gender",665
+project_4171,GIY (Grow It Yourself),GIY (Grow It Yourself),project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,111,1,0.0,0.0,150,True,"age,gender",665
+project_4172,Helium Arts,Helium Arts,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,112,1,0.0,0.0,151,True,"age,gender",665
+project_4173,The No Barriers Foundation,The No Barriers Foundation,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,113,1,0.0,0.0,152,True,"age,gender",665
+project_4174,Sensational Kids,Sensational Kids,project,mapping/co-creation,False,2.0,0.004032258064516129,2.715325295970457e-06,0.005600358422939068,0.002617627611628881,0.0,2.0,114,6,0.0,0.0,153,True,"age,gender",665
+project_4175,Gaisce – The President's Award,Gaisce – The President's Award,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,115,1,0.0,0.0,154,True,"age,gender",665
+project_4176,Uplift ,Uplift ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,116,1,0.0,0.0,155,True,"age,gender",665
+project_4177,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,project,mapping/co-creation,False,1.0,0.0020161290322580645,0.0,0.06575410299943407,0.0017419096356347079,0.0,1.0,0,287,0.0,1.0,156,True,"age,gender",665
+project_4178,Hair Together,Hair Together,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,117,1,0.0,0.0,157,True,"age,gender",665
+project_4529,Inclusive Surf Programmes,Inclusive Surf Programmes,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,118,1,0.0,0.0,158,True,"age,gender",665
+project_4530,Innovation in Sport,Innovation in Sport,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,119,1,0.0,0.0,159,True,"age,gender",665
+project_4531,Community Services Programme,Community Services Programme,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,120,1,0.0,0.0,160,True,"age,gender",665
+project_4532,PEACEPlus Initiative ,PEACEPlus Initiative ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,121,1,0.0,0.0,161,True,"age,gender",665
+project_4533,iSURFATLANTIC,iSURFATLANTIC,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,122,1,0.0,0.0,162,True,"age,gender",665
+project_4534,INCLUSEA,INCLUSEA,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,123,1,0.0,0.0,163,True,"age,gender",665
+project_4535,Connecting for Life - Ireland's national strategy to reduce suicide ,Connecting for Life - Ireland's national strategy to reduce suicide ,project,mapping/co-creation,False,2.0,0.004032258064516129,2.715325295970457e-06,0.005600358422939068,0.002617627611628881,0.0,2.0,114,6,0.0,0.0,164,True,"age,gender",665
+project_4536,Area‑Based Childhood Programme (ABC),Area‑Based Childhood Programme (ABC),project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,124,1,0.0,0.0,165,True,"age,gender",665
+project_4537,"Meitheal - Prevention, Partnership & Family Support (PPFS)","Meitheal - Prevention, Partnership & Family Support (PPFS)",project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,125,1,0.0,0.0,166,True,"age,gender",665
+project_4538,Housing-led Supports for homeless/ people at risk of homelessness,Housing-led Supports for homeless/ people at risk of homelessness,project,mapping/co-creation,False,2.0,0.004032258064516129,2.715325295970457e-06,0.09396654719235366,0.0018290311789882245,0.0,2.0,0,287,0.0,0.0,167,True,"age,gender",665
+project_4539,RTE Toy Show Appeal,RTE Toy Show Appeal,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,126,1,0.0,0.0,168,True,"age,gender",665
+project_4540,Creative Arts Psychotherapy for vulnerable children - Limerick,Creative Arts Psychotherapy for vulnerable children - Limerick,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,127,1,0.0,0.0,169,True,"age,gender",665
+project_4541,Journey to Freedom,Journey to Freedom,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,128,1,0.0,0.0,170,True,"age,gender",665
+project_4547,Tusla Aftercare Drop-In Services,Tusla Aftercare Drop-In Services,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,129,1,0.0,0.0,171,True,"age,gender",665
+project_4548,Crosscare Aftercare Service ,Crosscare Aftercare Service ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,130,1,0.0,0.0,172,True,"age,gender",665
+project_4549,2030 Sustainability Roadmap,2030 Sustainability Roadmap,project,mapping/co-creation,False,1.0,0.0020161290322580645,0.0,0.060540121263796126,0.001793009166921111,0.0,1.0,0,287,0.0,1.0,173,True,"age,gender",665
+project_4550,Carbon Neutrality,Carbon Neutrality,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,131,1,0.0,0.0,174,True,"age,gender",665
+project_4551,Tree planting,Tree planting,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,132,1,0.0,0.0,175,True,"age,gender",665
+project_4552,Community Engagement,Community Engagement,project,mapping/co-creation,False,3.0,0.006048387096774193,0.0007474822654010165,0.10319855464491906,0.0023637468658636923,0.0,2.0,0,287,0.0,0.0,176,True,"age,gender",665
+project_4553,Lighthouse Industry Construction Federation Charity - 24/7 Support,Lighthouse Industry Construction Federation Charity - 24/7 Support,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,133,1,0.0,0.0,177,True,"age,gender",665
+project_4554,Mental Health & Wellbeing,Mental Health & Wellbeing,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,134,1,0.0,0.0,178,True,"age,gender",665
+project_4555,Vocational training,Vocational training,project,mapping/co-creation,False,4.0,0.008064516129032258,0.0006054565201793901,0.07620669608252341,0.0035854652442114266,0.0,3.0,0,287,0.0,0.0,179,True,"age,gender",665
+project_4556,STEPS+ programme,STEPS+ programme,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,135,1,0.0,0.0,180,True,"age,gender",665
+project_4557,Oberstown coffee van business; Bord Bia Bloom,Oberstown coffee van business; Bord Bia Bloom,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,136,1,0.0,0.0,181,True,"age,gender",665
+project_4558,Bord Bia Bloom,Bord Bia Bloom,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,137,1,0.0,0.0,182,True,"age,gender",665
+project_4559,Addiction Counselling,Addiction Counselling,project,mapping/co-creation,False,2.0,0.004032258064516129,4.072987943955686e-06,0.10111053974407153,0.0018034378783820457,0.0,2.0,0,287,0.0,0.0,183,True,"age,gender",665
+project_4560,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,project,mapping/co-creation,False,8.0,0.016129032258064516,0.0020026763639132052,0.12598265112496612,0.005037227148640374,0.0,3.0,0,287,0.0,0.0,184,True,"age,gender",665
+project_4561,Green Campus & Sustainability,Green Campus & Sustainability,project,mapping/co-creation,False,1.0,0.0020161290322580645,0.0,0.060540121263796126,0.001793009166921111,0.0,1.0,0,287,0.0,1.0,185,True,"age,gender",665
+project_4562,Innovation Strategy,Innovation Strategy,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,138,1,0.0,0.0,186,True,"age,gender",665
+project_4563,Reads & Rhymes Together,Reads & Rhymes Together,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,139,1,0.0,0.0,187,True,"age,gender",665
+project_4564, Headstart Fund, Headstart Fund,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,140,1,0.0,0.0,188,True,"age,gender",665
+project_4565,Breaking Barriers Fund,Breaking Barriers Fund,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,141,1,0.0,0.0,189,True,"age,gender",665
+project_4566,Innovate Together,Innovate Together,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,142,1,0.0,0.0,190,True,"age,gender",665
+project_4567,Ktool,Ktool,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,143,1,0.0,0.0,191,True,"age,gender",665
+project_4568,A Drop in The Ocean [ADITO],A Drop in The Ocean [ADITO],project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,144,1,0.0,0.0,192,True,"age,gender",665
+project_4569,Big Brother Big Sister,Big Brother Big Sister,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,145,1,0.0,0.0,193,True,"age,gender",665
+project_4570,Surf Club,Surf Club,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,146,1,0.0,0.0,194,True,"age,gender",665
+project_4571,Open Event,Open Event,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,147,1,0.0,0.0,195,True,"age,gender",665
+project_4572,Generation Pride,Generation Pride,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,148,1,0.0,0.0,196,True,"age,gender",665
+project_4573,School Workshops ,School Workshops ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,149,1,0.0,0.0,197,True,"age,gender",665
+project_4574,Corporate Workshops,Corporate Workshops,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,150,1,0.0,0.0,198,True,"age,gender",665
+project_4575,LGBTQI+ Inclusion Training,LGBTQI+ Inclusion Training,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,151,1,0.0,0.0,199,True,"age,gender",665
+project_4576,Fair Play - Sports LGBTQ+ Inclusion,Fair Play - Sports LGBTQ+ Inclusion,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,152,1,0.0,0.0,200,True,"age,gender",665
+project_4577,Training,Training,project,mapping/co-creation,False,4.0,0.008064516129032258,0.0006054565201793901,0.07620669608252341,0.0035854652442114266,0.0,3.0,0,287,0.0,0.0,201,True,"age,gender",665
+project_4578,Creative Arts Therapy,Creative Arts Therapy,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,153,1,0.0,0.0,202,True,"age,gender",665
+project_4579,Spunout Academy ,Spunout Academy ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,154,1,0.0,0.0,203,True,"age,gender",665
+project_4580,CHIPPS,CHIPPS,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,155,1,0.0,0.0,204,True,"age,gender",665
+project_4581,Limetree Project,Limetree Project,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,156,1,0.0,0.0,205,True,"age,gender",665
+project_4582,Creches,Creches,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,157,1,0.0,0.0,206,True,"age,gender",665
+project_4583,Teen Parent Support Programme,Teen Parent Support Programme,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,158,1,0.0,0.0,207,True,"age,gender",665
+project_4584,Hair Together Programme,Hair Together Programme,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,159,1,0.0,0.0,208,True,"age,gender",665
+project_4585,SPACE,SPACE,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,160,1,0.0,0.0,209,True,"age,gender",665
+project_4586,Meals on wheels,Meals on wheels,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,161,1,0.0,0.0,210,True,"age,gender",665
+project_4587,Family support,Family support,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,162,1,0.0,0.0,211,True,"age,gender",665
+project_4588,Drug & alcohol support,Drug & alcohol support,project,mapping/co-creation,False,2.0,0.004032258064516129,2.715325295970457e-06,0.10192292356154553,0.0017995891870074162,0.0,2.0,0,287,0.0,0.0,212,True,"age,gender",665
+project_4589,Counselling,Counselling,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,163,1,0.0,0.0,213,True,"age,gender",665
+project_4590,Parent toddler groups,Parent toddler groups,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,164,1,0.0,0.0,214,True,"age,gender",665
+project_4591,"Various groups, camps and workshops","Various groups, camps and workshops",project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,165,1,0.0,0.0,215,True,"age,gender",665
+project_4592,Pride on the PItch,Pride on the PItch,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,166,1,0.0,0.0,216,True,"age,gender",665
+project_4593,No Shame,No Shame,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,167,1,0.0,0.0,217,True,"age,gender",665
+project_4594,Traveller Voice,Traveller Voice,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,168,1,0.0,0.0,218,True,"age,gender",665
+project_4595,Traveller Culture & Identity Programme (TCIP),Traveller Culture & Identity Programme (TCIP),project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,169,1,0.0,0.0,219,True,"age,gender",665
+project_4596,Youth Service,Youth Service,project,mapping/co-creation,False,1.0,0.0020161290322580645,0.0,0.06690113197670615,0.0017408223497460719,0.0,1.0,0,287,0.0,1.0,220,True,"age,gender",665
+project_4597,Health and Wellbeing Programme,Health and Wellbeing Programme,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,170,1,0.0,0.0,221,True,"age,gender",665
+project_4598,New Trails,New Trails,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,171,1,0.0,0.0,222,True,"age,gender",665
+project_4599,Place-based Football Coop groups,Place-based Football Coop groups,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,172,1,0.0,0.0,223,True,"age,gender",665
+project_4600,Drop-In Leagues,Drop-In Leagues,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,173,1,0.0,0.0,224,True,"age,gender",665
+project_4601,Sanctuary groups nationwide,Sanctuary groups nationwide,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,174,1,0.0,0.0,225,True,"age,gender",665
+project_4602,Tackle Your Feelings,Tackle Your Feelings,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,175,1,0.0,0.0,226,True,"age,gender",665
+project_4603,Sport & Wellness Fund,Sport & Wellness Fund,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,176,1,0.0,0.0,227,True,"age,gender",665
+project_4604,Brighter Futures Fund,Brighter Futures Fund,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,177,1,0.0,0.0,228,True,"age,gender",665
+project_4605,Women in Sport,Women in Sport,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,178,1,0.0,0.0,229,True,"age,gender",665
+project_4606,Erasmus+ Sport program,Erasmus+ Sport program,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,179,1,0.0,0.0,230,True,"age,gender",665
+project_4607,Integrated care programme for children,Integrated care programme for children,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,180,1,0.0,0.0,231,True,"age,gender",665
+project_4608,Entrepreneurship Impact Fund ,Entrepreneurship Impact Fund ,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,181,1,0.0,0.0,232,True,"age,gender",665
+project_4609,Why Wellbeing Matters,Why Wellbeing Matters,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,182,1,0.0,0.0,233,True,"age,gender",665
+project_4610,National Wellbeing Framework,National Wellbeing Framework,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,183,1,0.0,0.0,234,True,"age,gender",665
+project_4611,Wellbeing Policy Framework of the Department of Education,Wellbeing Policy Framework of the Department of Education,project,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,184,1,0.0,0.0,235,True,"age,gender",665
+project_4616,Connected Communities Fund,Connected Communities Fund,project,mapping/co-creation,False,1.0,0.0020161290322580645,0.0,0.08643149387975925,0.0012539012069622793,0.0,1.0,0,287,0.0,1.0,236,True,"age,gender",665
+pilot_835,Students' mental health skills CV,Students' mental health skills CV,pilot,mapping/co-creation,False,4.0,0.008064516129032258,0.0019818672516125975,0.10294088035117394,0.003351373524626961,0.0,2.0,0,287,0.0,0.0,237,True,"age,gender",665
+pilot_836,Digital wellbeing lab,Digital wellbeing lab,pilot,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,185,1,0.0,0.0,238,True,"age,gender",665
+pilot_837,Community of practice: Teachers as change agents,Community of practice: Teachers as change agents,pilot,mapping/co-creation,False,4.0,0.008064516129032258,0.008473264031857173,0.11540328224113411,0.003143311859319594,0.0,2.0,0,287,0.0,0.0,239,True,"age,gender",665
+pilot_838,Transition to adulthood pathways,Transition to adulthood pathways,pilot,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,186,1,0.0,0.0,240,True,"age,gender",665
+pilot_839,Cross-sector residencies,Cross-sector residencies,pilot,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,187,1,0.0,0.0,241,True,"age,gender",665
+pilot_840,Adopt a practice,Adopt a practice,pilot,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,188,1,0.0,0.0,242,True,"age,gender",665
+prototype_511,National digital infrastructure to measure the true cost of mental health,National digital infrastructure to measure the true cost of mental health,prototype,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,189,1,0.0,0.0,243,True,"age,gender",665
+prototype_512,National listening infrastructure,National listening infrastructure,prototype,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,190,1,0.0,0.0,244,True,"age,gender",665
+prototype_513,The living map of the mental health ecosystem in Ireland,The living map of the mental health ecosystem in Ireland,prototype,mapping/co-creation,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,191,1,0.0,0.0,245,True,"age,gender",665
+perception_406,Siobhán,Siobhán,perception,listening,False,6.0,0.012096774193548387,0.021844800525298767,0.10274846749070446,0.0053350729164750145,0.0,3.0,0,287,1.0,1.0,246,True,"age,gender",665
+perception_407,Luke,Luke,perception,listening,False,5.0,0.010080645161290322,0.009590182937544994,0.10204906579367615,0.004629055871304446,0.0,3.0,0,287,1.0,1.0,247,True,"age,gender",665
+perception_408, Aoibhe, Aoibhe,perception,listening,False,5.0,0.010080645161290322,0.02856390432864718,0.11524199183967901,0.004503428952368191,0.0,2.0,0,287,0.0,0.0,248,True,"age,gender",665
+perception_409,Mary,Mary,perception,listening,False,6.0,0.012096774193548387,0.03345410879159032,0.11540328224113411,0.005612798689887743,0.0,3.0,0,287,1.0,1.0,249,True,"age,gender",665
+perception_410,Naomi,Naomi,perception,listening,False,3.0,0.006048387096774193,0.018246985988921473,0.08776545520094765,0.0036124279587562294,0.0,1.0,0,287,1.0,1.0,250,True,"age,gender",665
+perception_411, John, John,perception,listening,False,3.0,0.006048387096774193,0.016006842619745845,0.0849182751403608,0.00389485855784293,0.0,1.0,0,287,1.0,1.0,251,True,"age,gender",665
+challenge_2309,Resource strain and burnout,Resource strain and burnout,challenge,listening,False,6.0,0.012096774193548387,0.03353783424821009,0.10242937287116811,0.0053538767733603086,0.0,3.0,0,287,1.0,1.0,252,True,"age,gender",665
+challenge_2519,Disconnection between funders and frontline,Disconnection between funders and frontline,challenge,listening,False,4.0,0.008064516129032258,0.006745902693613079,0.1006784434203789,0.0038916533036859537,0.0,3.0,0,287,1.0,1.0,253,True,"age,gender",665
+challenge_2523,Listening as Trust-Building,Listening as Trust-Building,challenge,listening,False,2.0,0.004032258064516129,8.145975887911372e-06,0.004032258064516129,0.00447481145798923,0.0,1.0,192,3,1.0,1.0,254,True,"age,gender",665
+challenge_2553,Shift funding toward prevention and partnership,Shift funding toward prevention and partnership,challenge,listening,False,2.0,0.004032258064516129,0.006915933528836755,0.07425091865041902,0.0029207685074549923,0.0,1.0,0,287,1.0,1.0,255,True,"age,gender",665
+challenge_2554,Fragile volunteer infrastructure,Fragile volunteer infrastructure,challenge,listening,False,2.0,0.004032258064516129,0.006915933528836755,0.07641857753595026,0.0028165303657963813,0.0,1.0,0,287,1.0,1.0,256,True,"age,gender",665
+challenge_2555,Recognise sport as a health asset,Recognise sport as a health asset,challenge,listening,False,2.0,0.004032258064516129,0.006915933528836755,0.07641857753595026,0.0028165303657963813,0.0,1.0,0,287,1.0,1.0,257,True,"age,gender",665
+challenge_2556,Fragmented care between mind and body,Fragmented care between mind and body,challenge,listening,False,2.0,0.004032258064516129,0.004513927828967174,0.10287666270903346,0.0019321338191466775,0.0,2.0,0,287,0.0,0.0,258,True,"age,gender",665
+challenge_2557,Chronic underfunding of community work,Chronic underfunding of community work,challenge,listening,False,2.0,0.004032258064516129,0.002321603128054741,0.09632668827253543,0.0025768797875647875,0.0,1.0,0,287,1.0,1.0,259,True,"age,gender",665
+challenge_2558,Invest in long-term community capacity,Invest in long-term community capacity,challenge,listening,False,3.0,0.006048387096774193,0.0024803258271000207,0.09775417327953803,0.003176594773952634,0.0,2.0,0,287,1.0,1.0,260,True,"age,gender",665
+challenge_2559,"Reactive, not preventive systems","Reactive, not preventive systems",challenge,listening,False,2.0,0.004032258064516129,0.004626914304333659,0.08693267808254121,0.0025277618367278328,0.0,1.0,0,287,1.0,1.0,261,True,"age,gender",665
+challenge_2560,Build mentoring and peer-support ecosystems,Build mentoring and peer-support ecosystems,challenge,listening,False,2.0,0.004032258064516129,0.004237579985300545,0.10799691573187993,0.0019054375904369258,0.0,2.0,0,287,0.0,0.0,262,True,"age,gender",665
+challenge_2561,Overloaded schools acting as mental health providers,Overloaded schools acting as mental health providers,challenge,listening,False,3.0,0.006048387096774193,0.0039941035234290915,0.0876255527750163,0.002787354063918068,0.0,3.0,0,287,0.0,0.0,263,True,"age,gender",665
+challenge_2562,Early intervention within schools,Early intervention within schools,challenge,listening,False,3.0,0.006048387096774193,0.004635060280221571,0.08743970854855815,0.0038538171694396405,0.0,1.0,0,287,1.0,1.0,264,True,"age,gender",665
+challenge_2564,"Addressing mental health as a systemic issue, not individual","Addressing mental health as a systemic issue, not individual",challenge,listening,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,193,1,0.0,0.0,265,True,"age,gender",665
+challenge_2565,Short-termism and fragmented systems,Short-termism and fragmented systems,challenge,listening,False,4.0,0.008064516129032258,0.020531808394711616,0.09869017972626012,0.004289986997740185,0.0,2.0,0,287,1.0,1.0,266,True,"age,gender",665
+channel_9490,Unnamed,Unnamed,channel,listening,False,2.0,0.004032258064516129,0.0,0.1147608144207242,0.001476994431239899,1.0,2.0,0,287,0.0,0.0,267,True,"age,gender",665
+channel_9506,Unnamed,Unnamed,channel,listening,False,7.0,0.014112903225806451,0.004183957698266149,0.13572945705562195,0.0035598621039870143,0.2857142857142857,5.0,0,287,0.0,0.0,268,True,"age,gender",665
+channel_9507,Why Wellbeing Matters Report ,Why Wellbeing Matters Report ,channel,listening,False,2.0,0.004032258064516129,0.0,0.12334427099669458,0.0013336156220109694,1.0,2.0,0,287,0.0,0.0,269,True,"age,gender",665
+channel_9508,Unnamed,Unnamed,channel,listening,False,1.0,0.0020161290322580645,0.0,0.09521437085599345,0.0013164425314655089,0.0,1.0,0,287,0.0,1.0,270,True,"age,gender",665
+channel_9509,Unnamed,Unnamed,channel,listening,False,16.0,0.03225806451612903,0.019819467639658053,0.15369178967621683,0.008101517008320716,0.125,5.0,0,287,0.0,0.0,271,True,"age,gender",665
+channel_9510,Unnamed,Unnamed,channel,listening,False,9.0,0.01814516129032258,0.004777083630215358,0.13777050152262377,0.00471435581967027,0.2222222222222222,5.0,0,287,0.0,0.0,272,True,"age,gender",665
+channel_9511,Unnamed,Unnamed,channel,listening,False,3.0,0.006048387096774193,0.0002134483067705943,0.1178779773570984,0.0019872522132173068,0.6666666666666666,3.0,0,287,0.0,0.0,273,True,"age,gender",665
+channel_9512,Unnamed,Unnamed,channel,listening,False,1.0,0.0020161290322580645,0.0,0.1064630667027635,0.0010815059080756645,0.0,1.0,0,287,0.0,1.0,274,True,"age,gender",665
+channel_9548,Unnamed,Unnamed,channel,listening,False,5.0,0.010080645161290322,0.000987820637823983,0.12579045791196083,0.0027698518177529286,0.4,4.0,0,287,0.0,0.0,275,True,"age,gender",665
+channel_9549,Unnamed,Unnamed,channel,listening,False,12.0,0.024193548387096774,0.006220471990557121,0.1465878136200717,0.005501476046985168,0.16666666666666666,5.0,0,287,0.0,0.0,276,True,"age,gender",665
+channel_9576,Unnamed,Unnamed,channel,listening,False,5.0,0.010080645161290322,0.0019487322245929767,0.11388901265371593,0.0035142468787777445,0.4,3.0,0,287,0.0,0.0,277,True,"age,gender",665
+channel_9603,Unnamed,Unnamed,channel,listening,False,1.0,0.0020161290322580645,0.0,0.09031286436066849,0.00126450552070907,0.0,1.0,0,287,0.0,1.0,278,True,"age,gender",665
+information_23084,Unnamed,Unnamed,information,listening,False,5.0,0.010080645161290322,0.005347279650406128,0.1314034185837296,0.0031361711598749775,0.4,3.0,0,287,0.0,0.0,279,True,"age,gender",665
+information_23085,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.014003902484479885,0.13572945705562195,0.0049116797992404555,0.17857142857142858,4.0,0,287,1.0,0.0,280,True,"age,gender",665
+information_23086,Unnamed,Unnamed,information,listening,False,9.0,0.01814516129032258,0.006878382133699731,0.13067455651551557,0.004889718678563328,0.2777777777777778,5.0,0,287,0.0,0.0,281,True,"age,gender",665
+information_23087,Unnamed,Unnamed,information,listening,False,9.0,0.01814516129032258,0.008415927005936737,0.12734462573172253,0.005053443624494217,0.19444444444444445,4.0,0,287,0.0,0.0,282,True,"age,gender",665
+information_23088,Unnamed,Unnamed,information,listening,False,9.0,0.01814516129032258,0.007645896058110222,0.13098593353660098,0.004923473376103671,0.2777777777777778,5.0,0,287,0.0,0.0,283,True,"age,gender",665
+information_23090,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.008100069928315173,0.12843558436338057,0.005176777244242416,0.17857142857142858,3.0,0,287,0.0,0.0,284,True,"age,gender",665
+information_23091,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.016220959071189544,0.13765550110399052,0.004741318243729295,0.14285714285714285,4.0,0,287,1.0,0.0,285,True,"age,gender",665
+information_23092,Unnamed,Unnamed,information,listening,False,3.0,0.006048387096774193,3.529922884761594e-05,0.007200460829493088,0.003962966453884656,0.0,2.0,114,6,1.0,1.0,286,True,"age,gender",665
+information_23094,Unnamed,Unnamed,information,listening,False,4.0,0.008064516129032258,0.007535828258430618,0.1205491888322958,0.003081724734777233,0.16666666666666666,2.0,0,287,0.0,0.0,287,True,"age,gender",665
+information_25256,Unnamed,Unnamed,information,listening,False,11.0,0.02217741935483871,0.009429321258800912,0.13192903225806452,0.0060441863803625245,0.2909090909090909,5.0,0,287,0.0,0.0,288,True,"age,gender",665
+information_25332,Unnamed,Unnamed,information,listening,False,9.0,0.01814516129032258,0.010730408049602612,0.14568135187507125,0.004589402626663087,0.2222222222222222,5.0,0,287,0.0,0.0,289,True,"age,gender",665
+information_25333,Unnamed,Unnamed,information,listening,False,9.0,0.01814516129032258,0.0049012462367454945,0.13171828300525612,0.004638722543260936,0.3611111111111111,5.0,0,287,0.0,0.0,290,True,"age,gender",665
+information_25334,Unnamed,Unnamed,information,listening,False,10.0,0.020161290322580645,0.006077300065855321,0.13119434393204507,0.005272560977891544,0.3111111111111111,5.0,0,287,0.0,0.0,291,True,"age,gender",665
+information_25335,Unnamed,Unnamed,information,listening,False,9.0,0.01814516129032258,0.010476972448310494,0.1348416110568934,0.00493233963521156,0.19444444444444445,5.0,0,287,0.0,0.0,292,True,"age,gender",665
+information_25336,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.006448625297098618,0.1392831843940715,0.004003566826731792,0.35714285714285715,5.0,0,287,0.0,0.0,293,True,"age,gender",665
+information_25337,Unnamed,Unnamed,information,listening,False,16.0,0.03225806451612903,0.02089327281478715,0.15369178967621683,0.0072519919035701815,0.375,8.0,0,287,0.0,0.0,294,True,"age,gender",665
+information_25338,Unnamed,Unnamed,information,listening,False,16.0,0.03225806451612903,0.021072150000587292,0.14978318830388798,0.0075676796294239556,0.35833333333333334,8.0,0,287,0.0,0.0,295,True,"age,gender",665
+information_25339,Unnamed,Unnamed,information,listening,False,11.0,0.02217741935483871,0.01129740989142763,0.13834839792162806,0.006103984871788349,0.18181818181818182,5.0,0,287,0.0,0.0,296,True,"age,gender",665
+information_25341,Unnamed,Unnamed,information,listening,False,4.0,0.008064516129032258,0.007257452855329201,0.11396771964241925,0.0040307362327167565,0.0,2.0,0,287,1.0,1.0,297,True,"age,gender",665
+information_25342,Unnamed,Unnamed,information,listening,False,7.0,0.014112903225806451,0.009100197297553535,0.14058933531336798,0.0044969380975904555,0.09523809523809523,4.0,0,287,1.0,1.0,298,True,"age,gender",665
+information_25343,Unnamed,Unnamed,information,listening,False,7.0,0.014112903225806451,0.011149050137632977,0.13595324841103104,0.004309424439221339,0.23809523809523808,4.0,0,287,1.0,1.0,299,True,"age,gender",665
+information_25344,Unnamed,Unnamed,information,listening,False,6.0,0.012096774193548387,0.009312649342891279,0.124649501377612,0.0039755913481209736,0.26666666666666666,4.0,0,287,1.0,0.0,300,True,"age,gender",665
+information_25345,Unnamed,Unnamed,information,listening,False,6.0,0.012096774193548387,0.004797567949575453,0.12502751351219155,0.00413439765602286,0.26666666666666666,4.0,0,287,1.0,1.0,301,True,"age,gender",665
+information_25346,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.005480553235764092,0.1335314091680815,0.004451218885083816,0.25,4.0,0,287,0.0,0.0,302,True,"age,gender",665
+information_25347,Unnamed,Unnamed,information,listening,False,4.0,0.008064516129032258,4.236974536627e-05,0.12521738065495874,0.0022769093925474574,0.6666666666666666,4.0,0,287,0.0,0.0,303,True,"age,gender",665
+information_25348,Unnamed,Unnamed,information,listening,False,7.0,0.014112903225806451,0.004426134593346467,0.13765550110399052,0.00397987158287679,0.23809523809523808,4.0,0,287,1.0,1.0,304,True,"age,gender",665
+information_25349,Unnamed,Unnamed,information,listening,False,13.0,0.026209677419354836,0.021636520481928243,0.15101766513056838,0.006799407001439351,0.1282051282051282,5.0,0,287,0.0,0.0,305,True,"age,gender",665
+information_25350,Unnamed,Unnamed,information,listening,False,12.0,0.024193548387096774,0.017296277979205337,0.14278033794162828,0.006129478898787219,0.24242424242424243,5.0,0,287,0.0,0.0,306,True,"age,gender",665
+information_25351,Unnamed,Unnamed,information,listening,False,9.0,0.01814516129032258,0.007607681732768718,0.1335314091680815,0.004920529170835932,0.19444444444444445,4.0,0,287,0.0,0.0,307,True,"age,gender",665
+information_25352,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.005803527302201168,0.1344020296027552,0.004855002513490432,0.17857142857142858,4.0,0,287,1.0,1.0,308,True,"age,gender",665
+information_25353,Unnamed,Unnamed,information,listening,False,7.0,0.014112903225806451,0.0070430623146350195,0.13800107976784992,0.003967389977830288,0.19047619047619047,4.0,0,287,0.0,0.0,309,True,"age,gender",665
+information_25354,Unnamed,Unnamed,information,listening,False,9.0,0.01814516129032258,0.006987227832015329,0.13662907234679425,0.004671959139326691,0.19444444444444445,5.0,0,287,0.0,0.0,310,True,"age,gender",665
+information_25355,Unnamed,Unnamed,information,listening,False,5.0,0.010080645161290322,0.0006260409975801829,0.11958759269222673,0.0028336428173530923,0.5,4.0,0,287,0.0,0.0,311,True,"age,gender",665
+information_25356,Unnamed,Unnamed,information,listening,False,6.0,0.012096774193548387,0.004676771558131035,0.11532258064516131,0.004025859938897358,0.26666666666666666,4.0,0,287,1.0,1.0,312,True,"age,gender",665
+information_25357,Unnamed,Unnamed,information,listening,False,6.0,0.012096774193548387,0.0029625720193849725,0.13462146148782095,0.0031223296584369153,0.3333333333333333,5.0,0,287,0.0,0.0,313,True,"age,gender",665
+information_25358,Unnamed,Unnamed,information,listening,False,16.0,0.03225806451612903,0.014933725168271598,0.15601825006866668,0.0071505001296739475,0.39166666666666666,8.0,0,287,0.0,0.0,314,True,"age,gender",665
+information_25359,Unnamed,Unnamed,information,listening,False,7.0,0.014112903225806451,0.0049048604577889504,0.13975533078184801,0.003524218012948288,0.2857142857142857,5.0,0,287,0.0,0.0,315,True,"age,gender",665
+information_25360,Unnamed,Unnamed,information,listening,False,10.0,0.020161290322580645,0.010394446485104097,0.13539514804809577,0.0057867812520373966,0.2,4.0,0,287,1.0,1.0,316,True,"age,gender",665
+information_25361,Unnamed,Unnamed,information,listening,False,10.0,0.020161290322580645,0.009463328437313723,0.13572945705562195,0.005783834313154299,0.17777777777777778,5.0,0,287,1.0,1.0,317,True,"age,gender",665
+information_25362,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.008267935033539729,0.13396530489242944,0.0049648120459186386,0.17857142857142858,4.0,0,287,1.0,1.0,318,True,"age,gender",665
+information_25363,Unnamed,Unnamed,information,listening,False,15.0,0.03024193548387097,0.01449032720004361,0.15948867536032946,0.006576589267896371,0.44761904761904764,8.0,0,287,0.0,0.0,319,True,"age,gender",665
+information_25364,Unnamed,Unnamed,information,listening,False,13.0,0.026209677419354836,0.005208608165471036,0.15046650576877796,0.005621351076409063,0.5897435897435898,8.0,0,287,0.0,0.0,320,True,"age,gender",665
+information_25365,Unnamed,Unnamed,information,listening,False,9.0,0.01814516129032258,0.02119577425525971,0.1499193548387097,0.004705509694487176,0.1388888888888889,5.0,0,287,0.0,0.0,321,True,"age,gender",665
+information_25366,Unnamed,Unnamed,information,listening,False,5.0,0.010080645161290322,0.005779310799758173,0.13834839792162806,0.0031529318122365713,0.2,3.0,0,287,0.0,0.0,322,True,"age,gender",665
+information_25367,Unnamed,Unnamed,information,listening,False,7.0,0.014112903225806451,0.00840492587159107,0.12371439634102074,0.004543388209209868,0.09523809523809523,3.0,0,287,0.0,0.0,323,True,"age,gender",665
+information_25368,Unnamed,Unnamed,information,listening,False,9.0,0.01814516129032258,0.01114116310704524,0.13742607526881723,0.00520726221349339,0.16666666666666666,4.0,0,287,0.0,0.0,324,True,"age,gender",665
+information_25369,Unnamed,Unnamed,information,listening,False,7.0,0.014112903225806451,0.003523229907863063,0.12744303734357085,0.003984622388427245,0.3333333333333333,4.0,0,287,0.0,0.0,325,True,"age,gender",665
+information_25370,Unnamed,Unnamed,information,listening,False,7.0,0.014112903225806451,0.009792412905475036,0.1304677929767252,0.005119016204569262,0.14285714285714285,3.0,0,287,1.0,1.0,326,True,"age,gender",665
+information_25581,Unnamed,Unnamed,information,listening,False,6.0,0.012096774193548387,0.00984570379667401,0.12843558436338057,0.003741877375120728,0.13333333333333333,4.0,0,287,1.0,0.0,327,True,"age,gender",665
+information_25582,Unnamed,Unnamed,information,listening,False,14.0,0.028225806451612902,0.012177606222587707,0.14684887829259186,0.006359356540418275,0.4945054945054945,8.0,0,287,0.0,0.0,328,True,"age,gender",665
+information_25584,Unnamed,Unnamed,information,listening,False,14.0,0.028225806451612902,0.00996091215930657,0.1469797596457938,0.0063750426337573305,0.4945054945054945,8.0,0,287,0.0,0.0,329,True,"age,gender",665
+information_25586,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.008912806143389306,0.13584126056225754,0.004496235363018907,0.25,4.0,0,287,0.0,0.0,330,True,"age,gender",665
+information_25587,Unnamed,Unnamed,information,listening,False,6.0,0.012096774193548387,0.004477677376665221,0.12179563539333875,0.0037338104679164475,0.13333333333333333,4.0,0,287,1.0,1.0,331,True,"age,gender",665
+information_25588,Unnamed,Unnamed,information,listening,False,12.0,0.024193548387096774,0.004168024522069049,0.15455603591619554,0.005298970256980856,0.4696969696969697,8.0,0,287,0.0,0.0,332,True,"age,gender",665
+information_25589,Unnamed,Unnamed,information,listening,False,19.0,0.038306451612903226,0.03235220658186107,0.16376493577217544,0.008742483222618877,0.2573099415204678,8.0,0,287,0.0,0.0,333,True,"age,gender",665
+information_25590,Unnamed,Unnamed,information,listening,False,13.0,0.026209677419354836,0.004426613143654502,0.1547010228166798,0.005661190130568449,0.44871794871794873,8.0,0,287,0.0,0.0,334,True,"age,gender",665
+information_25591,Unnamed,Unnamed,information,listening,False,10.0,0.020161290322580645,0.003284712243490451,0.14465902659875496,0.004568059827003323,0.2,5.0,0,287,0.0,0.0,335,True,"age,gender",665
+information_25592,Unnamed,Unnamed,information,listening,False,6.0,0.012096774193548387,0.0015335250112875427,0.13026168271925803,0.002984024678376798,0.26666666666666666,5.0,0,287,0.0,0.0,336,True,"age,gender",665
+information_25593,Unnamed,Unnamed,information,listening,False,7.0,0.014112903225806451,0.0017991380920873868,0.13429258169591257,0.0035038151980444298,0.2857142857142857,5.0,0,287,0.0,0.0,337,True,"age,gender",665
+information_25594,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.006293864402624084,0.14542441827388064,0.004115326606961474,0.21428571428571427,4.0,0,287,0.0,0.0,338,True,"age,gender",665
+information_25595,Unnamed,Unnamed,information,listening,False,13.0,0.026209677419354836,0.010233871017214256,0.14632767553024015,0.006219143392134738,0.32051282051282054,7.0,0,287,1.0,0.0,339,True,"age,gender",665
+information_25596,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.012487713236809342,0.14724222350230415,0.0042241201927296,0.17857142857142858,4.0,0,287,0.0,0.0,340,True,"age,gender",665
+information_25597,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.01433556896591175,0.14107039377466266,0.0044844171239862675,0.25,4.0,0,287,0.0,0.0,341,True,"age,gender",665
+information_25598,Unnamed,Unnamed,information,listening,False,9.0,0.01814516129032258,0.011045994054277244,0.14070929208411317,0.004769769347908053,0.25,5.0,0,287,0.0,0.0,342,True,"age,gender",665
+information_25599,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.007145458736684238,0.1416763662565126,0.004224189798964898,0.25,5.0,0,287,0.0,0.0,343,True,"age,gender",665
+information_25826,Unnamed,Unnamed,information,listening,False,5.0,0.010080645161290322,0.002950716533022988,0.1097944675915983,0.0036464941766780265,0.2,3.0,0,287,0.0,0.0,344,True,"age,gender",665
+information_25827,Unnamed,Unnamed,information,listening,False,5.0,0.010080645161290322,0.0024104542568040015,0.10098670564763053,0.0038356532423295215,0.4,3.0,0,287,1.0,1.0,345,True,"age,gender",665
+information_25828,Unnamed,Unnamed,information,listening,False,4.0,0.008064516129032258,0.0006743278709517347,0.10660070479804827,0.0028979665732225784,0.6666666666666666,3.0,0,287,0.0,0.0,346,True,"age,gender",665
+information_25829,Unnamed,Unnamed,information,listening,False,8.0,0.016129032258064516,0.013810182981207153,0.12964724081963888,0.005563769411777153,0.14285714285714285,3.0,0,287,1.0,1.0,347,True,"age,gender",665
+information_25830,Unnamed,Unnamed,information,listening,False,7.0,0.014112903225806451,0.0166842093427237,0.1290385683275279,0.004738607500511643,0.09523809523809523,3.0,0,287,0.0,0.0,348,True,"age,gender",665
+information_26119,Unnamed,Unnamed,information,listening,False,5.0,0.010080645161290322,0.007231142138328044,0.10701576270122042,0.004732908452868908,0.0,2.0,0,287,1.0,1.0,349,True,"age,gender",665
+information_26120,Unnamed,Unnamed,information,listening,False,4.0,0.008064516129032258,0.00018363528412557092,0.13267199543248645,0.0021533915978026127,0.3333333333333333,4.0,0,287,0.0,0.0,350,True,"age,gender",665
+theme_16,Social innovation,Social innovation,theme,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,194,1,0.0,0.0,351,True,"age,gender",665
+theme_30,Challenges,Challenges,theme,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,195,1,0.0,0.0,352,True,"age,gender",665
+theme_50,Youth,Youth,theme,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,196,1,0.0,0.0,353,True,"age,gender",665
+theme_198,Youth engagement,Youth engagement,theme,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,197,1,0.0,0.0,354,True,"age,gender",665
+theme_201,Youth support,Youth support,theme,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,198,1,0.0,0.0,355,True,"age,gender",665
+theme_620,Mental Health,Mental Health,theme,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,199,1,0.0,0.0,356,True,"age,gender",665
+theme_701,Philanthropy & Funding,Philanthropy & Funding,theme,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,200,1,0.0,0.0,357,True,"age,gender",665
+theme_775,Community & Inclusion ,Community & Inclusion ,theme,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,201,1,0.0,0.0,358,True,"age,gender",665
+theme_778,Health & Wellbeing,Health & Wellbeing,theme,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,202,1,0.0,0.0,359,True,"age,gender",665
+theme_781,Education & Youth Empowerment,Education & Youth Empowerment,theme,mapping,False,0.0,0.0,0.0,0.0,0.00045991108385712103,0.0,0.0,203,1,0.0,0.0,360,True,"age,gender",665
+channel_8509.0,SS-001,SS-001,channel,listening,False,6.0,0.012096774193548387,0.003930641751239206,0.12588648116227533,0.003573863811851555,0.3333333333333333,4.0,0,287,0.0,0.0,361,True,"age,gender",665
+channel_9490.0,RI_001,RI_001,channel,listening,False,2.0,0.004032258064516129,0.0,0.1147608144207242,0.001476994431239899,1.0,2.0,0,287,0.0,0.0,362,True,"age,gender",665
+channel_9506.0,RI-002,RI-002,channel,listening,False,7.0,0.014112903225806451,0.004183957698266149,0.13572945705562195,0.0035598621039870143,0.2857142857142857,5.0,0,287,0.0,0.0,363,True,"age,gender",665
+channel_8510.0,SS-002,SS-002,channel,listening,False,1.0,0.0020161290322580645,0.0,0.004582111436950146,0.00158275157912444,0.0,1.0,114,6,0.0,1.0,364,True,"age,gender",665
+channel_9507.0,RI -03,RI -03,channel,listening,False,2.0,0.004032258064516129,0.0,0.12334427099669458,0.0013336156220109694,1.0,2.0,0,287,0.0,0.0,365,True,"age,gender",665
+channel_9508.0,P001,P001,channel,listening,False,1.0,0.0020161290322580645,0.0,0.09521437085599345,0.0013164425314655089,0.0,1.0,0,287,0.0,1.0,366,True,"age,gender",665
+channel_9509.0,002,002,channel,listening,False,16.0,0.03225806451612903,0.019819467639658053,0.15369178967621683,0.008101517008320716,0.125,5.0,0,287,0.0,0.0,367,True,"age,gender",665
+channel_9510.0,003,003,channel,listening,False,9.0,0.01814516129032258,0.004777083630215358,0.13777050152262377,0.00471435581967027,0.2222222222222222,5.0,0,287,0.0,0.0,368,True,"age,gender",665
+channel_9511.0,LT 001,LT 001,channel,listening,False,3.0,0.006048387096774193,0.0002134483067705943,0.1178779773570984,0.0019872522132173068,0.6666666666666666,3.0,0,287,0.0,0.0,369,True,"age,gender",665
+channel_9512.0,003,003,channel,listening,False,1.0,0.0020161290322580645,0.0,0.1064630667027635,0.0010815059080756645,0.0,1.0,0,287,0.0,1.0,370,True,"age,gender",665
+channel_9548.0,004_FF,004_FF,channel,listening,False,5.0,0.010080645161290322,0.000987820637823983,0.12579045791196083,0.0027698518177529286,0.4,4.0,0,287,0.0,0.0,371,True,"age,gender",665
+channel_9549.0,T_006,T_006,channel,listening,False,12.0,0.024193548387096774,0.006220471990557121,0.1465878136200717,0.005501476046985168,0.16666666666666666,5.0,0,287,0.0,0.0,372,True,"age,gender",665
+channel_9576.0,H-007,H-007,channel,listening,False,5.0,0.010080645161290322,0.0019487322245929767,0.11388901265371593,0.0035142468787777445,0.4,3.0,0,287,0.0,0.0,373,True,"age,gender",665
+channel_9603.0,Channel 9603.0,Channel 9603.0,channel,listening,False,1.0,0.0020161290322580645,0.0,0.09031286436066849,0.00126450552070907,0.0,1.0,0,287,0.0,1.0,374,True,"age,gender",665
+claim_1,used:  → ,used:  → ,claim,narrative_extraction,False,3.0,0.006048387096774193,0.00918793466349854,0.11105137395459977,0.002484801701805756,0.0,2.0,0,287,0.0,0.0,375,False,"age,gender",665
+claim_3,tell: lot → system,tell: lot → system,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0027903902209295423,0.1057801733948561,0.0025730446605522436,0.0,3.0,0,287,0.0,0.0,376,False,"age,gender",665
+claim_5,talk: holistic care → time,talk: holistic care → time,claim,narrative_extraction,False,3.0,0.006048387096774193,0.024176719839251928,0.13015887160424677,0.002302014984405609,0.0,2.0,0,287,0.0,0.0,377,False,"age,gender",665
+claim_6,seek: public institutions → measurable impact,seek: public institutions → measurable impact,claim,narrative_extraction,False,3.0,0.006048387096774193,0.030047678169703582,0.13057109289198784,0.0023315785422903896,0.0,3.0,0,287,0.0,0.0,378,False,"age,gender",665
+claim_7,want: and donors → of part,want: and donors → of part,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004635060280221571,0.07418411620448973,0.004524700633048395,0.0,1.0,0,287,1.0,1.0,379,False,"age,gender",665
+claim_8,fill: and community → structural gaps,fill: and community → structural gaps,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002568088892135788,0.08739337060020172,0.002742199802515637,0.0,3.0,0,287,0.0,0.0,380,False,"age,gender",665
+claim_10,face: focus funders → on visibility,face: focus funders → on visibility,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.08575730125979233,0.0012868874324948503,0.0,1.0,0,287,0.0,1.0,381,False,"age,gender",665
+claim_11,allows: listening practices → +/. policy,allows: listening practices → +/. policy,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.0026881720430107525,0.0023617051095765934,0.0,1.0,192,3,0.0,1.0,382,False,"age,gender",665
+claim_13,make: and lifestyle → into care,make: and lifestyle → into care,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004635060280221571,0.06591178669967253,0.004790520799066379,0.0,1.0,0,287,1.0,1.0,383,False,"age,gender",665
+claim_14,depend: and sports → exhausted volunteers,depend: and sports → exhausted volunteers,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004635060280221571,0.06761430517530982,0.004705052321168664,0.0,1.0,0,287,1.0,1.0,384,False,"age,gender",665
+claim_15,turn: in sport → +/. health,turn: in sport → +/. health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004635060280221571,0.06761430517530982,0.004705052321168664,0.0,1.0,0,287,1.0,1.0,385,False,"age,gender",665
+claim_16,deteriorates: +/. patients → physical health,deteriorates: +/. patients → physical health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004793688466749061,0.10557701044979556,0.0024940229680306077,0.0,2.0,0,287,0.0,0.0,386,False,"age,gender",665
+claim_17,face: local organisations → systemic problems,face: local organisations → systemic problems,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.08257951443293973,0.0015550850200647232,0.0,1.0,0,287,0.0,1.0,387,False,"age,gender",665
+claim_18,rebuild: sustained funding → +/. support,rebuild: sustained funding → +/. support,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.08362641497088268,0.0013599462951264648,0.0,1.0,0,287,0.0,1.0,388,False,"age,gender",665
+claim_19,address: +/. youth → +/. prevention,address: +/. youth → +/. prevention,claim,narrative_extraction,False,2.0,0.004032258064516129,0.002321603128054741,0.07564738088191773,0.0030139088898265003,0.0,1.0,0,287,1.0,1.0,389,False,"age,gender",665
+claim_20,valued: social connections → young people,valued: social connections → young people,claim,narrative_extraction,False,3.0,0.006048387096774193,0.005967761104983649,0.124649501377612,0.002324424779789273,0.0,2.0,0,287,0.0,0.0,390,False,"age,gender",665
+claim_21,filling: and teachers → +/. health,filling: and teachers → +/. health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0003087372381228957,0.07638318217812906,0.0027734842419134503,0.0,3.0,0,287,0.0,0.0,391,False,"age,gender",665
+claim_23,prevent: at support → younger ages,prevent: at support → younger ages,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.07596098126327991,0.0015518259756077805,0.0,1.0,0,287,0.0,1.0,392,False,"age,gender",665
+claim_25,prioritises: and funding → sustained systems,prioritises: and funding → sustained systems,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.08431047562504124,0.001371533350152852,0.0,1.0,0,287,0.0,1.0,393,False,"age,gender",665
+claim_26,allowed: led interest → real sense,allowed: led interest → real sense,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002309384164222874,0.11023481973434535,0.0026482986790212684,0.0,2.0,0,287,0.0,0.0,394,False,"age,gender",665
+claim_28,rethink: support → rethink ireland,rethink: support → rethink ireland,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0025121750504061564,0.10820950808568285,0.002511191118532185,0.0,2.0,0,287,1.0,1.0,395,False,"age,gender",665
+claim_29,rethink: rethink ireland → early phase,rethink: rethink ireland → early phase,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0009498412462692225,0.10914049657351466,0.0022006793601371043,0.0,2.0,0,287,0.0,0.0,396,False,"age,gender",665
+claim_31,thank: your commitment → ,thank: your commitment → ,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0006836631955237694,0.1086372136512389,0.0021609117167707475,0.0,3.0,0,287,0.0,0.0,397,False,"age,gender",665
+claim_32,rethink: our partnership → rethink ireland,rethink: our partnership → rethink ireland,claim,narrative_extraction,False,2.0,0.004032258064516129,0.0004931704389226466,0.10928514931913894,0.0016037139885589355,0.0,2.0,0,287,0.0,0.0,398,False,"age,gender",665
+claim_34,saw: unprecedented surge → in interest,saw: unprecedented surge → in interest,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002309384164222874,0.11150188662784358,0.0026133772994025146,0.0,2.0,0,287,0.0,0.0,399,False,"age,gender",665
+claim_36,talk: little girl → +/. autism,talk: little girl → +/. autism,claim,narrative_extraction,False,3.0,0.006048387096774193,2.036493971977843e-05,0.007200460829493088,0.003807735049008989,0.0,2.0,114,6,0.0,0.0,400,False,"age,gender",665
+claim_38,reaching: our target → social impact,reaching: our target → social impact,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0027484579539761335,0.10160892811003121,0.0028023180833364153,0.0,2.0,0,287,1.0,1.0,401,False,"age,gender",665
+claim_39,funded: +/. sport → their innovation,funded: +/. sport → their innovation,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0023044019126306652,0.1090683137054105,0.0022600385250575827,0.0,2.0,0,287,0.0,0.0,402,False,"age,gender",665
+claim_40,sustaining: main challenge → and engagement,sustaining: main challenge → and engagement,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004558905269498302,0.11821597872586427,0.0023180616909656716,0.0,2.0,0,287,0.0,0.0,403,False,"age,gender",665
+claim_41,advanced: learning → 722# people,advanced: learning → 722# people,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0006214823726285445,0.10914049657351466,0.0021340185825841035,0.0,3.0,0,287,0.0,0.0,404,False,"age,gender",665
+claim_42,expanded: to thanks → +/. headstart,expanded: to thanks → +/. headstart,claim,narrative_extraction,False,3.0,0.006048387096774193,0.001276725394364179,0.11695836193090826,0.0021461552593219357,0.0,2.0,0,287,0.0,0.0,405,False,"age,gender",665
+claim_44,helped: +/. liquid → my fear,helped: +/. liquid → my fear,claim,narrative_extraction,False,3.0,0.006048387096774193,0.001500821428852089,0.11038238977415037,0.002285635000102983,0.0,2.0,0,287,0.0,0.0,406,False,"age,gender",665
+claim_46,have: young people → mental health,have: young people → mental health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.005582852004621689,0.12995373547878697,0.0022506113591279258,0.0,2.0,0,287,0.0,0.0,407,False,"age,gender",665
+claim_48,guess: social anxiety → with people,guess: social anxiety → with people,claim,narrative_extraction,False,2.0,0.004032258064516129,0.001560215518619591,0.1194144028403915,0.001569117458210491,0.0,2.0,0,287,0.0,0.0,408,False,"age,gender",665
+claim_49,think: my favourite → things,think: my favourite → things,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0015252034169691204,0.11203212657784012,0.002416094287077143,0.0,2.0,0,287,0.0,0.0,409,False,"age,gender",665
+claim_51,seek: public institutions → measurable impact,seek: public institutions → measurable impact,claim,narrative_extraction,False,3.0,0.006048387096774193,0.006293461603336166,0.12607896813652955,0.002392963530410407,0.0,2.0,0,287,0.0,0.0,410,False,"age,gender",665
+claim_52,deemed: my role → service,deemed: my role → service,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.11310788087968496,0.0010059678524901932,0.0,1.0,0,287,0.0,1.0,411,False,"age,gender",665
+claim_54,delivered: +/. health → +/. consultant,delivered: +/. health → +/. consultant,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004635060280221571,0.11038238977415037,0.0034052357132636967,0.0,1.0,0,287,1.0,1.0,412,False,"age,gender",665
+claim_55,helps: project → inclusive feel,helps: project → inclusive feel,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002309384164222874,0.102812525138766,0.002728059699554593,0.0,2.0,0,287,0.0,0.0,413,False,"age,gender",665
+claim_57,see: future models → more people,see: future models → more people,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.102812525138766,0.0010456174180120746,0.0,1.0,0,287,0.0,1.0,414,False,"age,gender",665
+claim_59,setting: approach → road,setting: approach → road,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0015009059719312528,0.11468100856924941,0.0021458080853755442,0.0,3.0,0,287,0.0,0.0,415,False,"age,gender",665
+claim_60,knock: great thing → physical activity,knock: great thing → physical activity,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.11120113979944751,0.0009431812044629993,0.0,1.0,0,287,0.0,1.0,416,False,"age,gender",665
+claim_61,come: future → +/. information,come: future → +/. information,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0015908696046105786,0.12559885020760142,0.0022682254655850445,0.0,2.0,0,287,0.0,0.0,417,False,"age,gender",665
+claim_63,embedded: funding → of part,embedded: funding → of part,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0024022590728435124,0.12215651135005974,0.002107037500964832,0.0,3.0,0,287,0.0,0.0,418,False,"age,gender",665
+claim_65,set: frustrations → +/. health,set: frustrations → +/. health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0011328997143051505,0.11881216882030307,0.0021120412608987655,0.0,3.0,0,287,0.0,0.0,419,False,"age,gender",665
+claim_67,write: their goal → week,write: their goal → week,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.1090683137054105,0.0009757551007474558,0.0,1.0,0,287,0.0,1.0,420,False,"age,gender",665
+claim_69,supports: +/. link → +/. hse,supports: +/. link → +/. hse,claim,narrative_extraction,False,3.0,0.006048387096774193,0.001138123767017063,0.11872663090178594,0.0021290791143238307,0.0,3.0,0,287,0.0,0.0,421,False,"age,gender",665
+claim_71,think: +/. traveler → +/. traveler,think: +/. traveler → +/. traveler,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002493228408407226,0.11745818399044206,0.002114106664539807,0.0,3.0,0,287,0.0,0.0,422,False,"age,gender",665
+claim_72,live: people → their family,live: people → their family,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.09615818677701496,0.0010302412415842766,0.0,1.0,0,287,0.0,1.0,423,False,"age,gender",665
+claim_74,read: lot → young traveler,read: lot → young traveler,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004009171138628792,0.14107039377466266,0.0019163024016806954,0.0,3.0,0,287,0.0,0.0,424,False,"age,gender",665
+claim_76,become: during covid → community,become: during covid → community,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0033207679588781857,0.1329929760665973,0.00196437284097588,0.0,3.0,0,287,0.0,0.0,425,False,"age,gender",665
+claim_77,put: nice words → funding,put: nice words → funding,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.10972141738029319,0.0009517874899401698,0.0,1.0,0,287,0.0,1.0,426,False,"age,gender",665
+claim_79,have: right people → to travelers,have: right people → to travelers,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.10994086021505378,0.0009515370003698289,0.0,1.0,0,287,0.0,1.0,427,False,"age,gender",665
+claim_81,had: idea → +/. traveler,had: idea → +/. traveler,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.10878053451357562,0.0009874223633805444,0.0,1.0,0,287,0.0,1.0,428,False,"age,gender",665
+claim_83,experienced: young people → +/. health,experienced: young people → +/. health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.005402864146944456,0.14327653372943583,0.0018872871881817814,0.0,3.0,0,287,0.0,0.0,429,False,"age,gender",665
+claim_84,ensuring: my opinion → +/. health,ensuring: my opinion → +/. health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.006063365195169091,0.1285356900409826,0.0021127338618278603,0.0,3.0,0,287,0.0,0.0,430,False,"age,gender",665
+claim_86,seek: use → social media,seek: use → social media,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0012129215202691898,0.11720774010133665,0.0023886493467434834,0.0,2.0,0,287,0.0,0.0,431,False,"age,gender",665
+claim_88,getting: main focus → our programmes,getting: main focus → our programmes,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0017979257013207856,0.10463914360569838,0.0025372222720468026,0.0,2.0,0,287,0.0,0.0,432,False,"age,gender",665
+claim_90,getting: programs → +/. surf,getting: programs → +/. surf,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004098884463668898,0.1314034185837296,0.00202822906877313,0.0,3.0,0,287,0.0,0.0,433,False,"age,gender",665
+claim_92,bridging: main challenge → context,bridging: main challenge → context,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004836644231616579,0.13057109289198784,0.002225107195791565,0.0,2.0,0,287,0.0,0.0,434,False,"age,gender",665
+claim_94,lost: of terms → mental health,lost: of terms → mental health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002309384164222874,0.10537462640420489,0.0026641828915393542,0.0,2.0,0,287,0.0,0.0,435,False,"age,gender",665
+claim_96,say: most students → therapeutic services,say: most students → therapeutic services,claim,narrative_extraction,False,3.0,0.006048387096774193,0.00454054258696518,0.1208141321044547,0.0020820207991426565,0.0,3.0,0,287,0.0,0.0,436,False,"age,gender",665
+claim_97,see: +/. lot → of students,see: +/. lot → of students,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004109679792033898,0.11864121605941055,0.0023255952152448265,0.0,2.0,0,287,0.0,0.0,437,False,"age,gender",665
+claim_98,believe: main challenge → and poverty,believe: main challenge → and poverty,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0019358006571836193,0.11127617430673457,0.0024162640625879873,0.0,2.0,0,287,0.0,0.0,438,False,"age,gender",665
+claim_99,thought: your suggestion → +/. group,thought: your suggestion → +/. group,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.10061701667027496,0.000988867566536314,0.0,1.0,0,287,0.0,1.0,439,False,"age,gender",665
+claim_100,suppose: moment → young people,suppose: moment → young people,claim,narrative_extraction,False,3.0,0.006048387096774193,0.006147744073563857,0.14094982078853047,0.0019767634000744595,0.0,2.0,0,287,0.0,0.0,440,False,"age,gender",665
+claim_101,suppose: young people → greater awareness,suppose: young people → greater awareness,claim,narrative_extraction,False,3.0,0.006048387096774193,0.00582708050434578,0.14581015943641085,0.0020627640582541623,0.0,2.0,0,287,0.0,0.0,441,False,"age,gender",665
+claim_103,find: social media → significant role,find: social media → significant role,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0022076117279874897,0.13975533078184801,0.0018847685356281417,0.0,3.0,0,287,0.0,0.0,442,False,"age,gender",665
+claim_104,suppose: big area → is anxiety,suppose: big area → is anxiety,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002189406548160681,0.13462146148782095,0.001951867248224387,0.0,3.0,0,287,0.0,0.0,443,False,"age,gender",665
+claim_105,do:  → ,do:  → ,claim,narrative_extraction,False,2.0,0.004032258064516129,0.0011567285760834148,0.11695836193090826,0.0016626373266057613,0.0,2.0,0,287,0.0,0.0,444,False,"age,gender",665
+claim_107,reconnects: mindfulness → your brain,reconnects: mindfulness → your brain,claim,narrative_extraction,False,3.0,0.006048387096774193,0.00323442602819083,0.13606542105823485,0.0019634265666231506,0.0,3.0,0,287,0.0,0.0,445,False,"age,gender",665
+claim_109,mean: +/. school → huge challenge,mean: +/. school → huge challenge,claim,narrative_extraction,False,3.0,0.006048387096774193,0.006675448679266761,0.12206609202263558,0.0022625744921545153,0.0,3.0,0,287,0.0,0.0,446,False,"age,gender",665
+claim_110,think: big believer → social capital,think: big believer → social capital,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0027651654733376846,0.12108024252759225,0.0021188028292427976,0.0,3.0,0,287,0.0,0.0,447,False,"age,gender",665
+claim_112,think: good person → your life,think: good person → your life,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0047567202513618045,0.13374800512780263,0.0019939176447100887,0.0,3.0,0,287,0.0,0.0,448,False,"age,gender",665
+claim_114,funded: experience → three# years,funded: experience → three# years,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0030968353617212216,0.12352905642140874,0.002364137825027806,0.0,2.0,0,287,0.0,0.0,449,False,"age,gender",665
+claim_116,labelled: +/. gps → case,labelled: +/. gps → case,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.08598086043930171,0.0011119721348623406,0.0,1.0,0,287,0.0,1.0,450,False,"age,gender",665
+claim_117,think: +/. matter → any time,think: +/. matter → any time,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.10591605030352001,0.0010510615835519683,0.0,1.0,0,287,0.0,1.0,451,False,"age,gender",665
+claim_119,come: to jama → service,come: to jama → service,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004589843824588819,0.1285356900409826,0.002090016135328037,0.0,3.0,0,287,0.0,0.0,452,False,"age,gender",665
+claim_121,engaging: videos → +/. rugby,engaging: videos → +/. rugby,claim,narrative_extraction,False,3.0,0.006048387096774193,0.00058146026177623,0.09798650643052921,0.0027316511421877207,0.0,2.0,0,287,0.0,0.0,453,False,"age,gender",665
+claim_2,used:  → ,used:  → ,claim,narrative_extraction,False,3.0,0.006048387096774193,0.00918793466349854,0.11105137395459977,0.002484801701805756,0.0,2.0,0,287,0.0,0.0,454,False,"age,gender",665
+claim_4,lacks: lot → system,lacks: lot → system,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0027903902209295423,0.1057801733948561,0.0025730446605522436,0.0,3.0,0,287,0.0,0.0,455,False,"age,gender",665
+claim_9,lacks: and community → structural gaps,lacks: and community → structural gaps,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002568088892135788,0.08739337060020172,0.002742199802515637,0.0,3.0,0,287,0.0,0.0,456,False,"age,gender",665
+claim_12,lacks: listening practices → +/. policy,lacks: listening practices → +/. policy,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.0026881720430107525,0.0023617051095765934,0.0,1.0,192,3,0.0,1.0,457,False,"age,gender",665
+claim_22,lacks: and teachers → +/. health,lacks: and teachers → +/. health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0003087372381228957,0.07638318217812906,0.0027734842419134503,0.0,3.0,0,287,0.0,0.0,458,False,"age,gender",665
+claim_24,prevent: at support → younger ages,prevent: at support → younger ages,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.07596098126327991,0.0015518259756077805,0.0,1.0,0,287,0.0,1.0,459,False,"age,gender",665
+claim_27,allowed: led interest → real sense,allowed: led interest → real sense,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002309384164222874,0.11023481973434535,0.0026482986790212684,0.0,2.0,0,287,0.0,0.0,460,False,"age,gender",665
+claim_30,rethink: rethink ireland → early phase,rethink: rethink ireland → early phase,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0009498412462692225,0.10914049657351466,0.0022006793601371043,0.0,2.0,0,287,0.0,0.0,461,False,"age,gender",665
+claim_33,rethink: our partnership → rethink ireland,rethink: our partnership → rethink ireland,claim,narrative_extraction,False,2.0,0.004032258064516129,0.0004931704389226466,0.10928514931913894,0.0016037139885589355,0.0,2.0,0,287,0.0,0.0,462,False,"age,gender",665
+claim_35,lacks: unprecedented surge → in interest,lacks: unprecedented surge → in interest,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002309384164222874,0.11150188662784358,0.0026133772994025146,0.0,2.0,0,287,0.0,0.0,463,False,"age,gender",665
+claim_37,lacks: little girl → +/. autism,lacks: little girl → +/. autism,claim,narrative_extraction,False,3.0,0.006048387096774193,2.036493971977843e-05,0.007200460829493088,0.003807735049008989,0.0,2.0,114,6,0.0,0.0,464,False,"age,gender",665
+claim_43,lacks: to thanks → +/. headstart,lacks: to thanks → +/. headstart,claim,narrative_extraction,False,3.0,0.006048387096774193,0.001276725394364179,0.11695836193090826,0.0021461552593219357,0.0,2.0,0,287,0.0,0.0,465,False,"age,gender",665
+claim_45,helped: +/. liquid → my fear,helped: +/. liquid → my fear,claim,narrative_extraction,False,3.0,0.006048387096774193,0.001500821428852089,0.11038238977415037,0.002285635000102983,0.0,2.0,0,287,0.0,0.0,466,False,"age,gender",665
+claim_47,needs_protection: young people → mental health,needs_protection: young people → mental health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.005582852004621689,0.12995373547878697,0.0022506113591279258,0.0,2.0,0,287,0.0,0.0,467,False,"age,gender",665
+claim_50,lacks: my favourite → things,lacks: my favourite → things,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0015252034169691204,0.11203212657784012,0.002416094287077143,0.0,2.0,0,287,0.0,0.0,468,False,"age,gender",665
+claim_53,lacks: my role → service,lacks: my role → service,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.11310788087968496,0.0010059678524901932,0.0,1.0,0,287,0.0,1.0,469,False,"age,gender",665
+claim_56,lacks: project → inclusive feel,lacks: project → inclusive feel,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002309384164222874,0.102812525138766,0.002728059699554593,0.0,2.0,0,287,0.0,0.0,470,False,"age,gender",665
+claim_58,see: future models → more people,see: future models → more people,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.102812525138766,0.0010456174180120746,0.0,1.0,0,287,0.0,1.0,471,False,"age,gender",665
+claim_62,come: future → +/. information,come: future → +/. information,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0015908696046105786,0.12559885020760142,0.0022682254655850445,0.0,2.0,0,287,0.0,0.0,472,False,"age,gender",665
+claim_64,lacks: funding → of part,lacks: funding → of part,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0024022590728435124,0.12215651135005974,0.002107037500964832,0.0,3.0,0,287,0.0,0.0,473,False,"age,gender",665
+claim_66,set: frustrations → +/. health,set: frustrations → +/. health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0011328997143051505,0.11881216882030307,0.0021120412608987655,0.0,3.0,0,287,0.0,0.0,474,False,"age,gender",665
+claim_68,lacks: their goal → week,lacks: their goal → week,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.1090683137054105,0.0009757551007474558,0.0,1.0,0,287,0.0,1.0,475,False,"age,gender",665
+claim_70,supports: +/. link → +/. hse,supports: +/. link → +/. hse,claim,narrative_extraction,False,3.0,0.006048387096774193,0.001138123767017063,0.11872663090178594,0.0021290791143238307,0.0,3.0,0,287,0.0,0.0,476,False,"age,gender",665
+claim_73,lacks: people → their family,lacks: people → their family,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.09615818677701496,0.0010302412415842766,0.0,1.0,0,287,0.0,1.0,477,False,"age,gender",665
+claim_75,lacks: lot → young traveler,lacks: lot → young traveler,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004009171138628792,0.14107039377466266,0.0019163024016806954,0.0,3.0,0,287,0.0,0.0,478,False,"age,gender",665
+claim_78,lacks: nice words → funding,lacks: nice words → funding,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.10972141738029319,0.0009517874899401698,0.0,1.0,0,287,0.0,1.0,479,False,"age,gender",665
+claim_80,lacks: right people → to travelers,lacks: right people → to travelers,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.10994086021505378,0.0009515370003698289,0.0,1.0,0,287,0.0,1.0,480,False,"age,gender",665
+claim_82,contingent_on: idea → +/. traveler,contingent_on: idea → +/. traveler,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.10878053451357562,0.0009874223633805444,0.0,1.0,0,287,0.0,1.0,481,False,"age,gender",665
+claim_85,needs_protection: my opinion → +/. health,needs_protection: my opinion → +/. health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.006063365195169091,0.1285356900409826,0.0021127338618278603,0.0,3.0,0,287,0.0,0.0,482,False,"age,gender",665
+claim_87,seek: use → social media,seek: use → social media,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0012129215202691898,0.11720774010133665,0.0023886493467434834,0.0,2.0,0,287,0.0,0.0,483,False,"age,gender",665
+claim_89,getting: main focus → our programmes,getting: main focus → our programmes,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0017979257013207856,0.10463914360569838,0.0025372222720468026,0.0,2.0,0,287,0.0,0.0,484,False,"age,gender",665
+claim_91,lacks: programs → +/. surf,lacks: programs → +/. surf,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004098884463668898,0.1314034185837296,0.00202822906877313,0.0,3.0,0,287,0.0,0.0,485,False,"age,gender",665
+claim_93,bridging: main challenge → context,bridging: main challenge → context,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004836644231616579,0.13057109289198784,0.002225107195791565,0.0,2.0,0,287,0.0,0.0,486,False,"age,gender",665
+claim_95,lacks: of terms → mental health,lacks: of terms → mental health,claim,narrative_extraction,False,3.0,0.006048387096774193,0.002309384164222874,0.10537462640420489,0.0026641828915393542,0.0,2.0,0,287,0.0,0.0,487,False,"age,gender",665
+claim_102,lacks: young people → greater awareness,lacks: young people → greater awareness,claim,narrative_extraction,False,3.0,0.006048387096774193,0.00582708050434578,0.14581015943641085,0.0020627640582541623,0.0,2.0,0,287,0.0,0.0,488,False,"age,gender",665
+claim_106,contingent_on:  → ,contingent_on:  → ,claim,narrative_extraction,False,2.0,0.004032258064516129,0.0011567285760834148,0.11695836193090826,0.0016626373266057613,0.0,2.0,0,287,0.0,0.0,489,False,"age,gender",665
+claim_108,lacks: mindfulness → your brain,lacks: mindfulness → your brain,claim,narrative_extraction,False,3.0,0.006048387096774193,0.00323442602819083,0.13606542105823485,0.0019634265666231506,0.0,3.0,0,287,0.0,0.0,490,False,"age,gender",665
+claim_111,contingent_on: big believer → social capital,contingent_on: big believer → social capital,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0027651654733376846,0.12108024252759225,0.0021188028292427976,0.0,3.0,0,287,0.0,0.0,491,False,"age,gender",665
+claim_113,think: good person → your life,think: good person → your life,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0047567202513618045,0.13374800512780263,0.0019939176447100887,0.0,3.0,0,287,0.0,0.0,492,False,"age,gender",665
+claim_115,contingent_on: experience → three# years,contingent_on: experience → three# years,claim,narrative_extraction,False,3.0,0.006048387096774193,0.0030968353617212216,0.12352905642140874,0.002364137825027806,0.0,2.0,0,287,0.0,0.0,493,False,"age,gender",665
+claim_118,lacks: +/. matter → any time,lacks: +/. matter → any time,claim,narrative_extraction,False,1.0,0.0020161290322580645,0.0,0.10591605030352001,0.0010510615835519683,0.0,1.0,0,287,0.0,1.0,494,False,"age,gender",665
+claim_120,lacks: to jama → service,lacks: to jama → service,claim,narrative_extraction,False,3.0,0.006048387096774193,0.004589843824588819,0.1285356900409826,0.002090016135328037,0.0,3.0,0,287,0.0,0.0,495,False,"age,gender",665
+claim_122,lacks: videos → +/. rugby,lacks: videos → +/. rugby,claim,narrative_extraction,False,3.0,0.006048387096774193,0.00058146026177623,0.09798650643052921,0.0027316511421877207,0.0,2.0,0,287,0.0,0.0,496,False,"age,gender",665
