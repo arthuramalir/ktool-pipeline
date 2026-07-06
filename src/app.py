@@ -272,6 +272,10 @@ link_intervention_summary = load_json(ANALYSIS_DIR / "link_intervention_summary.
 structural_change = load_json(ANALYSIS_DIR / "structural_change_possibility.json")
 change_nodes = load_csv([ANALYSIS_DIR / "change_readiness_nodes.csv"])
 
+structural_hypotheses = load_json(ANALYSIS_DIR / "structural_hypotheses.json")
+financial_bridge = load_csv([ANALYSIS_DIR / "financial_perception_bridge.csv"])
+narrative_budget = load_csv([ANALYSIS_DIR / "narrative_level_budget_crosstab.csv"])
+
 # Financial (synthetic only)
 leverage_df = load_csv([ANALYSIS_DIR / "synthetic_value_leverage.csv"])
 stranded_df = load_csv([ANALYSIS_DIR / "synthetic_stranded_assets.csv"])
@@ -1525,6 +1529,115 @@ with tab_structural:
             st.markdown("- Cairney (2019) *Understanding Public Policy*")
             st.markdown("- Provan & Kenis (2007) *Modes of Network Governance*")
             st.markdown("- Fischer & Maggetti (2020) *QCA and the Study of Policy Processes*")
+
+        # ── AI-generated hypotheses ──────────────────────────────────────────
+        if structural_hypotheses:
+            hyps = structural_hypotheses.get("hypotheses", [])
+            recs = structural_hypotheses.get("recommendations", [])
+            if hyps:
+                st.divider()
+                st.subheader("Generated Hypotheses — What to Do")
+                st.caption(
+                    "Each hypothesis connects a structural metric to a specific node or claim, "
+                    "grounded in the political science framework above."
+                )
+
+                # Group by type
+                type_map = {
+                    "leverage_brokerage": "🔗 Leverage — Brokerage Nodes",
+                    "leverage_broker": "🔗 Leverage — Bridge Agents",
+                    "blockage_fragile": "⚠️ Blockage — Fragile Connectors",
+                    "blockage_perception": "⚠️ Blockage — Siloed Perceptions",
+                    "lockin_policy_monopoly": "🔒 Lock-in — Policy Monopoly",
+                    "plasticity_capacity": "🔄 Plasticity — Rewiring Capacity",
+                    "plasticity_link_addition": "🔄 Plasticity — Suggested Links",
+                    "narrative_cluster": "📖 Narrative Clusters",
+                    "financial_perception_gap": "💰 Financial-Perception Gap",
+                }
+                seen_types = set()
+                for h in hyps:
+                    t = h.get("type", "")
+                    if t not in seen_types:
+                        seen_types.add(t)
+                        label = type_map.get(t, t.replace("_", " ").title())
+                        with st.expander(f"{label} ({sum(1 for x in hyps if x['type'] == t)} hypotheses)", expanded=(t in ("lockin_policy_monopoly", "blockage_fragile"))):
+                            for sibling in hyps:
+                                if sibling["type"] != t:
+                                    continue
+                                conf = sibling.get("confidence", "medium")
+                                emoji = {"high": "🟢", "medium": "🟡", "low": "🔴"}.get(conf, "⚪")
+                                with st.container(border=True):
+                                    st.markdown(f"**{sibling.get('label', '')}** {emoji}")
+                                    st.caption(f"Node: `{sibling.get('node_id', '')}` · Type: `{sibling.get('node_type', '')}`")
+                                    st.markdown(f"*{sibling.get('hypothesis', '')}*")
+                                    st.markdown(f"**Action:** {sibling.get('action', '')}")
+                                    if sibling.get("metric"):
+                                        st.code(sibling["metric"], language="text")
+
+                # Ranked recommendations
+                if recs:
+                    st.subheader("Priority Actions")
+                    st.caption("Ranked by impact and confidence.")
+                    rec_df = pd.DataFrame(recs)
+                    st.dataframe(
+                        rec_df[["title", "action", "priority", "framework"]]
+                        .rename(columns={"title": "Recommendation", "action": "Action", "priority": "Priority", "framework": "Framework"}),
+                        width='stretch', hide_index=True,
+                    )
+
+        # ── Financial-perception bridge ──────────────────────────────────────
+        if not financial_bridge.empty and "value_dimension" in financial_bridge.columns:
+            st.divider()
+            st.subheader("💶 Financial-Perception Bridge")
+            st.caption(
+                "Cross-tabulation of claim value dimensions with linked entities' investment data. "
+                "Shows which narrative clusters are funded, under-funded, or structurally excluded."
+            )
+
+            fig_fb = px.bar(
+                financial_bridge,
+                x="value_dimension",
+                y="total_investment_eur",
+                color="mean_financial_bias",
+                color_continuous_scale="RdYlGn",
+                template="plotly_white",
+                title="Total investment by value dimension",
+                labels={"value_dimension": "Value dimension", "total_investment_eur": "Total investment (€)", "mean_financial_bias": "Financial bias"},
+                text_auto=".0s",
+            )
+            fig_fb.update_layout(height=400)
+            st.plotly_chart(fig_fb, width='stretch')
+
+            st.dataframe(
+                financial_bridge[["value_dimension", "n_claims", "n_entities", "total_investment_eur", "mean_financial_bias"]]
+                .rename(columns={
+                    "value_dimension": "Value dimension", "n_claims": "Claims", "n_entities": "Entities",
+                    "total_investment_eur": "Total investment (€)", "mean_financial_bias": "Avg financial bias",
+                }),
+                width='stretch', hide_index=True,
+            )
+
+        if not narrative_budget.empty:
+            st.divider()
+            st.subheader("🎭 Narrative Level × Budget")
+            st.caption(
+                "Surface vs implicit claims and their linked budgets. "
+                "Implicit claims with no budget link suggest unstated premises operate "
+                "at a level detached from financial decision-making."
+            )
+            fig_nb = px.bar(
+                narrative_budget,
+                x="value_dimension",
+                y="total_budget" if "total_budget" in narrative_budget.columns else "n_entities",
+                color="narrative_level",
+                barmode="group",
+                template="plotly_white",
+                title="Budget by narrative level and value dimension",
+                labels={"value_dimension": "Value dimension", "total_budget": "Total budget (€)", "narrative_level": "Level"},
+            )
+            fig_nb.update_layout(height=350)
+            st.plotly_chart(fig_nb, width='stretch')
+            st.dataframe(narrative_budget, width='stretch', hide_index=True)
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # CLAIMS TAB
