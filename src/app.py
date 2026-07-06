@@ -327,30 +327,30 @@ st.divider()
 # ═══════════════════════════════════════════════════════════════════════════════
 tab_labels = [
     "Overview",
+    "Network Layers",
     "Health Check",
     "Listening",
     "Story Clusters",
     "Perceptions",
-    "What-If Simulator",
-    "Network Layers",
-    "AI-Generated Links",
-    "Structural Change",
     "Claims",
+    "AI-Generated Links",
+    "What-If Simulator",
+    "Structural Change",
 ]
 if is_synthetic:
     tab_labels.append("Budget & Finance")
 
 tabs = st.tabs(tab_labels)
 tab_overview = tabs[0]
-tab_alerts = tabs[1]
-tab_narrative = tabs[2]
-tab_profiles = tabs[3]
-tab_perception = tabs[4]
-tab_gnn = tabs[5]
-tab_layer = tabs[6]
+tab_layer = tabs[1]
+tab_alerts = tabs[2]
+tab_narrative = tabs[3]
+tab_profiles = tabs[4]
+tab_perception = tabs[5]
+tab_claims = tabs[6]
 tab_ai_semantic = tabs[7]
-tab_structural = tabs[8]
-tab_claims = tabs[9]
+tab_gnn = tabs[8]
+tab_structural = tabs[9]
 tab_financial = tabs[10] if is_synthetic and len(tabs) > 10 else None
 
 
@@ -406,7 +406,7 @@ with tab_overview:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 1 — Health Check
+# TAB 2 — Health Check
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_alerts:
     st.subheader("Network health check")
@@ -482,7 +482,7 @@ with tab_alerts:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 2 — Listening
+# TAB 3 — Listening
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_narrative:
     st.subheader("What people are saying")
@@ -546,7 +546,7 @@ with tab_narrative:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 3 — Story Clusters
+# TAB 4 — Story Clusters
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_profiles:
     st.subheader("Story clusters from listening data")
@@ -694,7 +694,7 @@ with tab_profiles:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 4 — Perceptions
+# TAB 5 — Perceptions
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_perception:
     st.subheader("Perception health check")
@@ -834,7 +834,7 @@ with tab_perception:
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 5 — What-If Simulator (GNN)
+# TAB 8 — What-If Simulator (GNN)
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_gnn:
     st.subheader("What-if: adding new links")
@@ -1018,7 +1018,7 @@ with tab_gnn:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 6 — Network Layers
+# TAB 1 — Network Layers
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_layer:
     st.subheader("What each link type adds")
@@ -1084,7 +1084,7 @@ with tab_layer:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 7 — AI-Generated Links
+# TAB 7 — AI-Generated Links (unchanged index, moved to align with pipeline)
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_ai_semantic:
     st.subheader("AI-generated links")
@@ -1160,7 +1160,7 @@ with tab_ai_semantic:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 10 — Budget & Finance (synthetic only)
+# TAB 10 — Budget & Finance (synthetic only, appended last)
 # ═══════════════════════════════════════════════════════════════════════════════
 if tab_financial is not None:
     with tab_financial:
@@ -1375,7 +1375,7 @@ if tab_financial is not None:
             )
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 8 — Structural Change
+# TAB 9 — Structural Change
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_structural:
     if not structural_change:
@@ -1643,7 +1643,7 @@ with tab_structural:
 # CLAIMS TAB
 # ═══════════════════════════════════════════════════════════════════════════════
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 9 — Claims
+# TAB 6 — Claims
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_claims:
     st.header("Narrative Claims")
