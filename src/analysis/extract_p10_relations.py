@@ -323,7 +323,7 @@ def main():
     print("=" * 60)
     print(f"Platform 10 (Chile COPOLAD) — Relation Re-extraction")
     print("=" * 60)
-    print(f"Token: {AUTH_TOKEN[:20]}...")
+    print(f"Token loaded ({len(AUTH_TOKEN)} chars)")
     print(f"Output: {RELS_DIR}")
 
     extract_initiative_relations()

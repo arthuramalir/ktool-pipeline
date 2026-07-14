@@ -10,6 +10,12 @@ computer. You do not need any programming experience.
 - The **alc_dashboard_demo.zip** file (about 20 MB)
 - About **5 minutes** and an internet connection
 
+> **Note about API tokens:** The dashboard itself does not need a token —
+> it reads pre-processed data files included in the zip. If you want to
+> re-run the full pipeline (extract fresh data from the KTool server),
+> you will need a **bearer token**. See the section at the end of this
+> guide for details.
+
 ---
 
 ## Step 1 — Install Python
@@ -155,3 +161,49 @@ To switch back, change it back to `173`.
 Close the browser tab. In the terminal, press **Ctrl+C** (Windows) or
 **Control+C** (Mac) to stop the program. You can close the terminal
 window after that.
+
+---
+
+## Bearer token for pipeline re-runs
+
+The dashboard displays pre-computed data. If you want to re-run the
+full analysis pipeline (extract fresh data from the KTool server and
+recompute all metrics), you need a **bearer token** for API
+authentication. No token is hardcoded in the code — it is read from an
+environment variable.
+
+### Where to find your token
+
+1. Log in to your KTool instance as an administrator.
+2. Open your browser's developer tools (F12 or right-click → Inspect).
+3. Go to the **Application** tab (Chrome/Edge) or **Storage** tab (Firefox).
+4. Look for **Local Storage** in the left sidebar.
+5. Find an entry named `auth_token` or `token` or `jwt`.
+6. Copy its value — it is a long string of letters, numbers, and dots.
+
+### How to use it
+
+**On Windows (Command Prompt):**
+```
+set KTOOL_AUTH_TOKEN=your_token_here
+python src/analysis/MAIN_comprehensive_pipeline.py
+```
+
+**On Mac / Linux:**
+```
+export KTOOL_AUTH_TOKEN=your_token_here
+python3 src/analysis/MAIN_comprehensive_pipeline.py
+```
+
+Replace `your_token_here` with the token you copied. The script will
+fetch the latest data and rebuild the analysis files. After that,
+launch the dashboard normally with `streamlit run app.py`.
+
+### Security notes
+
+- The token grants access to your KTool data. **Never share it** or
+  commit it to a public repository.
+- The pipeline scripts check the `KTOOL_AUTH_TOKEN` environment variable
+  only — they will refuse to run if it is not set.
+- If you are only viewing the pre-computed dashboard, you do **not**
+  need a token at all.
