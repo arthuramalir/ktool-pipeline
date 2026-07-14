@@ -1,376 +1,498 @@
 global_id,component_id,component_size,label,node_type,methodological_phase
-channel_9576,component_1,71,Unnamed,channel,listening
-information_25358,component_1,71,Unnamed,information,listening
-channel_9511.0,component_1,71,LT 001,channel,listening
-channel_9512.0,component_1,71,003,channel,listening
-information_25256,component_1,71,Unnamed,information,listening
-information_25338,component_1,71,Unnamed,information,listening
-information_25360,component_1,71,Unnamed,information,listening
-information_25369,component_1,71,Unnamed,information,listening
-information_25339,component_1,71,Unnamed,information,listening
-information_25351,component_1,71,Unnamed,information,listening
-channel_9507,component_1,71,Why Wellbeing Matters Report ,channel,listening
-information_25354,component_1,71,Unnamed,information,listening
-channel_9509.0,component_1,71,002,channel,listening
-information_25350,component_1,71,Unnamed,information,listening
-information_25348,component_1,71,Unnamed,information,listening
-information_23090,component_1,71,Unnamed,information,listening
-information_25352,component_1,71,Unnamed,information,listening
-information_25353,component_1,71,Unnamed,information,listening
-information_25357,component_1,71,Unnamed,information,listening
-information_25333,component_1,71,Unnamed,information,listening
-channel_9576.0,component_1,71,H-007,channel,listening
-information_23086,component_1,71,Unnamed,information,listening
-channel_9509,component_1,71,Unnamed,channel,listening
-channel_9490,component_1,71,Unnamed,channel,listening
-information_25828,component_1,71,Unnamed,information,listening
-information_25345,component_1,71,Unnamed,information,listening
-channel_9507.0,component_1,71,RI -03,channel,listening
-channel_9510,component_1,71,Unnamed,channel,listening
-information_25355,component_1,71,Unnamed,information,listening
-information_25830,component_1,71,Unnamed,information,listening
-channel_9508.0,component_1,71,P001,channel,listening
-information_25359,component_1,71,Unnamed,information,listening
-information_25356,component_1,71,Unnamed,information,listening
-information_25343,component_1,71,Unnamed,information,listening
-channel_8509.0,component_1,71,SS-001,channel,listening
-information_25337,component_1,71,Unnamed,information,listening
-information_23088,component_1,71,Unnamed,information,listening
-information_23085,component_1,71,Unnamed,information,listening
-information_25347,component_1,71,Unnamed,information,listening
-information_25363,component_1,71,Unnamed,information,listening
-channel_9508,component_1,71,Unnamed,channel,listening
-information_25335,component_1,71,Unnamed,information,listening
-channel_9512,component_1,71,Unnamed,channel,listening
-information_25344,component_1,71,Unnamed,information,listening
-information_23091,component_1,71,Unnamed,information,listening
-information_25342,component_1,71,Unnamed,information,listening
-information_25334,component_1,71,Unnamed,information,listening
-information_25370,component_1,71,Unnamed,information,listening
-channel_9490.0,component_1,71,RI_001,channel,listening
-information_25826,component_1,71,Unnamed,information,listening
-information_25332,component_1,71,Unnamed,information,listening
-information_23087,component_1,71,Unnamed,information,listening
-information_25829,component_1,71,Unnamed,information,listening
-channel_9511,component_1,71,Unnamed,channel,listening
-information_25367,component_1,71,Unnamed,information,listening
-information_25349,component_1,71,Unnamed,information,listening
-channel_9506.0,component_1,71,RI-002,channel,listening
-information_25365,component_1,71,Unnamed,information,listening
-information_25827,component_1,71,Unnamed,information,listening
-information_25336,component_1,71,Unnamed,information,listening
-information_25364,component_1,71,Unnamed,information,listening
-information_23084,component_1,71,Unnamed,information,listening
-channel_9506,component_1,71,Unnamed,channel,listening
-information_25361,component_1,71,Unnamed,information,listening
-information_26120,component_1,71,Unnamed,information,listening
-information_25368,component_1,71,Unnamed,information,listening
-information_25341,component_1,71,Unnamed,information,listening
-channel_9510.0,component_1,71,003,channel,listening
-information_25362,component_1,71,Unnamed,information,listening
-information_23094,component_1,71,Unnamed,information,listening
-information_25346,component_1,71,Unnamed,information,listening
-information_25582,component_2,22,Unnamed,information,listening
-information_25586,component_2,22,Unnamed,information,listening
-channel_9548,component_2,22,Unnamed,channel,listening
-information_25589,component_2,22,Unnamed,information,listening
-information_25596,component_2,22,Unnamed,information,listening
-channel_9548.0,component_2,22,004_FF,channel,listening
-information_25591,component_2,22,Unnamed,information,listening
-information_25587,component_2,22,Unnamed,information,listening
-information_25581,component_2,22,Unnamed,information,listening
-information_25584,component_2,22,Unnamed,information,listening
-information_25595,component_2,22,Unnamed,information,listening
-information_25597,component_2,22,Unnamed,information,listening
-information_25592,component_2,22,Unnamed,information,listening
-channel_9549,component_2,22,Unnamed,channel,listening
-information_25588,component_2,22,Unnamed,information,listening
-information_25593,component_2,22,Unnamed,information,listening
-information_25590,component_2,22,Unnamed,information,listening
-channel_9549.0,component_2,22,T_006,channel,listening
-information_25594,component_2,22,Unnamed,information,listening
-information_25599,component_2,22,Unnamed,information,listening
-information_25366,component_2,22,Unnamed,information,listening
-information_25598,component_2,22,Unnamed,information,listening
-challenge_2565,component_3,19,Short-termism and fragmented systems,challenge,listening
-challenge_2555,component_3,19,Recognise sport as a health asset,challenge,listening
-perception_411,component_3,19, John,perception,listening
-perception_408,component_3,19, Aoibhe,perception,listening
-challenge_2560,component_3,19,Build mentoring and peer-support ecosystems,challenge,listening
-perception_410,component_3,19,Naomi,perception,listening
-challenge_2557,component_3,19,Chronic underfunding of community work,challenge,listening
-challenge_2309,component_3,19,Resource strain and burnout,challenge,listening
-challenge_2554,component_3,19,Fragile volunteer infrastructure,challenge,listening
-challenge_2553,component_3,19,Shift funding toward prevention and partnership,challenge,listening
-challenge_2556,component_3,19,Fragmented care between mind and body,challenge,listening
-challenge_2558,component_3,19,Invest in long-term community capacity,challenge,listening
-perception_409,component_3,19,Mary,perception,listening
-challenge_2559,component_3,19,"Reactive, not preventive systems",challenge,listening
-perception_407,component_3,19,Luke,perception,listening
-challenge_2561,component_3,19,Overloaded schools acting as mental health providers,challenge,listening
-perception_406,component_3,19,Siobhán,perception,listening
-challenge_2562,component_3,19,Early intervention within schools,challenge,listening
-challenge_2519,component_3,19,Disconnection between funders and frontline,challenge,listening
-information_26119,component_4,3,Unnamed,information,listening
-channel_9603.0,component_4,3,Channel 9603.0,channel,listening
-channel_9603,component_4,3,Unnamed,channel,listening
-channel_8510.0,component_5,2,SS-002,channel,listening
-information_23092,component_5,2,Unnamed,information,listening
-agent_4722,component_6,1,Rethink Ireland,agent,mapping
-agent_4753,component_7,1,Helium Arts,agent,mapping
-agent_4754,component_8,1,Hope and Courage Collective,agent,mapping
-agent_4757,component_9,1,HSE (Health Service Executive),agent,mapping
-agent_4786,component_10,1,Tacú Ballinrobe Family Resource Centre,agent,mapping
-agent_5350,component_11,1,Liquid Therapy,agent,mapping
-agent_5351,component_12,1,Cruthu Foundation Way2Work,agent,mapping
-agent_5358,component_13,1,Spraoi & Sport,agent,mapping
-agent_5360,component_14,1,Special Olympics,agent,mapping
-agent_5366,component_15,1,First Fortnight,agent,mapping
-agent_5367,component_16,1,Tacu Family Resource Centre,agent,mapping
-agent_5369,component_17,1,TUSLA,agent,mapping
-agent_5370,component_18,1,Focus Ireland,agent,mapping
-agent_5371,component_19,1,Community Foundation Ireland,agent,mapping
-agent_5372,component_20,1,Blue Box Creative Arts Centre,agent,mapping
-agent_5373,component_21,1,Donegal Domestic Violence Refuge (Gloria House),agent,mapping
-agent_5374,component_22,1,Knocklee House (Kerry Recovery Centre),agent,mapping
-agent_5375,component_23,1,St. Brigid’s Family Resource Centre (Tralee),agent,mapping
-agent_5376,component_24,1,Crosscare,agent,mapping
-agent_5377,component_25,1,NOVAS,agent,mapping
-agent_5378,component_26,1,GP Practices and Primary Care Centres,agent,mapping
-agent_5379,component_27,1,Young People,agent,mapping
-agent_5380,component_28,1,Parents ,agent,mapping
-agent_5382,component_29,1,Youthreach,agent,mapping
-agent_5383,component_30,1,"Education Welfare Officers (EWOs, TESS team)",agent,mapping
-agent_5384,component_31,1,School Guidance Counsellors/Chaplins/School Support Team,agent,mapping
-agent_5387,component_32,1,JLOs/ Managers/Support staff in International Protection Centre?,agent,mapping
-agent_5476,component_33,1,Children's Health Ireland,agent,mapping
-agent_5477,component_34,1,ETBs,agent,mapping
-agent_5478,component_35,1,Sisk Group,agent,mapping
-agent_5479,component_36,1,Construction Industry Federation,agent,mapping
-agent_5480,component_37,1,Society of the Irish Motor Industry (SIMI),agent,mapping
-agent_5481,component_38,1,"Parents, Guardians & Aftercare workers",agent,mapping
-agent_5482,component_39,1,DEIS Schools,agent,mapping
-agent_5483,component_40,1,Oberstown Children Detention Campus ,agent,mapping
-agent_5488,component_41,1,Involve CLG,agent,mapping
-agent_5489,component_42,1,Arts Council,agent,mapping
-agent_5490,component_43,1,Children and young persons committees (CYPSC),agent,mapping
-agent_5491,component_44,1,Regional Health Areas,agent,mapping
-agent_5492,component_45,1,Family Resource Centres,agent,mapping
-agent_5493,component_46,1,Home Liaison Officers,agent,mapping
-agent_5494,component_47,1,Hospital clinical staff,agent,mapping
-agent_5497,component_48,1,Patient Support Groups,agent,mapping
-agent_5499,component_49,1,Sláintecare Healthy Communities (Donegal),agent,mapping
-agent_5500,component_50,1,Jigsaw,agent,mapping
-agent_5502,component_51,1,ETB Youthreach Carndonagh,agent,mapping
-agent_5503,component_52,1,Inishowen Development Partnership (IDP),agent,mapping
-agent_5504,component_53,1,Inishowen Family Action Network (IFAN),agent,mapping
-agent_5505,component_54,1,Carndonagh Community School – Pastoral Care Team,agent,mapping
-agent_5506,component_55,1,Public Health Nurse Network (Carndonagh),agent,mapping
-agent_5507,component_56,1,Mental Health Ireland,agent,mapping
-agent_5508,component_57,1,Safefood,agent,mapping
-agent_5509,component_58,1,Breast Cancer Ireland,agent,mapping
-agent_5510,component_59,1,UCC School of Dentistry ,agent,mapping
-agent_5511,component_60,1,UCC School of Audiloogy ,agent,mapping
-agent_5512,component_61,1,RCSI,agent,mapping
-agent_5513,component_62,1,University of Ulster,agent,mapping
-agent_5516,component_63,1,Rosemary Collaboratory,agent,mapping
-agent_5518,component_64,1,Sport Northern Ireland,agent,mapping
-agent_5782,component_65,1,Agirre Lehendakaria Center,agent,mapping
-agent_5783,component_66,1,Shoutout,agent,mapping
-agent_5785,component_67,1,spunout,agent,mapping
-agent_5786,component_68,1,Childhood Matters,agent,mapping
-agent_5787,component_69,1,Hair Together,agent,mapping
-agent_5788,component_70,1,Bohemian Football Club,agent,mapping
-agent_5789,component_71,1,Active Connections,agent,mapping
-agent_5790,component_72,1,Football Coop,agent,mapping
-agent_5791,component_73,1,Irish Homeless Street Leagues,agent,mapping
-agent_5792,component_74,1,Sanctuary Runners,agent,mapping
-agent_5793,component_75,1,Irish Surfing,agent,mapping
-agent_5794,component_76,1,Donegal Sports Partnership,agent,mapping
-agent_5795,component_77,1,Pobal,agent,mapping
-agent_5797,component_78,1,Donegal County Council,agent,mapping
-agent_5798,component_79,1,Interreg,agent,mapping
-agent_5799,component_80,1,National Surf Centre Strandhill,agent,mapping
-agent_5800,component_81,1,INCLUSEA,agent,mapping
-agent_5806,component_82,1,Rugby Players Ireland Foundation,agent,mapping
-agent_5807,component_83,1,Z Zurich Foundation,agent,mapping
-agent_5808,component_84,1,Unnamed,agent,mapping
-agent_5809,component_85,1,Rugby Player Ireland Members,agent,mapping
-agent_5811,component_86,1,Schools,agent,mapping
-agent_5812,component_87,1,Youth Groups,agent,mapping
-agent_5813,component_88,1,Foróige - The National Youth Development Organisation,agent,mapping
-agent_5814,component_89,1,Local health professionals,agent,mapping
-agent_5815,component_90,1,Surf Schools and Clubs,agent,mapping
-agent_5816,component_91,1,Caregivers,agent,mapping
-agent_5817,component_92,1,University of Limerick ,agent,mapping
-agent_5818,component_93,1,ISCOIL,agent,mapping
-agent_5819,component_94,1,Sport Ireland ,agent,mapping
-agent_5821,component_95,1,DCU anti-bullying centre,agent,mapping
-agent_5822,component_96,1,No Barriers,agent,mapping
-agent_5823,component_97,1,Zurich Ireland,agent,mapping
-agent_5825,component_98,1,National Youth Assembly,agent,mapping
-agent_5826,component_99,1,Comhairle na nOg,agent,mapping
-agent_5827,component_100,1,Mental Health Reform,agent,mapping
-agent_5828,component_101,1,Philanthropy Ireland ,agent,mapping
-agent_5829,component_102,1,The Lighthouse Charity,agent,mapping
-agent_5830,component_103,1,State Street,agent,mapping
-agent_5831,component_104,1,Nature Worx ,agent,mapping
-agent_5832,component_105,1,Bounce Back Recycling ,agent,mapping
-agent_5833,component_106,1, UNESCO Child and Family Research Centre at the University of Galway,agent,mapping
-agent_5834,component_107,1,Rainbow Club,agent,mapping
-agent_5835,component_108,1,Universities & 3rd evel Education,agent,mapping
-agent_5836,component_109,1,Eco Unesco,agent,mapping
-agent_5837,component_110,1,"Department of Children, Disability and Equality",agent,mapping
-agent_5838,component_111,1,Department of Education and Youth,agent,mapping
-agent_5839,component_112,1,YouthMedInfo,agent,mapping
-agent_5840,component_113,1,Young social innovators,agent,mapping
-agent_5841,component_114,1,Higher education authority,agent,mapping
-agent_5842,component_115,1,Gaisce,agent,mapping
-agent_5843,component_116,1,bodywhys,agent,mapping
-agent_5844,component_117,1,Atlantic Futures,agent,mapping
-agent_5845,component_118,1,Pieta,agent,mapping
-agent_5846,component_119,1,Barnardos,agent,mapping
-agent_5847,component_120,1,Samaritans,agent,mapping
-agent_5848,component_121,1,HUGG,agent,mapping
-agent_5849,component_122,1,Shona project,agent,mapping
-agent_5850,component_123,1,Portlaoise Prisons,agent,mapping
-agent_5868,component_124,1,Aware,agent,mapping
-agent_5869,component_125,1,Common Knowledge Centre for Sustainable Living CLG,agent,mapping
-agent_5870,component_126,1,Anew Support Services CLG,agent,mapping
-agent_5871,component_127,1,Childhood Development Initiative,agent,mapping
-agent_5872,component_128,1,Spiritan Asylum Services Initiative CLG (T/A Spirasi),agent,mapping
-agent_5873,component_129,1,Women's Collective Ireland - Tallaght,agent,mapping
-agent_5874,component_130,1,Offaly Traveller Movement,agent,mapping
-agent_5875,component_131,1,Street Feast (t/a Neighbourhood Network),agent,mapping
-agent_5876,component_132,1,National Youth Council of Ireland,agent,mapping
-agent_5877,component_133,1,Mason Hayes & Curran LLP,agent,mapping
-agent_5878,component_134,1,The Department of Rural and Community Development and the Gaeltacht,agent,mapping
-agent_5930,component_135,1,Accessible Adventures Ireland,agent,mapping
-agent_5931,component_136,1,Active Disabilities Ireland,agent,mapping
-agent_5932,component_137,1,Vision Sports Ireland,agent,mapping
-agent_5933,component_138,1,Irish Foster Care Association,agent,mapping
-agent_5934,component_139,1,Unnamed,agent,mapping
-agent_5935,component_140,1,Open Specturrm,agent,mapping
-agent_5936,component_141,1,County Councils (Local Area Sport Partnership),agent,mapping
-project_4152,component_142,1,Bounce Back Recycling,project,mapping/co-creation
-project_4154,component_143,1,Change Clothes Crumlin,project,mapping/co-creation
-project_4155,component_144,1,Educate Together,project,mapping/co-creation
-project_4156,component_145,1,Fighting Words,project,mapping/co-creation
-project_4158,component_146,1,iScoil,project,mapping/co-creation
-project_4159,component_147,1,Not So Different,project,mapping/co-creation
-project_4160,component_148,1,The Shona Project,project,mapping/co-creation
-project_4162,component_149,1,SpunOut.ie,project,mapping/co-creation
-project_4164,component_150,1,Social Innovation Campus,project,mapping/co-creation
-project_4166,component_151,1,Liquid Therapy,project,mapping/co-creation
-project_4167,component_152,1,Trinity Access 21 (TA21),project,mapping/co-creation
-project_4168,component_153,1,Trinity Centre for People with Intellectual Disabilities,project,mapping/co-creation
-project_4169,component_154,1,The Great Care Co-op,project,mapping/co-creation
-project_4170,component_155,1,FoodCloud ,project,mapping/co-creation
-project_4171,component_156,1,GIY (Grow It Yourself),project,mapping/co-creation
-project_4172,component_157,1,Helium Arts,project,mapping/co-creation
-project_4173,component_158,1,The No Barriers Foundation,project,mapping/co-creation
-project_4174,component_159,1,Sensational Kids,project,mapping/co-creation
-project_4175,component_160,1,Gaisce – The President's Award,project,mapping/co-creation
-project_4176,component_161,1,Uplift ,project,mapping/co-creation
-project_4177,component_162,1,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,project,mapping/co-creation
-project_4178,component_163,1,Hair Together,project,mapping/co-creation
-project_4529,component_164,1,Inclusive Surf Programmes,project,mapping/co-creation
-project_4530,component_165,1,Innovation in Sport,project,mapping/co-creation
-project_4531,component_166,1,Community Services Programme,project,mapping/co-creation
-project_4532,component_167,1,PEACEPlus Initiative ,project,mapping/co-creation
-project_4533,component_168,1,iSURFATLANTIC,project,mapping/co-creation
-project_4534,component_169,1,INCLUSEA,project,mapping/co-creation
-project_4535,component_170,1,Connecting for Life - Ireland's national strategy to reduce suicide ,project,mapping/co-creation
-project_4536,component_171,1,Area‑Based Childhood Programme (ABC),project,mapping/co-creation
-project_4537,component_172,1,"Meitheal - Prevention, Partnership & Family Support (PPFS)",project,mapping/co-creation
-project_4538,component_173,1,Housing-led Supports for homeless/ people at risk of homelessness,project,mapping/co-creation
-project_4539,component_174,1,RTE Toy Show Appeal,project,mapping/co-creation
-project_4540,component_175,1,Creative Arts Psychotherapy for vulnerable children - Limerick,project,mapping/co-creation
-project_4541,component_176,1,Journey to Freedom,project,mapping/co-creation
-project_4547,component_177,1,Tusla Aftercare Drop-In Services,project,mapping/co-creation
-project_4548,component_178,1,Crosscare Aftercare Service ,project,mapping/co-creation
-project_4549,component_179,1,2030 Sustainability Roadmap,project,mapping/co-creation
-project_4550,component_180,1,Carbon Neutrality,project,mapping/co-creation
-project_4551,component_181,1,Tree planting,project,mapping/co-creation
-project_4552,component_182,1,Community Engagement,project,mapping/co-creation
-project_4553,component_183,1,Lighthouse Industry Construction Federation Charity - 24/7 Support,project,mapping/co-creation
-project_4554,component_184,1,Mental Health & Wellbeing,project,mapping/co-creation
-project_4555,component_185,1,Vocational training,project,mapping/co-creation
-project_4556,component_186,1,STEPS+ programme,project,mapping/co-creation
-project_4557,component_187,1,Oberstown coffee van business; Bord Bia Bloom,project,mapping/co-creation
-project_4558,component_188,1,Bord Bia Bloom,project,mapping/co-creation
-project_4559,component_189,1,Addiction Counselling,project,mapping/co-creation
-project_4560,component_190,1,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,project,mapping/co-creation
-project_4561,component_191,1,Green Campus & Sustainability,project,mapping/co-creation
-project_4562,component_192,1,Innovation Strategy,project,mapping/co-creation
-project_4563,component_193,1,Reads & Rhymes Together,project,mapping/co-creation
-project_4564,component_194,1, Headstart Fund,project,mapping/co-creation
-project_4565,component_195,1,Breaking Barriers Fund,project,mapping/co-creation
-project_4566,component_196,1,Innovate Together,project,mapping/co-creation
-project_4567,component_197,1,Ktool,project,mapping/co-creation
-project_4568,component_198,1,A Drop in The Ocean [ADITO],project,mapping/co-creation
-project_4569,component_199,1,Big Brother Big Sister,project,mapping/co-creation
-project_4570,component_200,1,Surf Club,project,mapping/co-creation
-project_4571,component_201,1,Open Event,project,mapping/co-creation
-project_4572,component_202,1,Generation Pride,project,mapping/co-creation
-project_4573,component_203,1,School Workshops ,project,mapping/co-creation
-project_4574,component_204,1,Corporate Workshops,project,mapping/co-creation
-project_4575,component_205,1,LGBTQI+ Inclusion Training,project,mapping/co-creation
-project_4576,component_206,1,Fair Play - Sports LGBTQ+ Inclusion,project,mapping/co-creation
-project_4577,component_207,1,Training,project,mapping/co-creation
-project_4578,component_208,1,Creative Arts Therapy,project,mapping/co-creation
-project_4579,component_209,1,Spunout Academy ,project,mapping/co-creation
-project_4580,component_210,1,CHIPPS,project,mapping/co-creation
-project_4581,component_211,1,Limetree Project,project,mapping/co-creation
-project_4582,component_212,1,Creches,project,mapping/co-creation
-project_4583,component_213,1,Teen Parent Support Programme,project,mapping/co-creation
-project_4584,component_214,1,Hair Together Programme,project,mapping/co-creation
-project_4585,component_215,1,SPACE,project,mapping/co-creation
-project_4586,component_216,1,Meals on wheels,project,mapping/co-creation
-project_4587,component_217,1,Family support,project,mapping/co-creation
-project_4588,component_218,1,Drug & alcohol support,project,mapping/co-creation
-project_4589,component_219,1,Counselling,project,mapping/co-creation
-project_4590,component_220,1,Parent toddler groups,project,mapping/co-creation
-project_4591,component_221,1,"Various groups, camps and workshops",project,mapping/co-creation
-project_4592,component_222,1,Pride on the PItch,project,mapping/co-creation
-project_4593,component_223,1,No Shame,project,mapping/co-creation
-project_4594,component_224,1,Traveller Voice,project,mapping/co-creation
-project_4595,component_225,1,Traveller Culture & Identity Programme (TCIP),project,mapping/co-creation
-project_4596,component_226,1,Youth Service,project,mapping/co-creation
-project_4597,component_227,1,Health and Wellbeing Programme,project,mapping/co-creation
-project_4598,component_228,1,New Trails,project,mapping/co-creation
-project_4599,component_229,1,Place-based Football Coop groups,project,mapping/co-creation
-project_4600,component_230,1,Drop-In Leagues,project,mapping/co-creation
-project_4601,component_231,1,Sanctuary groups nationwide,project,mapping/co-creation
-project_4602,component_232,1,Tackle Your Feelings,project,mapping/co-creation
-project_4603,component_233,1,Sport & Wellness Fund,project,mapping/co-creation
-project_4604,component_234,1,Brighter Futures Fund,project,mapping/co-creation
-project_4605,component_235,1,Women in Sport,project,mapping/co-creation
-project_4606,component_236,1,Erasmus+ Sport program,project,mapping/co-creation
-project_4607,component_237,1,Integrated care programme for children,project,mapping/co-creation
-project_4608,component_238,1,Entrepreneurship Impact Fund ,project,mapping/co-creation
-project_4609,component_239,1,Why Wellbeing Matters,project,mapping/co-creation
-project_4610,component_240,1,National Wellbeing Framework,project,mapping/co-creation
-project_4611,component_241,1,Wellbeing Policy Framework of the Department of Education,project,mapping/co-creation
-project_4616,component_242,1,Connected Communities Fund,project,mapping/co-creation
-pilot_835,component_243,1,Students' mental health skills CV,pilot,mapping/co-creation
-pilot_836,component_244,1,Digital wellbeing lab,pilot,mapping/co-creation
-pilot_837,component_245,1,Community of practice: Teachers as change agents,pilot,mapping/co-creation
-pilot_838,component_246,1,Transition to adulthood pathways,pilot,mapping/co-creation
-pilot_839,component_247,1,Cross-sector residencies,pilot,mapping/co-creation
-pilot_840,component_248,1,Adopt a practice,pilot,mapping/co-creation
-prototype_511,component_249,1,National digital infrastructure to measure the true cost of mental health,prototype,mapping/co-creation
-prototype_512,component_250,1,National listening infrastructure,prototype,mapping/co-creation
-prototype_513,component_251,1,The living map of the mental health ecosystem in Ireland,prototype,mapping/co-creation
-challenge_2523,component_252,1,Listening as Trust-Building,challenge,listening
-challenge_2564,component_253,1,"Addressing mental health as a systemic issue, not individual",challenge,listening
-theme_16,component_254,1,Social innovation,theme,mapping
-theme_30,component_255,1,Challenges,theme,mapping
-theme_50,component_256,1,Youth,theme,mapping
-theme_198,component_257,1,Youth engagement,theme,mapping
-theme_201,component_258,1,Youth support,theme,mapping
-theme_620,component_259,1,Mental Health,theme,mapping
-theme_701,component_260,1,Philanthropy & Funding,theme,mapping
-theme_775,component_261,1,Community & Inclusion ,theme,mapping
-theme_778,component_262,1,Health & Wellbeing,theme,mapping
-theme_781,component_263,1,Education & Youth Empowerment,theme,mapping
+information_25830,component_1,287,Unnamed,information,listening
+claim_93,component_1,287,bridging: main challenge → context,claim,narrative_extraction
+claim_46,component_1,287,have: young people → mental health,claim,narrative_extraction
+claim_122,component_1,287,lacks: videos → +/. rugby,claim,narrative_extraction
+agent_5849,component_1,287,Shona project,agent,mapping
+claim_39,component_1,287,funded: +/. sport → their innovation,claim,narrative_extraction
+claim_10,component_1,287,face: focus funders → on visibility,claim,narrative_extraction
+information_25333,component_1,287,Unnamed,information,listening
+claim_103,component_1,287,find: social media → significant role,claim,narrative_extraction
+claim_87,component_1,287,seek: use → social media,claim,narrative_extraction
+information_25826,component_1,287,Unnamed,information,listening
+channel_9512,component_1,287,Unnamed,channel,listening
+claim_105,component_1,287,do:  → ,claim,narrative_extraction
+information_25827,component_1,287,Unnamed,information,listening
+claim_34,component_1,287,saw: unprecedented surge → in interest,claim,narrative_extraction
+challenge_2519,component_1,287,Disconnection between funders and frontline,challenge,listening
+agent_5378,component_1,287,GP Practices and Primary Care Centres,agent,mapping
+claim_53,component_1,287,lacks: my role → service,claim,narrative_extraction
+information_26120,component_1,287,Unnamed,information,listening
+information_25582,component_1,287,Unnamed,information,listening
+information_23085,component_1,287,Unnamed,information,listening
+information_25351,component_1,287,Unnamed,information,listening
+claim_40,component_1,287,sustaining: main challenge → and engagement,claim,narrative_extraction
+channel_9548,component_1,287,Unnamed,channel,listening
+information_25588,component_1,287,Unnamed,information,listening
+claim_42,component_1,287,expanded: to thanks → +/. headstart,claim,narrative_extraction
+claim_1,component_1,287,used:  → ,claim,narrative_extraction
+information_23086,component_1,287,Unnamed,information,listening
+claim_99,component_1,287,thought: your suggestion → +/. group,claim,narrative_extraction
+agent_5503,component_1,287,Inishowen Development Partnership (IDP),agent,mapping
+information_25590,component_1,287,Unnamed,information,listening
+information_25596,component_1,287,Unnamed,information,listening
+claim_66,component_1,287,set: frustrations → +/. health,claim,narrative_extraction
+claim_83,component_1,287,experienced: young people → +/. health,claim,narrative_extraction
+claim_67,component_1,287,write: their goal → week,claim,narrative_extraction
+agent_5373,component_1,287,Donegal Domestic Violence Refuge (Gloria House),agent,mapping
+agent_5482,component_1,287,DEIS Schools,agent,mapping
+claim_57,component_1,287,see: future models → more people,claim,narrative_extraction
+agent_5789,component_1,287,Active Connections,agent,mapping
+claim_76,component_1,287,become: during covid → community,claim,narrative_extraction
+project_4177,component_1,287,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,project,mapping/co-creation
+information_23094,component_1,287,Unnamed,information,listening
+information_25358,component_1,287,Unnamed,information,listening
+agent_5845,component_1,287,Pieta,agent,mapping
+agent_5822,component_1,287,No Barriers,agent,mapping
+agent_5870,component_1,287,Anew Support Services CLG,agent,mapping
+information_25337,component_1,287,Unnamed,information,listening
+information_25345,component_1,287,Unnamed,information,listening
+claim_47,component_1,287,needs_protection: young people → mental health,claim,narrative_extraction
+information_25341,component_1,287,Unnamed,information,listening
+agent_4753,component_1,287,Helium Arts,agent,mapping
+claim_29,component_1,287,rethink: rethink ireland → early phase,claim,narrative_extraction
+information_25339,component_1,287,Unnamed,information,listening
+claim_51,component_1,287,seek: public institutions → measurable impact,claim,narrative_extraction
+agent_5507,component_1,287,Mental Health Ireland,agent,mapping
+claim_88,component_1,287,getting: main focus → our programmes,claim,narrative_extraction
+information_25370,component_1,287,Unnamed,information,listening
+claim_68,component_1,287,lacks: their goal → week,claim,narrative_extraction
+agent_5819,component_1,287,Sport Ireland ,agent,mapping
+project_4168,component_1,287,Trinity Centre for People with Intellectual Disabilities,project,mapping/co-creation
+challenge_2553,component_1,287,Shift funding toward prevention and partnership,challenge,listening
+agent_5874,component_1,287,Offaly Traveller Movement,agent,mapping
+channel_9603.0,component_1,287,Channel 9603.0,channel,listening
+claim_86,component_1,287,seek: use → social media,claim,narrative_extraction
+claim_64,component_1,287,lacks: funding → of part,claim,narrative_extraction
+claim_23,component_1,287,prevent: at support → younger ages,claim,narrative_extraction
+pilot_835,component_1,287,Students' mental health skills CV,pilot,mapping/co-creation
+information_23084,component_1,287,Unnamed,information,listening
+project_4166,component_1,287,Liquid Therapy,project,mapping/co-creation
+agent_5376,component_1,287,Crosscare,agent,mapping
+claim_89,component_1,287,getting: main focus → our programmes,claim,narrative_extraction
+claim_121,component_1,287,engaging: videos → +/. rugby,claim,narrative_extraction
+agent_5834,component_1,287,Rainbow Club,agent,mapping
+claim_38,component_1,287,reaching: our target → social impact,claim,narrative_extraction
+claim_5,component_1,287,talk: holistic care → time,claim,narrative_extraction
+project_4588,component_1,287,Drug & alcohol support,project,mapping/co-creation
+claim_63,component_1,287,embedded: funding → of part,claim,narrative_extraction
+channel_9508.0,component_1,287,P001,channel,listening
+channel_9511.0,component_1,287,LT 001,channel,listening
+agent_5827,component_1,287,Mental Health Reform,agent,mapping
+perception_406,component_1,287,Siobhán,perception,listening
+claim_109,component_1,287,mean: +/. school → huge challenge,claim,narrative_extraction
+claim_9,component_1,287,lacks: and community → structural gaps,claim,narrative_extraction
+information_25365,component_1,287,Unnamed,information,listening
+claim_118,component_1,287,lacks: +/. matter → any time,claim,narrative_extraction
+project_4559,component_1,287,Addiction Counselling,project,mapping/co-creation
+channel_9548.0,component_1,287,004_FF,channel,listening
+claim_7,component_1,287,want: and donors → of part,claim,narrative_extraction
+information_23087,component_1,287,Unnamed,information,listening
+project_4561,component_1,287,Green Campus & Sustainability,project,mapping/co-creation
+information_25335,component_1,287,Unnamed,information,listening
+claim_102,component_1,287,lacks: young people → greater awareness,claim,narrative_extraction
+agent_4722,component_1,287,Rethink Ireland,agent,mapping
+claim_27,component_1,287,allowed: led interest → real sense,claim,narrative_extraction
+information_25369,component_1,287,Unnamed,information,listening
+information_25586,component_1,287,Unnamed,information,listening
+claim_72,component_1,287,live: people → their family,claim,narrative_extraction
+information_25346,component_1,287,Unnamed,information,listening
+challenge_2559,component_1,287,"Reactive, not preventive systems",challenge,listening
+information_25357,component_1,287,Unnamed,information,listening
+claim_17,component_1,287,face: local organisations → systemic problems,claim,narrative_extraction
+information_25589,component_1,287,Unnamed,information,listening
+claim_62,component_1,287,come: future → +/. information,claim,narrative_extraction
+channel_9507.0,component_1,287,RI -03,channel,listening
+channel_9576.0,component_1,287,H-007,channel,listening
+agent_5493,component_1,287,Home Liaison Officers,agent,mapping
+information_25587,component_1,287,Unnamed,information,listening
+claim_35,component_1,287,lacks: unprecedented surge → in interest,claim,narrative_extraction
+agent_5350,component_1,287,Liquid Therapy,agent,mapping
+claim_21,component_1,287,filling: and teachers → +/. health,claim,narrative_extraction
+claim_110,component_1,287,think: big believer → social capital,claim,narrative_extraction
+claim_18,component_1,287,rebuild: sustained funding → +/. support,claim,narrative_extraction
+information_25350,component_1,287,Unnamed,information,listening
+claim_59,component_1,287,setting: approach → road,claim,narrative_extraction
+pilot_837,component_1,287,Community of practice: Teachers as change agents,pilot,mapping/co-creation
+claim_95,component_1,287,lacks: of terms → mental health,claim,narrative_extraction
+claim_120,component_1,287,lacks: to jama → service,claim,narrative_extraction
+claim_4,component_1,287,lacks: lot → system,claim,narrative_extraction
+information_25598,component_1,287,Unnamed,information,listening
+information_25360,component_1,287,Unnamed,information,listening
+claim_32,component_1,287,rethink: our partnership → rethink ireland,claim,narrative_extraction
+agent_5387,component_1,287,JLOs/ Managers/Support staff in International Protection Centre?,agent,mapping
+claim_65,component_1,287,set: frustrations → +/. health,claim,narrative_extraction
+claim_54,component_1,287,delivered: +/. health → +/. consultant,claim,narrative_extraction
+claim_78,component_1,287,lacks: nice words → funding,claim,narrative_extraction
+claim_56,component_1,287,lacks: project → inclusive feel,claim,narrative_extraction
+project_4549,component_1,287,2030 Sustainability Roadmap,project,mapping/co-creation
+information_25361,component_1,287,Unnamed,information,listening
+information_25597,component_1,287,Unnamed,information,listening
+information_25581,component_1,287,Unnamed,information,listening
+information_25356,component_1,287,Unnamed,information,listening
+challenge_2561,component_1,287,Overloaded schools acting as mental health providers,challenge,listening
+claim_80,component_1,287,lacks: right people → to travelers,claim,narrative_extraction
+project_4560,component_1,287,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,project,mapping/co-creation
+channel_9490.0,component_1,287,RI_001,channel,listening
+information_25828,component_1,287,Unnamed,information,listening
+agent_5811,component_1,287,Schools,agent,mapping
+channel_9508,component_1,287,Unnamed,channel,listening
+project_4596,component_1,287,Youth Service,project,mapping/co-creation
+information_25354,component_1,287,Unnamed,information,listening
+challenge_2565,component_1,287,Short-termism and fragmented systems,challenge,listening
+project_4552,component_1,287,Community Engagement,project,mapping/co-creation
+information_23090,component_1,287,Unnamed,information,listening
+information_25343,component_1,287,Unnamed,information,listening
+project_4577,component_1,287,Training,project,mapping/co-creation
+information_25595,component_1,287,Unnamed,information,listening
+claim_98,component_1,287,believe: main challenge → and poverty,claim,narrative_extraction
+claim_111,component_1,287,contingent_on: big believer → social capital,claim,narrative_extraction
+challenge_2554,component_1,287,Fragile volunteer infrastructure,challenge,listening
+information_25353,component_1,287,Unnamed,information,listening
+agent_5379,component_1,287,Young People,agent,mapping
+claim_60,component_1,287,knock: great thing → physical activity,claim,narrative_extraction
+claim_115,component_1,287,contingent_on: experience → three# years,claim,narrative_extraction
+information_25593,component_1,287,Unnamed,information,listening
+claim_85,component_1,287,needs_protection: my opinion → +/. health,claim,narrative_extraction
+information_25363,component_1,287,Unnamed,information,listening
+information_23091,component_1,287,Unnamed,information,listening
+claim_52,component_1,287,deemed: my role → service,claim,narrative_extraction
+project_4158,component_1,287,iScoil,project,mapping/co-creation
+agent_5383,component_1,287,"Education Welfare Officers (EWOs, TESS team)",agent,mapping
+information_26119,component_1,287,Unnamed,information,listening
+channel_9549,component_1,287,Unnamed,channel,listening
+claim_73,component_1,287,lacks: people → their family,claim,narrative_extraction
+challenge_2562,component_1,287,Early intervention within schools,challenge,listening
+agent_5499,component_1,287,Sláintecare Healthy Communities (Donegal),agent,mapping
+information_25364,component_1,287,Unnamed,information,listening
+channel_8509.0,component_1,287,SS-001,channel,listening
+channel_9509.0,component_1,287,002,channel,listening
+claim_113,component_1,287,think: good person → your life,claim,narrative_extraction
+perception_407,component_1,287,Luke,perception,listening
+claim_61,component_1,287,come: future → +/. information,claim,narrative_extraction
+channel_9490,component_1,287,Unnamed,channel,listening
+channel_9549.0,component_1,287,T_006,channel,listening
+claim_94,component_1,287,lost: of terms → mental health,claim,narrative_extraction
+agent_5818,component_1,287,ISCOIL,agent,mapping
+claim_82,component_1,287,contingent_on: idea → +/. traveler,claim,narrative_extraction
+claim_43,component_1,287,lacks: to thanks → +/. headstart,claim,narrative_extraction
+claim_41,component_1,287,advanced: learning → 722# people,claim,narrative_extraction
+information_25584,component_1,287,Unnamed,information,listening
+information_25348,component_1,287,Unnamed,information,listening
+claim_119,component_1,287,come: to jama → service,claim,narrative_extraction
+claim_79,component_1,287,have: right people → to travelers,claim,narrative_extraction
+information_25334,component_1,287,Unnamed,information,listening
+challenge_2558,component_1,287,Invest in long-term community capacity,challenge,listening
+information_23088,component_1,287,Unnamed,information,listening
+information_25349,component_1,287,Unnamed,information,listening
+claim_45,component_1,287,helped: +/. liquid → my fear,claim,narrative_extraction
+information_25355,component_1,287,Unnamed,information,listening
+channel_9603,component_1,287,Unnamed,channel,listening
+claim_77,component_1,287,put: nice words → funding,claim,narrative_extraction
+challenge_2560,component_1,287,Build mentoring and peer-support ecosystems,challenge,listening
+agent_5504,component_1,287,Inishowen Family Action Network (IFAN),agent,mapping
+challenge_2309,component_1,287,Resource strain and burnout,challenge,listening
+claim_90,component_1,287,getting: programs → +/. surf,claim,narrative_extraction
+claim_15,component_1,287,turn: in sport → +/. health,claim,narrative_extraction
+information_25347,component_1,287,Unnamed,information,listening
+project_4538,component_1,287,Housing-led Supports for homeless/ people at risk of homelessness,project,mapping/co-creation
+claim_107,component_1,287,reconnects: mindfulness → your brain,claim,narrative_extraction
+claim_26,component_1,287,allowed: led interest → real sense,claim,narrative_extraction
+information_25344,component_1,287,Unnamed,information,listening
+information_25352,component_1,287,Unnamed,information,listening
+claim_55,component_1,287,helps: project → inclusive feel,claim,narrative_extraction
+claim_2,component_1,287,used:  → ,claim,narrative_extraction
+information_25362,component_1,287,Unnamed,information,listening
+claim_8,component_1,287,fill: and community → structural gaps,claim,narrative_extraction
+claim_117,component_1,287,think: +/. matter → any time,claim,narrative_extraction
+information_25359,component_1,287,Unnamed,information,listening
+claim_50,component_1,287,lacks: my favourite → things,claim,narrative_extraction
+project_4616,component_1,287,Connected Communities Fund,project,mapping/co-creation
+agent_5506,component_1,287,Public Health Nurse Network (Carndonagh),agent,mapping
+perception_410,component_1,287,Naomi,perception,listening
+claim_16,component_1,287,deteriorates: +/. patients → physical health,claim,narrative_extraction
+information_25342,component_1,287,Unnamed,information,listening
+claim_116,component_1,287,labelled: +/. gps → case,claim,narrative_extraction
+channel_9506,component_1,287,Unnamed,channel,listening
+information_25332,component_1,287,Unnamed,information,listening
+claim_25,component_1,287,prioritises: and funding → sustained systems,claim,narrative_extraction
+information_25368,component_1,287,Unnamed,information,listening
+information_25829,component_1,287,Unnamed,information,listening
+claim_100,component_1,287,suppose: moment → young people,claim,narrative_extraction
+agent_5868,component_1,287,Aware,agent,mapping
+agent_5384,component_1,287,School Guidance Counsellors/Chaplins/School Support Team,agent,mapping
+claim_70,component_1,287,supports: +/. link → +/. hse,claim,narrative_extraction
+channel_9506.0,component_1,287,RI-002,channel,listening
+claim_6,component_1,287,seek: public institutions → measurable impact,claim,narrative_extraction
+claim_24,component_1,287,prevent: at support → younger ages,claim,narrative_extraction
+challenge_2555,component_1,287,Recognise sport as a health asset,challenge,listening
+channel_9509,component_1,287,Unnamed,channel,listening
+information_25592,component_1,287,Unnamed,information,listening
+claim_44,component_1,287,helped: +/. liquid → my fear,claim,narrative_extraction
+challenge_2557,component_1,287,Chronic underfunding of community work,challenge,listening
+claim_104,component_1,287,suppose: big area → is anxiety,claim,narrative_extraction
+agent_5872,component_1,287,Spiritan Asylum Services Initiative CLG (T/A Spirasi),agent,mapping
+information_25594,component_1,287,Unnamed,information,listening
+claim_75,component_1,287,lacks: lot → young traveler,claim,narrative_extraction
+claim_58,component_1,287,see: future models → more people,claim,narrative_extraction
+channel_9511,component_1,287,Unnamed,channel,listening
+agent_5806,component_1,287,Rugby Players Ireland Foundation,agent,mapping
+claim_31,component_1,287,thank: your commitment → ,claim,narrative_extraction
+claim_91,component_1,287,lacks: programs → +/. surf,claim,narrative_extraction
+claim_84,component_1,287,ensuring: my opinion → +/. health,claim,narrative_extraction
+agent_5370,component_1,287,Focus Ireland,agent,mapping
+claim_49,component_1,287,think: my favourite → things,claim,narrative_extraction
+agent_5837,component_1,287,"Department of Children, Disability and Equality",agent,mapping
+claim_48,component_1,287,guess: social anxiety → with people,claim,narrative_extraction
+information_25367,component_1,287,Unnamed,information,listening
+claim_92,component_1,287,bridging: main challenge → context,claim,narrative_extraction
+channel_9512.0,component_1,287,003,channel,listening
+perception_408,component_1,287, Aoibhe,perception,listening
+claim_97,component_1,287,see: +/. lot → of students,claim,narrative_extraction
+perception_409,component_1,287,Mary,perception,listening
+claim_14,component_1,287,depend: and sports → exhausted volunteers,claim,narrative_extraction
+information_25599,component_1,287,Unnamed,information,listening
+perception_411,component_1,287, John,perception,listening
+claim_19,component_1,287,address: +/. youth → +/. prevention,claim,narrative_extraction
+channel_9507,component_1,287,Why Wellbeing Matters Report ,channel,listening
+claim_81,component_1,287,had: idea → +/. traveler,claim,narrative_extraction
+claim_114,component_1,287,funded: experience → three# years,claim,narrative_extraction
+claim_96,component_1,287,say: most students → therapeutic services,claim,narrative_extraction
+claim_71,component_1,287,think: +/. traveler → +/. traveler,claim,narrative_extraction
+claim_20,component_1,287,valued: social connections → young people,claim,narrative_extraction
+claim_22,component_1,287,lacks: and teachers → +/. health,claim,narrative_extraction
+claim_28,component_1,287,rethink: support → rethink ireland,claim,narrative_extraction
+challenge_2556,component_1,287,Fragmented care between mind and body,challenge,listening
+channel_9510,component_1,287,Unnamed,channel,listening
+claim_74,component_1,287,read: lot → young traveler,claim,narrative_extraction
+claim_101,component_1,287,suppose: young people → greater awareness,claim,narrative_extraction
+channel_9576,component_1,287,Unnamed,channel,listening
+information_25366,component_1,287,Unnamed,information,listening
+agent_5518,component_1,287,Sport Northern Ireland,agent,mapping
+information_25336,component_1,287,Unnamed,information,listening
+project_4555,component_1,287,Vocational training,project,mapping/co-creation
+agent_5358,component_1,287,Spraoi & Sport,agent,mapping
+claim_30,component_1,287,rethink: rethink ireland → early phase,claim,narrative_extraction
+agent_5508,component_1,287,Safefood,agent,mapping
+information_25591,component_1,287,Unnamed,information,listening
+claim_69,component_1,287,supports: +/. link → +/. hse,claim,narrative_extraction
+channel_9510.0,component_1,287,003,channel,listening
+project_4170,component_1,287,FoodCloud ,project,mapping/co-creation
+claim_3,component_1,287,tell: lot → system,claim,narrative_extraction
+claim_106,component_1,287,contingent_on:  → ,claim,narrative_extraction
+information_25338,component_1,287,Unnamed,information,listening
+claim_13,component_1,287,make: and lifestyle → into care,claim,narrative_extraction
+claim_112,component_1,287,think: good person → your life,claim,narrative_extraction
+claim_33,component_1,287,rethink: our partnership → rethink ireland,claim,narrative_extraction
+information_25256,component_1,287,Unnamed,information,listening
+claim_108,component_1,287,lacks: mindfulness → your brain,claim,narrative_extraction
+information_23092,component_2,6,Unnamed,information,listening
+claim_36,component_2,6,talk: little girl → +/. autism,claim,narrative_extraction
+project_4174,component_2,6,Sensational Kids,project,mapping/co-creation
+claim_37,component_2,6,lacks: little girl → +/. autism,claim,narrative_extraction
+channel_8510.0,component_2,6,SS-002,channel,listening
+project_4535,component_2,6,Connecting for Life - Ireland's national strategy to reduce suicide ,project,mapping/co-creation
+claim_12,component_3,3,lacks: listening practices → +/. policy,claim,narrative_extraction
+claim_11,component_3,3,allows: listening practices → +/. policy,claim,narrative_extraction
+challenge_2523,component_3,3,Listening as Trust-Building,challenge,listening
+agent_4754,component_4,1,Hope and Courage Collective,agent,mapping
+agent_4757,component_5,1,HSE (Health Service Executive),agent,mapping
+agent_4786,component_6,1,Tacú Ballinrobe Family Resource Centre,agent,mapping
+agent_5351,component_7,1,Cruthu Foundation Way2Work,agent,mapping
+agent_5360,component_8,1,Special Olympics,agent,mapping
+agent_5366,component_9,1,First Fortnight,agent,mapping
+agent_5367,component_10,1,Tacu Family Resource Centre,agent,mapping
+agent_5369,component_11,1,TUSLA,agent,mapping
+agent_5371,component_12,1,Community Foundation Ireland,agent,mapping
+agent_5372,component_13,1,Blue Box Creative Arts Centre,agent,mapping
+agent_5374,component_14,1,Knocklee House (Kerry Recovery Centre),agent,mapping
+agent_5375,component_15,1,St. Brigid’s Family Resource Centre (Tralee),agent,mapping
+agent_5377,component_16,1,NOVAS,agent,mapping
+agent_5380,component_17,1,Parents ,agent,mapping
+agent_5382,component_18,1,Youthreach,agent,mapping
+agent_5476,component_19,1,Children's Health Ireland,agent,mapping
+agent_5477,component_20,1,ETBs,agent,mapping
+agent_5478,component_21,1,Sisk Group,agent,mapping
+agent_5479,component_22,1,Construction Industry Federation,agent,mapping
+agent_5480,component_23,1,Society of the Irish Motor Industry (SIMI),agent,mapping
+agent_5481,component_24,1,"Parents, Guardians & Aftercare workers",agent,mapping
+agent_5483,component_25,1,Oberstown Children Detention Campus ,agent,mapping
+agent_5488,component_26,1,Involve CLG,agent,mapping
+agent_5489,component_27,1,Arts Council,agent,mapping
+agent_5490,component_28,1,Children and young persons committees (CYPSC),agent,mapping
+agent_5491,component_29,1,Regional Health Areas,agent,mapping
+agent_5492,component_30,1,Family Resource Centres,agent,mapping
+agent_5494,component_31,1,Hospital clinical staff,agent,mapping
+agent_5497,component_32,1,Patient Support Groups,agent,mapping
+agent_5500,component_33,1,Jigsaw,agent,mapping
+agent_5502,component_34,1,ETB Youthreach Carndonagh,agent,mapping
+agent_5505,component_35,1,Carndonagh Community School – Pastoral Care Team,agent,mapping
+agent_5509,component_36,1,Breast Cancer Ireland,agent,mapping
+agent_5510,component_37,1,UCC School of Dentistry ,agent,mapping
+agent_5511,component_38,1,UCC School of Audiloogy ,agent,mapping
+agent_5512,component_39,1,RCSI,agent,mapping
+agent_5513,component_40,1,University of Ulster,agent,mapping
+agent_5516,component_41,1,Rosemary Collaboratory,agent,mapping
+agent_5782,component_42,1,Agirre Lehendakaria Center,agent,mapping
+agent_5783,component_43,1,Shoutout,agent,mapping
+agent_5785,component_44,1,spunout,agent,mapping
+agent_5786,component_45,1,Childhood Matters,agent,mapping
+agent_5787,component_46,1,Hair Together,agent,mapping
+agent_5788,component_47,1,Bohemian Football Club,agent,mapping
+agent_5790,component_48,1,Football Coop,agent,mapping
+agent_5791,component_49,1,Irish Homeless Street Leagues,agent,mapping
+agent_5792,component_50,1,Sanctuary Runners,agent,mapping
+agent_5793,component_51,1,Irish Surfing,agent,mapping
+agent_5794,component_52,1,Donegal Sports Partnership,agent,mapping
+agent_5795,component_53,1,Pobal,agent,mapping
+agent_5797,component_54,1,Donegal County Council,agent,mapping
+agent_5798,component_55,1,Interreg,agent,mapping
+agent_5799,component_56,1,National Surf Centre Strandhill,agent,mapping
+agent_5800,component_57,1,INCLUSEA,agent,mapping
+agent_5807,component_58,1,Z Zurich Foundation,agent,mapping
+agent_5808,component_59,1,Unnamed,agent,mapping
+agent_5809,component_60,1,Rugby Player Ireland Members,agent,mapping
+agent_5812,component_61,1,Youth Groups,agent,mapping
+agent_5813,component_62,1,Foróige - The National Youth Development Organisation,agent,mapping
+agent_5814,component_63,1,Local health professionals,agent,mapping
+agent_5815,component_64,1,Surf Schools and Clubs,agent,mapping
+agent_5816,component_65,1,Caregivers,agent,mapping
+agent_5817,component_66,1,University of Limerick ,agent,mapping
+agent_5821,component_67,1,DCU anti-bullying centre,agent,mapping
+agent_5823,component_68,1,Zurich Ireland,agent,mapping
+agent_5825,component_69,1,National Youth Assembly,agent,mapping
+agent_5826,component_70,1,Comhairle na nOg,agent,mapping
+agent_5828,component_71,1,Philanthropy Ireland ,agent,mapping
+agent_5829,component_72,1,The Lighthouse Charity,agent,mapping
+agent_5830,component_73,1,State Street,agent,mapping
+agent_5831,component_74,1,Nature Worx ,agent,mapping
+agent_5832,component_75,1,Bounce Back Recycling ,agent,mapping
+agent_5833,component_76,1, UNESCO Child and Family Research Centre at the University of Galway,agent,mapping
+agent_5835,component_77,1,Universities & 3rd evel Education,agent,mapping
+agent_5836,component_78,1,Eco Unesco,agent,mapping
+agent_5838,component_79,1,Department of Education and Youth,agent,mapping
+agent_5839,component_80,1,YouthMedInfo,agent,mapping
+agent_5840,component_81,1,Young social innovators,agent,mapping
+agent_5841,component_82,1,Higher education authority,agent,mapping
+agent_5842,component_83,1,Gaisce,agent,mapping
+agent_5843,component_84,1,bodywhys,agent,mapping
+agent_5844,component_85,1,Atlantic Futures,agent,mapping
+agent_5846,component_86,1,Barnardos,agent,mapping
+agent_5847,component_87,1,Samaritans,agent,mapping
+agent_5848,component_88,1,HUGG,agent,mapping
+agent_5850,component_89,1,Portlaoise Prisons,agent,mapping
+agent_5869,component_90,1,Common Knowledge Centre for Sustainable Living CLG,agent,mapping
+agent_5871,component_91,1,Childhood Development Initiative,agent,mapping
+agent_5873,component_92,1,Women's Collective Ireland - Tallaght,agent,mapping
+agent_5875,component_93,1,Street Feast (t/a Neighbourhood Network),agent,mapping
+agent_5876,component_94,1,National Youth Council of Ireland,agent,mapping
+agent_5877,component_95,1,Mason Hayes & Curran LLP,agent,mapping
+agent_5878,component_96,1,The Department of Rural and Community Development and the Gaeltacht,agent,mapping
+agent_5930,component_97,1,Accessible Adventures Ireland,agent,mapping
+agent_5931,component_98,1,Active Disabilities Ireland,agent,mapping
+agent_5932,component_99,1,Vision Sports Ireland,agent,mapping
+agent_5933,component_100,1,Irish Foster Care Association,agent,mapping
+agent_5934,component_101,1,Unnamed,agent,mapping
+agent_5935,component_102,1,Open Specturrm,agent,mapping
+agent_5936,component_103,1,County Councils (Local Area Sport Partnership),agent,mapping
+project_4152,component_104,1,Bounce Back Recycling,project,mapping/co-creation
+project_4154,component_105,1,Change Clothes Crumlin,project,mapping/co-creation
+project_4155,component_106,1,Educate Together,project,mapping/co-creation
+project_4156,component_107,1,Fighting Words,project,mapping/co-creation
+project_4159,component_108,1,Not So Different,project,mapping/co-creation
+project_4160,component_109,1,The Shona Project,project,mapping/co-creation
+project_4162,component_110,1,SpunOut.ie,project,mapping/co-creation
+project_4164,component_111,1,Social Innovation Campus,project,mapping/co-creation
+project_4167,component_112,1,Trinity Access 21 (TA21),project,mapping/co-creation
+project_4169,component_113,1,The Great Care Co-op,project,mapping/co-creation
+project_4171,component_114,1,GIY (Grow It Yourself),project,mapping/co-creation
+project_4172,component_115,1,Helium Arts,project,mapping/co-creation
+project_4173,component_116,1,The No Barriers Foundation,project,mapping/co-creation
+project_4175,component_117,1,Gaisce – The President's Award,project,mapping/co-creation
+project_4176,component_118,1,Uplift ,project,mapping/co-creation
+project_4178,component_119,1,Hair Together,project,mapping/co-creation
+project_4529,component_120,1,Inclusive Surf Programmes,project,mapping/co-creation
+project_4530,component_121,1,Innovation in Sport,project,mapping/co-creation
+project_4531,component_122,1,Community Services Programme,project,mapping/co-creation
+project_4532,component_123,1,PEACEPlus Initiative ,project,mapping/co-creation
+project_4533,component_124,1,iSURFATLANTIC,project,mapping/co-creation
+project_4534,component_125,1,INCLUSEA,project,mapping/co-creation
+project_4536,component_126,1,Area‑Based Childhood Programme (ABC),project,mapping/co-creation
+project_4537,component_127,1,"Meitheal - Prevention, Partnership & Family Support (PPFS)",project,mapping/co-creation
+project_4539,component_128,1,RTE Toy Show Appeal,project,mapping/co-creation
+project_4540,component_129,1,Creative Arts Psychotherapy for vulnerable children - Limerick,project,mapping/co-creation
+project_4541,component_130,1,Journey to Freedom,project,mapping/co-creation
+project_4547,component_131,1,Tusla Aftercare Drop-In Services,project,mapping/co-creation
+project_4548,component_132,1,Crosscare Aftercare Service ,project,mapping/co-creation
+project_4550,component_133,1,Carbon Neutrality,project,mapping/co-creation
+project_4551,component_134,1,Tree planting,project,mapping/co-creation
+project_4553,component_135,1,Lighthouse Industry Construction Federation Charity - 24/7 Support,project,mapping/co-creation
+project_4554,component_136,1,Mental Health & Wellbeing,project,mapping/co-creation
+project_4556,component_137,1,STEPS+ programme,project,mapping/co-creation
+project_4557,component_138,1,Oberstown coffee van business; Bord Bia Bloom,project,mapping/co-creation
+project_4558,component_139,1,Bord Bia Bloom,project,mapping/co-creation
+project_4562,component_140,1,Innovation Strategy,project,mapping/co-creation
+project_4563,component_141,1,Reads & Rhymes Together,project,mapping/co-creation
+project_4564,component_142,1, Headstart Fund,project,mapping/co-creation
+project_4565,component_143,1,Breaking Barriers Fund,project,mapping/co-creation
+project_4566,component_144,1,Innovate Together,project,mapping/co-creation
+project_4567,component_145,1,Ktool,project,mapping/co-creation
+project_4568,component_146,1,A Drop in The Ocean [ADITO],project,mapping/co-creation
+project_4569,component_147,1,Big Brother Big Sister,project,mapping/co-creation
+project_4570,component_148,1,Surf Club,project,mapping/co-creation
+project_4571,component_149,1,Open Event,project,mapping/co-creation
+project_4572,component_150,1,Generation Pride,project,mapping/co-creation
+project_4573,component_151,1,School Workshops ,project,mapping/co-creation
+project_4574,component_152,1,Corporate Workshops,project,mapping/co-creation
+project_4575,component_153,1,LGBTQI+ Inclusion Training,project,mapping/co-creation
+project_4576,component_154,1,Fair Play - Sports LGBTQ+ Inclusion,project,mapping/co-creation
+project_4578,component_155,1,Creative Arts Therapy,project,mapping/co-creation
+project_4579,component_156,1,Spunout Academy ,project,mapping/co-creation
+project_4580,component_157,1,CHIPPS,project,mapping/co-creation
+project_4581,component_158,1,Limetree Project,project,mapping/co-creation
+project_4582,component_159,1,Creches,project,mapping/co-creation
+project_4583,component_160,1,Teen Parent Support Programme,project,mapping/co-creation
+project_4584,component_161,1,Hair Together Programme,project,mapping/co-creation
+project_4585,component_162,1,SPACE,project,mapping/co-creation
+project_4586,component_163,1,Meals on wheels,project,mapping/co-creation
+project_4587,component_164,1,Family support,project,mapping/co-creation
+project_4589,component_165,1,Counselling,project,mapping/co-creation
+project_4590,component_166,1,Parent toddler groups,project,mapping/co-creation
+project_4591,component_167,1,"Various groups, camps and workshops",project,mapping/co-creation
+project_4592,component_168,1,Pride on the PItch,project,mapping/co-creation
+project_4593,component_169,1,No Shame,project,mapping/co-creation
+project_4594,component_170,1,Traveller Voice,project,mapping/co-creation
+project_4595,component_171,1,Traveller Culture & Identity Programme (TCIP),project,mapping/co-creation
+project_4597,component_172,1,Health and Wellbeing Programme,project,mapping/co-creation
+project_4598,component_173,1,New Trails,project,mapping/co-creation
+project_4599,component_174,1,Place-based Football Coop groups,project,mapping/co-creation
+project_4600,component_175,1,Drop-In Leagues,project,mapping/co-creation
+project_4601,component_176,1,Sanctuary groups nationwide,project,mapping/co-creation
+project_4602,component_177,1,Tackle Your Feelings,project,mapping/co-creation
+project_4603,component_178,1,Sport & Wellness Fund,project,mapping/co-creation
+project_4604,component_179,1,Brighter Futures Fund,project,mapping/co-creation
+project_4605,component_180,1,Women in Sport,project,mapping/co-creation
+project_4606,component_181,1,Erasmus+ Sport program,project,mapping/co-creation
+project_4607,component_182,1,Integrated care programme for children,project,mapping/co-creation
+project_4608,component_183,1,Entrepreneurship Impact Fund ,project,mapping/co-creation
+project_4609,component_184,1,Why Wellbeing Matters,project,mapping/co-creation
+project_4610,component_185,1,National Wellbeing Framework,project,mapping/co-creation
+project_4611,component_186,1,Wellbeing Policy Framework of the Department of Education,project,mapping/co-creation
+pilot_836,component_187,1,Digital wellbeing lab,pilot,mapping/co-creation
+pilot_838,component_188,1,Transition to adulthood pathways,pilot,mapping/co-creation
+pilot_839,component_189,1,Cross-sector residencies,pilot,mapping/co-creation
+pilot_840,component_190,1,Adopt a practice,pilot,mapping/co-creation
+prototype_511,component_191,1,National digital infrastructure to measure the true cost of mental health,prototype,mapping/co-creation
+prototype_512,component_192,1,National listening infrastructure,prototype,mapping/co-creation
+prototype_513,component_193,1,The living map of the mental health ecosystem in Ireland,prototype,mapping/co-creation
+challenge_2564,component_194,1,"Addressing mental health as a systemic issue, not individual",challenge,listening
+theme_16,component_195,1,Social innovation,theme,mapping
+theme_30,component_196,1,Challenges,theme,mapping
+theme_50,component_197,1,Youth,theme,mapping
+theme_198,component_198,1,Youth engagement,theme,mapping
+theme_201,component_199,1,Youth support,theme,mapping
+theme_620,component_200,1,Mental Health,theme,mapping
+theme_701,component_201,1,Philanthropy & Funding,theme,mapping
+theme_775,component_202,1,Community & Inclusion ,theme,mapping
+theme_778,component_203,1,Health & Wellbeing,theme,mapping
+theme_781,component_204,1,Education & Youth Empowerment,theme,mapping

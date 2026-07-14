@@ -1,8 +1,8 @@
 {
-  "simulation_timestamp": "2026-07-02T15:09:36.054006+00:00",
-  "evaluated_core_node_volume": 71,
+  "simulation_timestamp": "2026-07-08T14:29:53.572409+00:00",
+  "evaluated_core_node_volume": 287,
   "targeted_steps_simulated": 30,
-  "systemic_drop_delta_targeted": 0.8873,
-  "systemic_drop_delta_random": 0.7746,
+  "systemic_drop_delta_targeted": 0.3415,
+  "systemic_drop_delta_random": 0.1289,
   "verdict": "Ecosystem exhibits extreme targeted vulnerability due to high centralized gatekeeper centralization."
 }

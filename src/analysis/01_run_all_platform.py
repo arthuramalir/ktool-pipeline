@@ -36,10 +36,18 @@ CORE_SCRIPTS = [
     ("09_perception_diagnostics.py", "Perception diagnostics — coherence, purity, source entropy"),
     ("21_extract_narrative_layers.py", "Narrative extraction — surface/implicit claims + metanarrative classification"),
     ("00_prepare_graph_tables.py", "Re-prepare graph with claim nodes/edges from narrative extraction"),
+    ("08b_bootstrap_claim_embeddings.py", "Bootstrap claim-node embeddings from claim description text"),
     ("11_gnn_preparation.py", "GNN preparation - features, heterographs, uncertainty-aware confidence"),
     ("12_train_gnn_node_type.py", "GNN node-type benchmark"),
     ("13_train_gnn_link_prediction.py", "GNN link prediction and mapping AI shortlist"),
     ("14_structural_impact_prediction.py", "Structural impact prediction — issue-driven edge recommendations + narrative impact"),
+    ("20_structural_change_possibility.py", "Structural change feasibility — leverage points, blockages, plasticity"),
+    ("22_structural_analysis_hypotheses.py", "Structural analysis hypotheses — 48 hypotheses per platform from all outputs"),
+    ("23_link_clusters_to_claims.py", "Cluster-to-claim linking matrix for ethnographic profile builders"),
+    ("26_compute_narrative_diffusion.py", "PageRank + narrative diffusion bias for all nodes"),
+    ("27_cluster_narrative_simulation.py", "Cluster-level narrative simulation — FJ opinion dynamics on story clusters"),
+    ("25_gbcm_fj_simulation.py", "GBCM-FJ narrative-opinion simulation — perception-aware counterfactual analysis"),
+    ("28_enrich_value_dimensions.py", "Backfill value_dimension from thematic_areas + assign county from location"),
 ]
 
 PLATFORM_SPECIFIC = {
@@ -48,16 +56,6 @@ PLATFORM_SPECIFIC = {
     ],
     "173": [
         ("04_investment_opportunity.py", "Investment analysis for platform 173"),
-    ],
-    "173_synthetic": [
-        ("00_enrich_173_synthetic_dataset.py", "Synthetic enrichment for sparse initiative, listening, and edge fields"),
-        ("04_investment_oppurtunity.py", "Investment analysis for synthetic platform 173"),
-        ("04_investment_opportunity_synthetic.py", "Financial simulation — value leverage, stranded assets, financial diffusion"),
-        ("05_prototype_project_candidates_synthetic.py", "Prototype-project candidate scoring"),
-        ("15_extract_relevant_quotes.py", "Listening-layer quote extraction"),
-        ("16_detect_quote_semantic_edges.py", "Quote semantic-edge detection"),
-        ("17_cluster_quotes_into_profiles.py", "Quote clustering and narrative profiles"),
-        ("18_perception_space_effects.py", "Perception-space effects for mapping proposals"),
     ],
 }
 
@@ -101,11 +99,11 @@ def main() -> None:
 
     if PLATFORM_ID == "173_synthetic":
         scripts = [
+            ("00_enrich_locations.py", "Irish location assignment for projects, agents, channels (synthetic only)"),
             ("00_enrich_173_synthetic_dataset.py", "Synthetic enrichment for sparse initiative, listening, and edge fields"),
             ("15_extract_relevant_quotes.py", "Listening-layer quote extraction"),
             ("16_detect_quote_semantic_edges.py", "Quote semantic-edge detection"),
             ("17_cluster_quotes_into_profiles.py", "Quote clustering and narrative profiles"),
-            ("00_prepare_graph_tables.py", "Rebuild the normalized graph tables from the enriched synthetic dataset"),
         ]
         scripts.extend(CORE_SCRIPTS)
         scripts.extend(

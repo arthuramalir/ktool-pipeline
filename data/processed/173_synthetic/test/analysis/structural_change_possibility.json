@@ -1,0 +1,141 @@
+{
+  "graph_summary": {
+    "nodes": 498,
+    "edges": 866,
+    "components": 114,
+    "giant_component_share": 0.769,
+    "max_k_core": 8,
+    "fraction_in_dense_core": 0.02
+  },
+  "leverage_points": {
+    "n_high_betweenness_nodes": 10,
+    "n_bridge_agents": 10,
+    "top_betweenness_nodes": [
+      {
+        "global_id": "agent_5379",
+        "betweenness_centrality": 0.0727003661889063,
+        "degree": 29
+      },
+      {
+        "global_id": "project_4560",
+        "betweenness_centrality": 0.0566684167031442,
+        "degree": 18
+      },
+      {
+        "global_id": "pilot_837",
+        "betweenness_centrality": 0.038447970181674,
+        "degree": 12
+      },
+      {
+        "global_id": "project_4166",
+        "betweenness_centrality": 0.03457902419624,
+        "degree": 13
+      },
+      {
+        "global_id": "information_25349",
+        "betweenness_centrality": 0.0320618765853073,
+        "degree": 13
+      },
+      {
+        "global_id": "information_25589",
+        "betweenness_centrality": 0.0306940631669434,
+        "degree": 19
+      },
+      {
+        "global_id": "project_4552",
+        "betweenness_centrality": 0.0304618642768661,
+        "degree": 8
+      },
+      {
+        "global_id": "agent_5384",
+        "betweenness_centrality": 0.0299191359065109,
+        "degree": 12
+      },
+      {
+        "global_id": "information_25337",
+        "betweenness_centrality": 0.0286881517772226,
+        "degree": 16
+      },
+      {
+        "global_id": "project_4168",
+        "betweenness_centrality": 0.0266256513031185,
+        "degree": 11
+      }
+    ],
+    "top_bridge_agents": [
+      {
+        "global_id": "agent_4722",
+        "score": 0.3352
+      },
+      {
+        "global_id": "agent_5785",
+        "score": 0.3157
+      },
+      {
+        "global_id": "agent_5350",
+        "score": 0.3138
+      },
+      {
+        "global_id": "agent_5360",
+        "score": 0.3111
+      },
+      {
+        "global_id": "agent_5806",
+        "score": 0.3087
+      },
+      {
+        "global_id": "agent_5351",
+        "score": 0.3084
+      },
+      {
+        "global_id": "agent_5789",
+        "score": 0.3081
+      },
+      {
+        "global_id": "agent_4753",
+        "score": 0.3079
+      },
+      {
+        "global_id": "agent_5358",
+        "score": 0.3076
+      },
+      {
+        "global_id": "agent_5783",
+        "score": 0.3072
+      }
+    ]
+  },
+  "plasticity": {
+    "n_peripheral_nodes_deg_1_2": 197,
+    "n_medium_nodes_deg_3_5": 200,
+    "n_gnn_high_conf_new_links": 3,
+    "n_links_that_merge_components": 2
+  },
+  "blockages": {
+    "n_fragile_connectors": 33,
+    "n_isolated_nodes": 112,
+    "n_small_components": 113,
+    "nodes_in_small_components": 115,
+    "n_blocked_perceptions": 0,
+    "blocked_perception_sample": []
+  },
+  "path_dependency": {
+    "robustness_gap_targeted_vs_random": -0.0656,
+    "targeted_final_residual": 0.8425,
+    "random_final_residual": 0.9081
+  },
+  "change_readiness_scores": {
+    "leverage_score": 0.775,
+    "plasticity_score": 1.0,
+    "blockage_score": 0.562,
+    "lockin_score": 0.161,
+    "overall_readiness": 0.743
+  },
+  "narrative": [
+    "Strong leverage points exist — change could be amplified through existing bridges.",
+    "Network has spare capacity for new connections.",
+    "Blockages detected: 33 fragile connectors, 115 nodes in small components, 0 perceptions unreachable from information.",
+    "Low lock-in — topology is open to reconfiguration.",
+    "Giant component connects most of the network — change can propagate widely."
+  ]
+}

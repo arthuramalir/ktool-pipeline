@@ -1,4 +1,14 @@
 edge_type,count
-declared_interconnection,201
+declared_interconnection,420
 information_originates_from_channel,136
+information_makes_claim,97
+claim_about_subject,95
+claim_about_object,86
+sequence,57
+causality,54
+contradiction,40
+frequency,34
 perception_reveals_challenge,21
+challenge_makes_claim,18
+perception_makes_claim,7
+similarity,6

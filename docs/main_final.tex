@@ -1,0 +1,1226 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{xcolor}
+\usepackage{verbatim}
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\title{ALC Ecosystem Graph Analysis Pipeline}
+\author{ALC}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{Introduction}
+
+\subsection{An Introduction to K-Tool}
+
+K-Tool is a digital platform developed by the Agirre Lehendakaria Center
+(ALC) to support systemic innovation. It enables teams to collect,
+organize, and analyze information about complex social ecosystems
+throughout ALC's methodology.
+
+The platform supports four main phases:
+
+\begin{itemize}
+    \item \textbf{Mapping} -- Identify the ecosystem and its actors.
+    \item \textbf{Listening} -- Collect qualitative information and identify shared
+\end{itemize}
+  perceptions, challenges, and opportunities.
+\begin{itemize}
+    \item \textbf{Sensemaking} -- Interpret the collected information to understand
+\end{itemize}
+  systemic dynamics.
+\begin{itemize}
+    \item \textbf{Co-creation} -- Design initiatives that respond to the identified
+\end{itemize}
+  challenges.
+
+K-Tool stores a wide range of interconnected information, including
+actors, organizations, projects, interviews, quotes, perceptions,
+challenges, opportunities, values, documents, and the relationships
+between them. While this creates a valuable knowledge base, several
+limitations prevent the platform from functioning as a true social
+digital twin.
+
+\subsection{Current Limitations}
+
+Although K-Tool contains AI-assisted features and a rich collection of
+interconnected information, its underlying architecture remains
+fundamentally record-based. Data are distributed across multiple
+relational tables, meaning relationships exist only where they have been
+explicitly entered by users. Consequently, the platform cannot model the
+ecosystem as a unified network, discover latent structural
+relationships, or support graph-based analyses of the system.
+
+The Listening phase also presents a significant scalability challenge.
+As the number of interviews, quotations, documents, and multimedia
+sources increases, manually extracting perceptions, challenges,
+opportunities, and other qualitative labels becomes increasingly
+time-consuming and difficult to maintain consistently.
+
+Furthermore, many of these labels rely heavily on human interpretation.
+Different analysts may assign different perceptions or challenges to the
+same piece of evidence, and the platform currently provides no
+quantitative metrics to evaluate the confidence, consistency, or quality
+of these annotations.
+
+Another limitation is the incompleteness of the available data. Many
+entities lack structured attributes such as geographic location,
+temporal information, funding, budgets, or other contextual metadata,
+reducing the ability to perform comprehensive quantitative analyses.
+
+Most importantly, the platform lacks a mathematical representation of
+the ecosystem. Relationships between actors, projects, narratives,
+perceptions, and other conceptual layers are stored as database records
+rather than mathematical objects. As a result, the platform cannot
+directly leverage modern graph algorithms, network science, graph
+machine learning, or large-scale semantic reasoning, all of which are
+essential components of an accurate digital representation of this kind
+of ecosystem.
+
+The key contribution is not a single model but a pipeline that makes the
+underlying data usable for graph analysis, narrative interpretation, and
+controlled synthetic experimentation. The dataset contains initiatives,
+agents, channels, perceptions, quotes, thematic objects, and relation
+records. Those objects are not meaningful in isolation; they matter
+because of how they connect.
+
+The current 173 analysis shows a network with real structure but
+substantial fragmentation. The source data contains roughly 350 records;
+after graph construction, claim extraction, and normalisation, the final
+graph contains 497 nodes and 654 edges, distributed across 204
+connected components. The largest connected component contains 287
+nodes (58 percent of the network). The system also contains 201
+isolated nodes, 45 articulation points, and 61 bridges. These results
+indicate that a relatively small number of nodes carry a
+disproportionate share of the network's connectivity.
+
+Perception diagnostics add a complementary interpretive layer. One
+perception appears robust, while several others have low purity, low
+support, or underdeveloped evidence. This suggests that the narrative
+layer contains meaningful structure, but that the interpretive
+categories are unevenly supported across the dataset.
+
+The synthetic 173 layer is a controlled experimental extension. It keeps
+the same topology as the original 173 dataset but adds invented budget
+and investment values so that financial questions can be explored
+without treating the synthetic values as empirical truth. In the present
+report, this layer is used as a research sandbox rather than as evidence
+of real funding conditions.
+
+The dashboard integrates all outputs into a single Streamlit
+application with tabs for the decision brief, overview map, geography
+and evolution, network layers, health checks, listening data,
+AI-generated semantic links, story clusters, narrative space,
+perceptions, claims, GNN predictions, narrative simulation, structural
+change, and (for synthetic platforms) budget and finance.
+
+\section{Methods}
+
+The entire pipeline is written in Python, with dashboard elements in
+Streamlit and Plotly. Each subsection below describes one analytical
+step, then shows the concrete results.
+
+\subsection{Data recovery and normalization}
+
+\textbf{Method.} KTool stores its data as nested records — a single project
+entry contains embedded references to people, organisations, and
+perceptions all mixed together. To analyse this data with graphs and
+algorithms, we first need to untangle it into clean, separate tables.
+The pipeline starts from the cleaned export of data hosted on the KTool
+backoffice, and reorganises it into structured tables. This is necessary
+because the source database stores relationships in nested,
+hidden structures — a single project record may contain embedded
+references to people, organisations, perceptions, and thematic tags, all
+mixed together. If we flatten these relations too early, we would lose
+the connections between them. The pipeline preserves the original
+structure during recovery, then normalises the data into separate entity
+tables: one for each kind of record in the ecosystem — agents, projects,
+pilots, channels, quotes, perceptions, values, challenges, and thematic
+areas. Normalisation makes it possible to join tables reliably, validate
+completeness, and run the same analyses repeatedly. Because every table
+carries a platform identifier, the pipeline can be run on any platform
+at any time, making it straightforward to compare how a platform's
+ecosystem evolves, or compare multiple platforms.
+
+(Simple explanation: the pipeline takes messy, nested data from KTool
+and organises it into clean separate tables — one for people, one for
+projects, one for quotes, and so on — so that each type of information
+can be analysed independently and then recombined.)
+
+When the KTool source data has gaps such as missing locations, budgets,
+descriptions, or dates, we can fill them with plausible values. For the
+synthetic dataset, the pipeline assigns Irish town and county names
+drawn from a curated list of 84 towns mapped to 28 counties, together
+with realistic latitude/longitude coordinates, so that geographic
+analyses can run even on records that arrived without location
+information. Every filled value is tagged with a provenance label, so
+the reader can always distinguish original data from synthetic data.
+
+\textbf{Example.} For platform 173, the raw data contains 497 nodes across 12
+types; after normalisation all 497 nodes have at least a label and a
+node type, and 654 edges are recovered. For the synthetic dataset, the
+pipeline assigns county and coordinate data so geographic analysis is
+possible.
+
+\textbf{Limitations.} The normalisation step depends on the completeness of
+the source export. If relation tables are missing or sparsely populated,
+the normalised output will undercount edges. The mapping of nested KTool
+fields into flat tables is deterministic but not exhaustive: some
+obscure field types in the source schema may be dropped silently.
+
+\subsection{Graph construction}
+
+\textbf{Method.} KTool's original format stores relationships as database
+links between records — but an ecosystem is not a set of tables; it is a
+network of actors, projects, and narratives that influence each other.
+To capture this, we convert the normalised data into a graph where nodes
+represent entities and edges represent relations between them.
+
+The first family is declared relational links, which come directly from
+the source database: an agent is linked to a project because they
+participate in it, or a project is linked to a perception because it was
+tagged with it. These 215 edges form the structural backbone for
+platform 173.
+
+(Simple explanation: these are the connections that users explicitly
+entered into KTool — "this person works on this project." They are the
+most trustworthy because they come directly from the source data.)
+
+The second family is listening links, which trace the evidence chain
+from a communication channel to an information item (a quote or
+observation) to the values expressed in that item. These 136 edges
+capture who said what and what values it reflected.
+
+The third family is qualitative narrative links, which connect quotes
+through semantic similarity, causal language, contradiction, and shared
+themes. These 191 edges exist only for the synthetic dataset because
+they require the quote extraction step that runs only on enriched data.
+
+The fourth family is narrative claim edges, produced by the three-layer
+claim extraction pipeline. Each claim node is connected to the quote
+that generated it, and to any operational entities (agents, projects)
+identified as subject or object of the claim. These 307 edges add a
+structured semantic layer on top of the raw text.
+
+The fifth family is interpretive edges, which are AI-inferred relations
+between nodes that share thematic or semantic overlap. These 21 edges
+are the most speculative and are clearly labelled so they can be excluded
+from any analysis by selecting "Source only" in the dashboard.
+
+This layered design avoids collapsing all evidence into one generic
+network. It preserves the origin of each connection and makes it
+possible to compare the ecosystem from different analytical angles. Each
+edge family can be toggled on or off in the dashboard, and every view
+can be further filtered by time window, location, value dimension, and
+node type.
+
+The sidebar provides dropdowns for time range (based on best available
+date per node) and node type, a radio button to toggle AI-generated data
+on or off, and a text input to switch platforms. Selecting "Source only"
+removes any edge or node flagged as AI-generated (narrative claims and
+qualitative narratives), leaving only declared relational, listening,
+and interpretive edges.
+
+\textbf{Example.} For the synthetic dataset, the full graph has 498 nodes and
+870 edges across five families: 420 declared relational, 303 narrative
+claim, 191 qualitative narrative, 136 listening, and 21 interpretive.
+Toggling "Source only" removes 494 AI-generated edges and leaves 577,
+revealing the structural core that exists without any AI inference.
+
+(Simple explanation: of the 870 connections in the synthetic dataset,
+494 were created by AI (claims and narrative links). Switching to
+"Source only" hides these and shows only the 577 connections that
+existed in the original data.)
+
+With 870 edges among 498 nodes, the edge density is approximately 0.004,
+meaning most node pairs have no recorded relationship regardless of
+family. The interpretation of centrality and community metrics on such a
+sparse graph should be treated as indicative rather than precise.
+
+\textbf{Limitations.} The layered design preserves edge provenance but does
+not address the fundamental sparsity of the graph. The interpretation of
+centrality and community metrics on such a sparse graph should be treated
+as indicative rather than precise.
+
+\subsection{Structural diagnostics}
+
+\textbf{Method.} A graph can look busy without being meaningful. Before adding
+narrative layers, simulations, or predictions, we need to know whether
+the network has real structure worth analysing — or whether it is just a
+handful of isolated records. The pipeline runs a set of health checks on
+the raw graph to answer basic questions about the ecosystem's shape.
+
+The first check counts connected components. A component is a group of
+nodes that are connected to each other through any path; nodes in
+different components cannot reach each other at all.
+
+(Simple explanation: imagine the graph as a set of islands. A connected
+component is one island — you can walk from any node to any other node
+on that island. If there are many small islands, the ecosystem is
+fragmented.)
+
+The second check measures edge density: how many connections exist
+relative to what would be possible. If every node were connected to
+every other node, density would be 1.0. Real ecosystems are usually
+sparse, with density below 0.01.
+
+The third check identifies orphan nodes that have no relationships at
+all — zero connections to any other node. These are inactive records,
+incomplete extractions, or genuinely disconnected entities.
+
+The fourth check computes degree distributions and identifies the most
+connected nodes using betweenness centrality, which measures how often
+a node lies on the shortest path between other pairs of nodes. A node
+with high betweenness acts as a gatekeeper — information flowing from
+one part of the network to another is likely to pass through it.
+
+(Simple explanation: betweenness centrality answers the question "if
+this person disappeared, how many conversations would have to find a new
+route?" A high score means the node is a critical bridge.)
+
+The pipeline then runs a robustness simulation. It removes the top 30
+nodes by betweenness centrality one at a time and measures how fast the
+largest connected component shrinks, compared to removing 30 random
+nodes. If targeted removal shrinks the network much faster than random
+removal, the ecosystem depends heavily on a small set of hubs.
+
+\textbf{Example.} Platform 173's graph contains 204 components. The largest
+holds 287 nodes (58 percent of the network), meaning most activity is
+concentrated in a single cluster while the remaining 210 nodes are
+scattered across small isolated groups. The graph has a density of 0.005
+(0.5 percent of all possible edges are present), which is typical for a
+real-world ecosystem — sparse but structured. There are 201 isolated
+nodes, giving an orphan rate of 40 percent. Rethink Ireland has the
+highest betweenness centrality (0.12), followed by a handful of
+Dublin-based organisations. Removing the top 30 nodes by betweenness
+centrality shrinks the largest component by 34.2 percent, versus 12.9
+percent for random removal — nearly three times as fast, confirming that
+the network depends heavily on a small set of gatekeepers.
+
+\textbf{Limitations.} Structural diagnostics describe the current state of
+the graph but do not distinguish between missing data and genuine
+disconnection. An orphan node may be an isolated actor or simply a
+record that was never linked. The robustness simulation measures decay
+under idealised conditions (sequential removal of the most central
+nodes) and does not model real-world failure modes such as simultaneous
+collapse or cascading defunding.
+
+\subsection{Geographic analysis}
+
+\textbf{Method.} From a governance perspective, knowing where activity happens
+is only the first question. The more useful question is what kind of
+activity happens where, and whether the geographic distribution of
+attention matches the distribution of need or opportunity.
+
+Geographic data comes from two sources. For the real 173 dataset, nodes
+that have a location field are mapped directly. For the synthetic
+dataset, a location enrichment script assigns Irish town and county
+names together with latitude/longitude coordinates to projects, agents,
+and channels that lack them. A separate enrichment step assigns each
+node a county name by looking up its location in a hand-curated mapping
+of 84 Irish towns to 28 counties, and backfills a value dimension from
+the node's thematic areas using a rule-based keyword list of 7
+dimensions and 34 keywords. The same script adds a simulated year column
+for time-lapse animation, spreading nodes deterministically across years
+2019 to 2025 using a hash of the node's global ID. This allows the
+time-lapse view to show how value priorities shift over time even when
+only one year of real dates is available.
+
+(Simple explanation: if a record doesn't have a location, the pipeline
+assigns one from a list of Irish towns so it can still appear on the
+map. It also assigns a fake year so the time-lapse animation works.)
+
+On the dashboard, the geography tab shows every mapped entity as a point
+on an Open Street Map. The default view colours each point by entity
+type (project, agent, channel, quote). Switching to the concentration
+view scales each marker by the number of entities at that location,
+revealing the urban bias of the ecosystem: Dublin accounts for roughly a
+quarter of all mapped nodes, followed by Cork, Limerick, and Galway.
+Rural counties such as Leitrim, Longford, and Carlow appear as isolated
+points.
+
+The underserve view goes a step further by calculating a simple support
+ratio: how many agents and channels exist per project in each location.
+A low ratio suggests a place where projects outnumber the organisational
+infrastructure to support them.
+
+(Simple explanation: if a county has many projects but few organisations
+or channels to support them, it is "underserved" — there is activity but
+not enough infrastructure.)
+
+Two additional views connect geography to the value framework. The
+county heatmap shades each Republic of Ireland county by its dominant
+value dimension, using scattermap markers at county centroids with the
+GeoJSON boundary file (26 counties from OpenStreetMap data). The
+time-lapse view animates the same county-level data across the years
+2019 to 2025.
+
+\textbf{Example.} On the Geography tab, switching from the default point view
+to the county heatmap colours Dublin dark blue (collaboration), Cork
+green (social justice), and Galway orange (cultural identity), showing
+how value orientations cluster spatially. Dublin accounts for roughly a
+quarter of all mapped nodes. The underserve view highlights rural
+counties where infrastructure lags behind project activity.
+
+\textbf{Limitations.} The location-to-county mapping is a hand-curated list of
+84 towns; any node with a town name outside this list is left
+unassigned. The simulated year values are deterministic hashes, not real
+dates, so the time-lapse shows structural change potential rather than
+observed temporal trends. The county boundary GeoJSON (26 ROI counties)
+excludes Northern Ireland counties entirely.
+
+\subsection{Value dimensions and financial analysis}
+
+\textbf{Method.} Two projects can both be about "youth" yet have completely
+different motivations — one might be about fairness, the other about
+innovation. To understand what is really driving an ecosystem, we need
+to look beyond surface topics and map the deeper values behind them. A
+thematic area such as "youth support" or "community inclusion" describes
+what a project is about. A value dimension describes the deeper
+rationale: whether the work is primarily about fairness
+(social justice), about coordination (collaboration), about new
+approaches (innovation drive), about evidence and measurement (evidence
+based), about identity and heritage (cultural identity), about local
+control (community autonomy), or about doing more with less (austerity
+and scarcity). This distinction matters for decision making because two
+projects with the same thematic tag can express very different value
+orientations, and those orientations shape how stakeholders perceive
+success.
+
+(Simple explanation: the thematic area says what a project does — "youth
+support." The value dimension says why it matters — is it about fairness,
+innovation, tradition, or something else? Two projects doing the same
+thing can have very different motivations.)
+
+The pipeline assigns every project, quote, and perception one of the
+seven value dimensions by mapping its thematic areas through a rule-
+based lookup of 34 keywords. The mapping is transparent and can be
+inspected in the enrichment script. In the dashboard, the Budget \&
+Finance tab displays the result as a set of metric cards, one per value
+dimension, showing the total investment in euros, the number of claims
+and entities associated with that dimension, and the mean financial
+bias.
+
+For the synthetic dataset, the financial bridge reveals a clear
+hierarchy: cultural identity receives 17.6 million euros, collaboration
+10.1 million, innovation drive 7.0 million, social justice 5.2 million,
+and evidence based 0.8 million, while community autonomy and austerity
+and scarcity have zero recorded investment. For platform 173, no
+financial information is available; the value dimension enrichment runs
+but produces estimates rather than real budgets.
+
+\textbf{Example.} The Budget tab's metric cards show cultural identity with
+17.6 million euros and 20 claims, while community autonomy shows 0 euros
+and 3 claims — a visible gap between narrative presence and financial
+attention.
+
+\textbf{Limitations.} The value dimension mapping is keyword-based and has no
+disambiguation. A project tagged "economy" maps to innovation drive even
+if the work is about poverty reduction. The financial data for the
+synthetic dataset is pipeline-generated and has no empirical basis. For
+the real 173 dataset, no budget information exists at all, so the
+financial tab is disabled.
+
+\subsection{Quote extraction and semantic linking}
+
+\textbf{Method.} Most of what we know about an ecosystem comes from what
+people say — interviews, focus groups, comments, observations. But raw
+quotes are unstructured and hard to compare at scale. The listening layer
+starts by extracting relevant quotes from the information table, scoring
+them by quality, and detecting the semantic relationships between them. deliberately simple: length adds up to 0.35, action markers
+add 0.25, value markers add 0.20, contradiction markers add 0.20, and
+each structural link (channel, perception, theme) adds 0.10, all capped
+at 1.0. Quotes scoring below 0.55 are excluded.
+
+(Simple explanation: each quote gets a score from 0 to 1 based on how
+long it is, whether it uses action words or value-laden language,
+whether it contains contradictions, and whether it is connected to a
+channel or theme. Only the most substantive quotes — those scoring above
+0.55 — are kept.)
+
+Once the quote candidates are selected, the pipeline detects semantic
+relationships between them using TF-IDF cosine similarity combined with
+linguistic markers. Every pair of quotes from different channels is
+compared. If their cosine similarity exceeds 0.15 or they share a
+thematic area, an edge is created. The edge type is determined by marker
+detection: causal markers (because, therefore, enables, causes, etc.)
+produce a causality edge, contradiction markers (but, however, despite,
+barrier, etc.) produce a contradiction edge, and neither produces a
+similarity edge. Edges with shared themes but low similarity (below 0.3)
+are classified as frequency edges. Within the same channel, quotes are
+linked in sequence edges ordered by their information ID, capturing the
+flow of conversation.
+
+(Simple explanation: quotes are compared to each other. If they use
+similar language or share a theme, they get linked. If both use causal
+words like "because" it is labelled a causality link; if one contradicts
+the other, it is a contradiction link; otherwise it is a similarity
+link. Quotes from the same channel are linked in order of conversation.)
+
+\textbf{Example.} For the synthetic dataset, 72 quotes pass the threshold
+with a mean score of 0.83. The pipeline creates 191 semantic edges: 57
+sequence edges within channels, 54 causality edges, 40 contradiction
+edges, 34 frequency edges, and 6 similarity edges. Every edge is tagged
+with the edge family "qualitative\_narrative" and can be toggled on or
+off in the dashboard. On the AI-Generated Links tab, selecting
+"causality" filters the map to 54 purple edges connecting quotes like
+"funding cuts led to service closures" and "short-term contracts create
+instability."
+
+\textbf{Limitations.} The marker-based edge detection captures only explicit
+linguistic signals (because, therefore, but, however). Indirect causality
+(a quote implies a cause without using causal language) is missed. The
+TF-IDF similarity threshold of 0.15 is arbitrary; raising it would
+increase precision but reduce recall. This step currently runs only for
+platforms with enriched quote data (the synthetic dataset), because the
+real 173 data lacks the text coverage needed for meaningful cross-channel
+comparison.
+
+\subsection{Three-layer claim extraction}
+
+\textbf{Method.} The purpose of narrative extraction is to surface what people
+in the ecosystem are saying and thinking, so that analysts can understand
+the opinion landscape at a glance and use it to create or refine
+perception profiles. Perceptions themselves are human-made constructs
+that encapsulate population viewpoints; the pipeline's role is to make
+the evidence behind them legible, quantifiable, and comparable.
+
+(Simple explanation: we want to know what people are saying and what
+values those statements reveal. This helps analysts build better
+perception profiles — descriptions of what different groups in the
+ecosystem believe.)
+
+The extraction step processes every node of type information (quotes
+from listening channels) that has at least 10 characters of text. For
+each such node, a dependency parser converts the sentence into a
+subject-verb-object triple. The parser used is hyperbase alphabeta, a
+formal grammar engine, not a large language model: it applies a
+predefined set of linguistic rules to identify the main predicate and
+its arguments. This is deliberately conservative. It avoids the
+hallucination risk of generative models and produces claims that are
+directly traceable to the source text. The trade-off is coverage: quotes
+with complex syntax, incomplete sentences, or non-standard grammar may
+fail to parse and produce no claim at all.
+
+(Simple explanation: the parser reads each quote and extracts the basic
+structure: who did what to whom. It uses grammar rules, not AI, so the
+results are predictable and traceable — but it will miss complex or
+informal language.)
+
+Alongside each surface claim, the pipeline checks for implicit meanings
+using four linguistic markers. Negation markers (not, never, lack of,
+fails to) invert the surface assertion: "we do not have funding" becomes
+"system lacks funding." Emergency markers (crisis, at risk,
+unsustainable) recast the statement as a need for protection: "youth
+services are at risk" becomes "youth services need protection."
+Conditional markers (if, unless, provided that) reframe it as a
+dependency. Emotion markers capture urgency, frustration, hope, and fear
+through a curated lexicon. If a quote triggers one or more of these
+markers, an implicit claim is created alongside the surface claim. These
+inference rules are rigid by design — negation always becomes "lacks",
+emergency always becomes "needs\_protection" — which makes them
+predictable and auditable but means they miss contextual nuance such as
+sarcasm.
+
+Every claim is then classified into one or more of the seven value
+dimensions using a keyword-based lookup. Each dimension has 15-20
+indicative terms. Every keyword match increments a score, and the
+dimension with the highest score is assigned. The approach is
+transparent but has no disambiguation: a sentence about "cutting-edge
+research" matches both innovation drive and evidence based, and a
+sentence about "budget cuts" matches austerity and scarcity even if the
+speaker is criticising those cuts. The pipeline records the score and
+assigns the highest-scoring dimension without applying a threshold.
+
+Once claims are extracted, they are linked to the entities they mention.
+Entity linking uses a composite scoring system. First, named entities
+and noun phrases are extracted from the claim text using spaCy's
+named-entity recognition model and noun chunker, plus a fallback
+capitalised-phrase detector. Each mention is then scored against every
+known operational entity in the graph (agents, projects, pilots, and
+prototypes) using a weighted combination of exact label match (score
+1.5), substring match (score 1.0), token overlap (Jaccard index scaled
+to 1.2), embedding similarity from a sentence transformer model
+(all-MiniLM-L6-v2, 384 dimensions, scaled to 0.5), and a graph context
+bonus of 0.2 if the entity already has an edge to the source node. Links
+with a composite score above the 0.6 threshold are kept. The threshold
+was chosen heuristically and has not been empirically calibrated, which
+means both false positives and false negatives are possible.
+
+(Simple explanation: the pipeline checks each claim against known
+organisations and people in the ecosystem. If a quote says "Dublin Youth
+Collective needs funding," the pipeline tries to match "Dublin Youth
+Collective" to a real node in the graph using name matching, word
+overlap, and meaning similarity. Only confident matches are kept.)
+
+The linked claims and entities produce three kinds of narrative claim
+edges. First, a directed edge connects the source node (quote) to the
+claim node it generated. Second and third, directed edges connect the
+claim node to the subject entity and the object entity identified during
+entity linking. In the synthetic dataset, these produce 303 edges, all
+tagged with edge family "narrative\_claim" and with the provenance label
+"is\_ai\_generated", so they can be toggled off in the dashboard.
+
+Pattern analysis groups claims by their source node. If a single quote
+generates claims mapped to more than one value dimension, it is flagged
+as internally contradictory. For the synthetic dataset, several quotes
+produce claims in both social justice and austerity and scarcity,
+indicating contested discursive spaces. These patterns help analysts see
+which perceptions may need splitting, merging, or refinement.
+
+\textbf{Example.} For the synthetic dataset, the parser processes roughly 300
+narrative nodes and produces 122 claims, which generate 303 narrative
+claim edges. For a quote about "youth services funding," the hyperbase
+parser extracts the surface claim "services support youth" (subject =
+services, verb = support, object = youth). The negation marker on "lack
+of funding" generates the implicit claim "system lacks funding." The
+metanarrative classifier assigns it to both social justice (keywords:
+youth, inclusion) and austerity and scarcity (keyword: funding), flagging
+it as contradictory on the dashboard's Claims tab.
+
+\textbf{Limitations.} The hyperbase parser has limited coverage of informal
+speech, incomplete sentences, and code-switched language. The entity
+linking threshold of 0.6 was chosen heuristically, so both false
+positives and false negatives are possible. The implicit claim detection
+captures only the four marker types and misses rhetorical questions,
+analogy, or understatement. All AI-generated edges are labelled but
+downstream metrics treat them identically to source edges unless the
+user selects "Source only."
+
+\subsection{Story clustering and narrative profiles}
+
+\textbf{Method.} Individual claims are too numerous to inspect one by one.
+Grouping them into related clusters reveals the main conversation threads
+running through the ecosystem — which topics are prominent, which are
+marginal, and how different stakeholder groups talk about the same issue
+from different angles. The quote clusters produced in this step are the
+closest the pipeline comes to a "narrative space" — a map of what people
+in the ecosystem are talking about and how those conversations group
+together. These narrative spaces are the raw material analysts use to
+construct perception profiles: each cluster represents a candidate
+viewpoint that may warrant its own perception, and the claims within it
+reveal the value dimensions driving that viewpoint.
+
+(Simple explanation: think of each cluster as a conversation group.
+Everyone in the same cluster is talking about similar things. Analysts
+can look at a cluster and ask: "does this feel like one coherent
+viewpoint, or are there multiple opinions mixed together that should be
+separated into different perception profiles?")
+
+After semantic edges are created, the pipeline clusters quotes into
+story groups using TF-IDF vectorisation and agglomerative clustering.
+The number of clusters is set dynamically based on quote count, ranging
+from 2 to 8. For the synthetic dataset, 72 quotes are grouped into 8
+clusters.
+
+Each cluster receives a label derived from its most frequent thematic
+area, a representative quote (the one with the highest selection score),
+and a profile of the channels and themes it covers. Across the 8
+clusters, the average selection score ranges from 0.68 to 0.95.
+
+These clusters are then linked to the claims extracted in the previous
+step by matching the claim's source node ID to the information ID in the
+cluster table. The resulting cluster-claim matrix shows each cluster's
+value dimension profile. If a single cluster contains claims in more
+than one value dimension, it is flagged as internally contradictory. For
+the synthetic dataset, some clusters span both social justice and
+innovation drive claims. This flags for the analyst whether a cluster
+represents a single coherent perception or an amalgamation that may need
+splitting.
+
+A separate narrative diffusion analysis computes PageRank for every node
+in the full graph and a diffusion bias score that contrasts personalised
+PageRank between the two largest agent types. The top-ranked node by
+PageRank is typically the most connected agent in the mapping layer,
+while the bias score reveals which voices carry further in one agent
+network versus another.
+
+(Simple explanation: PageRank measures which voices are most influential
+in the network. The bias score shows whether certain types of
+organisations have more reach than others.)
+
+\textbf{Example.} Cluster 3 ("youth engagement") contains 14 quotes about
+education and social inclusion, with claims split between social justice
+(8 claims) and innovation drive (3 claims). It is flagged as internally
+contradictory. On the dashboard's Story Clusters tab, the cluster's
+representative quote is shown alongside its value dimension profile.
+
+\textbf{Limitations.} Clustering uses TF-IDF similarity, which captures word
+overlap but not synonymy or discourse framing. Clusters with fewer than
+three quotes have unreliable profiles. The number of clusters (between 2
+and 8) is set by a heuristic formula, not validated against a gold
+standard. The narrative diffusion PageRank is computed on the full graph
+including AI-generated edges unless filtered.
+
+\subsection{Opinion simulation (Friedkin-Johnsen)}
+
+\textbf{Method.} Knowing what people say in isolation tells us the topics, but
+ecosystem analysis is also about influence — how opinions spread from
+one group to another, which viewpoints are likely to reinforce each
+other, and which are structurally isolated from the rest of the
+conversation. Simulating these dynamics on the cluster network reveals
+influence pathways that are invisible when clusters are examined
+independently. The opinion simulation treats each story cluster as a
+node in a smaller network. A cluster's opinion is a seven-dimensional
+vector, one entry per value dimension, built by counting how many of its
+claims fall into each dimension and normalising the result. Two clusters
+are connected if a semantic similarity edge exists between any quote in
+the first cluster and any quote in the second. In the synthetic dataset,
+several clusters are connected through shared thematic areas even though
+they express different value dimensions, creating a cross-cluster
+influence network.
+
+(Simple explanation: each cluster has an "opinion profile" — for example,
+70 percent social justice, 30 percent innovation drive. Clusters that
+share themes can influence each other's opinions.)
+
+The simulation uses the Friedkin-Johnsen model, a well-established
+framework for how opinions evolve in a connected group. Each cluster has
+an anchoring opinion (its own initial profile) and is influenced by the
+opinions of the clusters it is connected to. The balance between
+anchoring and influence is controlled by a stubbornness coefficient set
+proportional to the cluster's claim count: clusters with 15 or more
+claims are highly stubborn (stubbornness near 0.9), while clusters with
+only 2-3 claims are highly persuadable (stubbornness near 0.2). The
+model iterates until the opinions stabilise, typically within 20-50
+iterations.
+
+(Simple explanation: clusters with lots of evidence (many claims) are
+stubborn and hard to sway. Clusters with little evidence are easily
+influenced by their neighbours. The model runs until everyone settles
+into a stable opinion.)
+
+The baseline answers the question: if these story clusters were left to
+interact naturally, what would each cluster's final opinion profile look
+like? The dashboard visualises this as a radar chart with seven axes,
+one per value dimension.
+
+From the baseline, the pipeline runs intervention simulations. For each
+cluster in turn, it adds an external agent with a neutral opinion (equal
+weight across all seven dimensions) and a low stubbornness of 0.2,
+connects it to that cluster, and re-runs the simulation. The question
+is: if someone new entered the ecosystem and engaged primarily with this
+one cluster, how would every other cluster's opinion shift? For the
+synthetic dataset, the largest opinion shifts occur when connecting the
+agent to the most central cluster (by cross-cluster edge count), with
+max deltas of approximately 0.02 to 0.05 in the affected dimensions.
+
+(Simple explanation: the simulation answers "if a new person started
+talking to group A, how would groups B, C, and D change their minds?"
+It is a way to test which conversations have the most ripple effects.)
+
+A second, more detailed simulation (GBCM-FJ) incorporates perception
+nodes directly, using their embedding similarity, value dimension
+correlation, and claim counts to compute influence. This model runs on
+the full graph (not just clusters) and evaluates counterfactual edges
+from the GNN link prediction output. It computes how disagreement,
+diversity, and perception PageRank change when a proposed link is added.
+
+\textbf{Example.} The Narrative Simulation tab shows an 8-cluster radar chart.
+Cluster 1 ("community development") has high social justice and low
+innovation drive. Connecting a neutral agent to it shifts Cluster 4
+("digital inclusion") toward social justice by 0.04 on the normalised
+scale — a small but detectable influence cascade.
+
+\textbf{Limitations.} The stubbornness formula is proportional to claim count,
+making clusters with few claims highly persuadable regardless of whether
+those claims are strongly held. The model has no temporal dimension. The
+intervention tests only a neutral agent, not a funder, advocate, or
+traditionalist. Semantic edges between clusters capture textual
+similarity, not organisational ties.
+
+\subsection{Perception diagnostics}
+
+\textbf{Method.} Perceptions in KTool are human-made profiles that encapsulate
+the opinions of a population segment. The pipeline does not generate them
+automatically. Instead, it evaluates each existing perception on five
+health metrics so analysts know which are well-supported by evidence and
+which need revision.
+
+(Simple explanation: perceptions are descriptions of what different
+groups in the ecosystem believe — for example, "young people in Dublin
+prioritise job opportunities." The pipeline checks each perception
+against the actual quotes to see if the evidence supports it.)
+
+Internal coherence measures the mean cosine similarity of semantic edges
+between quotes within the same perception. A high coherence means the
+quotes are all saying similar things. Purity measures what fraction of
+each quote's top-5 semantic neighbours belong to the same perception. A
+high purity means the perception's quotes form a clean cluster. Source
+entropy measures the diversity of channels feeding each perception —
+a perception fed by many different channels is more robust than one
+from a single source. Contradiction density measures the fraction of
+intra-perception edges that are contradictions — a high value means the
+perception contains conflicting views. Each perception also receives a
+status flag: "Robust," "Underdeveloped (< 3 quotes)," "Low coherence,"
+"Single channel," "High internal contradiction," or "Low purity."
+
+(Simple explanation: the five metrics answer: are the quotes consistent?
+Do they belong together? Do they come from diverse sources? Do they
+contradict each other? A "Robust" perception passes all checks.)
+
+The claim extraction output feeds directly into this diagnostic layer:
+an analyst reviewing a perception with "Low purity" can drill into the
+claims behind its quotes to see which value dimensions are pulling it in
+different directions, then decide whether to split it into two more
+coherent profiles or merge it with a neighbouring perception.
+
+A second phase evaluates narrative alignment: how distinct each
+perception's value dimension profile is from the others. The pipeline
+computes a silhouette score (how far a perception's claim profile is
+from its nearest neighbour) and flags narratively redundant pairs (claim
+cosine similarity above 0.80). This helps identify perception categories
+that may be analytically indistinguishable and candidates for merging.
+
+\textbf{Example.} For platform 173, the diagnostics reveal one robust
+perception with high coherence and moderate quote count, alongside
+several perceptions with fewer than 3 quotes or low internal coherence.
+On the Perceptions tab, "community wellbeing" has an internal coherence
+of 0.72 (high), a purity of 0.55 (moderate), and a silhouette score of
+0.31 — distinct from "youth development" but not sharply separated.
+
+\textbf{Limitations.} Perception diagnostics depend on the availability of
+semantic edges between quotes. If the quote set is small or the semantic
+edge detector produced few edges, the coherence and purity estimates are
+unreliable. The status flags use heuristic thresholds (coherence below
+0.40 is "low," purity below 0.30 is "low") that have not been validated
+against human judgement.
+
+\subsection{Link prediction and project recommendations}
+
+\textbf{Method.} The graph contains only the relations recovered from source
+data, but a government or funding agency can actively create new
+connections: fund a project in a new region, broker a partnership between
+two organisations, or convene stakeholders around a shared challenge. The
+pipeline uses a graph neural network to identify which of these possible
+new connections would have the largest structural and narrative impact,
+and then ranks them by practical feasibility for decision-makers.
+
+(Simple explanation: the graph only shows connections that already exist.
+But funders and policymakers can create new connections — for example,
+introducing a youth organisation to a potential funder. The GNN predicts
+which new connections would be most valuable.)
+
+The first step is preparing the graph for the model. Every node is given
+a feature vector that combines its position in the network (degree,
+centrality, k-core level, whether it is an articulation point), its type
+and phase (one-hot encoded), its textual description (converted to a
+fixed-size hash vector of 256 dimensions), and its semantic embedding
+from the sentence transformer model (384 dimensions). Every edge is
+given an omega confidence score: omega = 0.45 x provenance (how the edge
+was created) + 0.35 x alignment (cosine similarity of endpoint
+embeddings) + 0.20 x variance stability (how consistent the alignment
+is). Edges with omega below 0.6 are excluded from training. The GNN
+directory also records feature slices (numeric, categorical, text hash,
+semantic) so the contribution of each feature type is traceable.
+
+The link prediction model is a graph autoencoder. A two-layer GCN
+encoder compresses each node into a 64-dimensional embedding. A dot-
+product decoder takes any pair of node embeddings, computes their dot
+product, and passes it through a sigmoid function to produce a
+probability between 0 and 1. The model is trained on 70 percent of the
+existing edges, with 15 percent for validation and 15 percent for
+testing.
+
+(Simple explanation: the model learns to compress each node into a
+compact representation (64 numbers) that captures its role in the
+network. Then for any two nodes, it asks: "given their roles, should
+they be connected?" It outputs a probability from 0 to 1.)
+
+Once trained, the model scores all possible pairs of nodes that are not
+already connected. Only pairs where both endpoints belong to the mapping
+layer agents and projects are retained, because these are the entity
+types where a new connection translates into an actionable
+recommendation. The top 50 candidates are then scored by a structural
+impact engine that answers: what would actually happen if this link were
+added?
+
+The impact engine temporarily adds each candidate edge to a copy of the
+full graph and measures what changes. It runs a breadth-first search
+from both endpoints before and after the addition, counting how many new
+perception nodes and claim nodes become reachable within three hops. It
+checks whether the link unlocks value dimensions that were previously
+inaccessible. It classifies the bridge type: a learning bridge unlocks
+entirely new value dimensions, a cleavage breach breaks through a
+structural divide, a coalition reinforcement connects nodes that already
+share values, and a structural link adds no new narrative pathways. It
+also checks whether the link merges two separate connected components,
+whether either endpoint is an articulation point, and how semantically
+compatible the two nodes are.
+
+(Simple explanation: adding a new connection can unlock new ideas and
+perspectives by creating pathways to parts of the network that were
+previously unreachable. The impact engine measures exactly what becomes
+reachable and how valuable it is.)
+
+All of these factors are combined into a composite governance score.
+Narrative impact (new pathways and new value dimensions) carries the
+most weight at 35 percent, followed by bridge type at 20 percent,
+component merger at 15 percent, and degree, articulation-point status,
+and domain compatibility at 10 percent each. Each candidate also
+receives a feasibility badge: fundable (strong semantic alignment),
+cross-domain (moderate alignment with structural value), or topological
+(weak alignment, purely structural connection). The dashboard's GNN
+Predictions tab displays the top recommendations sorted by this
+composite score, with the badge, bridge type, number of new pathways,
+and a rationale.
+
+A separate scoring process identifies prototype project candidates from
+the full set of project nodes. Each project is scored on a weighted
+combination of its budget (32 percent), its betweenness centrality (28
+percent), the number of perceptions it is connected to (16 percent), the
+number of agents involved (12 percent), and the number of thematic
+topics it covers (12 percent). The dashboard's Suggested Projects
+section displays the top candidates with their estimated budget, score,
+and a suggestion reason.
+
+\textbf{Example.} On the synthetic dataset with 498 nodes and 1071 edges (1625
+after bidirectional expansion and omega filtering), the model achieves a
+best validation AUC of 0.986, but the test AUC drops to 0.72, confirming
+overfitting on a small graph. The GNN Predictions tab shows a recommended
+link between "Dublin Youth Collective" (agent) and "Creative Communities
+Programme" (project) with a governance score of 0.81. Adding it would
+unlock 3 new perception paths and bridge the social justice and cultural
+identity value dimensions. The badge is "Fundable."
+
+\textbf{Limitations.} The GNN achieves high validation AUC but on a small
+graph, so the ranking is more reliable than the absolute probability
+values. The narrative impact scores depend on a BFS horizon of three
+hops, which may miss longer-range effects. The feasibility badge reflects
+semantic compatibility, not organisational or political readiness. The
+budget data for the synthetic dataset is pipeline-generated.
+
+\subsection{Structural change feasibility}
+
+\textbf{Method.} The question that motivates this section is not "what should
+change?" but "given the current relational structure, what kinds of
+change are even possible?" This is a fundamentally different question
+from the link prediction in the previous section, and it is grounded in
+political science rather than graph theory alone. The Advocacy Coalition
+Framework (Sabatier and Jenkins-Smith, 1993) holds that policy
+subsystems are organised around competing coalitions bound by shared
+beliefs, and that major change requires external shocks or the
+accumulation of minor perturbations over long periods. Punctuated
+Equilibrium Theory (Baumgartner and Jones, 1993) describes how long
+periods of policy stability maintained by dense, insular policy
+monopolies are interrupted by brief bursts of rapid reconfiguration when
+excluded actors reframe the policy image and find new institutional
+venues. Path dependency theory (Pierson, 2000) warns that early
+institutional choices and funding patterns lock ecosystems into
+trajectories that become increasingly costly to reverse. These
+frameworks provide the interpretive lens for the metrics below.
+
+(Simple explanation: we use political science theories to interpret the
+network structure. For example, a tightly connected core of organisations
+might be a "policy monopoly" that resists change. Isolated nodes might be
+"excluded voices" that could trigger change if they found new allies.)
+
+The pipeline computes four composite dimensions from the network
+metrics, each mapped to a political science construct.
+
+The first is leverage. In network terms, nodes with high betweenness
+centrality occupy structural holes and act as gatekeepers of information
+flow. In political terms, they are policy brokers and boundary spanners
+who can mediate across coalitions, build consensus, and accelerate
+narrative diffusion (Gould and Fernandez, 1989). The pipeline identifies
+the top betweenness nodes and top bridge agents as potential leverage
+points. A high leverage score means the ecosystem has clear hubs that
+can be strengthened to accelerate diffusion, but losing them would
+fragment coordination.
+
+(Simple explanation: leverage measures whether there are key
+organisations that, if strengthened, could spread ideas more effectively.
+Like identifying the best-connected people in a room — they already have
+everyone's ear.)
+
+The second is plasticity, which measures the network's spare capacity to
+form new connections without collapsing existing structures. Nodes with
+degree one or two are peripheral and easy to rewire; nodes with degree
+three to five are candidates for new brokering roles. The count of
+high-confidence GNN link predictions also contributes, because each
+predicted link represents a latent connection that could be activated.
+A high plasticity score means the periphery has abundant unused
+connection potential — there are many isolated or weakly connected nodes
+waiting to be integrated.
+
+(Simple explanation: plasticity measures how much room there is to create
+new connections. A high score means there are many isolated nodes that
+could be brought into the network — like empty chairs at a table.)
+
+The third is blockage. Fragile connectors are articulation points that
+also carry bridge edges: removing them would both disconnect the network
+and break a unique link. These are institutional bottlenecks, single
+points of systemic failure. Isolated nodes have degree zero and
+participate in no relationships at all. Small components with three or
+fewer nodes cannot sustain meaningful diffusion. Blocked perceptions are
+perceptions that have no path to any information node in the graph,
+trapping them in discursive silos — a structural analogue of the
+discursive cleavages and ideological polarisation described in
+polarisation research.
+
+(Simple explanation: blockage measures single points of failure — nodes
+that, if removed, would break the network. Like a bridge that, if
+destroyed, would cut off an entire island.)
+
+The fourth is lock-in or path dependency. A network with a very dense
+core (a high fraction of nodes in the maximum k-core layer) resembles a
+policy monopoly: a dominant coalition controls the most connected
+positions, and new entrants or alternative viewpoints struggle to gain
+traction (Baumgartner and Jones's concept of the "policy monopoly"
+maintained by a supporting policy image and an insulated venue). The
+robustness gap — how much faster the network decays under targeted
+attack versus random failure — reinforces this picture: if removing the
+most central nodes causes disproportionate damage, the network depends
+heavily on those hubs and is structurally brittle.
+
+(Simple explanation: lock-in measures how stuck the network is. If a
+small group of organisations controls all the connections, it is hard
+for new voices to break in. Like a room where the same few people do
+all the talking.)
+
+These four dimensions are normalised to scores between zero and one and
+combined into an overall readiness score, where blockage carries the
+highest weight. The dashboard's Decision Brief tab displays all four
+scores as horizontal bars with colour coding (green for favourable, amber
+for moderate, red for concerning), each accompanied by a plain-language
+explanation: leverage becomes "fraction of nodes that are well-connected
+hubs," blockage becomes "fraction of nodes that are single points of
+failure," and lock-in becomes "how stuck the network is."
+
+From these scores, the pipeline generates named hypotheses grounded in
+the political science frameworks above. A hypothesis about a high-
+betweenness node cites policy brokerage and boundary spanning theory
+(Gould and Fernandez). A hypothesis about the innermost k-core layer
+cites the Advocacy Coalition Framework and the concept of a policy
+monopoly (Sabatier and Jenkins-Smith; Baumgartner and Jones). A
+hypothesis about blocked perceptions cites discursive cleavages and
+ideological polarisation. Each hypothesis is assigned a confidence level
+(high or medium) based on thresholds derived from the data distribution,
+and only high-confidence hypotheses are promoted to recommendations. The
+dashboard's Structural Change tab lists these hypotheses alongside their
+framework reference, confidence level, and the specific node identifiers
+they reference.
+
+\textbf{Example.} For the synthetic dataset: leverage is 0.78 (moderate —
+betweenness concentrated in Dublin organisations), plasticity is 1.0
+(maximum — sparse periphery with ample rewiring capacity), blockage is
+0.56 (moderate — some fragile connectors and small components), lock-in
+is 0.16 (low — only 2 percent of nodes in the innermost k-core of 8).
+Overall readiness is 0.74. The Structural Change tab shows leverage at
+0.78 (green), plasticity at 1.0 (green), blockage at 0.56 (amber), and
+lock-in at 0.16 (green). The caption reads: "Network is open to
+reconfiguration. Blockages (fragile connectors, small components) need
+attention."
+
+\textbf{Limitations.} The change readiness scores are computed from a static
+graph snapshot. Without temporal data, the pipeline cannot distinguish
+between a network that is slowly rewiring and one that is frozen in
+place. The political science mappings (betweenness = broker, dense core
+= policy monopoly) are analogical, not proven by the data — they provide
+an interpretive frame, not a causal test. The Gould-Fernandez brokerage
+typology is not fully implemented (the pipeline uses simple betweenness
+centrality, not group-attribute brokerage classification). The blockage
+score weights each type of blockage equally, which may not reflect their
+relative policy significance.
+
+\subsection{Dashboard implementation}
+
+\textbf{Method.} The dashboard is the main user-facing interface for the
+outputs. It is built with Streamlit and Plotly and presents the analysis
+through 14 or 15 tabs, depending on whether the platform has synthetic
+financial data. The design goal is to make the analytical layers
+understandable to readers who do not need to inspect code or raw tables.
+
+(Simple explanation: the dashboard is a web app that shows all the
+analysis results in one place, organised into tabs. No coding required.)
+
+The sidebar provides platform selection, AI-data toggle (All data /
+Source only), time range slider, and edge family multiselect. The main
+area shows the network map, health checks, diagnostic tables, simulation
+results, and recommendation lists.
+
+\textbf{Example.} The sidebar's time filter defaults to the full date range
+(2019 to 2025 for the synthetic dataset). Selecting "Source only" and
+narrowing to 2023-2024 immediately reduces the graph from 498 nodes to
+the subset with dates in that window, and removes all AI-generated edges
+from the view.
+
+\textbf{Limitations.} The dashboard reads pre-computed CSV and JSON files from
+the analysis directory. If a script has not been run for the selected
+platform, the corresponding tab shows a "data not available" message
+rather than an error. Performance degrades for very large graphs (above
+1,000 nodes) because the network visualisation uses a force-directed
+layout computed in real time. The dashboard is designed for exploratory
+analysis, not for reproducible reporting: it does not export figures or
+log user interactions.
+
+\section{Discussion}
+
+The main substantive finding is that the ecosystem has meaningful
+structure, but that structure is unevenly distributed. There is a clear
+core, there are many bridges, and there are many isolated nodes. This
+combination means the network is neither trivial nor fully integrated.
+It is a functioning socio-semantic system with visible structural
+dependencies.
+
+From a research perspective, this matters in three ways. First, it shows
+that graph analysis is appropriate for the dataset because there is
+enough structure to study. Second, it shows that narrative and
+perception layers add value because they reveal interpretive patterns
+that are not visible in the graph alone. Third, it shows that the
+current system still has data limitations, especially where relation
+coverage is incomplete or where categories remain weakly supported.
+
+The results also imply that interventions should probably focus on
+improving relational completeness, strengthening bridge entities, and
+standardizing how narrative evidence is linked to structured records. In
+a practical sense, a better-connected data model would make later
+analysis more reliable and more interpretable.
+
+\section{Limitations}
+
+The current report and pipeline are limited by the available source
+data. Some relation families are only partially populated, and some
+interpretive categories have weaker support than others. That means the
+results should be read as a careful description of the present dataset,
+not as a full account of the entire underlying ecosystem.
+
+A second limitation is that the synthetic financial layer is
+experimental. It is useful for scenario analysis, but it should not be
+mistaken for real-world financial evidence. Any paper using this layer
+should state that the budgets and investment values were invented to
+support controlled testing.
+
+A third limitation is that the current outputs are strongest for
+description and structure. They are less able to support causal claims
+about change, because the project is not yet based on a longitudinal
+sequence of repeated snapshots. For that reason, the present report
+should be treated as a foundation for future work rather than as a final
+causal explanation.
+
+\section{Conclusion}
+
+The ALC K-Tool project provides a structured way to move from a raw
+ecosystem record dump to an interpretable analytical system. The value
+of the work is in the combination of recovery, normalization, graph
+construction, narrative analysis, and dashboard presentation.
+
+The Platform 173 results show a sparse and fragmented network with a
+small but meaningful core, many isolated nodes, and substantial
+sensitivity to targeted node removal. The perception results show that
+the narrative layer contains both robust and weakly supported
+categories. The synthetic 173 layer adds a controlled way to test
+financial-style questions without changing the original topology.
+
+Taken together, these results support a straightforward conclusion: the
+dataset is now rich enough for serious descriptive and interpretive
+analysis, and the pipeline is strong enough to support future research
+on structure, narrative, and investment alignment. The most important
+next step is not a more complicated model for its own sake, but better
+data coverage, clearer relational labeling, and repeated observations
+over time.
+
+\section{Open questions and future research}
+
+The pipeline and results presented in this report raise several questions
+that the current data cannot fully answer. These are outlined below as
+directions for future work.
+
+\textbf{Static snapshot versus evolving system.} The entire analysis is based
+on a single export of the KTool database. A graph built from one point
+in time shows structure but cannot show how that structure formed,
+whether it is stable, or which edges are new versus old. The most
+important next step is to collect data at regular intervals — quarterly
+or annually — so the pipeline can track changes as they happen. Without
+repeated observations, the structural change feasibility section remains
+a theoretical estimate, not a measured trend.
+
+\textbf{Missing data and orphan nodes.} Across both datasets, roughly 40
+percent of nodes have no connections. Some of these may be genuinely
+isolated actors, but many are almost certainly records that were never
+linked in the source database — for example, a project and its lead
+organisation exist in separate tables but were never associated in
+KTool's interface. The pipeline cannot distinguish between these two
+cases. Future work should audit a sample of orphan nodes manually to
+estimate the share of false orphans, and develop heuristics that recover
+likely missing links before the graph is built.
+
+\textbf{Validation of narrative extraction.} The claim extraction step
+surfaces structured claims from quotes automatically. But there is no
+ground-truth dataset that tells us whether the parser correctly
+identifies the intent of a quote, or whether it generates false positives
+(claims the speaker never intended). A validation study — where human
+coders label a random sample of quotes and their extracted claims are
+compared — would measure precision and recall. Without it, the narrative
+statistics should be treated as exploratory, not confirmatory.
+
+\textbf{Perception-to-claim alignment.} The pipeline scores perceptions on how
+well they match the claim data, but it does not yet tell analysts how to
+fix a weak perception — for example, whether to broaden its definition,
+add supporting quotes, or retire it entirely. A future version could
+generate specific revision suggestions: "Perception X scores low on
+coverage because its definition mentions value dimension Y, but the
+closest claim cluster expresses dimension Z. Consider rewording the
+perception to match the available evidence."
+
+\textbf{Simulation accuracy.} The Friedkin-Johnsen opinion simulation produces
+convergence patterns and influence rankings, but these have not been
+compared against real opinion change over time. A natural next step is
+to collect survey data or interview transcripts from the same ecosystem
+at two time points, run the simulation on the first time point, and
+check whether the predicted trajectory matches the observed second time
+point. Until then, the simulation is best understood as a what-if tool
+rather than a forecast.
+
+\textbf{Cross-platform generalisation.} The pipeline was developed and tested
+on Platform 173 (real data) and Platform 173\_synthetic (synthetic
+financial overlay). Other KTool platforms may have different field
+structures, different data quality, or different entity types. The
+recovery and normalisation stages are designed to be generic, but the
+narrative extraction rules and value dimension taxonomy may need
+adjustment for ecosystems in different sectors or languages. Replicating
+the pipeline on two or three additional platforms would reveal which
+parts generalise and which are platform-specific.
+
+\textbf{Causality and policy impact.} The current analysis is descriptive and
+diagnostic — it tells you what the ecosystem looks like, where it is
+fragile, and which narratives exist. It does not tell you whether a
+specific intervention (funding a new project, brokering a partnership)
+causes a measurable improvement. Moving from description to causal
+inference would require an experimental design: for example, using the
+link prediction recommendations in a real funding cycle, then measuring
+whether the recommended connections actually produced better outcomes
+than non-recommended ones. This is a long-term goal, but the pipeline
+already provides the measurement infrastructure needed to attempt it.
+
+\section{Resources}
+
+The following works are referenced in the methods and interpretation
+above.
+
+Baumgartner, F. R., and Jones, B. D. (1993). *Agendas and Instability in
+American Politics*. University of Chicago Press.
+
+Friedkin, N. E., and Johnsen, E. C. (1999). "Social influence networks
+and opinion change." \textit{Advances in Group Processes}, 16, 1--29.
+
+Gould, R. V., and Fernandez, R. M. (1989). "Structures of mediation: A
+formal approach to brokerage in transaction networks." *Sociological
+Methodology*, 19, 89--126.
+
+Pierson, P. (2000). "Increasing returns, path dependence, and the study
+of politics." \textit{American Political Science Review}, 94(2), 251--267.
+
+Sabatier, P. A., and Jenkins-Smith, H. C. (1993). *Policy Change and
+Learning: An Advocacy Coalition Approach*. Westview Press.
+
+\end{document}

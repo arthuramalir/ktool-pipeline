@@ -1,10 +1,11 @@
 {
-  "generated_at_utc": "2026-07-02T15:09:32.113079+00:00",
+  "generated_at_utc": "2026-07-03T15:06:39.716727+00:00",
   "dataset_dir": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173\\test",
-  "node_count": 375,
-  "edge_count": 275,
+  "node_count": 497,
+  "edge_count": 654,
   "node_types": {
     "agent": 136,
+    "claim": 122,
     "project": 101,
     "information": 72,
     "channel": 26,
@@ -15,13 +16,14 @@
     "prototype": 3
   },
   "edge_families": {
+    "narrative_claim": 306,
+    "qualitative_narrative": 192,
     "listening": 135,
-    "qualitative_narrative": 119,
     "interpretive": 21
   },
   "diagnostics": {
     "orphan_edges_removed": 91,
-    "duplicate_edges_removed": 1,
+    "duplicate_edges_removed": 0,
     "expected_empty_relations": [
       "agent_initiative_links.csv",
       "initiative_lead_agent_links.csv",

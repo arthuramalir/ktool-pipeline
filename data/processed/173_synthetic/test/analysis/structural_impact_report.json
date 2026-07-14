@@ -1,0 +1,91 @@
+{
+  "platform_id": "173_synthetic",
+  "output_subdir": "test",
+  "total_nodes": 498,
+  "total_edges": 866,
+  "total_candidates": 25,
+  "candidates_with_impact": 22,
+  "impact_summary": {
+    "fragility": {
+      "count": 3,
+      "with_impact": 0
+    },
+    "isolation": {
+      "count": 5,
+      "with_impact": 5
+    },
+    "kcore_exclusion": {
+      "count": 5,
+      "with_impact": 5
+    },
+    "value_underfunding": {
+      "count": 7,
+      "with_impact": 7
+    },
+    "narrative_cleavage": {
+      "count": 5,
+      "with_impact": 5
+    },
+    "perception_isolation": {
+      "count": 0,
+      "with_impact": 0
+    }
+  },
+  "top_recommendations": [
+    {
+      "source": "perception_410",
+      "target": "information_25589",
+      "source_type": "perception",
+      "target_type": "information",
+      "issue_type": "kcore_exclusion",
+      "bridge_type": "coalition_reinforcement",
+      "new_perception_nodes": 31,
+      "governance_score": 0.7417,
+      "impact_statement": "Connecting **Naomi** (perception) to **Unnamed** (information) brings a peripheral high-brokerage node into the core coalition. Would open **31 new perception/narrative pathways**. This **reinforces an existing perception coalition** — it connects nodes in a shared value space."
+    },
+    {
+      "source": "claim_3",
+      "target": "project_4552",
+      "source_type": "claim",
+      "target_type": "project",
+      "issue_type": "value_underfunding",
+      "bridge_type": "coalition_reinforcement",
+      "new_perception_nodes": 16,
+      "governance_score": 0.704,
+      "impact_statement": "Connecting **tell: lot → system** (claim) to **Community Engagement** (project) creates a pipeline from an underfunded value dimension to a resource-connected node. Would open **16 new perception/narrative pathways**. This **reinforces an existing perception coalition** — it connects nodes in a shared value space."
+    },
+    {
+      "source": "perception_408",
+      "target": "information_25589",
+      "source_type": "perception",
+      "target_type": "information",
+      "issue_type": "kcore_exclusion",
+      "bridge_type": "coalition_reinforcement",
+      "new_perception_nodes": 26,
+      "governance_score": 0.7013,
+      "impact_statement": "Connecting ** Aoibhe** (perception) to **Unnamed** (information) brings a peripheral high-brokerage node into the core coalition. Would open **26 new perception/narrative pathways**. This **reinforces an existing perception coalition** — it connects nodes in a shared value space."
+    },
+    {
+      "source": "challenge_2565",
+      "target": "information_25589",
+      "source_type": "challenge",
+      "target_type": "information",
+      "issue_type": "kcore_exclusion",
+      "bridge_type": "coalition_reinforcement",
+      "new_perception_nodes": 28,
+      "governance_score": 0.6758,
+      "impact_statement": "Connecting **Short-termism and fragmented systems** (challenge) to **Unnamed** (information) brings a peripheral high-brokerage node into the core coalition. Would open **28 new perception/narrative pathways**. This **reinforces an existing perception coalition** — it connects nodes in a shared value space."
+    },
+    {
+      "source": "claim_3",
+      "target": "project_4166",
+      "source_type": "claim",
+      "target_type": "project",
+      "issue_type": "value_underfunding",
+      "bridge_type": "coalition_reinforcement",
+      "new_perception_nodes": 15,
+      "governance_score": 0.6543,
+      "impact_statement": "Connecting **tell: lot → system** (claim) to **Liquid Therapy** (project) creates a pipeline from an underfunded value dimension to a resource-connected node. Would open **15 new perception/narrative pathways**. This **reinforces an existing perception coalition** — it connects nodes in a shared value space."
+    }
+  ]
+}

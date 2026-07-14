@@ -1,11 +1,11 @@
 global_id,systemic_disruption_priority,brokerage_weight,label,node_type,methodological_phase
-information_25360,1,0.2784,Unnamed,information,listening
-information_25346,2,0.1933,Unnamed,information,listening
-information_25369,3,0.1396,Unnamed,information,listening
-information_25350,4,0.1359,Unnamed,information,listening
-channel_9509,5,0.1297,Unnamed,channel,listening
-channel_9509.0,6,0.1297,002,channel,listening
-information_25338,7,0.1167,Unnamed,information,listening
-information_23094,8,0.1124,Unnamed,information,listening
-information_25827,9,0.112,Unnamed,information,listening
-information_25333,10,0.1081,Unnamed,information,listening
+agent_5379,1,0.2403,Young People,agent,mapping
+challenge_2309,2,0.101,Resource strain and burnout,challenge,listening
+perception_409,3,0.1008,Mary,perception,listening
+information_25589,4,0.0974,Unnamed,information,listening
+claim_6,5,0.0905,seek: public institutions → measurable impact,claim,narrative_extraction
+perception_408,6,0.086, Aoibhe,perception,listening
+claim_5,7,0.0728,talk: holistic care → time,claim,narrative_extraction
+perception_406,8,0.0658,Siobhán,perception,listening
+information_25349,9,0.0652,Unnamed,information,listening
+information_25365,10,0.0638,Unnamed,information,listening

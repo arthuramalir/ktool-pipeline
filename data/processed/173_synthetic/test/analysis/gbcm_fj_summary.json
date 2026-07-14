@@ -1,0 +1,10 @@
+{
+  "n_nodes": 498,
+  "n_value_dimensions": 7,
+  "n_claims": 122,
+  "n_perceptions": 6,
+  "epsilon": 0.8,
+  "beta": 0.05,
+  "baseline_converged_iterations": 146,
+  "interventions_simulated": 3
+}

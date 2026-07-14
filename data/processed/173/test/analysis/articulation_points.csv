@@ -1,18 +1,46 @@
 global_id,is_articulation_point,label,node_type,methodological_phase
 challenge_2309,True,Resource strain and burnout,challenge,listening
 challenge_2519,True,Disconnection between funders and frontline,challenge,listening
+challenge_2523,True,Listening as Trust-Building,challenge,listening
+challenge_2553,True,Shift funding toward prevention and partnership,challenge,listening
+challenge_2554,True,Fragile volunteer infrastructure,challenge,listening
+challenge_2555,True,Recognise sport as a health asset,challenge,listening
+challenge_2557,True,Chronic underfunding of community work,challenge,listening
+challenge_2558,True,Invest in long-term community capacity,challenge,listening
+challenge_2559,True,"Reactive, not preventive systems",challenge,listening
+challenge_2562,True,Early intervention within schools,challenge,listening
 challenge_2565,True,Short-termism and fragmented systems,challenge,listening
-information_25332,True,Unnamed,information,listening
-information_25338,True,Unnamed,information,listening
+claim_13,True,make: and lifestyle → into care,claim,narrative_extraction
+claim_14,True,depend: and sports → exhausted volunteers,claim,narrative_extraction
+claim_15,True,turn: in sport → +/. health,claim,narrative_extraction
+claim_19,True,address: +/. youth → +/. prevention,claim,narrative_extraction
+claim_28,True,rethink: support → rethink ireland,claim,narrative_extraction
+claim_38,True,reaching: our target → social impact,claim,narrative_extraction
+claim_54,True,delivered: +/. health → +/. consultant,claim,narrative_extraction
+claim_7,True,want: and donors → of part,claim,narrative_extraction
+information_23085,True,Unnamed,information,listening
+information_23091,True,Unnamed,information,listening
+information_23092,True,Unnamed,information,listening
 information_25341,True,Unnamed,information,listening
+information_25342,True,Unnamed,information,listening
+information_25343,True,Unnamed,information,listening
+information_25344,True,Unnamed,information,listening
+information_25345,True,Unnamed,information,listening
+information_25348,True,Unnamed,information,listening
+information_25352,True,Unnamed,information,listening
+information_25356,True,Unnamed,information,listening
 information_25360,True,Unnamed,information,listening
-information_25369,True,Unnamed,information,listening
+information_25361,True,Unnamed,information,listening
+information_25362,True,Unnamed,information,listening
 information_25370,True,Unnamed,information,listening
-information_25597,True,Unnamed,information,listening
+information_25581,True,Unnamed,information,listening
+information_25587,True,Unnamed,information,listening
+information_25595,True,Unnamed,information,listening
+information_25827,True,Unnamed,information,listening
+information_25829,True,Unnamed,information,listening
 information_26119,True,Unnamed,information,listening
 perception_406,True,Siobhán,perception,listening
 perception_407,True,Luke,perception,listening
-perception_408,True, Aoibhe,perception,listening
 perception_409,True,Mary,perception,listening
 perception_410,True,Naomi,perception,listening
 perception_411,True, John,perception,listening

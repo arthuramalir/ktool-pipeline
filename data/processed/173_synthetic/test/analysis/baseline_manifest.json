@@ -1,10 +1,11 @@
 {
-  "generated_at_utc": "2026-07-03T10:23:14.338151+00:00",
+  "generated_at_utc": "2026-07-07T10:48:26.857201+00:00",
   "dataset_dir": "C:\\Users\\ARTHUR AMALIR\\OneDrive\\Documents\\3.ALC\\data\\processed\\173_synthetic\\test",
-  "node_count": 376,
-  "edge_count": 577,
+  "node_count": 498,
+  "edge_count": 1071,
   "node_types": {
     "agent": 136,
+    "claim": 122,
     "project": 101,
     "information": 72,
     "channel": 27,
@@ -16,11 +17,13 @@
   },
   "edge_families": {
     "declared_relational": 420,
+    "narrative_claim": 303,
+    "qualitative_narrative": 191,
     "listening": 136,
     "interpretive": 21
   },
   "diagnostics": {
-    "orphan_edges_removed": 2305,
+    "orphan_edges_removed": 2114,
     "duplicate_edges_removed": 3,
     "expected_empty_relations": [
       "agent_initiative_links.csv",
@@ -41,8 +44,8 @@
     },
     {
       "name": "agents.csv",
-      "size": 58541,
-      "sha256_16": "cfb78e22b9e55fe6"
+      "size": 60835,
+      "sha256_16": "e9b30027683d90c2"
     },
     {
       "name": "challenges.csv",
@@ -61,8 +64,8 @@
     },
     {
       "name": "channels.csv",
-      "size": 1762,
-      "sha256_16": "6b8b8206904c2e17"
+      "size": 2090,
+      "sha256_16": "f6d1a55bfb97265b"
     },
     {
       "name": "information_pattern_connections.csv",
@@ -111,8 +114,8 @@
     },
     {
       "name": "initiatives_unified.csv",
-      "size": 93322,
-      "sha256_16": "f879b87be186247a"
+      "size": 96728,
+      "sha256_16": "30bb5047994ee212"
     },
     {
       "name": "link_agent_capabilities.csv",
@@ -221,8 +224,8 @@
     },
     {
       "name": "projects.csv",
-      "size": 84479,
-      "sha256_16": "18bf2f473f6833fc"
+      "size": 87560,
+      "sha256_16": "5f76898d6c4d1420"
     },
     {
       "name": "prototypes.csv",

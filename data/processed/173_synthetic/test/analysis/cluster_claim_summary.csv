@@ -1,0 +1,9 @@
+cluster_id,quote_count,claim_count,value_dimensions,dominant_dimension,has_contradiction
+cluster_1,11,15,collaboration (2) | cultural_identity (1) | innovation_drive (1),collaboration,True
+cluster_2,12,19,cultural_identity (3) | social_justice (2),cultural_identity,True
+cluster_3,12,15,collaboration (3) | cultural_identity (2) | innovation_drive (2),collaboration,True
+cluster_4,18,24,cultural_identity (2) | social_justice (1),cultural_identity,True
+cluster_5,6,8,cultural_identity (2),cultural_identity,False
+cluster_6,7,10,austerity_scarcity (1) | social_justice (1),austerity_scarcity,True
+cluster_7,3,3,cultural_identity (2),cultural_identity,False
+cluster_8,3,3,social_justice (3),social_justice,False

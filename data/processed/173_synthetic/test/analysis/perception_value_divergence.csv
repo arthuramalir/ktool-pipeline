@@ -1,0 +1,22 @@
+perception_a_id,perception_a_label,perception_b_id,perception_b_label,claim_cosine_similarity,narratively_redundant
+__unassigned__,__unassigned__,410,Naomi,1.0,True
+408, Aoibhe,407,Luke,0.084,False
+411, John,408, Aoibhe,0.0787,False
+411, John,406,Siobhán,0.068,False
+408, Aoibhe,406,Siobhán,0.0585,False
+408, Aoibhe,409,Mary,0.0512,False
+406,Siobhán,407,Luke,0.035,False
+411, John,407,Luke,0.0307,False
+411, John,409,Mary,0.0289,False
+__unassigned__,__unassigned__,407,Luke,0.0,False
+406,Siobhán,409,Mary,0.0,False
+410,Naomi,407,Luke,0.0,False
+410,Naomi,409,Mary,0.0,False
+410,Naomi,406,Siobhán,0.0,False
+__unassigned__,__unassigned__,406,Siobhán,0.0,False
+__unassigned__,__unassigned__,409,Mary,0.0,False
+411, John,410,Naomi,0.0,False
+411, John,__unassigned__,__unassigned__,0.0,False
+408, Aoibhe,410,Naomi,0.0,False
+408, Aoibhe,__unassigned__,__unassigned__,0.0,False
+409,Mary,407,Luke,0.0,False

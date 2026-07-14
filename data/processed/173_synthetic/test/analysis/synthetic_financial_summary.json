@@ -4,66 +4,66 @@
   "n_agents_with_investment": 136,
   "top_leverage": [
     {
+      "label": "Students' mental health skills CV",
+      "leverage_score": 0.094989,
+      "associated_budget": 284858
+    },
+    {
       "label": "Inclusive Surf Programmes",
-      "leverage_score": 0.008644,
+      "leverage_score": 0.048895,
       "associated_budget": 203472
     },
     {
       "label": "Liquid Therapy",
-      "leverage_score": 0.00823,
+      "leverage_score": 0.042595,
       "associated_budget": 693152
     },
     {
-      "label": "Why Wellbeing Matters",
-      "leverage_score": 0.007466,
-      "associated_budget": 217051
+      "label": "Social Ecosystems for a Fair and Inclusive Transit",
+      "leverage_score": 0.038216,
+      "associated_budget": 603122
     },
     {
-      "label": "Uplift ",
-      "leverage_score": 0.006919,
-      "associated_budget": 226290
-    },
-    {
-      "label": " Headstart Fund",
-      "leverage_score": 0.006034,
-      "associated_budget": 290787
+      "label": "Sensational Kids",
+      "leverage_score": 0.031854,
+      "associated_budget": 298322
     }
   ],
-  "stranded_assets_count": 26,
+  "stranded_assets_count": 6,
   "top_stranded": [
-    {
-      "label": "Hair Together",
-      "associated_budget": 4419001
-    },
     {
       "label": "Bounce Back Recycling",
       "associated_budget": 4350587
     },
     {
-      "label": "Health and Wellbeing Programme",
-      "associated_budget": 4324465
+      "label": "Creative Arts Therapy",
+      "associated_budget": 2127510
     },
     {
-      "label": "GIY (Grow It Yourself)",
-      "associated_budget": 4260934
+      "label": "Erasmus+ Sport program",
+      "associated_budget": 1611760
     },
     {
-      "label": "Connecting for Life - Ireland's national strategy ",
-      "associated_budget": 4236552
+      "label": "Drop-In Leagues",
+      "associated_budget": 1592376
+    },
+    {
+      "label": "iSURFATLANTIC",
+      "associated_budget": 1335792
     }
   ],
   "budget_reallocation": {
     "n_simulations": 1000,
-    "observed_mean_leverage": 0.001362,
-    "sim_mean_leverage": 0.00166,
-    "sim_std_leverage": 0.000138,
-    "mean_leverage_percentile": 0.9,
-    "observed_gini": 0.5637,
-    "sim_mean_gini": 0.6144,
-    "gini_percentile": 5.2,
-    "observed_stranded": 26,
-    "sim_mean_stranded": 28.4,
-    "stranded_percentile": 4.2,
-    "efficiency_verdict": "below_random"
+    "observed_mean_leverage": 0.006519,
+    "sim_mean_leverage": 0.006155,
+    "sim_std_leverage": 0.000712,
+    "mean_leverage_percentile": 72.0,
+    "observed_gini": 0.6667,
+    "sim_mean_gini": 0.645,
+    "gini_percentile": 70.2,
+    "observed_stranded": 6,
+    "sim_mean_stranded": 5.5,
+    "stranded_percentile": 71.2,
+    "efficiency_verdict": "indeterminate"
   }
 }

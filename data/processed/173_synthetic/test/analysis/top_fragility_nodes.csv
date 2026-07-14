@@ -1,11 +1,11 @@
 global_id,systemic_disruption_priority,brokerage_weight,label,node_type,methodological_phase
-project_4603,1,0.0838,Sport & Wellness Fund,project,mapping/co-creation
-project_4166,2,0.0747,Liquid Therapy,project,mapping/co-creation
-project_4547,3,0.0672,Tusla Aftercare Drop-In Services,project,mapping/co-creation
-project_4581,4,0.0663,Limetree Project,project,mapping/co-creation
-project_4552,5,0.0575,Community Engagement,project,mapping/co-creation
-project_4605,6,0.0569,Women in Sport,project,mapping/co-creation
-project_4594,7,0.0545,Traveller Voice,project,mapping/co-creation
-project_4560,8,0.0533,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,project,mapping/co-creation
-project_4557,9,0.0518,Oberstown coffee van business; Bord Bia Bloom,project,mapping/co-creation
-project_4538,10,0.0517,Housing-led Supports for homeless/ people at risk of homelessness,project,mapping/co-creation
+agent_5379,1,0.1174,Young People,agent,mapping
+project_4560,2,0.0704,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,project,mapping/co-creation
+information_25589,3,0.0576,Unnamed,information,listening
+project_4552,4,0.052,Community Engagement,project,mapping/co-creation
+project_4166,5,0.05,Liquid Therapy,project,mapping/co-creation
+information_25349,6,0.0478,Unnamed,information,listening
+pilot_835,7,0.0458,Students' mental health skills CV,pilot,mapping/co-creation
+information_25338,8,0.0417,Unnamed,information,listening
+project_4570,9,0.0404,Surf Club,project,mapping/co-creation
+project_4177,10,0.039,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,project,mapping/co-creation

@@ -1,0 +1,91 @@
+{
+  "platform_id": "173",
+  "output_subdir": "test",
+  "total_nodes": 497,
+  "total_edges": 654,
+  "total_candidates": 24,
+  "candidates_with_impact": 22,
+  "impact_summary": {
+    "fragility": {
+      "count": 2,
+      "with_impact": 0
+    },
+    "isolation": {
+      "count": 5,
+      "with_impact": 5
+    },
+    "kcore_exclusion": {
+      "count": 5,
+      "with_impact": 5
+    },
+    "value_underfunding": {
+      "count": 7,
+      "with_impact": 7
+    },
+    "narrative_cleavage": {
+      "count": 5,
+      "with_impact": 5
+    },
+    "perception_isolation": {
+      "count": 0,
+      "with_impact": 0
+    }
+  },
+  "top_recommendations": [
+    {
+      "source": "challenge_2523",
+      "target": "claim_104",
+      "source_type": "challenge",
+      "target_type": "claim",
+      "issue_type": "isolation",
+      "bridge_type": "learning_bridge",
+      "new_perception_nodes": 27,
+      "governance_score": 0.8545,
+      "impact_statement": "Connecting **Listening as Trust-Building** (challenge) to **suppose: big area → is anxiety** (claim) bridges an isolated cluster into the main network component. Would open **27 new perception/narrative pathways**. This is a **learning bridge** — it connects value dimensions that were previously separate, enabling cross-coalition diffusion."
+    },
+    {
+      "source": "agent_4754",
+      "target": "claim_104",
+      "source_type": "agent",
+      "target_type": "claim",
+      "issue_type": "isolation",
+      "bridge_type": "learning_bridge",
+      "new_perception_nodes": 25,
+      "governance_score": 0.8394,
+      "impact_statement": "Connecting **Hope and Courage Collective** (agent) to **suppose: big area → is anxiety** (claim) bridges an isolated cluster into the main network component. Would open **25 new perception/narrative pathways**. This is a **learning bridge** — it connects value dimensions that were previously separate, enabling cross-coalition diffusion."
+    },
+    {
+      "source": "project_4539",
+      "target": "claim_104",
+      "source_type": "project",
+      "target_type": "claim",
+      "issue_type": "isolation",
+      "bridge_type": "learning_bridge",
+      "new_perception_nodes": 25,
+      "governance_score": 0.8394,
+      "impact_statement": "Connecting **RTE Toy Show Appeal** (project) to **suppose: big area → is anxiety** (claim) bridges an isolated cluster into the main network component. Would open **25 new perception/narrative pathways**. This is a **learning bridge** — it connects value dimensions that were previously separate, enabling cross-coalition diffusion."
+    },
+    {
+      "source": "project_4541",
+      "target": "claim_104",
+      "source_type": "project",
+      "target_type": "claim",
+      "issue_type": "isolation",
+      "bridge_type": "learning_bridge",
+      "new_perception_nodes": 25,
+      "governance_score": 0.8394,
+      "impact_statement": "Connecting **Journey to Freedom** (project) to **suppose: big area → is anxiety** (claim) bridges an isolated cluster into the main network component. Would open **25 new perception/narrative pathways**. This is a **learning bridge** — it connects value dimensions that were previously separate, enabling cross-coalition diffusion."
+    },
+    {
+      "source": "project_4547",
+      "target": "claim_104",
+      "source_type": "project",
+      "target_type": "claim",
+      "issue_type": "isolation",
+      "bridge_type": "learning_bridge",
+      "new_perception_nodes": 25,
+      "governance_score": 0.8394,
+      "impact_statement": "Connecting **Tusla Aftercare Drop-In Services** (project) to **suppose: big area → is anxiety** (claim) bridges an isolated cluster into the main network component. Would open **25 new perception/narrative pathways**. This is a **learning bridge** — it connects value dimensions that were previously separate, enabling cross-coalition diffusion."
+    }
+  ]
+}

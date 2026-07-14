@@ -1,41 +1,51 @@
 {
-  "audited_at_utc": "2026-07-02T15:09:33.936624+00:00",
+  "audited_at_utc": "2026-07-08T14:29:50.301021+00:00",
   "graph_scope_summary": {
-    "node_count": 375,
-    "edge_count": 260,
-    "component_count": 263,
-    "graph_density": 0.0037076648841354726
+    "node_count": 497,
+    "edge_count": 654,
+    "component_count": 204,
+    "graph_density": 0.0053060297267475826
   },
   "layer_family_analysis": {
     "interpretive": {
       "edge_count": 21,
-      "component_count": 357,
-      "graph_density": 0.0002994652406417112
+      "component_count": 479,
+      "graph_density": 0.00017037710131758292
     },
     "listening": {
       "edge_count": 135,
-      "component_count": 292,
-      "graph_density": 0.0019251336898395723
+      "component_count": 414,
+      "graph_density": 0.001095281365613033
+    },
+    "narrative_claim": {
+      "edge_count": 306,
+      "component_count": 275,
+      "graph_density": 0.0024826377620562083
     },
     "qualitative_narrative": {
-      "edge_count": 104,
-      "component_count": 308,
-      "graph_density": 0.001483065953654189
+      "edge_count": 192,
+      "component_count": 427,
+      "graph_density": 0.0015577334977607581
     }
   },
   "orphan_node_distributions": {
     "agent": {
       "total_nodes": 136,
-      "orphan_count": 136,
-      "orphan_rate": 1.0
+      "orphan_count": 100,
+      "orphan_rate": 0.7352941176470589
     },
     "challenge": {
       "total_nodes": 15,
-      "orphan_count": 2,
-      "orphan_rate": 0.13333333333333333
+      "orphan_count": 1,
+      "orphan_rate": 0.06666666666666667
     },
     "channel": {
       "total_nodes": 26,
+      "orphan_count": 0,
+      "orphan_rate": 0.0
+    },
+    "claim": {
+      "total_nodes": 122,
       "orphan_count": 0,
       "orphan_rate": 0.0
     },
@@ -51,13 +61,13 @@
     },
     "pilot": {
       "total_nodes": 6,
-      "orphan_count": 6,
-      "orphan_rate": 1.0
+      "orphan_count": 4,
+      "orphan_rate": 0.6666666666666666
     },
     "project": {
       "total_nodes": 101,
-      "orphan_count": 101,
-      "orphan_rate": 1.0
+      "orphan_count": 83,
+      "orphan_rate": 0.8217821782178217
     },
     "prototype": {
       "total_nodes": 3,
@@ -79,12 +89,12 @@
     "initiative_mentions_perception"
   ],
   "analytical_readiness_map": {
-    "information_expresses_value": "blocked",
-    "initiative_mentions_perception": "blocked",
-    "perception_reveals_challenge": "supported",
-    "initiative_has_agent": "blocked",
+    "initiative_addresses_theme": "blocked",
     "initiative_has_lead_agent": "blocked",
+    "perception_reveals_challenge": "supported",
+    "initiative_mentions_perception": "blocked",
+    "information_expresses_value": "blocked",
     "declared_interconnection": "blocked",
-    "initiative_addresses_theme": "blocked"
+    "initiative_has_agent": "blocked"
   }
 }

@@ -1,102 +1,102 @@
 global_id,label,node_type,associated_budget,impact_level,degree,betweenness_centrality,perception_count,agent_count,topic_count,prototype_candidate_score,suggestion_reason
-project_4603,Sport & Wellness Fund,project,3572047,small_medium_scale,7,0.006404,2,3,2,0.51604,Potentially useful but needs more manual review.
-project_4605,Women in Sport,project,4552834,community,6,0.004347,2,3,2,0.494848,Potentially useful but needs more manual review.
-project_4587,Family support,project,4611090,community,5,0.003518,2,3,2,0.462669,Potentially useful but needs more manual review.
-project_4551,Tree planting,project,3899048,other,6,0.003939,2,3,2,0.431169,Potentially useful but needs more manual review.
-project_4531,Community Services Programme,project,3877075,public_service,5,0.003852,2,3,2,0.425839,Potentially useful but needs more manual review.
-project_4611,Wellbeing Policy Framework of the Department of Education,project,3982219,regulation,4,0.003241,2,3,2,0.406482,Potentially useful but needs more manual review.
-project_4569,Big Brother Big Sister,project,4466984,community,4,0.002321,2,3,2,0.40024,Potentially useful but needs more manual review.
-project_4576,Fair Play - Sports LGBTQ+ Inclusion,project,3265627,community,6,0.003898,2,3,2,0.384999,Potentially useful but needs more manual review.
-project_4540,Creative Arts Psychotherapy for vulnerable children - Limerick,project,3223146,community,5,0.003751,2,3,2,0.375608,Potentially useful but needs more manual review.
-project_4594,Traveller Voice,project,2946943,community,5,0.004159,2,3,2,0.374116,Potentially useful but needs more manual review.
-project_4549,2030 Sustainability Roadmap,project,3399061,regulation,4,0.003395,2,3,2,0.372362,Potentially useful but needs more manual review.
-project_4585,SPACE,project,4770256,community,3,0.001178,2,3,2,0.371494,Potentially useful but needs more manual review.
-project_4563,Reads & Rhymes Together,project,4241297,other,4,0.001935,2,3,2,0.367555,Potentially useful but needs more manual review.
-project_4164,Social Innovation Campus,project,4692834,big_scale,3,0.001122,2,3,2,0.363654,Potentially useful but needs more manual review.
-project_4532,PEACEPlus Initiative,project,3968048,big_scale,4,0.002156,2,3,2,0.358073,Potentially useful but needs more manual review.
-project_4538,Housing-led Supports for homeless/ people at risk of homelessness,project,2784307,big_scale,5,0.003951,2,3,2,0.353624,Potentially useful but needs more manual review.
-project_4601,Sanctuary groups nationwide,project,4326226,big_scale,3,0.001113,2,3,2,0.33756,Potentially useful but needs more manual review.
-project_4570,Surf Club,project,2965962,small_medium_scale,5,0.003271,2,3,2,0.336611,Potentially useful but needs more manual review.
-project_4589,Counselling,project,3632044,community,4,0.002074,2,3,2,0.33093,Potentially useful but needs more manual review.
-project_4610,National Wellbeing Framework,project,3692156,regulation,3,0.001935,2,3,2,0.329066,Potentially useful but needs more manual review.
-project_4581,Limetree Project,project,1726116,community,7,0.005067,2,3,2,0.328234,Potentially useful but needs more manual review.
-project_4562,Innovation Strategy,project,4029047,other,4,0.001362,2,3,2,0.32761,Potentially useful but needs more manual review.
-project_4596,Youth Service,project,3347914,community,4,0.002453,2,3,2,0.327604,Potentially useful but needs more manual review.
-project_4171,GIY (Grow It Yourself),project,4260934,big_scale,3,0.000826,2,3,2,0.320411,Potentially useful but needs more manual review.
-project_4560,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,project,2234224,small_medium_scale,6,0.004069,2,3,2,0.320216,Potentially useful but needs more manual review.
-project_4588,Drug & alcohol support,project,3144722,community,4,0.002555,2,3,2,0.317815,Potentially useful but needs more manual review.
-project_4547,Tusla Aftercare Drop-In Services,project,1503350,public_service,6,0.005132,2,3,2,0.315482,Potentially useful but needs more manual review.
-project_4597,Health and Wellbeing Programme,project,4324465,small_medium_scale,2,0.00058,2,3,2,0.314122,Potentially useful but needs more manual review.
-project_4173,The No Barriers Foundation,project,3516901,community,4,0.001832,2,3,2,0.312278,Potentially useful but needs more manual review.
-project_4178,Hair Together,project,4419001,small_medium_scale,2,0.00037,2,3,2,0.311585,Potentially useful but needs more manual review.
-project_4537,"Meitheal - Prevention, Partnership & Family Support (PPFS)",project,3643734,public_service,4,0.001555,2,3,2,0.309046,Potentially useful but needs more manual review.
-project_4535,Connecting for Life - Ireland's national strategy to reduce suicide,project,4236552,regulation,2,0.000546,2,3,2,0.306493,Potentially useful but needs more manual review.
-project_4568,A Drop in The Ocean [ADITO],project,3186443,community,4,0.002174,2,3,2,0.304101,Potentially useful but needs more manual review.
-project_4593,No Shame,project,3101230,community,4,0.0023,2,3,2,0.303625,Potentially useful but needs more manual review.
-project_4155,Educate Together,project,2305083,big_scale,5,0.003564,2,3,2,0.30312,Potentially useful but needs more manual review.
-project_4169,The Great Care Co-op,project,2492553,small_medium_scale,5,0.003256,2,3,2,0.302754,Potentially useful but needs more manual review.
-project_4158,iScoil,project,3200080,community,4,0.001969,2,3,2,0.296091,Potentially useful but needs more manual review.
-project_4602,Tackle Your Feelings,project,2358999,big_scale,5,0.003294,2,3,2,0.295081,Potentially useful but needs more manual review.
-project_4160,The Shona Project,project,3555774,small_medium_scale,3,0.001333,2,3,2,0.293191,Potentially useful but needs more manual review.
+project_4560,Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People,project,2234224,small_medium_scale,13,0.041574,2,3,2,0.422297,Potentially useful but needs more manual review.
+project_4605,Women in Sport,project,4552834,community,6,0.009944,2,3,2,0.371736,Potentially useful but needs more manual review.
+project_4551,Tree planting,project,3899048,other,6,0.016006,2,3,2,0.366752,Potentially useful but needs more manual review.
+project_4570,Surf Club,project,2965962,small_medium_scale,7,0.023829,2,3,2,0.354058,Potentially useful but needs more manual review.
+project_4569,Big Brother Big Sister,project,4466984,community,5,0.007994,2,3,2,0.352591,Potentially useful but needs more manual review.
+project_4611,Wellbeing Policy Framework of the Department of Education,project,3982219,regulation,5,0.011339,2,3,2,0.341146,Potentially useful but needs more manual review.
+project_4549,2030 Sustainability Roadmap,project,3399061,regulation,6,0.016979,2,3,2,0.338271,Potentially useful but needs more manual review.
+project_4164,Social Innovation Campus,project,4692834,big_scale,3,0.002765,2,3,2,0.333197,Potentially useful but needs more manual review.
+project_4587,Family support,project,4611090,community,5,0.003172,2,3,2,0.330211,Potentially useful but needs more manual review.
+project_4585,SPACE,project,4770256,community,3,0.001496,2,3,2,0.330074,Potentially useful but needs more manual review.
+project_4603,Sport & Wellness Fund,project,3572047,small_medium_scale,7,0.013793,2,3,2,0.328933,Potentially useful but needs more manual review.
+project_4538,Housing-led Supports for homeless/ people at risk of homelessness,project,2784307,big_scale,7,0.021611,2,3,2,0.32639,Potentially useful but needs more manual review.
+project_4173,The No Barriers Foundation,project,3516901,community,6,0.013045,2,3,2,0.320034,Potentially useful but needs more manual review.
+project_4158,iScoil,project,3200080,community,6,0.015884,2,3,2,0.316956,Potentially useful but needs more manual review.
+project_4597,Health and Wellbeing Programme,project,4324465,small_medium_scale,4,0.004071,2,3,2,0.316181,Potentially useful but needs more manual review.
+project_4535,Connecting for Life - Ireland's national strategy to reduce suicide,project,4236552,regulation,4,0.004224,2,3,2,0.311049,Potentially useful but needs more manual review.
+project_4532,PEACEPlus Initiative,project,3968048,big_scale,4,0.006869,2,3,2,0.31005,Potentially useful but needs more manual review.
+project_4168,Trinity Centre for People with Intellectual Disabilities,project,2785365,public_service,7,0.018538,2,3,2,0.305768,Potentially useful but needs more manual review.
+project_4171,GIY (Grow It Yourself),project,4260934,big_scale,4,0.003176,2,3,2,0.305699,Potentially useful but needs more manual review.
+project_4563,Reads & Rhymes Together,project,4241297,other,4,0.003355,2,3,2,0.305531,Potentially useful but needs more manual review.
+project_4178,Hair Together,project,4419001,small_medium_scale,2,0.001225,2,3,2,0.303641,Potentially useful but needs more manual review.
+project_4601,Sanctuary groups nationwide,project,4326226,big_scale,3,0.001796,2,3,2,0.300982,Potentially useful but needs more manual review.
+project_4531,Community Services Programme,project,3877075,public_service,5,0.006095,2,3,2,0.298465,Potentially useful but needs more manual review.
 project_4152,Bounce Back Recycling,project,4350587,small_medium_scale,2,0.0,2,3,2,0.290593,Potentially useful but needs more manual review.
-project_4561,Green Campus & Sustainability,project,3347275,other,3,0.001542,2,3,2,0.287701,Potentially useful but needs more manual review.
-project_4607,Integrated care programme for children,project,2648181,public_service,4,0.002608,2,3,2,0.285329,Potentially useful but needs more manual review.
-project_4166,Liquid Therapy,project,693152,small_medium_scale,7,0.005705,2,3,2,0.283752,Potentially useful but needs more manual review.
-project_4604,Brighter Futures Fund,project,2776413,small_medium_scale,4,0.002251,2,3,2,0.278738,Potentially useful but needs more manual review.
-project_4159,Not So Different,project,3282446,small_medium_scale,4,0.001351,2,3,2,0.27484,Potentially useful but needs more manual review.
-project_4573,School Workshops,project,3334056,community,3,0.000935,2,3,2,0.26024,Potentially useful but needs more manual review.
-project_4590,Parent toddler groups,project,3345480,community,3,0.000898,2,3,2,0.259444,Potentially useful but needs more manual review.
-project_4552,Community Engagement,project,1101245,community,5,0.004389,2,3,2,0.254841,Potentially useful but needs more manual review.
-project_4580,CHIPPS,project,2016992,community,5,0.002665,2,3,2,0.243585,Potentially useful but needs more manual review.
-project_4530,Innovation in Sport,project,3208558,public_service,3,0.000734,2,3,2,0.24267,Potentially useful but needs more manual review.
-project_4557,Oberstown coffee van business; Bord Bia Bloom,project,1184345,small_medium_scale,6,0.003957,2,3,2,0.241772,Potentially useful but needs more manual review.
-project_4598,New Trails,project,1525971,community,5,0.003392,2,3,2,0.240993,Potentially useful but needs more manual review.
-project_4162,SpunOut.ie,project,2879345,big_scale,3,0.00122,2,3,2,0.240862,Potentially useful but needs more manual review.
-project_4572,Generation Pride,project,1700132,community,4,0.003078,2,3,2,0.23945,Potentially useful but needs more manual review.
-project_4559,Addiction Counselling,project,2758749,small_medium_scale,3,0.001265,2,3,2,0.23436,Potentially useful but needs more manual review.
-project_4571,Open Event,project,2767517,small_medium_scale,3,0.001247,2,3,2,0.234199,Potentially useful but needs more manual review.
-project_4170,FoodCloud,project,3265278,big_scale,2,0.000351,2,3,2,0.229914,Potentially useful but needs more manual review.
-project_4168,Trinity Centre for People with Intellectual Disabilities,project,2785365,public_service,3,0.001093,2,3,2,0.228705,Potentially useful but needs more manual review.
-project_4553,Lighthouse Industry Construction Federation Charity - 24/7 Support,project,2991653,community,3,0.000695,2,3,2,0.225772,Potentially useful but needs more manual review.
-project_4579,Spunout Academy,project,1296480,small_medium_scale,5,0.003149,2,3,2,0.214287,Potentially useful but needs more manual review.
-project_4575,LGBTQI+ Inclusion Training,project,2034728,community,4,0.001839,2,3,2,0.208711,Potentially useful but needs more manual review.
-project_4584,Hair Together Programme,project,1874086,small_medium_scale,4,0.002056,2,3,2,0.206981,Potentially useful but needs more manual review.
-project_4539,RTE Toy Show Appeal,project,1742707,small_medium_scale,4,0.002073,2,3,2,0.198515,Potentially useful but needs more manual review.
-project_4534,INCLUSEA,project,1491411,big_scale,5,0.002366,2,3,2,0.193693,Potentially useful but needs more manual review.
-project_4558,Bord Bia Bloom,project,2477381,small_medium_scale,2,0.00066,2,3,2,0.188187,Potentially useful but needs more manual review.
-project_4567,Ktool,project,2043376,other,3,0.001344,2,3,2,0.187681,Potentially useful but needs more manual review.
-project_4574,Corporate Workshops,project,944976,small_medium_scale,5,0.003077,2,3,2,0.186488,Potentially useful but needs more manual review.
-project_4592,Pride on the PItch,project,1756684,community,4,0.001726,2,3,2,0.184291,Potentially useful but needs more manual review.
-project_4550,Carbon Neutrality,project,1884154,other,3,0.001475,2,3,2,0.182242,Potentially useful but needs more manual review.
-project_4586,Meals on wheels,project,1744983,community,3,0.001617,2,3,2,0.178721,Potentially useful but needs more manual review.
-project_4577,Training,project,2359333,small_medium_scale,2,0.000573,2,3,2,0.17611,Potentially useful but needs more manual review.
-project_4156,Fighting Words,project,2022635,small_medium_scale,3,0.001092,2,3,2,0.175229,Potentially useful but needs more manual review.
-project_4565,Breaking Barriers Fund,project,1886413,small_medium_scale,3,0.001306,2,3,2,0.175053,Potentially useful but needs more manual review.
-project_4536,Area‑Based Childhood Programme (ABC),project,1026815,public_service,4,0.002676,2,3,2,0.174706,Potentially useful but needs more manual review.
-project_4175,Gaisce – The President's Award,project,763505,big_scale,5,0.003032,2,3,2,0.171813,Potentially useful but needs more manual review.
-project_4582,Creches,project,1790460,community,3,0.001343,2,3,2,0.169905,Potentially useful but needs more manual review.
-project_4554,Mental Health & Wellbeing,project,1869510,small_medium_scale,3,0.001171,2,3,2,0.167937,Potentially useful but needs more manual review.
-project_4172,Helium Arts,project,1200298,big_scale,4,0.002181,2,3,2,0.165211,Potentially useful but needs more manual review.
-project_4566,Innovate Together,project,548309,other,5,0.003163,2,3,2,0.162482,Potentially useful but needs more manual review.
-project_4556,STEPS+ programme,project,2181049,public_service,2,0.000446,2,3,2,0.158088,Potentially useful but needs more manual review.
-project_4578,Creative Arts Therapy,project,2127510,community,3,0.000362,2,3,2,0.150658,Potentially useful but needs more manual review.
-project_4555,Vocational training,project,615433,public_service,4,0.002669,2,3,2,0.145565,Potentially useful but needs more manual review.
-project_4608,Entrepreneurship Impact Fund,project,1395003,big_scale,3,0.001408,2,3,2,0.145042,Potentially useful but needs more manual review.
-project_4606,Erasmus+ Sport program,project,1611760,big_scale,3,0.000636,2,3,2,0.126495,Potentially useful but needs more manual review.
-project_4177,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,project,603122,big_scale,4,0.002143,2,3,2,0.121701,Potentially useful but needs more manual review.
-project_4600,Drop-In Leagues,project,1592376,small_medium_scale,2,0.000542,2,3,2,0.121013,Potentially useful but needs more manual review.
-project_4595,Traveller Culture & Identity Programme (TCIP),project,678696,community,3,0.001782,2,3,2,0.111228,Potentially useful but needs more manual review.
-project_4548,Crosscare Aftercare Service,project,1333342,community,2,0.00064,2,3,2,0.107176,Potentially useful but needs more manual review.
-project_4167,Trinity Access 21 (TA21),project,1353050,big_scale,2,0.000486,2,3,2,0.101792,Potentially useful but needs more manual review.
-project_4533,iSURFATLANTIC,project,1335792,big_scale,3,0.000253,2,3,2,0.090418,Potentially useful but needs more manual review.
-project_4583,Teen Parent Support Programme,project,573671,small_medium_scale,4,0.001377,2,3,2,0.08616,Potentially useful but needs more manual review.
-project_4564,Headstart Fund,project,290787,small_medium_scale,4,0.001755,2,3,2,0.082844,Potentially useful but needs more manual review.
-project_4154,Change Clothes Crumlin,project,668115,community,3,0.001025,2,3,2,0.077378,Potentially useful but needs more manual review.
-project_4529,Inclusive Surf Programmes,project,203472,community,3,0.001759,2,3,2,0.07691,Potentially useful but needs more manual review.
-project_4609,Why Wellbeing Matters,project,217051,other,4,0.001621,2,3,2,0.071811,Potentially useful but needs more manual review.
-project_4599,Place-based Football Coop groups,project,1027518,small_medium_scale,2,0.000292,2,3,2,0.070497,Potentially useful but needs more manual review.
-project_4176,Uplift,project,226290,big_scale,3,0.001566,2,3,2,0.070064,Potentially useful but needs more manual review.
-project_4616,Connected Communities Fund,project,782431,small_medium_scale,2,0.000664,2,3,2,0.069597,Potentially useful but needs more manual review.
-project_4591,"Various groups, camps and workshops",project,754855,community,2,0.000298,2,3,2,0.051657,Potentially useful but needs more manual review.
-project_4541,Journey to Freedom,project,313529,community,3,0.000832,2,3,2,0.04408,Potentially useful but needs more manual review.
-project_4174,Sensational Kids,project,298322,small_medium_scale,2,0.000296,2,3,2,0.019591,Potentially useful but needs more manual review.
+project_4562,Innovation Strategy,project,4029047,other,4,0.002475,2,3,2,0.284735,Potentially useful but needs more manual review.
+project_4589,Counselling,project,3632044,community,4,0.006168,2,3,2,0.281787,Potentially useful but needs more manual review.
+project_4559,Addiction Counselling,project,2758749,small_medium_scale,5,0.0142,2,3,2,0.274687,Potentially useful but needs more manual review.
+project_4596,Youth Service,project,3347914,community,5,0.007833,2,3,2,0.273087,Potentially useful but needs more manual review.
+project_4577,Training,project,2359333,small_medium_scale,8,0.017929,2,3,2,0.271814,Potentially useful but needs more manual review.
+project_4610,National Wellbeing Framework,project,3692156,regulation,3,0.003884,2,3,2,0.270615,Potentially useful but needs more manual review.
+project_4552,Community Engagement,project,1101245,community,8,0.03073,2,3,2,0.269873,Potentially useful but needs more manual review.
+project_4568,A Drop in The Ocean [ADITO],project,3186443,community,4,0.008927,2,3,2,0.269141,Potentially useful but needs more manual review.
+project_4540,Creative Arts Psychotherapy for vulnerable children - Limerick,project,3223146,community,5,0.007834,2,3,2,0.264352,Potentially useful but needs more manual review.
+project_4160,The Shona Project,project,3555774,small_medium_scale,3,0.004112,2,3,2,0.262593,Potentially useful but needs more manual review.
+project_4537,"Meitheal - Prevention, Partnership & Family Support (PPFS)",project,3643734,public_service,4,0.003144,2,3,2,0.262237,Potentially useful but needs more manual review.
+project_4170,FoodCloud,project,3265278,big_scale,4,0.006805,2,3,2,0.260378,Potentially useful but needs more manual review.
+project_4561,Green Campus & Sustainability,project,3347275,other,4,0.005351,2,3,2,0.25633,Potentially useful but needs more manual review.
+project_4576,Fair Play - Sports LGBTQ+ Inclusion,project,3265627,community,6,0.004138,2,3,2,0.242437,Potentially useful but needs more manual review.
+project_4594,Traveller Voice,project,2946943,community,5,0.007328,2,3,2,0.241592,Potentially useful but needs more manual review.
+project_4573,School Workshops,project,3334056,community,3,0.002452,2,3,2,0.235877,Potentially useful but needs more manual review.
+project_4166,Liquid Therapy,project,693152,small_medium_scale,11,0.029525,2,3,2,0.233158,Potentially useful but needs more manual review.
+project_4575,LGBTQI+ Inclusion Training,project,2034728,community,7,0.015344,2,3,2,0.231659,Potentially useful but needs more manual review.
+project_4590,Parent toddler groups,project,3345480,community,3,0.001068,2,3,2,0.227358,Potentially useful but needs more manual review.
+project_4604,Brighter Futures Fund,project,2776413,small_medium_scale,4,0.006955,2,3,2,0.227131,Potentially useful but needs more manual review.
+project_4588,Drug & alcohol support,project,3144722,community,4,0.003026,2,3,2,0.22648,Potentially useful but needs more manual review.
+project_4530,Innovation in Sport,project,3208558,public_service,3,0.002356,2,3,2,0.226438,Potentially useful but needs more manual review.
+project_4593,No Shame,project,3101230,community,4,0.003458,2,3,2,0.226339,Potentially useful but needs more manual review.
+project_4159,Not So Different,project,3282446,small_medium_scale,4,0.001208,2,3,2,0.223881,Potentially useful but needs more manual review.
+project_4553,Lighthouse Industry Construction Federation Charity - 24/7 Support,project,2991653,community,3,0.00363,2,3,2,0.219817,Potentially useful but needs more manual review.
+project_4607,Integrated care programme for children,project,2648181,public_service,5,0.005947,2,3,2,0.211355,Potentially useful but needs more manual review.
+project_4169,The Great Care Co-op,project,2492553,small_medium_scale,6,0.007335,2,3,2,0.209798,Potentially useful but needs more manual review.
+project_4602,Tackle Your Feelings,project,2358999,big_scale,5,0.008269,2,3,2,0.206728,Potentially useful but needs more manual review.
+project_4581,Limetree Project,project,1726116,community,7,0.01418,2,3,2,0.202195,Potentially useful but needs more manual review.
+project_4162,SpunOut.ie,project,2879345,big_scale,3,0.001603,2,3,2,0.198297,Potentially useful but needs more manual review.
+project_4571,Open Event,project,2767517,small_medium_scale,3,0.001167,2,3,2,0.187522,Potentially useful but needs more manual review.
+project_4177,Social Ecosystems for a Fair and Inclusive Transition (SEFIT) Fund,project,603122,big_scale,7,0.023049,2,3,2,0.183238,Potentially useful but needs more manual review.
+project_4556,STEPS+ programme,project,2181049,public_service,4,0.006622,2,3,2,0.183168,Potentially useful but needs more manual review.
+project_4558,Bord Bia Bloom,project,2477381,small_medium_scale,2,0.002449,2,3,2,0.175833,Potentially useful but needs more manual review.
+project_4155,Educate Together,project,2305083,big_scale,5,0.004004,2,3,2,0.174227,Potentially useful but needs more manual review.
+project_4572,Generation Pride,project,1700132,community,4,0.010229,2,3,2,0.173761,Potentially useful but needs more manual review.
+project_4156,Fighting Words,project,2022635,small_medium_scale,4,0.005794,2,3,2,0.166493,Potentially useful but needs more manual review.
+project_4547,Tusla Aftercare Drop-In Services,project,1503350,public_service,6,0.010275,2,3,2,0.160287,Potentially useful but needs more manual review.
+project_4580,CHIPPS,project,2016992,community,5,0.002772,2,3,2,0.145742,Potentially useful but needs more manual review.
+project_4586,Meals on wheels,project,1744983,community,3,0.005554,2,3,2,0.14542,Potentially useful but needs more manual review.
+project_4567,Ktool,project,2043376,other,3,0.001611,2,3,2,0.139773,Potentially useful but needs more manual review.
+project_4592,Pride on the PItch,project,1756684,community,4,0.004475,2,3,2,0.138971,Potentially useful but needs more manual review.
+project_4578,Creative Arts Therapy,project,2127510,community,3,0.000324,2,3,2,0.137004,Potentially useful but needs more manual review.
+project_4582,Creches,project,1790460,community,3,0.003625,2,3,2,0.135614,Potentially useful but needs more manual review.
+project_4565,Breaking Barriers Fund,project,1886413,small_medium_scale,3,0.002603,2,3,2,0.135456,Potentially useful but needs more manual review.
+project_4550,Carbon Neutrality,project,1884154,other,3,0.002391,2,3,2,0.133871,Potentially useful but needs more manual review.
+project_4584,Hair Together Programme,project,1874086,small_medium_scale,4,0.001815,2,3,2,0.129289,Potentially useful but needs more manual review.
+project_4539,RTE Toy Show Appeal,project,1742707,small_medium_scale,4,0.003083,2,3,2,0.128619,Potentially useful but needs more manual review.
+project_4554,Mental Health & Wellbeing,project,1869510,small_medium_scale,3,0.001341,2,3,2,0.125771,Potentially useful but needs more manual review.
+project_4557,Oberstown coffee van business; Bord Bia Bloom,project,1184345,small_medium_scale,6,0.007832,2,3,2,0.121479,Potentially useful but needs more manual review.
+project_4555,Vocational training,project,615433,public_service,8,0.013561,2,3,2,0.1202,Potentially useful but needs more manual review.
+project_4172,Helium Arts,project,1200298,big_scale,4,0.007378,2,3,2,0.119536,Potentially useful but needs more manual review.
+project_4599,Place-based Football Coop groups,project,1027518,small_medium_scale,4,0.008821,2,3,2,0.117153,Potentially useful but needs more manual review.
+project_4598,New Trails,project,1525971,community,5,0.003408,2,3,2,0.115622,Potentially useful but needs more manual review.
+project_4534,INCLUSEA,project,1491411,big_scale,5,0.002886,2,3,2,0.109682,Potentially useful but needs more manual review.
+project_4579,Spunout Academy,project,1296480,small_medium_scale,5,0.003983,2,3,2,0.103413,Potentially useful but needs more manual review.
+project_4606,Erasmus+ Sport program,project,1611760,big_scale,3,0.000643,2,3,2,0.103012,Potentially useful but needs more manual review.
+project_4600,Drop-In Leagues,project,1592376,small_medium_scale,2,0.000803,2,3,2,0.102729,Potentially useful but needs more manual review.
+project_4536,Area‑Based Childhood Programme (ABC),project,1026815,public_service,4,0.005739,2,3,2,0.096343,Potentially useful but needs more manual review.
+project_4608,Entrepreneurship Impact Fund,project,1395003,big_scale,3,0.00144,2,3,2,0.093188,Potentially useful but needs more manual review.
+project_4167,Trinity Access 21 (TA21),project,1353050,big_scale,2,0.001544,2,3,2,0.090953,Potentially useful but needs more manual review.
+project_4548,Crosscare Aftercare Service,project,1333342,community,2,0.001604,2,3,2,0.089976,Potentially useful but needs more manual review.
+project_4533,iSURFATLANTIC,project,1335792,big_scale,3,0.000613,2,3,2,0.08347,Potentially useful but needs more manual review.
+project_4616,Connected Communities Fund,project,782431,small_medium_scale,3,0.005288,2,3,2,0.076185,Potentially useful but needs more manual review.
+project_4175,Gaisce – The President's Award,project,763505,big_scale,5,0.005371,2,3,2,0.075415,Potentially useful but needs more manual review.
+project_4566,Innovate Together,project,548309,other,5,0.007039,2,3,2,0.071571,Potentially useful but needs more manual review.
+project_4574,Corporate Workshops,project,944976,small_medium_scale,5,0.002869,2,3,2,0.071282,Potentially useful but needs more manual review.
+project_4174,Sensational Kids,project,298322,small_medium_scale,4,0.009503,2,3,2,0.070645,Potentially useful but needs more manual review.
+project_4529,Inclusive Surf Programmes,project,203472,community,4,0.009949,2,3,2,0.067004,Potentially useful but needs more manual review.
+project_4595,Traveller Culture & Identity Programme (TCIP),project,678696,community,3,0.003621,2,3,2,0.057686,Potentially useful but needs more manual review.
+project_4154,Change Clothes Crumlin,project,668115,community,3,0.003331,2,3,2,0.054993,Potentially useful but needs more manual review.
+project_4583,Teen Parent Support Programme,project,573671,small_medium_scale,4,0.003271,2,3,2,0.047973,Potentially useful but needs more manual review.
+project_4591,"Various groups, camps and workshops",project,754855,community,2,0.001124,2,3,2,0.046203,Potentially useful but needs more manual review.
+project_4564,Headstart Fund,project,290787,small_medium_scale,4,0.003639,2,3,2,0.03063,Potentially useful but needs more manual review.
+project_4609,Why Wellbeing Matters,project,217051,other,4,0.004143,2,3,2,0.028854,Potentially useful but needs more manual review.
+project_4541,Journey to Freedom,project,313529,community,3,0.001611,2,3,2,0.018561,Potentially useful but needs more manual review.
+project_4176,Uplift,project,226290,big_scale,3,0.001744,2,3,2,0.013344,Potentially useful but needs more manual review.

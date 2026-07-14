@@ -152,6 +152,53 @@ Every AI-generated edge carries a label: `is_ai_generated=True`, `edge_origin="a
 
 ---
 
+## SLIDE 7b — How Semantic Edges Are Created (LLMs + KTool Methodology)
+
+**What to say:**
+
+The AI-generated links are not magic. There is a two-layer pipeline — statistical NLP first, then KTool metadata refinement — and every edge carries a provenance tag.
+
+**Layer 1 — TF-IDF vectorization:**
+Every quote is converted to a mathematical vector that captures which words are distinctive and which are common. Two quotes whose vectors point in a similar direction (cosine similarity > 0.55) get a `similarity` edge. This is the statistical foundation — no training, no black box, just linear algebra on word frequencies.
+
+**Layer 2 — KTool metadata refines the type:**
+KTool tags every quote with channel, topic, and thematic area. We use these tags to decide *what kind* of semantic relationship exists:
+- Same channel, sequential order → `sequence` edge (narrative flow within a workshop)
+- Different channel, shared topic + causal language ("because", "leads to") → `causality` edge
+- Different channel, shared topic + contradiction markers ("but", "however") → `contradiction` edge
+- Low similarity but same topic repeated across channels → `frequency` edge (pattern detection)
+
+**Provenance is explicit:**
+Every AI-generated edge carries three fields that source edges do not: `is_ai_generated=True`, `edge_origin="ai_inferred"`, `generated_by="16_detect_quote_semantic_edges.py"`. You can filter, inspect, and challenge any AI edge at any time.
+
+**Why this matters:**
+This is not an opaque LLM call. The pipeline combines statistical NLP (TF-IDF similarity) with KTool's structured metadata (channels, topics) to produce interpretable, traceable edges. The LLM role is the sentence-transformer model that produces quote embeddings — a deterministic, auditable step.
+
+---
+
+## SLIDE 7c — Connecting the Dots: From Story Clusters to Claims (Mapping Opinions)
+
+**What to say:**
+
+Story clusters tell you what topic a group of quotes shares. Claims tell you what a single quote actually asserts. But until now, they lived in separate tables — you could not see which claims live inside which cluster.
+
+**The bridge we built:**
+A linking matrix joins clusters to claims on the quote ID. Every cluster now shows its claim fingerprint:
+
+> Cluster 3 — "short-term funding prevents planning"  
+> 12 quotes → 8 claims: 4 `evidence_based` (surface), 3 `cultural_identity` (metanarrative), 1 `austerity` (surface, contradictory)
+
+**What this reveals:**
+- **Density:** Which clusters have many claims vs few — some themes are talked about but not yet formalised into claims
+- **Value dimension mix:** A cluster dominated by `cultural_identity` tells you the narrative is grounded in tradition. A mix of `austerity` + `social_justice` signals structural tension
+- **Contradictions:** If the same cluster contains claims that map to opposing value dimensions, that is an internal contradiction — the ecosystem disagrees with itself *within the same story*
+- **Coverage gaps:** Some clusters have no linked claims — these are themes present in the quotes but not yet extracted as structured propositions
+
+**How a profile builder uses this:**
+A human sits down with the matrix and sees: "Cluster 5 is all `social_justice` surface claims. That is the 'yes' profile — straightforward advocacy. Cluster 2 mixes `innovation` with `austerity` — that is the 'yes, but...' profile — they want change but see no funding. Cluster 7 has contradictions: `community_autonomy` vs `cultural_identity` — that is the nuanced character with internal tension."
+
+---
+
 ## SLIDE 8 — TAB 5: Story Clusters (Narrative Profiles)
 
 **What to say:**

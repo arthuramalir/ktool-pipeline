@@ -1,80 +1,80 @@
 {
   "platform_id": "173",
-  "n_hypotheses": 47,
-  "n_recommendations": 19,
-  "overall_assessment": "Generated 47 hypotheses across 20 leverage, 15 blockage, and 1 lock-in dimensions. High-confidence hypotheses: 19. Bottom line:  The network is structurally open — targeted link addition and brokerage strengthening can enable change.",
+  "n_hypotheses": 42,
+  "n_recommendations": 22,
+  "overall_assessment": "Generated 42 hypotheses across 20 leverage, 10 blockage, and 1 lock-in dimensions. High-confidence hypotheses: 22. Bottom line:  The network is structurally open — targeted link addition and brokerage strengthening can enable change.",
   "hypotheses": [
     {
-      "id": "H1_information_25360",
+      "id": "H1_agent_5379",
       "type": "leverage_brokerage",
-      "node_id": "information_25360",
-      "node_type": "information",
-      "label": "Unnamed",
-      "metric": "betweenness=0.0096, degree=7",
-      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0096, degree=7). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
+      "node_id": "agent_5379",
+      "node_type": "agent",
+      "label": "Young People",
+      "metric": "betweenness=0.0624, degree=23",
+      "hypothesis": "Young People (agent) mediates information across structural holes (betweenness=0.0624, degree=23). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
       "framework": "Policy Brokerage / Boundary Spanning",
       "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
       "confidence": "high"
     },
     {
-      "id": "H1_information_25346",
+      "id": "H1_information_25589",
       "type": "leverage_brokerage",
-      "node_id": "information_25346",
+      "node_id": "information_25589",
       "node_type": "information",
       "label": "Unnamed",
-      "metric": "betweenness=0.0067, degree=7",
-      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0067, degree=7). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
+      "metric": "betweenness=0.0347, degree=19",
+      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0347, degree=19). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
       "framework": "Policy Brokerage / Boundary Spanning",
       "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
       "confidence": "high"
     },
     {
-      "id": "H1_information_25369",
+      "id": "H1_challenge_2309",
       "type": "leverage_brokerage",
-      "node_id": "information_25369",
+      "node_id": "challenge_2309",
+      "node_type": "challenge",
+      "label": "Resource strain and burnout",
+      "metric": "betweenness=0.0292, degree=6",
+      "hypothesis": "Resource strain and burnout (challenge) mediates information across structural holes (betweenness=0.0292, degree=6). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
+      "framework": "Policy Brokerage / Boundary Spanning",
+      "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
+      "confidence": "high"
+    },
+    {
+      "id": "H1_information_25337",
+      "type": "leverage_brokerage",
+      "node_id": "information_25337",
       "node_type": "information",
       "label": "Unnamed",
-      "metric": "betweenness=0.0048, degree=6",
-      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0048, degree=6). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
+      "metric": "betweenness=0.0284, degree=16",
+      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0284, degree=16). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
       "framework": "Policy Brokerage / Boundary Spanning",
       "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
-      "confidence": "medium"
+      "confidence": "high"
     },
     {
-      "id": "H1_information_25350",
+      "id": "H1_information_25349",
       "type": "leverage_brokerage",
-      "node_id": "information_25350",
+      "node_id": "information_25349",
       "node_type": "information",
       "label": "Unnamed",
-      "metric": "betweenness=0.0047, degree=7",
-      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0047, degree=7). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
+      "metric": "betweenness=0.0263, degree=13",
+      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0263, degree=13). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
       "framework": "Policy Brokerage / Boundary Spanning",
       "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
-      "confidence": "medium"
+      "confidence": "high"
     },
     {
-      "id": "H1_channel_9509",
+      "id": "H1_perception_409",
       "type": "leverage_brokerage",
-      "node_id": "channel_9509",
-      "node_type": "channel",
-      "label": "Unnamed",
-      "metric": "betweenness=0.0045, degree=16",
-      "hypothesis": "Unnamed (channel) mediates information across structural holes (betweenness=0.0045, degree=16). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
+      "node_id": "perception_409",
+      "node_type": "perception",
+      "label": "Mary",
+      "metric": "betweenness=0.0257, degree=6",
+      "hypothesis": "Mary (perception) mediates information across structural holes (betweenness=0.0257, degree=6). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
       "framework": "Policy Brokerage / Boundary Spanning",
       "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
-      "confidence": "medium"
-    },
-    {
-      "id": "H1_channel_9509_0",
-      "type": "leverage_brokerage",
-      "node_id": "channel_9509.0",
-      "node_type": "channel",
-      "label": "002",
-      "metric": "betweenness=0.0045, degree=16",
-      "hypothesis": "002 (channel) mediates information across structural holes (betweenness=0.0045, degree=16). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
-      "framework": "Policy Brokerage / Boundary Spanning",
-      "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
-      "confidence": "medium"
+      "confidence": "high"
     },
     {
       "id": "H1_information_25338",
@@ -82,47 +82,47 @@
       "node_id": "information_25338",
       "node_type": "information",
       "label": "Unnamed",
-      "metric": "betweenness=0.0040, degree=5",
-      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0040, degree=5). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
+      "metric": "betweenness=0.0230, degree=16",
+      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0230, degree=16). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
       "framework": "Policy Brokerage / Boundary Spanning",
       "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
-      "confidence": "medium"
+      "confidence": "high"
     },
     {
-      "id": "H1_information_23094",
+      "id": "H1_claim_6",
       "type": "leverage_brokerage",
-      "node_id": "information_23094",
-      "node_type": "information",
-      "label": "Unnamed",
-      "metric": "betweenness=0.0039, degree=4",
-      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0039, degree=4). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
+      "node_id": "claim_6",
+      "node_type": "claim",
+      "label": "seek: public institutions → measurable impact",
+      "metric": "betweenness=0.0218, degree=3",
+      "hypothesis": "seek: public institutions → measurable impact (claim) mediates information across structural holes (betweenness=0.0218, degree=3). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
       "framework": "Policy Brokerage / Boundary Spanning",
       "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
-      "confidence": "medium"
+      "confidence": "high"
     },
     {
-      "id": "H1_information_25827",
+      "id": "H1_pilot_837",
       "type": "leverage_brokerage",
-      "node_id": "information_25827",
-      "node_type": "information",
-      "label": "Unnamed",
-      "metric": "betweenness=0.0039, degree=7",
-      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0039, degree=7). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
+      "node_id": "pilot_837",
+      "node_type": "pilot",
+      "label": "Community of practice: Teachers as change agents",
+      "metric": "betweenness=0.0207, degree=8",
+      "hypothesis": "Community of practice: Teachers as change agents (pilot) mediates information across structural holes (betweenness=0.0207, degree=8). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
       "framework": "Policy Brokerage / Boundary Spanning",
       "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
-      "confidence": "medium"
+      "confidence": "high"
     },
     {
-      "id": "H1_information_25333",
+      "id": "H1_perception_408",
       "type": "leverage_brokerage",
-      "node_id": "information_25333",
-      "node_type": "information",
-      "label": "Unnamed",
-      "metric": "betweenness=0.0037, degree=6",
-      "hypothesis": "Unnamed (information) mediates information across structural holes (betweenness=0.0037, degree=6). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
+      "node_id": "perception_408",
+      "node_type": "perception",
+      "label": " Aoibhe",
+      "metric": "betweenness=0.0206, degree=5",
+      "hypothesis": " Aoibhe (perception) mediates information across structural holes (betweenness=0.0206, degree=5). Strengthening its brokerage role could accelerate narrative and resource diffusion across components.",
       "framework": "Policy Brokerage / Boundary Spanning",
       "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
-      "confidence": "medium"
+      "confidence": "high"
     },
     {
       "id": "H2_agent_4722",
@@ -365,73 +365,13 @@
       "confidence": "high"
     },
     {
-      "id": "H4_perception_411",
-      "type": "blockage_perception",
-      "node_id": "perception_411",
-      "node_type": "perception",
-      "label": " John",
-      "metric": "no_path_to_information",
-      "hypothesis": "Perception ' John' (perception_411) has no path to any information node. This perception exists in a discursive silo — it cannot be informed, challenged, or influenced by the broader ecosystem's communication channels.",
-      "framework": "Discursive Cleavages / Ideological Polarization",
-      "action": "Deploy an information channel targeting the sector/theme of this perception. Fund boundary-spanning initiatives.",
-      "confidence": "high"
-    },
-    {
-      "id": "H4_perception_406",
-      "type": "blockage_perception",
-      "node_id": "perception_406",
-      "node_type": "perception",
-      "label": "Siobhán",
-      "metric": "no_path_to_information",
-      "hypothesis": "Perception 'Siobhán' (perception_406) has no path to any information node. This perception exists in a discursive silo — it cannot be informed, challenged, or influenced by the broader ecosystem's communication channels.",
-      "framework": "Discursive Cleavages / Ideological Polarization",
-      "action": "Deploy an information channel targeting the sector/theme of this perception. Fund boundary-spanning initiatives.",
-      "confidence": "high"
-    },
-    {
-      "id": "H4_perception_408",
-      "type": "blockage_perception",
-      "node_id": "perception_408",
-      "node_type": "perception",
-      "label": " Aoibhe",
-      "metric": "no_path_to_information",
-      "hypothesis": "Perception ' Aoibhe' (perception_408) has no path to any information node. This perception exists in a discursive silo — it cannot be informed, challenged, or influenced by the broader ecosystem's communication channels.",
-      "framework": "Discursive Cleavages / Ideological Polarization",
-      "action": "Deploy an information channel targeting the sector/theme of this perception. Fund boundary-spanning initiatives.",
-      "confidence": "high"
-    },
-    {
-      "id": "H4_perception_410",
-      "type": "blockage_perception",
-      "node_id": "perception_410",
-      "node_type": "perception",
-      "label": "Naomi",
-      "metric": "no_path_to_information",
-      "hypothesis": "Perception 'Naomi' (perception_410) has no path to any information node. This perception exists in a discursive silo — it cannot be informed, challenged, or influenced by the broader ecosystem's communication channels.",
-      "framework": "Discursive Cleavages / Ideological Polarization",
-      "action": "Deploy an information channel targeting the sector/theme of this perception. Fund boundary-spanning initiatives.",
-      "confidence": "high"
-    },
-    {
-      "id": "H4_perception_407",
-      "type": "blockage_perception",
-      "node_id": "perception_407",
-      "node_type": "perception",
-      "label": "Luke",
-      "metric": "no_path_to_information",
-      "hypothesis": "Perception 'Luke' (perception_407) has no path to any information node. This perception exists in a discursive silo — it cannot be informed, challenged, or influenced by the broader ecosystem's communication channels.",
-      "framework": "Discursive Cleavages / Ideological Polarization",
-      "action": "Deploy an information channel targeting the sector/theme of this perception. Fund boundary-spanning initiatives.",
-      "confidence": "high"
-    },
-    {
       "id": "H5_lockin",
       "type": "lockin_policy_monopoly",
-      "node_id": "channel_9509|channel_9510|channel_9549|channel_9576|information_25344|information_25345|information_25346|information_25347|information_25348|information_25349",
-      "node_type": "{'information': 6, 'channel': 4}",
+      "node_id": "information_25337|information_25338|information_25358|information_25363|information_25364|information_25582|information_25584|information_25588|information_25589|information_25590",
+      "node_type": "{'information': 10}",
       "label": "Unnamed | Unnamed | Unnamed | Unnamed | Unnamed",
-      "metric": "max_k_core=4, fraction=0.123, robustness_gap=-0.1127",
-      "hypothesis": "The innermost k-core (k=4) contains 20 nodes (12.3% of graph). Types: {'information': 6, 'channel': 4}. This resembles a policy monopoly (Sabatier & Jenkins-Smith, 1993) — an entrenched coalition controlling resources and framing. The robustness gap (-0.1127) indicates the system degrades faster under targeted removal than random failure, confirming dependency on this core.",
+      "metric": "max_k_core=8, fraction=0.020, robustness_gap=-0.1834",
+      "hypothesis": "The innermost k-core (k=8) contains 10 nodes (2.0% of graph). Types: {'information': 10}. This resembles a policy monopoly (Sabatier & Jenkins-Smith, 1993) — an entrenched coalition controlling resources and framing. The robustness gap (-0.1834) indicates the system degrades faster under targeted removal than random failure, confirming dependency on this core.",
       "framework": "Policy Monopoly / Dominant Coalition (ACF + PET)",
       "action": "Don't challenge the core directly. Fund venue-shopping: peripheral advocacy groups that can reframe the dominant issue image and shift debates to alternative forums. Identify secondary-belief alignments where peripheral coalitions can form tactical alliances.",
       "confidence": "high"
@@ -441,9 +381,9 @@
       "type": "plasticity_capacity",
       "node_id": "",
       "node_type": "",
-      "label": "284 peripheral nodes, 0 high-confidence GNN links",
-      "metric": "peripheral=284, merging_links=3, high_conf=0",
-      "hypothesis": "The network has 284 peripheral nodes (degree 1-2) — spare capacity for rewiring. There are 0 high-confidence GNN-predicted links and 3 that would merge components. Adding these links could integrate stranded nodes without triggering systemic resistance.",
+      "label": "286 peripheral nodes, 1 high-confidence GNN links",
+      "metric": "peripheral=286, merging_links=3, high_conf=1",
+      "hypothesis": "The network has 286 peripheral nodes (degree 1-2) — spare capacity for rewiring. There are 1 high-confidence GNN-predicted links and 3 that would merge components. Adding these links could integrate stranded nodes without triggering systemic resistance.",
       "framework": "Latent Collaborative Capacity (NPG)",
       "action": "Prioritize the 3 component-merging links to reduce fragmentation. Design joint initiatives that pair peripheral nodes with core actors.",
       "confidence": "medium"
@@ -651,46 +591,6 @@
       "priority": "high"
     },
     {
-      "id": "H4_perception_411",
-      "title": " John",
-      "action": "Deploy an information channel targeting the sector/theme of this perception. Fund boundary-spanning initiatives.",
-      "framework": "Discursive Cleavages / Ideological Polarization",
-      "type": "blockage_perception",
-      "priority": "high"
-    },
-    {
-      "id": "H4_perception_406",
-      "title": "Siobhán",
-      "action": "Deploy an information channel targeting the sector/theme of this perception. Fund boundary-spanning initiatives.",
-      "framework": "Discursive Cleavages / Ideological Polarization",
-      "type": "blockage_perception",
-      "priority": "high"
-    },
-    {
-      "id": "H4_perception_408",
-      "title": " Aoibhe",
-      "action": "Deploy an information channel targeting the sector/theme of this perception. Fund boundary-spanning initiatives.",
-      "framework": "Discursive Cleavages / Ideological Polarization",
-      "type": "blockage_perception",
-      "priority": "high"
-    },
-    {
-      "id": "H4_perception_410",
-      "title": "Naomi",
-      "action": "Deploy an information channel targeting the sector/theme of this perception. Fund boundary-spanning initiatives.",
-      "framework": "Discursive Cleavages / Ideological Polarization",
-      "type": "blockage_perception",
-      "priority": "high"
-    },
-    {
-      "id": "H4_perception_407",
-      "title": "Luke",
-      "action": "Deploy an information channel targeting the sector/theme of this perception. Fund boundary-spanning initiatives.",
-      "framework": "Discursive Cleavages / Ideological Polarization",
-      "type": "blockage_perception",
-      "priority": "high"
-    },
-    {
       "id": "H5_lockin",
       "title": "Unnamed | Unnamed | Unnamed | Unnamed | Unnamed",
       "action": "Don't challenge the core directly. Fund venue-shopping: peripheral advocacy groups that can reframe the dominant issue image and shift debates to alternative forums. Identify secondary-belief alignments where peripheral coalitions can form tactical alliances.",
@@ -699,7 +599,15 @@
       "priority": "high"
     },
     {
-      "id": "H1_information_25360",
+      "id": "H1_agent_5379",
+      "title": "Young People",
+      "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
+      "framework": "Policy Brokerage / Boundary Spanning",
+      "type": "leverage_brokerage",
+      "priority": "medium"
+    },
+    {
+      "id": "H1_information_25589",
       "title": "Unnamed",
       "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
       "framework": "Policy Brokerage / Boundary Spanning",
@@ -707,8 +615,64 @@
       "priority": "medium"
     },
     {
-      "id": "H1_information_25346",
+      "id": "H1_challenge_2309",
+      "title": "Resource strain and burnout",
+      "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
+      "framework": "Policy Brokerage / Boundary Spanning",
+      "type": "leverage_brokerage",
+      "priority": "medium"
+    },
+    {
+      "id": "H1_information_25337",
       "title": "Unnamed",
+      "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
+      "framework": "Policy Brokerage / Boundary Spanning",
+      "type": "leverage_brokerage",
+      "priority": "medium"
+    },
+    {
+      "id": "H1_information_25349",
+      "title": "Unnamed",
+      "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
+      "framework": "Policy Brokerage / Boundary Spanning",
+      "type": "leverage_brokerage",
+      "priority": "medium"
+    },
+    {
+      "id": "H1_perception_409",
+      "title": "Mary",
+      "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
+      "framework": "Policy Brokerage / Boundary Spanning",
+      "type": "leverage_brokerage",
+      "priority": "medium"
+    },
+    {
+      "id": "H1_information_25338",
+      "title": "Unnamed",
+      "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
+      "framework": "Policy Brokerage / Boundary Spanning",
+      "type": "leverage_brokerage",
+      "priority": "medium"
+    },
+    {
+      "id": "H1_claim_6",
+      "title": "seek: public institutions → measurable impact",
+      "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
+      "framework": "Policy Brokerage / Boundary Spanning",
+      "type": "leverage_brokerage",
+      "priority": "medium"
+    },
+    {
+      "id": "H1_pilot_837",
+      "title": "Community of practice: Teachers as change agents",
+      "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
+      "framework": "Policy Brokerage / Boundary Spanning",
+      "type": "leverage_brokerage",
+      "priority": "medium"
+    },
+    {
+      "id": "H1_perception_408",
+      "title": " Aoibhe",
       "action": "Fund coordination capacity; protect from turnover; assign liaison role.",
       "framework": "Policy Brokerage / Boundary Spanning",
       "type": "leverage_brokerage",

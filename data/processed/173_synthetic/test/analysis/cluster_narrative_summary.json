@@ -1,0 +1,15 @@
+{
+  "n_clusters": 8,
+  "n_dimensions": 7,
+  "n_cross_cluster_edges": 123,
+  "adjacency_density": 0.7188,
+  "dimensions": [
+    "cultural_identity",
+    "social_justice",
+    "collaboration",
+    "innovation_drive",
+    "evidence_based",
+    "community_autonomy",
+    "austerity_scarcity"
+  ]
+}

@@ -1,0 +1,4 @@
+source_global_id,target_global_id,link_type,pair_kind,mapping_score,source_themes,target_themes,shared_themes,source_perceptions,target_perceptions,shared_perceptions,source_values,target_values,shared_values,perception_overlap_ratio,perception_bridge_score,effect_type,effect_note
+project_4579,project_4565,project -> project,project-project,0.0,,,,,,,,,,0.0,0.0,Likely structural only,The proposed link is structurally useful but currently has little evidence of perception overlap.
+agent_5510,agent_5808,agent -> agent,agent-agent,0.0,,,,,,,,,,0.0,0.0,Likely structural only,The proposed link is structurally useful but currently has little evidence of perception overlap.
+project_4609,agent_5822,project -> agent,project-agent,0.0,,,,,,,,,,0.0,0.0,Likely structural only,The proposed link is structurally useful but currently has little evidence of perception overlap.

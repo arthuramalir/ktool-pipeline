@@ -1,13 +1,13 @@
-global_id,native_id,node_type,name,code,description,source,channel_accesibility,listening_channel,information_volume,attachments,date
-channel_9490,9490,channel,Unnamed,RI_001,,,,,"{'id': 7228, 'value': None}",,2025-07-30T10:32:32.258Z
-channel_9506,9506,channel,Unnamed,RI-002,Reports,,,in_person,"{'id': 7868, 'value': 'semaphore_1_yellow'}",,2025-09-11T10:18:20.645Z
-channel_9507,9507,channel,Why Wellbeing Matters Report ,RI -03,,https://rethinkireland.ie/wp-content/uploads/2025/04/Why-Wellbeing-Matters-Youth-Report.pdf,new,,"{'id': 7889, 'value': None}",,2025-09-12T08:30:07.568Z
-channel_9508,9508,channel,Unnamed,P001,xxxx,,new,in_person,"{'id': 7892, 'value': 'semaphore_1_yellow'}",,2025-09-15T19:56:12.119Z
-channel_9509,9509,channel,Unnamed,002,No Barriers,,new,in_person,"{'id': 7896, 'value': 'semaphore_1_yellow'}",,2025-09-17T09:11:46.179Z
-channel_9510,9510,channel,Unnamed,003,Involve,,new,in_person,"{'id': 7897, 'value': 'semaphore_1_yellow'}",,2025-09-17T09:12:34.113Z
-channel_9511,9511,channel,Unnamed,LT 001,Interview Irish Surfing,,,in_person,"{'id': 7980, 'value': 'semaphore_1_yellow'}",,2025-09-18T10:14:38.188Z
-channel_9512,9512,channel,Unnamed,003,short interview,short interview,,,"{'id': 7981, 'value': None}",,2025-09-22T14:47:58.034Z
-channel_9548,9548,channel,Unnamed,004_FF,,,existing,digital,"{'id': 8065, 'value': 'semaphore_1_yellow'}",,2025-10-13T13:32:29.715Z
-channel_9549,9549,channel,Unnamed,T_006,,,new,in_person,"{'id': 8066, 'value': 'semaphore_1_yellow'}",,2025-10-14T09:29:13.207Z
-channel_9576,9576,channel,Unnamed,H-007,,,existing,digital,"{'id': 8100, 'value': 'semaphore_1_yellow'}",,2025-10-17T14:56:13.858Z
-channel_9603,9603,channel,Unnamed,,,,,,"{'id': 8331, 'value': None}",,2025-10-31T15:44:44.488Z
+global_id,native_id,node_type,name,code,description,source,channel_accesibility,listening_channel,information_volume,attachments,date,location,latitude,longitude
+channel_9490,9490,channel,Unnamed,RI_001,,,,,"{'id': 7228, 'value': None}",,2025-07-30T10:32:32.258Z,Kinsale,51.7066,-8.522
+channel_9506,9506,channel,Unnamed,RI-002,Reports,,,in_person,"{'id': 7868, 'value': 'semaphore_1_yellow'}",,2025-09-11T10:18:20.645Z,Maynooth,53.3814,-6.5936
+channel_9507,9507,channel,Why Wellbeing Matters Report ,RI -03,,https://rethinkireland.ie/wp-content/uploads/2025/04/Why-Wellbeing-Matters-Youth-Report.pdf,new,,"{'id': 7889, 'value': None}",,2025-09-12T08:30:07.568Z,Kinsale,51.7066,-8.522
+channel_9508,9508,channel,Unnamed,P001,xxxx,,new,in_person,"{'id': 7892, 'value': 'semaphore_1_yellow'}",,2025-09-15T19:56:12.119Z,Gorey,52.6745,-6.2927
+channel_9509,9509,channel,Unnamed,002,No Barriers,,new,in_person,"{'id': 7896, 'value': 'semaphore_1_yellow'}",,2025-09-17T09:11:46.179Z,Kildare,53.157,-6.9123
+channel_9510,9510,channel,Unnamed,003,Involve,,new,in_person,"{'id': 7897, 'value': 'semaphore_1_yellow'}",,2025-09-17T09:12:34.113Z,Crumlin,53.3219,-6.3228
+channel_9511,9511,channel,Unnamed,LT 001,Interview Irish Surfing,,,in_person,"{'id': 7980, 'value': 'semaphore_1_yellow'}",,2025-09-18T10:14:38.188Z,Enniscorthy,52.5027,-6.5697
+channel_9512,9512,channel,Unnamed,003,short interview,short interview,,,"{'id': 7981, 'value': None}",,2025-09-22T14:47:58.034Z,Carrick-on-Suir,52.3499,-7.4142
+channel_9548,9548,channel,Unnamed,004_FF,,,existing,digital,"{'id': 8065, 'value': 'semaphore_1_yellow'}",,2025-10-13T13:32:29.715Z,Listowel,52.4464,-9.485
+channel_9549,9549,channel,Unnamed,T_006,,,new,in_person,"{'id': 8066, 'value': 'semaphore_1_yellow'}",,2025-10-14T09:29:13.207Z,Letterkenny,54.9517,-7.7372
+channel_9576,9576,channel,Unnamed,H-007,,,existing,digital,"{'id': 8100, 'value': 'semaphore_1_yellow'}",,2025-10-17T14:56:13.858Z,Ennis,52.8436,-8.9868
+channel_9603,9603,channel,Unnamed,,,,,,"{'id': 8331, 'value': None}",,2025-10-31T15:44:44.488Z,Edenderry,53.3453,-7.0486

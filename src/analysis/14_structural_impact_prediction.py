@@ -10,6 +10,12 @@ Flow:
   3. Detect narrative gaps across the graph (underfunded values, perception-void components)
   4. Output unified scored results
 
+Domain filter:
+  - loads sentence-transformer embeddings (non-zero vectors only)
+  - computes cosine similarity between src and tgt endpoints
+  - compatibility: >0.5 → 1.0 (same domain), 0.3–0.5 → 0.8 (neutral), <0.3 → 0.5 (distant)
+  - zero-vector fallback: node_type compatibility check
+
 Outputs per platform:
   - narrative_impact_predictions.csv — all candidates (edges + nodes) with impact scores
   - narrative_impact_report.json — summary with findings
@@ -65,6 +71,14 @@ ISSUE_COLORS = {
     "value_underfunding": "#2ecc71",
     "narrative_cleavage": "#3498db",
     "perception_isolation": "#9b59b6",
+}
+
+ACTION_TEMPLATES = {
+    "learning_bridge": "Create a cross-departmental working group between the funders of {src} and {tgt}",
+    "coalition_reinforcement": "Strengthen existing collaboration through a joint pilot project linking {src} and {tgt}",
+    "cleavage_breach": "Commission a facilitated dialogue between the stakeholders of {src} and {tgt}",
+    "structural_only": "Document the existing but unrecorded relationship between {src} and {tgt}",
+    "node_invention": "Commission a feasibility study for a new project at the intersection of {src} and {tgt} domains",
 }
 
 
@@ -232,6 +246,36 @@ def simulate_edge_impact(
     }
 
 
+def compute_domain_compatibility(
+    src: str, tgt: str,
+    emb_vectors: dict[str, np.ndarray] | None,
+    reg: dict,
+) -> tuple[float, str]:
+    """Semantic domain compatibility between two nodes.
+    
+    Non-zero embedding cosine similarity: >0.5 → compatible, 0.3–0.5 → neutral, <0.3 → distant.
+    Zero-vector fallback: node_type-based heuristic.
+    """
+    if emb_vectors and src in emb_vectors and tgt in emb_vectors:
+        sv = emb_vectors[src]
+        tv = emb_vectors[tgt]
+        n_s = np.linalg.norm(sv)
+        n_t = np.linalg.norm(tv)
+        if n_s > 1e-8 and n_t > 1e-8:
+            sim = float(np.dot(sv, tv) / (n_s * n_t))
+            if sim > 0.5:
+                return 1.0, f"Same domain (cos={sim:.2f})"
+            elif sim > 0.3:
+                return 0.8, f"Neutral domain (cos={sim:.2f})"
+            else:
+                return 0.5, f"Distant domain (cos={sim:.2f})"
+    st = reg.get(src, {}).get("node_type", "unknown")
+    tt = reg.get(tgt, {}).get("node_type", "unknown")
+    if st == tt:
+        return 0.8, f"Same type ({st}) — partial compatibility"
+    return 0.6, f"Different types ({st} ↔ {tt}) — low certainty"
+
+
 def propose_node_addition(
     node_id: str, reg: dict, vd_gids: dict, G: nx.Graph,
 ) -> list[dict]:
@@ -330,15 +374,29 @@ def main() -> None:
     deg_map = dict(zip(cent["global_id"].astype(str), cent["degree"])) if not cent.empty else {}
     bt_map = dict(zip(cent["global_id"].astype(str), cent["betweenness_centrality"])) if not cent.empty else {}
 
+    # ── Embeddings for domain compatibility ──
+    emb_path = ANALYSIS_DIR / "node_semantic_embeddings.parquet"
+    emb_vectors: dict[str, np.ndarray] | None = None
+    if emb_path.exists():
+        emb_df = pd.read_parquet(emb_path)
+        emb_vectors = {}
+        for _, row in emb_df.iterrows():
+            v = np.array(row["embedding"])
+            if np.linalg.norm(v) > 1e-8:
+                emb_vectors[row["global_id"]] = v
+        print(f"  Non-zero embedding vectors: {len(emb_vectors)} / {len(emb_df)}")
+
     # ── Financial-perception bridge ──
     fin_bridge = load_csv_safe(ANALYSIS_DIR / "financial_perception_bridge.csv")
     budget_by_vd: dict[str, float] = {}
-    if not fin_bridge.empty and "budget" in fin_bridge.columns:
-        for _, row in fin_bridge.iterrows():
-            vd = str(row.get("value_dimension", "")).strip()
-            b = float(row.get("budget", 0))
-            if vd and vd != "nan":
-                budget_by_vd[vd] = budget_by_vd.get(vd, 0) + b
+    if not fin_bridge.empty:
+        budget_col = next((c for c in ["total_investment_eur", "budget"] if c in fin_bridge.columns), None)
+        if budget_col:
+            for _, row in fin_bridge.iterrows():
+                vd = str(row.get("value_dimension", "")).strip()
+                b = float(row.get(budget_col, 0))
+                if vd and vd != "nan":
+                    budget_by_vd[vd] = budget_by_vd.get(vd, 0) + b
 
     # ── Load GNN recommendations ──
     gnn_recs = load_csv_safe(ANALYSIS_DIR / "gnn" / "gnn_link_recommendations.csv")
@@ -388,6 +446,26 @@ def main() -> None:
         src_bt = bt_map.get(src, 0.0)
         tgt_bt = bt_map.get(tgt, 0.0)
 
+        # ── Domain compatibility ──
+        domain_score, domain_note = compute_domain_compatibility(src, tgt, emb_vectors, reg)
+
+        # ── Governance action template ──
+        action_template = ACTION_TEMPLATES.get(
+            sim["bridge_type"], 
+            "Explore the relationship between {src} and {tgt}"
+        ).format(src=sl, tgt=tl)
+
+        # ── Feasibility badge ──
+        if domain_score >= 1.0:
+            feasibility_badge = "✅ Fundable"
+        elif domain_score == 0.8:
+            if sim["bridge_type"] in ("learning_bridge", "coalition_reinforcement", "cleavage_breach"):
+                feasibility_badge = "⚠️ Cross-domain" if merges_components else "✅ Fundable"
+            else:
+                feasibility_badge = "❓ Topological"
+        else:
+            feasibility_badge = "❓ Topological"
+
         # ── Score ──
         new_count = len(sim["new_total"])
         new_vd_count = len(sim["all_new_vds"])
@@ -398,11 +476,12 @@ def main() -> None:
         art_score = 0.2 if src_art or tgt_art else 0.0
         narrative_score = min(1.0, new_count / 30.0) * 0.5 + min(1.0, new_vd_count / 5.0) * 0.5
         composite = (
-            narrative_score * 0.40 +
-            bridge_score * 0.25 +
+            narrative_score * 0.35 +
+            bridge_score * 0.20 +
             merge_score * 0.15 +
             deg_score * 0.10 +
-            art_score * 0.10
+            art_score * 0.10 +
+            domain_score * 0.10
         )
 
         impact = {
@@ -426,6 +505,10 @@ def main() -> None:
             "new_vds_unlocked": format_vd_set(sim["all_new_vds"]),
             "bridge_type": sim["bridge_type"],
             "bridge_note": sim["bridge_note"],
+            "action_template": action_template,
+            "feasibility_badge": feasibility_badge,
+            "domain_compatibility": round(domain_score, 2),
+            "domain_note": domain_note,
             "source_degree": src_deg,
             "target_degree": tgt_deg,
             "source_kcore": src_k,
@@ -448,7 +531,8 @@ def main() -> None:
         print(f"    Target neighborhood: {len(sim['tgt_reached'])} nodes | {impact['target_vds']}")
         print(f"    New pathways: {new_count} | New VDs: {impact['new_vds_unlocked']}")
         print(f"    Bridge: {sim['bridge_type']} | Score: {composite:.4f}")
-        print(f"    Merges components: {merges_components}")
+        print(f"    Domain: {domain_note} | Badge: {feasibility_badge} | Merges components: {merges_components}")
+        print(f"    Action: {action_template}")
 
         # ── Node proposals for isolated endpoints ──
         for nid in [src, tgt]:
@@ -774,6 +858,10 @@ def main() -> None:
             "new_vds_unlocked": row["new_vds_unlocked"],
             "composite_governance_score": float(row["composite_governance_score"]),
             "bridge_note": row["bridge_note"],
+            "action_template": row.get("action_template", ""),
+            "feasibility_badge": row.get("feasibility_badge", ""),
+            "domain_compatibility": float(row.get("domain_compatibility", 0)),
+            "domain_note": row.get("domain_note", ""),
         })
 
     top_nodes = []

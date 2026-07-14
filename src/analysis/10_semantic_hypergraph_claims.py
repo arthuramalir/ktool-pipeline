@@ -34,7 +34,7 @@ def compile_hypergraph_claims() -> None:
     node_directory = operational_nodes.set_index("global_id")["label"].to_dict()
     
     # Isolate our narrative listening layers
-    narrative_nodes = nodes[nodes["node_type"].isin(["information", "perception", "challenge", "value"])].copy()
+    narrative_nodes = nodes[nodes["node_type"].isin(["information"])].copy()
     narrative_nodes = narrative_nodes[narrative_nodes["description"].fillna("").str.strip() != ""]
 
     print(f"Parsing {len(narrative_nodes)} qualitative text records into linguistic trees...")

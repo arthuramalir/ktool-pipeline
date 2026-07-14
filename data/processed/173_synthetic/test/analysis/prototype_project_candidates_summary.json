@@ -4,17 +4,17 @@
   "candidate_count": 101,
   "top_candidate": [
     {
-      "global_id": "project_4603",
-      "label": "Sport & Wellness Fund",
+      "global_id": "project_4560",
+      "label": "Breaking Down Barriers to Inclusive Care for LGBTQ+ Children & Young People",
       "node_type": "project",
-      "associated_budget": 3572047,
+      "associated_budget": 2234224,
       "impact_level": "small_medium_scale",
-      "degree": 7,
-      "betweenness_centrality": 0.006404,
+      "degree": 13,
+      "betweenness_centrality": 0.041574,
       "perception_count": 2,
       "agent_count": 3,
       "topic_count": 2,
-      "prototype_candidate_score": 0.51604,
+      "prototype_candidate_score": 0.422297,
       "suggestion_reason": "Potentially useful but needs more manual review."
     }
   ]

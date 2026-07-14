@@ -66,5 +66,262 @@
       "contradiction_density": "n/a",
       "status_flag": "Underdeveloped (< 3 quotes); Single channel — verify independence; Low purity — quotes closer to other perceptions"
     }
+  ],
+  "narrative_validation": [
+    {
+      "perception_label": " John",
+      "n_quotes": 9,
+      "n_claims": 1,
+      "silhouette_score": -0.1355,
+      "nearest_other_perception": "Luke",
+      "nearest_other_similarity": 0.775,
+      "vd_n_dims": 1,
+      "vd_entropy": 0.0,
+      "quote_claim_cosim": 0.2684,
+      "cross_leakage": 1.0
+    },
+    {
+      "perception_label": " Aoibhe",
+      "n_quotes": 36,
+      "n_claims": 1,
+      "silhouette_score": -0.1561,
+      "nearest_other_perception": "Mary",
+      "nearest_other_similarity": 0.85,
+      "vd_n_dims": 0,
+      "vd_entropy": 0.0,
+      "quote_claim_cosim": 0.3715,
+      "cross_leakage": 1.0
+    },
+    {
+      "perception_label": "__unassigned__",
+      "n_quotes": 2,
+      "n_claims": 0,
+      "silhouette_score": 0.0,
+      "nearest_other_perception": "Siobhán",
+      "nearest_other_similarity": 0.75,
+      "vd_n_dims": 0,
+      "vd_entropy": 0.0,
+      "quote_claim_cosim": 0.0,
+      "cross_leakage": 1.0
+    },
+    {
+      "perception_label": "Naomi",
+      "n_quotes": 12,
+      "n_claims": 0,
+      "silhouette_score": -0.0667,
+      "nearest_other_perception": "Siobhán",
+      "nearest_other_similarity": 0.75,
+      "vd_n_dims": 0,
+      "vd_entropy": 0.0,
+      "quote_claim_cosim": 0.0,
+      "cross_leakage": 1.0
+    },
+    {
+      "perception_label": "Siobhán",
+      "n_quotes": 8,
+      "n_claims": 2,
+      "silhouette_score": 0.0,
+      "nearest_other_perception": "Luke",
+      "nearest_other_similarity": 0.85,
+      "vd_n_dims": 0,
+      "vd_entropy": 0.0,
+      "quote_claim_cosim": 0.1925,
+      "cross_leakage": 1.0
+    },
+    {
+      "perception_label": "Mary",
+      "n_quotes": 3,
+      "n_claims": 1,
+      "silhouette_score": 0.0,
+      "nearest_other_perception": "Luke",
+      "nearest_other_similarity": 0.85,
+      "vd_n_dims": 0,
+      "vd_entropy": 0.0,
+      "quote_claim_cosim": 0.5975,
+      "cross_leakage": 1.0
+    },
+    {
+      "perception_label": "Luke",
+      "n_quotes": 2,
+      "n_claims": 2,
+      "silhouette_score": 0.0,
+      "nearest_other_perception": "Mary",
+      "nearest_other_similarity": 0.85,
+      "vd_n_dims": 1,
+      "vd_entropy": 0.0,
+      "quote_claim_cosim": 0.0487,
+      "cross_leakage": 1.0
+    }
+  ],
+  "narratively_redundant_pairs": 1,
+  "perception_value_divergence": [
+    {
+      "perception_a_id": "__unassigned__",
+      "perception_a_label": "__unassigned__",
+      "perception_b_id": "410",
+      "perception_b_label": "Naomi",
+      "claim_cosine_similarity": 1.0,
+      "narratively_redundant": true
+    },
+    {
+      "perception_a_id": "408",
+      "perception_a_label": " Aoibhe",
+      "perception_b_id": "407",
+      "perception_b_label": "Luke",
+      "claim_cosine_similarity": 0.084,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "411",
+      "perception_a_label": " John",
+      "perception_b_id": "408",
+      "perception_b_label": " Aoibhe",
+      "claim_cosine_similarity": 0.0787,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "411",
+      "perception_a_label": " John",
+      "perception_b_id": "406",
+      "perception_b_label": "Siobhán",
+      "claim_cosine_similarity": 0.068,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "408",
+      "perception_a_label": " Aoibhe",
+      "perception_b_id": "406",
+      "perception_b_label": "Siobhán",
+      "claim_cosine_similarity": 0.0585,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "408",
+      "perception_a_label": " Aoibhe",
+      "perception_b_id": "409",
+      "perception_b_label": "Mary",
+      "claim_cosine_similarity": 0.0512,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "406",
+      "perception_a_label": "Siobhán",
+      "perception_b_id": "407",
+      "perception_b_label": "Luke",
+      "claim_cosine_similarity": 0.035,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "411",
+      "perception_a_label": " John",
+      "perception_b_id": "407",
+      "perception_b_label": "Luke",
+      "claim_cosine_similarity": 0.0307,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "411",
+      "perception_a_label": " John",
+      "perception_b_id": "409",
+      "perception_b_label": "Mary",
+      "claim_cosine_similarity": 0.0289,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "__unassigned__",
+      "perception_a_label": "__unassigned__",
+      "perception_b_id": "407",
+      "perception_b_label": "Luke",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "406",
+      "perception_a_label": "Siobhán",
+      "perception_b_id": "409",
+      "perception_b_label": "Mary",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "410",
+      "perception_a_label": "Naomi",
+      "perception_b_id": "407",
+      "perception_b_label": "Luke",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "410",
+      "perception_a_label": "Naomi",
+      "perception_b_id": "409",
+      "perception_b_label": "Mary",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "410",
+      "perception_a_label": "Naomi",
+      "perception_b_id": "406",
+      "perception_b_label": "Siobhán",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "__unassigned__",
+      "perception_a_label": "__unassigned__",
+      "perception_b_id": "406",
+      "perception_b_label": "Siobhán",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "__unassigned__",
+      "perception_a_label": "__unassigned__",
+      "perception_b_id": "409",
+      "perception_b_label": "Mary",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "411",
+      "perception_a_label": " John",
+      "perception_b_id": "410",
+      "perception_b_label": "Naomi",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "411",
+      "perception_a_label": " John",
+      "perception_b_id": "__unassigned__",
+      "perception_b_label": "__unassigned__",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "408",
+      "perception_a_label": " Aoibhe",
+      "perception_b_id": "410",
+      "perception_b_label": "Naomi",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "408",
+      "perception_a_label": " Aoibhe",
+      "perception_b_id": "__unassigned__",
+      "perception_b_label": "__unassigned__",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    },
+    {
+      "perception_a_id": "409",
+      "perception_a_label": "Mary",
+      "perception_b_id": "407",
+      "perception_b_label": "Luke",
+      "claim_cosine_similarity": 0.0,
+      "narratively_redundant": false
+    }
   ]
 }

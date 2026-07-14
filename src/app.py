@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-import math
+import os
 from pathlib import Path
 
 import networkx as nx
@@ -9,8 +9,16 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
+from sklearn.decomposition import PCA
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 from structural_change import framework as scf
+
+VD_ORDER = [
+    "cultural_identity", "social_justice", "collaboration",
+    "innovation_drive", "evidence_based", "community_autonomy",
+    "austerity_scarcity",
+]
 
 st.set_page_config(
     layout="wide",
@@ -56,6 +64,12 @@ STATUS_COLORS = {
 
 PLOTLY_PALETTE = px.colors.qualitative.Set2
 
+BRIDGE_COLORS = {"learning_bridge": "#2ecc71", "coalition_reinforcement": "#3498db",
+                 "cleavage_breach": "#e74c3c", "structural_only": "#95a5a6"}
+BRIDGE_LABELS = {"learning_bridge": "Learning Bridge", "coalition_reinforcement": "Coalition Reinforcement",
+                 "cleavage_breach": "Cleavage Breach", "structural_only": "Structural Only"}
+BADGE_COLORS = {"✅ Fundable": "#2ecc71", "⚠️ Cross-domain": "#f39c12", "❓ Topological": "#e74c3c"}
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # HELPERS
@@ -66,14 +80,6 @@ def color_for_node_type(nt: str) -> str:
 
 def friendly_edge_family(family: str) -> str:
     return EDGE_FAMILY_LABELS.get(str(family).strip(), str(family).replace("_", " ").title())
-
-
-def family_display_from_row(row: pd.Series) -> str:
-    if "edge_family_label" in row and pd.notna(row["edge_family_label"]):
-        label = str(row["edge_family_label"]).strip()
-        if label:
-            return label
-    return friendly_edge_family(row.get("edge_family", ""))
 
 
 def fallback_label(label_value, global_id) -> str:
@@ -93,6 +99,7 @@ def display_channel_label(row: pd.Series) -> str:
     return f"Channel {information_id}" if information_id else "No channel defined"
 
 
+@st.cache_data
 def load_csv(candidates: list[Path]) -> pd.DataFrame:
     for path in candidates:
         if path.exists() and path.stat().st_size > 2:
@@ -103,6 +110,7 @@ def load_csv(candidates: list[Path]) -> pd.DataFrame:
     return pd.DataFrame()
 
 
+@st.cache_data
 def load_json(path: Path) -> dict:
     if not path.exists() or path.stat().st_size == 0:
         return {}
@@ -135,8 +143,14 @@ def normalize_bool(value) -> bool:
     return str(value).strip().lower() in {"true", "1", "yes", "y"}
 
 
-def metric_card(label: str, value: str, help_text: str = "") -> None:
-    st.metric(label=label, value=value, help=help_text if help_text else None)
+def parse_dt(val):
+    if pd.isna(val) or not str(val).strip():
+        return pd.NaT
+    s = str(val).strip().replace("Z", "").split("T")[0]
+    try:
+        return pd.Timestamp(s)
+    except (ValueError, TypeError):
+        return pd.NaT
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -220,31 +234,90 @@ def network_figure(nodes: pd.DataFrame, edges: pd.DataFrame, max_nodes: int = 12
 
 
 # ─────────────────────────────────────────────────────────────────────────────
+# INITIAL DATA LOAD (nodes/edges needed for date computation)
+# ─────────────────────────────────────────────────────────────────────────────
+ROOT = Path(__file__).resolve().parent
+if not (ROOT / "data").exists():
+    ROOT = ROOT.parent
+
+platform_id_from_env = os.environ.get("KTOOL_PLATFORM_ID", "173")
+output_subdir_from_env = os.environ.get("KTOOL_OUTPUT_SUBDIR", "test")
+
+# ─────────────────────────────────────────────────────────────────────────────
 # SIDEBAR
 # ─────────────────────────────────────────────────────────────────────────────
-ROOT = Path(__file__).resolve().parents[1]
-
 with st.sidebar:
     st.markdown("## Settings")
-    platform_id = st.text_input("Platform ID", value="173").strip() or "173"
-    output_subdir = st.text_input("Output folder", value="test").strip() or "test"
+    platform_id = st.text_input("Platform ID", value=platform_id_from_env).strip() or "173"
+    output_subdir = st.text_input("Output folder", value=output_subdir_from_env).strip() or "test"
     st.caption(f"`data/processed/{platform_id}/{output_subdir}`")
-    st.divider()
+
+    DATA_DIR = ROOT / "data" / "processed" / platform_id / output_subdir
+    ANALYTICS_DIR = DATA_DIR / "analytics"
+    ANALYSIS_DIR = DATA_DIR / "analysis"
+
+    nodes = load_csv([ANALYTICS_DIR / "nodes.csv", DATA_DIR / "nodes.csv"])
+    edges = load_csv([ANALYTICS_DIR / "edges.csv", DATA_DIR / "edges.csv"])
+
+    if nodes.empty or edges.empty:
+        st.error("Nodes/edges not found. Run the graph pipeline first for this platform.")
+        st.stop()
+
     is_synthetic = "synthetic" in platform_id.lower()
+
+    nodes["best_date"] = pd.NaT
+    for col in ["date", "created_at", "published_at"]:
+        if col in nodes.columns:
+            parsed = nodes[col].apply(parse_dt)
+            nodes["best_date"] = nodes["best_date"].fillna(parsed)
+
+    observed_min = nodes["best_date"].min()
+    observed_max = nodes["best_date"].max()
+    if pd.isna(observed_min) or pd.isna(observed_max):
+        observed_min = pd.Timestamp("2024-01-01")
+        observed_max = pd.Timestamp("2025-12-31")
+    default_start = observed_min.date() if hasattr(observed_min, "date") else observed_min
+    default_end = observed_max.date() if hasattr(observed_max, "date") else observed_max
+
+    st.markdown("**Time filter**")
+    date_range = st.date_input(
+        "Date range",
+        value=(default_start, default_end),
+        min_value=observed_min,
+        max_value=observed_max,
+    )
+    st.caption("Filter to nodes with dates within range")
+    st.divider()
+
+    st.markdown("**AI data**")
+    ai_mode = st.radio("AI data", ["All data", "Source only"], horizontal=True, help="Toggle AI-generated edges and nodes to see what the pipeline adds vs raw KTool data.")
+    st.divider()
     if is_synthetic:
         st.success("Synthetic data — Budget tab active")
     else:
         st.info("Switch to `173_synthetic` for the Budget & Finance tab")
 
-DATA_DIR = ROOT / "data" / "processed" / platform_id / output_subdir
-ANALYTICS_DIR = DATA_DIR / "analytics"
-ANALYSIS_DIR = DATA_DIR / "analysis"
+# ─────────────────────────────────────────────────────────────────────────────
+# TIME-FILTERED DATA
+# ─────────────────────────────────────────────────────────────────────────────
+if isinstance(date_range, tuple) and len(date_range) == 2:
+    t_start, t_end = pd.Timestamp(date_range[0]), pd.Timestamp(date_range[1])
+else:
+    t_start, t_end = default_start, default_end
 
-# ─────────────────────────────────────────────────────────────────────────────
-# DATA LOAD
-# ─────────────────────────────────────────────────────────────────────────────
-nodes = load_csv([ANALYTICS_DIR / "nodes.csv", DATA_DIR / "nodes.csv"])
-edges = load_csv([ANALYTICS_DIR / "edges.csv", DATA_DIR / "edges.csv"])
+in_window = nodes["best_date"].between(t_start, t_end, inclusive="both")
+in_window = in_window | nodes["best_date"].isna()
+nodes_win = nodes[in_window].copy()
+valid_gids = set(nodes_win["global_id"].astype(str))
+edges_win = edges[edges["source_global_id"].isin(valid_gids) & edges["target_global_id"].isin(valid_gids)].copy()
+
+# AI filter
+if ai_mode == "Source only":
+    if "is_ai_generated" in edges_win.columns:
+        edges_win = edges_win[edges_win["is_ai_generated"] != True]
+    if "is_ai_generated" in nodes_win.columns:
+        nodes_win = nodes_win[nodes_win["is_ai_generated"] != True]
+
 listening = load_csv([DATA_DIR / "listening_pipeline.csv", ANALYTICS_DIR / "listening_pipeline.csv"])
 
 readiness = load_json(ANALYSIS_DIR / "graph_readiness_report.json")
@@ -258,6 +331,8 @@ fragility_nodes = load_csv([ANALYSIS_DIR / "top_fragility_nodes.csv"])
 centrality = load_csv([ANALYSIS_DIR / "node_centrality.csv"])
 diffusion = load_csv([ANALYSIS_DIR / f"{platform_id}_narrative_diffusion.csv"])
 perception_diag = load_csv([ANALYSIS_DIR / "perception_diagnostics.csv"])
+perception_narrative = load_csv([ANALYSIS_DIR / "perception_narrative_profiles.csv"])
+perception_value_div = load_csv([ANALYSIS_DIR / "perception_value_divergence.csv"])
 gnn_summary = load_json(ANALYSIS_DIR / "gnn" / "gnn_summary.json")
 gnn_training_report = load_json(ANALYSIS_DIR / "gnn" / "gnn_training_report.json")
 gnn_link_report = load_json(ANALYSIS_DIR / "gnn" / "gnn_link_prediction_report.json")
@@ -268,12 +343,16 @@ quote_clusters = load_csv([ANALYSIS_DIR / "quote_clusters.csv"])
 manual_profiles = load_json(ROOT / "src" / "analysis" / "manual_narrative_profiles.json")
 link_intervention_scores = load_csv([ANALYSIS_DIR / "link_intervention_scores.csv"])
 link_intervention_summary = load_json(ANALYSIS_DIR / "link_intervention_summary.json")
+link_perception_impact = load_csv([ANALYSIS_DIR / "link_intervention_perception_impact.csv"])
 
 # Narrative impact of GNN-predicted links
 impact_edge_candidates = load_csv([ANALYSIS_DIR / "narrative_impact_predictions.csv"])
 impact_node_proposals = load_csv([ANALYSIS_DIR / "narrative_impact_node_proposals.csv"])
 impact_invented_nodes = load_csv([ANALYSIS_DIR / "narrative_impact_invented_nodes.csv"])
 impact_dashboard = load_json(ANALYSIS_DIR / "narrative_impact_dashboard.json")
+
+prototype_candidates = load_csv([ANALYSIS_DIR / "prototype_project_candidates.csv"])
+prototype_summary = load_json(ANALYSIS_DIR / "prototype_project_candidates_summary.json")
 
 structural_change = load_json(ANALYSIS_DIR / "structural_change_possibility.json")
 change_nodes = load_csv([ANALYSIS_DIR / "change_readiness_nodes.csv"])
@@ -282,23 +361,38 @@ structural_hypotheses = load_json(ANALYSIS_DIR / "structural_hypotheses.json")
 financial_bridge = load_csv([ANALYSIS_DIR / "financial_perception_bridge.csv"])
 narrative_budget = load_csv([ANALYSIS_DIR / "narrative_level_budget_crosstab.csv"])
 
+# Cluster-level FJ narrative simulation (Script 27)
+cluster_claim_matrix = load_csv([ANALYSIS_DIR / "cluster_claim_matrix.csv"])
+cluster_narrative_baseline = load_csv([ANALYSIS_DIR / "cluster_narrative_baseline.csv"])
+cluster_narrative_interventions = load_csv([ANALYSIS_DIR / "cluster_narrative_interventions.csv"])
+cluster_narrative_adjacency = load_csv([ANALYSIS_DIR / "cluster_narrative_adjacency.csv"])
+claim_nodes = load_csv([ANALYSIS_DIR / "narrative_layers" / "claim_nodes.csv"])
+
 # Financial (synthetic only)
 leverage_df = load_csv([ANALYSIS_DIR / "synthetic_value_leverage.csv"])
 stranded_df = load_csv([ANALYSIS_DIR / "synthetic_stranded_assets.csv"])
 fin_diffusion_df = load_csv([ANALYSIS_DIR / "synthetic_financial_diffusion.csv"])
 fin_summary = load_json(ANALYSIS_DIR / "synthetic_financial_summary.json")
 
-if nodes.empty or edges.empty:
-    st.error("Nodes/edges not found. Run the graph pipeline first for this platform.")
-    st.stop()
 
 # ─────────────────────────────────────────────────────────────────────────────
 # HEADER
 # ─────────────────────────────────────────────────────────────────────────────
 st.title("ALC K-Tool: Ecosystem Dashboard")
+n_here = len(nodes_win)
+e_here = len(edges_win)
+n_total = len(nodes)
+e_total = len(edges)
+caption_counts = f"{n_here:,} / {n_total:,} items · {e_here:,} / {e_total:,} links"
+tags = []
+if n_here < n_total:
+    tags.append("time-filtered")
+if ai_mode == "Source only":
+    tags.append("AI-filtered")
+if tags:
+    caption_counts += f" ({', '.join(tags)})"
 st.caption(
-    f"Platform **{platform_id}** · folder **{output_subdir}** · "
-    f"{len(nodes):,} items · {len(edges):,} links"
+    f"Platform **{platform_id}** · folder **{output_subdir}** · {caption_counts}"
 )
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -310,8 +404,8 @@ failed_checks = int(quality_gate.get("failed_checks", 0)) if quality_gate else 0
 confidence_text, confidence_level = confidence_label(failed_checks)
 
 c1, c2, c3, c4, c5, c6 = st.columns(6)
-c1.metric("Items", f"{int(scope.get('node_count', len(nodes.index))):,}")
-c2.metric("Links", f"{int(scope.get('edge_count', len(edges.index))):,}")
+c1.metric("Items", f"{int(scope.get('node_count', n_here)):,}", help=f"{n_total} total unfiltered")
+c2.metric("Links", f"{int(scope.get('edge_count', e_here)):,}", help=f"{e_total} total unfiltered")
 c3.metric("Clusters", int(scope.get("component_count", topology.get("connected_components_count", 0))))
 c4.metric("Orphans", int(topology.get("total_isolated_nodes", 0)))
 c5.metric("Data confidence", confidence_text)
@@ -332,43 +426,162 @@ st.divider()
 # TABS
 # ═══════════════════════════════════════════════════════════════════════════════
 tab_labels = [
+    "Decision Brief",
     "Overview",
+    "Geography & Evolution",
     "Network Layers",
     "Health Check",
     "Listening",
     "AI-Generated Links",
     "Story Clusters",
+    "Narrative Space",
     "Perceptions",
     "Claims",
     "GNN Predictions",
+    "Narrative Simulation",
     "Structural Change",
 ]
 if is_synthetic:
     tab_labels.append("Budget & Finance")
 
 tabs = st.tabs(tab_labels)
-tab_overview = tabs[0]
-tab_layer = tabs[1]
-tab_alerts = tabs[2]
-tab_narrative = tabs[3]
-tab_ai_semantic = tabs[4]
-tab_profiles = tabs[5]
-tab_perception = tabs[6]
-tab_claims = tabs[7]
-tab_gnn = tabs[8]
-tab_structural = tabs[9]
-tab_financial = tabs[10] if is_synthetic and len(tabs) > 10 else None
+tab_decision = tabs[0]
+tab_overview = tabs[1]
+tab_geo = tabs[2]
+tab_layer = tabs[3]
+tab_alerts = tabs[4]
+tab_narrative = tabs[5]
+tab_ai_semantic = tabs[6]
+tab_profiles = tabs[7]
+tab_narrative_space = tabs[8]
+tab_perception = tabs[9]
+tab_claims = tabs[10]
+tab_gnn = tabs[11]
+tab_narrative_sim = tabs[12]
+tab_structural = tabs[13]
+tab_financial = tabs[14] if is_synthetic and len(tabs) > 14 else None
+
+
+auc_val = None
+if gnn_training_report:
+    test_metrics = gnn_training_report.get("metrics", {}).get("test", {})
+    auc_val = float(test_metrics.get("auc", 0)) or float(test_metrics.get("accuracy", 0))
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAB 0 — Decision Brief
+# ═══════════════════════════════════════════════════════════════════════════════
+with tab_decision:
+    st.subheader("Dashboard Summary")
+    st.caption(
+        "Aggregate metrics across all analytical modules. "
+        "All figures are based on the currently filtered data."
+    )
+
+    # ── Row 1: Core counts ──
+    r1a, r1b, r1c, r1d = st.columns(4)
+    r1a.metric("Items", f"{n_here:,}", help=f"{n_total} total before time filter")
+    r1b.metric("Links", f"{e_here:,}", help=f"{e_total} total before time filter")
+    r1c.metric("Node types", f"{nodes_win['node_type'].nunique()}", help="Distinct entity categories")
+    r1d.metric("Edge families", f"{edges_win['edge_family'].nunique() if 'edge_family' in edges_win.columns else '?'}", help="Distinct link categories")
+
+    # ── Row 2: Quality ──
+    r2a, r2b, r2c, r2d = st.columns(4)
+    confidence_text, confidence_level = confidence_label(failed_checks)
+    r2a.metric("Data confidence", confidence_text)
+    orphan_rate = topology.get("orphan_rate", topology.get("total_isolated_nodes", 0)) / max(1, topology.get("node_count", n_here))
+    r2b.metric("Orphan rate", f"{orphan_rate:.0%}", help="Nodes with no connections")
+    component_count = int(scope.get("component_count", topology.get("connected_components_count", 0)))
+    r2c.metric("Components", f"{component_count:,}", help="Separate connected subgraphs")
+    r2d.metric("Edge density", f"{topology.get('edge_density', 0):.4f}", help="Fraction of possible edges that exist")
+
+    # ── Row 3: Structural ──
+    st.divider()
+    st.markdown("### Ecosystem Readiness *(See Structural Change tab for details)*")
+    if structural_change and "change_readiness_scores" in structural_change:
+        cr = structural_change["change_readiness_scores"]
+        invert = {"blockage_score", "lockin_score"}
+        readiness_help = {
+            "leverage_score": "Fraction of nodes that are well-connected hubs. Higher = more places where a small change can ripple through the network.",
+            "plasticity_score": "How easily the network can rewire without collapsing. Higher = fewer fragile dependencies between parts.",
+            "blockage_score": "Fraction of nodes that are single points of failure. Lower = fewer single points of failure.",
+            "lockin_score": "How stuck the network is in its current structure. Lower = easier to introduce new connections.",
+        }
+        for key, label in [("leverage_score", "Leverage ↑ good"),
+                           ("plasticity_score", "Plasticity ↑ good"),
+                           ("blockage_score", "Blockage ↓ good"),
+                           ("lockin_score", "Lock-in ↓ good")]:
+            val = float(cr.get(key, 0))
+            display_val = 1.0 - val if key in invert else val
+            bar_w = max(1, min(100, round(display_val * 100)))
+            bar_color = "#2ecc71" if display_val > 0.6 else "#f39c12" if display_val > 0.3 else "#e74c3c"
+            lc, mc, rc = st.columns([0.12, 0.76, 0.12])
+            with lc:
+                st.markdown(f'<span style="font-size: 0.85rem; color: #888;">{label}</span>', unsafe_allow_html=True)
+            with mc:
+                st.markdown(
+                    f'<div style="height: 16px; background: rgba(128,128,128,0.1); border-radius: 8px; overflow: hidden;">'
+                    f'<span style="display: block; height: 100%; width: {bar_w}%; '
+                    f'background: {bar_color}; border-radius: 8px;"></span></div>',
+                    unsafe_allow_html=True,
+                )
+            with rc:
+                st.metric("", f"{val:.2f}", help=readiness_help.get(key, ""), label_visibility="collapsed")
+        overall = float(cr.get("overall_readiness", 0))
+        st.caption(
+            f"Overall change readiness: **{overall:.2f}** — "
+            f"{'Network is open to reconfiguration' if overall > 0.5 else 'Structural barriers limit change potential'}. "
+            f"Blockages (fragile connectors, small components) need attention."
+        )
+    else:
+        st.info("Run `20_structural_change_possibility.py` to see ecosystem readiness.")
+
+    # ── Row 4: Narrative ──
+    st.divider()
+    st.markdown("### Narrative Overview")
+    nar_cols = st.columns(4)
+    n_clusters = len(quote_clusters["cluster_id"].unique()) if not quote_clusters.empty and "cluster_id" in quote_clusters.columns else 0
+    n_claims = len(claim_nodes) if not claim_nodes.empty else 0
+    n_perceptions = len(perception_diag) if not perception_diag.empty else 0
+    robust_perceptions = (perception_diag["status_flag"] == "Robust").sum() if not perception_diag.empty and "status_flag" in perception_diag.columns else 0
+    nar_cols[0].metric("Story clusters", n_clusters)
+    nar_cols[1].metric("Claims", n_claims)
+    nar_cols[2].metric("Perceptions", f"{robust_perceptions}/{n_perceptions} solid" if n_perceptions else 0)
+    nar_cols[3].metric("Narrative diffusion bias", f"{diffusion['pr_bias'].max():+.3f}" if not diffusion.empty and 'pr_bias' in diffusion.columns else "—", help="Max over/under-representation across node types")
+
+    # ── Row 5: Narrative simulation convergence ──
+    if not cluster_narrative_baseline.empty:
+        total_clusters = cluster_narrative_baseline["cluster_id"].nunique()
+        total_claims_in_sim = int(cluster_narrative_baseline["claim_count"].sum()) if "claim_count" in cluster_narrative_baseline.columns else 0
+        nar_cols2 = st.columns(4)
+        nar_cols2[0].metric("Clusters in simulation", total_clusters, help="Clusters with opinion profiles for FJ dynamics")
+        nar_cols2[1].metric("Claims feeding model", total_claims_in_sim, help="Total claims aggregated into cluster opinions")
+        nar_cols2[2].metric("Intervention scenarios", len(cluster_narrative_interventions) if not cluster_narrative_interventions.empty else 0, help="Target × affected cluster combinations tested")
+        nar_cols2[3].metric("Max intervention delta", f"{cluster_narrative_interventions[[c for c in cluster_narrative_interventions.columns if c.startswith('delta_')]].abs().max().max():.4f}" if not cluster_narrative_interventions.empty and any(c.startswith('delta_') for c in cluster_narrative_interventions.columns) else "—", help="Largest opinion shift observed")
+
+    # ── Data quality footnotes ──
+    with st.expander("Data quality notes"):
+        embed_coverage = float(gnn_summary.get("semantic_embedding_coverage_rate", 0)) if gnn_summary else 0
+        st.markdown(
+            f"- **GNN validation AUC**: {auc_val:.0%} (likely overfit on {n_here}-node graph)" if auc_val else "- **GNN**: not trained\n"
+            f"- **Semantic embedding coverage**: {embed_coverage:.0%} of nodes\n"
+            f"- **Date coverage**: {nodes_win['best_date'].notna().sum()}/{n_here} nodes have dates\n"
+            f"- **Time range**: {observed_min.date()} to {observed_max.date()}\n"
+            f"- **Platform**: {platform_id} / {output_subdir}\n"
+        )
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 0 — Overview
+# TAB 1 — Overview
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_overview:
     st.subheader("The network at a glance")
+    showing_all = len(nodes_win) == len(nodes)
+    if not showing_all:
+        st.caption(f"Showing **{len(nodes_win):,}** of **{len(nodes):,}** items (time filter active)")
 
     left, right = st.columns([0.38, 0.62])
     with left:
-        type_counts = nodes["node_type"].astype(str).value_counts().reset_index()
+        type_counts = nodes_win["node_type"].astype(str).value_counts().reset_index()
         type_counts.columns = ["Node type", "Count"]
         fig_types = px.bar(
             type_counts, x="Count", y="Node type", orientation="h",
@@ -395,10 +608,10 @@ with tab_overview:
 
     with right:
         max_nodes = st.slider("Items shown on map", 40, 220, 120, 10)
-        st.plotly_chart(network_figure(nodes, edges, max_nodes=max_nodes), width='stretch')
+        st.plotly_chart(network_figure(nodes_win, edges_win, max_nodes=max_nodes), width='stretch')
 
         # Node type legend
-        counts = nodes["node_type"].fillna("unknown").astype(str).str.lower().value_counts().to_dict()
+        counts = nodes_win["node_type"].fillna("unknown").astype(str).str.lower().value_counts().to_dict()
         legend_items = []
         for nt in sorted(counts, key=lambda t: -counts[t]):
             color = color_for_node_type(nt)
@@ -410,9 +623,22 @@ with tab_overview:
         if legend_items:
             st.markdown("<br>".join(legend_items), unsafe_allow_html=True)
 
+    if not showing_all:
+        st.divider()
+        st.markdown("**Evolution snapshot**")
+        evo1, evo2 = st.columns(2)
+        with evo1:
+            before = len(nodes)
+            after = len(nodes_win)
+            lost = before - after
+            st.metric("Excluded by time filter", f"{lost:,}", delta=f"{-lost:,}")
+        with evo2:
+            pct = f"{after / before * 100:.1f}%" if before > 0 else "N/A"
+            st.metric("Remaining", pct)
+
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 2 — Health Check
+# TAB 4 — Health Check
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_alerts:
     st.subheader("Network health check")
@@ -488,7 +714,7 @@ with tab_alerts:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 3 — Listening
+# TAB 5 — Listening
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_narrative:
     st.subheader("What people are saying")
@@ -509,19 +735,34 @@ with tab_narrative:
         else:
             st.info("Listening data not available.")
 
-        if not diffusion.empty and "diffusion_bias" in diffusion.columns:
-            diffusion_plot = diffusion.copy()
-            if "label" in diffusion_plot.columns and "global_id" in diffusion_plot.columns:
-                diffusion_plot["label"] = diffusion_plot.apply(
+        if not diffusion.empty and "pagerank" in diffusion.columns:
+            diff_view = diffusion.copy()
+            if "label" in diff_view.columns and "global_id" in diff_view.columns:
+                diff_view["label"] = diff_view.apply(
                     lambda row: fallback_label(row.get("label"), row.get("global_id")), axis=1
                 )
-            top_diff = diffusion_plot.sort_values("diffusion_bias", ascending=False).head(12)
-            fig_diff = px.bar(
-                top_diff, x="diffusion_bias", y="label", orientation="h",
-                template="plotly_white", title="Most influential voices",
+            top_pr = diff_view.sort_values("pagerank", ascending=False).head(12)
+            fig_pr = px.bar(
+                top_pr, x="pagerank", y="label", orientation="h",
+                template="plotly_white", title="Top PageRank — most central voices",
+                color_discrete_sequence=["#2ecc71"],
             )
-            fig_diff.update_layout(height=340, margin=dict(l=10, r=10, t=42, b=10), yaxis_title="")
-            st.plotly_chart(fig_diff, width='stretch')
+            fig_pr.update_layout(height=280, margin=dict(l=10, r=10, t=42, b=10), yaxis_title="")
+            st.plotly_chart(fig_pr, width='stretch')
+
+            if "diffusion_bias" in diff_view.columns:
+                top_diff = diff_view.sort_values("diffusion_bias", ascending=False).head(12)
+                fig_diff = px.bar(
+                    top_diff, x="diffusion_bias", y="label", orientation="h",
+                    template="plotly_white", title="Diffusion bias — voices over/under-represented",
+                    color="diffusion_bias", color_continuous_scale="RdYlBu", range_color=[-1, 1],
+                )
+                fig_diff.update_layout(height=280, margin=dict(l=10, r=10, t=42, b=10), yaxis_title="", coloraxis_showscale=False)
+                st.plotly_chart(fig_diff, width='stretch')
+        elif not diffusion.empty:
+            st.info("Diffusion data loaded but PageRank column missing.")
+        else:
+            st.info("PageRank data not available. Run `26_compute_narrative_diffusion.py` first.")
 
         with c2:
             st.markdown("**Browse quotes**")
@@ -546,13 +787,13 @@ with tab_narrative:
 
     with st.expander("How influence is measured"):
         st.markdown(
-            "- **PageRank** scores how central each item is in the conversation network.\n"
-            "- **Diffusion bias** = whether a voice gets more attention than expected.\n"
+            "- **PageRank** scores how central each item is in the conversation network (random walk through the graph).\n"
+            "- **Diffusion bias** = personalized PageRank comparing two largest agent types. Positive = voice travels further in the [type A] network. Negative = voice travels further in the [type B] network.\n"
         )
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 5 — Story Clusters
+# TAB 7 — Story Clusters
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_profiles:
     st.subheader("Story clusters from listening data")
@@ -700,7 +941,137 @@ with tab_profiles:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 6 — Perceptions
+# TAB 8 — Narrative Space (unified view)
+# ═══════════════════════════════════════════════════════════════════════════════
+with tab_narrative_space:
+    st.subheader("Narrative space")
+    st.caption("Unified view of story clusters, claims, and perceptions — every quote projected by semantic similarity.")
+
+    # Prepare data
+    ns_clusters = quote_clusters.copy() if not quote_clusters.empty else pd.DataFrame()
+    ns_matrix = cluster_claim_matrix.copy() if not cluster_claim_matrix.empty else pd.DataFrame()
+
+    if ns_clusters.empty:
+        st.info("No quote clusters available. Run `17_cluster_quotes_into_profiles.py` first.")
+    else:
+        # TF-IDF embedding of all quotes for the 2D projection
+        texts = ns_clusters["quote"].fillna("").astype(str).tolist()
+        vec = TfidfVectorizer(stop_words="english", max_features=500)
+        tfidf_mat = vec.fit_transform(texts)
+        pca = PCA(n_components=2, random_state=42)
+        coords = pca.fit_transform(tfidf_mat.toarray())
+
+        plot_df = ns_clusters[["cluster_id", "information_id", "quote", "channel_code"]].copy()
+        plot_df["x"] = coords[:, 0]
+        plot_df["y"] = coords[:, 1]
+
+        # Merge claim dimensions if available
+        has_claim_col = "claim_id" in ns_matrix.columns
+        claim_info = ns_matrix[ns_matrix["claim_id"].notna()][["information_id", "value_dimension", "narrative_level", "contradiction_flag"]].drop_duplicates("information_id") if has_claim_col and not ns_matrix.empty else pd.DataFrame()
+        if not claim_info.empty:
+            plot_df = plot_df.merge(claim_info, on="information_id", how="left")
+
+        ns_left, ns_right = st.columns([0.62, 0.38])
+
+        with ns_left:
+            st.markdown("**Semantic map of all quotes** — coloured by cluster, shaped by type")
+
+            # Aggregate cluster stats for legend
+            cluster_stats = ns_clusters.groupby("cluster_id").agg(
+                count=("information_id", "nunique")
+            ).reset_index()
+
+            # Build cluster palette
+            all_clusters = sorted(plot_df["cluster_id"].unique())
+            cluster_palette = {c: PLOTLY_PALETTE[i % len(PLOTLY_PALETTE)] for i, c in enumerate(all_clusters)}
+
+            fig_ns = go.Figure()
+
+            for cid in all_clusters:
+                sub = plot_df[plot_df["cluster_id"] == cid]
+                n = cluster_stats[cluster_stats["cluster_id"] == cid]["count"].values[0]
+                fig_ns.add_trace(go.Scattergl(
+                    x=sub["x"].tolist(), y=sub["y"].tolist(),
+                    mode="markers",
+                    marker=dict(size=8, color=cluster_palette[cid], opacity=0.8),
+                    text=sub["quote"].tolist(),
+                    customdata=sub[["cluster_id", "information_id"]].fillna("").values.tolist(),
+                    hovertemplate="<b>Cluster %{customdata[0]}</b><br>%{text[:200]}<extra></extra>",
+                    name=f"{cid} ({n} quotes)",
+                    showlegend=True,
+                ))
+
+            fig_ns.update_layout(
+                template="plotly_white",
+                height=500,
+                margin=dict(l=10, r=10, t=10, b=10),
+                xaxis=dict(showticklabels=False, title=""),
+                yaxis=dict(showticklabels=False, title=""),
+                legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0),
+            )
+            st.plotly_chart(fig_ns, use_container_width=True)
+
+            st.markdown(f"**{len(plot_df)} quotes** across **{len(all_clusters)} clusters** · "
+                        f"PCA projection of TF-IDF vectors (explained variance: {pca.explained_variance_ratio_.sum():.0%})")
+
+        with ns_right:
+            sel_cluster = st.selectbox("Inspect a cluster", options=["All"] + all_clusters)
+
+            if sel_cluster == "All":
+                view_df = ns_clusters
+            else:
+                view_df = ns_clusters[ns_clusters["cluster_id"] == sel_cluster]
+
+            st.markdown(f"**{len(view_df)} quotes in selected view**")
+
+            # Show claim summary for this cluster
+            if not ns_matrix.empty and sel_cluster != "All" and "claim_id" in ns_matrix.columns:
+                cluster_claims = ns_matrix[ns_matrix["cluster_id"] == sel_cluster]
+                claim_rows = cluster_claims[cluster_claims["claim_id"].notna()]
+                if not claim_rows.empty:
+                    st.markdown("**Claims in this cluster**")
+                    dim_counts = claim_rows["value_dimension"].value_counts()
+                    st.caption("Value dimensions: " + " · ".join(f"{d} ({c})" for d, c in dim_counts.items() if d))
+                    contradictions = claim_rows[claim_rows["contradiction_flag"] == True]
+                    if not contradictions.empty:
+                        st.warning(f"⚠️ Contradictory claims detected — opposing value dimensions within this cluster")
+                    for _, r in claim_rows.head(5).iterrows():
+                        lbl = r.get("claim_id", "")
+                        dim = r.get("value_dimension", "")
+                        lvl = r.get("narrative_level", "")
+                        st.caption(f"• {lbl} — *{dim}* ({lvl})")
+                else:
+                    st.caption("No claims linked to this cluster.")
+
+            # Show quotes
+            with st.expander("View quotes", expanded=True):
+                for _, r in view_df.iterrows():
+                    st.markdown(f"> {r['quote']}")
+                    st.caption(f"*{r.get('channel_code', '')}* — {r['cluster_id']}")
+                    st.divider()
+
+            # Cluster-to-cluster relationship mini-map
+            if not ns_matrix.empty and sel_cluster == "All" and "claim_id" in ns_matrix.columns and "value_dimension" in ns_matrix.columns:
+                st.markdown("**How clusters relate**")
+                cluster_rels = ns_matrix[ns_matrix["claim_id"].notna()].groupby("cluster_id")["value_dimension"].apply(lambda x: x.value_counts().to_dict()).reset_index()
+                st.caption("Clusters sharing value dimensions — clusters with overlapping value profiles are semantically close.")
+                rel_data = []
+                dim_to_clusters = {}
+                for _, r in cluster_rels.iterrows():
+                    if isinstance(r["value_dimension"], dict):
+                        for dim in r["value_dimension"]:
+                            if dim and str(dim).strip():
+                                dim_to_clusters.setdefault(str(dim).strip(), []).append(r["cluster_id"])
+                shared = [(d, cs) for d, cs in dim_to_clusters.items() if len(cs) > 1]
+                if shared:
+                    for dim, cs in shared:
+                        st.caption(f"**{dim}** appears in: {', '.join(cs)}")
+                else:
+                    st.caption("No shared value dimensions between clusters.")
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAB 9 — Perceptions
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_perception:
     st.subheader("Perception health check")
@@ -821,8 +1192,129 @@ with tab_perception:
             fig_entropy.update_layout(height=360, margin=dict(l=10, r=10, t=60, b=10))
             st.plotly_chart(fig_entropy, width='stretch')
 
+        st.divider()
+
+        # ── PHASE 2: Narrative alignment ──
+        st.markdown("**Narrative alignment — how perceptions map to the claim space**")
+        st.caption(
+            "Claims are extracted from each perception's quote text. These metrics show "
+            "whether the claims and quotes agree on what the perception is about."
+        )
+
+        if not perception_narrative.empty:
+            nalign_rename = {
+                "perception_label": "Perception",
+                "n_quotes": "Quotes",
+                "n_claims": "Claims",
+                "silhouette_score": "Silhouette ↑",
+                "nearest_other_perception": "Nearest neighbour",
+                "nearest_other_similarity": "Neighbour similarity",
+                "vd_n_dims": "Value dims",
+                "vd_entropy": "VD diversity",
+                "quote_claim_cosim": "Quote↔Claim alignment ↑",
+                "cross_leakage": "Cross-leakage ↓",
+            }
+            nalign_view = perception_narrative[[c for c in nalign_rename if c in perception_narrative.columns]].copy().rename(columns=nalign_rename)
+
+            for col in ["Silhouette ↑", "Neighbour similarity", "Quote↔Claim alignment ↑", "Cross-leakage ↓", "VD diversity"]:
+                if col in nalign_view.columns:
+                    nalign_view[col] = nalign_view[col].apply(lambda x: f"{x:.3f}" if pd.notna(x) and x != "none" else "—")
+
+            # Colour silhouette: green > 0, amber ~0, red < 0
+            def _sil_colour(val):
+                try:
+                    v = float(val)
+                    if v > 0.1:
+                        return "background-color: #d4edda; color: #155724;"
+                    if v > -0.1:
+                        return "background-color: #fff3cd; color: #856404;"
+                    return "background-color: #f8d7da; color: #721c24;"
+                except (ValueError, TypeError):
+                    return ""
+
+            def _style_nalign(row):
+                sil = str(row.get("Silhouette ↑", ""))
+                return [_sil_colour(sil) if col == "Silhouette ↑" else "" for col in row.index]
+
+            styled_nalign = nalign_view.style.apply(_style_nalign, axis=1)
+            st.dataframe(styled_nalign, width='stretch', hide_index=True)
+
+            # Narrative bar chart: silhouette per perception
+            sil_plot = perception_narrative[perception_narrative["silhouette_score"].notna()].copy()
+            if not sil_plot.empty:
+                sil_plot["perception_label"] = sil_plot["perception_label"].astype(str).str[:50]
+                fig_sil = px.bar(
+                    sil_plot.sort_values("silhouette_score"),
+                    x="silhouette_score", y="perception_label", orientation="h",
+                    template="plotly_white",
+                    title="Narrative distinctness (silhouette)",
+                    labels={"silhouette_score": "Silhouette (higher = more distinct)",
+                            "perception_label": ""},
+                    color="silhouette_score",
+                    color_continuous_scale=["#e74c3c", "#f39c12", "#2ecc71"],
+                    range_color=(-0.3, 0.3),
+                )
+                fig_sil.add_vline(x=0, line_dash="dot", line_color="grey",
+                                  annotation_text="Not distinct", annotation_position="top right")
+                fig_sil.update_layout(height=300, margin=dict(l=10, r=10, t=60, b=10))
+                st.plotly_chart(fig_sil, width='stretch')
+
+            # Quote-claim alignment bar chart
+            qc_plot = perception_narrative[perception_narrative["quote_claim_cosim"].notna()].copy()
+            if not qc_plot.empty:
+                qc_plot["perception_label"] = qc_plot["perception_label"].astype(str).str[:50]
+                fig_qc = px.bar(
+                    qc_plot.sort_values("quote_claim_cosim"),
+                    x="quote_claim_cosim", y="perception_label", orientation="h",
+                    template="plotly_white",
+                    title="Do quotes and claims agree? (TF-IDF cosine similarity)",
+                    labels={"quote_claim_cosim": "Quote↔Claim alignment",
+                            "perception_label": ""},
+                    color="quote_claim_cosim",
+                    color_continuous_scale=["#f39c12", "#2ecc71"],
+                )
+                fig_qc.add_vline(x=0.3, line_dash="dot", line_color="orange",
+                                 annotation_text="Low alignment", annotation_position="top right")
+                fig_qc.update_layout(height=300, margin=dict(l=10, r=10, t=60, b=10))
+                st.plotly_chart(fig_qc, width='stretch')
+
+            # Narratively redundant pairs
+            if not perception_value_div.empty:
+                red = perception_value_div[perception_value_div["narratively_redundant"] == True]
+                if len(red) > 0:
+                    real_red = red[red["perception_a_label"] != "__unassigned__"]
+                    if len(real_red) > 0:
+                        st.warning(
+                            f"**{len(real_red)} narratively redundant pair(s)** — "
+                            "these perceptions produce nearly identical claims. "
+                            "They may be expressing the same narrative position."
+                        )
+                        st.dataframe(
+                            real_red[["perception_a_label", "perception_b_label", "claim_cosine_similarity"]].rename(columns={
+                                "perception_a_label": "Perception A",
+                                "perception_b_label": "Perception B",
+                                "claim_cosine_similarity": "Claim similarity",
+                            }),
+                            width='stretch', hide_index=True,
+                        )
+                    else:
+                        st.success("No narratively redundant perceptions — all produce distinct claim profiles.")
+                else:
+                    st.success("No narratively redundant perceptions — all produce distinct claim profiles.")
+
         st.info(
             "**How to read these:**\n\n"
+            "- **Silhouette > 0** → Perception's quotes are more similar to each other than to other perceptions' quotes. Distinct.\n"
+            "- **Silhouette < 0** → Perception's quotes are closer to OTHER perceptions. May be mis-labeled.\n"
+            "- **Quote↔Claim alignment > 0.3** → The claims extracted from this perception match its quote content.\n"
+            "- **Cross-leakage = 100%** → All top-5 semantic neighbours belong to other perceptions. Low distinctness.\n"
+            "- **Narratively redundant** → Two perceptions produce the same claims. Consider merging."
+        )
+
+        st.divider()
+
+        st.info(
+            "**How to read diagnostics:**\n\n"
             "- **Agreement < 0.4** → Quotes don't agree much. Maybe split into two perceptions.\n"
             "- **Focus < 0.3** → Quotes are closer to OTHER perceptions than their own. May be mis-labeled.\n"
             "- **Source diversity < 0.5** → Only one channel feeds this perception. Could be one person's view, not a shared one.\n"
@@ -839,96 +1331,37 @@ with tab_perception:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# ═══════════════════════════════════════════════════════════════════════════════
-# TAB 8 — GNN Predictions
+# TAB 11 — GNN Predictions
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_gnn:
     st.subheader("What-if: adding new links")
-    st.caption("Simulates what happens if we connect items that aren't linked yet.")
-    st.info("Note: deeper semantic analysis of what these links would mean can be done, but hasn't been run yet. These results are structural only.")
+    st.caption(
+        "The GNN detects missing connections between agents, projects, and channels based on network structure. "
+        "Each suggested link is scored by: **(a)** GNN probability (structural plausibility), "
+        "**(b)** domain compatibility (embedding similarity), and "
+        "**(c)** narrative impact (new claim pathways unlocked)."
+    )
 
-    if not gnn_link_recommendations.empty:
-        st.markdown("**1. Top suggested links**")
-        aid_view = gnn_link_recommendations.copy()
-        show_cols = [
-            c for c in [
-                "source_label",
-                "target_label",
-                "pair_kind",
-                "link_type",
-                "recommendation_category",
-                "impact_layer",
-                "link_probability",
-                "rationale",
-            ] if c in aid_view.columns
-        ]
-        if show_cols:
-            st.dataframe(
-                aid_view[show_cols].head(3).rename(columns={
-                    "source_label": "From",
-                    "target_label": "To",
-                    "pair_kind": "Pair kind",
-                    "link_type": "Link type",
-                    "recommendation_category": "Why this helps",
-                    "impact_layer": "Impact layer",
-                    "link_probability": "Score",
-                    "rationale": "Dashboard note",
-                }),
-                width='stretch',
-                hide_index=True,
-            )
-        st.caption("Which new connections the AI thinks are worth exploring.")
-
-    if not gnn_perception_effects.empty:
-        st.markdown("**2. Effect on perceptions**")
-        impact_view = gnn_perception_effects.copy()
-        show_cols = [
-            c for c in [
-                "source_label",
-                "target_label",
-                "perception_effect_type",
-                "source_perception_count",
-                "target_perception_count",
-                "shared_perception_count",
-                "perception_overlap_ratio",
-                "perception_effect_note",
-            ] if c in impact_view.columns
-        ]
-        if show_cols:
-            impact_view = impact_view[show_cols].rename(columns={
-                "source_label": "From",
-                "target_label": "To",
-                "perception_effect_type": "Effect",
-                "source_perception_count": "Source perceptions",
-                "target_perception_count": "Target perceptions",
-                "shared_perception_count": "Shared",
-                "perception_overlap_ratio": "Overlap",
-                "perception_effect_note": "Note",
-            })
-            impact_view["Overlap"] = impact_view["Overlap"].apply(lambda value: f"{float(value):.2f}" if pd.notna(value) else "—")
-            st.dataframe(impact_view.head(3), width='stretch', hide_index=True)
-        st.caption("How each new link would change perception dynamics.")
-
+    # ── 1. Suggested Links Table ──
     if not impact_edge_candidates.empty:
-        st.divider()
-        st.markdown("**4. Narrative impact of predicted links**")
+        show_cols = ["source_label", "target_label", "link_probability", "gnn_rationale", "bridge_type", "feasibility_badge", "new_narrative_pathways", "new_vds_unlocked"]
+        show_cols = [c for c in show_cols if c in impact_edge_candidates.columns]
+        link_table = impact_edge_candidates[show_cols].copy()
+        link_table.columns = [c.replace("_", " ").title() for c in show_cols]
+        st.markdown("**1. Suggested links**")
+        st.dataframe(link_table, width='stretch', hide_index=True)
         st.caption(
-            "The GNN detects structural holes — links that should exist based on graph topology. "
-            "Below: what each predicted link would change in the narrative/perception space."
+            "**How to read**: Probability = how strongly the GNN believes this link should exist (0-1). "
+            "✅ Fundable = structurally sound + domain-compatible. ❓ Topological = structurally plausible but domain-distant. "
+            "**Bridge types**: Learning Bridge = unlocks new value dimensions across separate narrative spaces. "
+            "Coalition Reinforcement = strengthens existing shared values. Structural Only = no narrative effect."
         )
 
-        bridge_colors = {
-            "learning_bridge": "#2ecc71",
-            "coalition_reinforcement": "#3498db",
-            "cleavage_breach": "#e74c3c",
-            "structural_only": "#95a5a6",
-        }
-        bridge_labels = {
-            "learning_bridge": "Learning Bridge",
-            "coalition_reinforcement": "Coalition Reinforcement",
-            "cleavage_breach": "Cleavage Breach",
-            "structural_only": "Structural Only",
-        }
+    # ── 2. Narrative Impact ──
+    if not impact_edge_candidates.empty:
+        st.divider()
+        st.markdown("**2. Narrative impact — what each link changes**")
+        st.caption("For each suggested link: which claims/narratives it touches on both sides, and what new connections it would create.")
 
         for idx, (_, row) in enumerate(impact_edge_candidates.iterrows()):
             src = row.get("source_label", row.get("source_global_id", "?"))
@@ -936,174 +1369,145 @@ with tab_gnn:
             st_src_t = row.get("source_node_type", "")
             st_tgt_t = row.get("target_node_type", "")
             bridge = row.get("bridge_type", "structural_only")
-            color = bridge_colors.get(bridge, "#95a5a6")
-            label = bridge_labels.get(bridge, bridge)
+            color = BRIDGE_COLORS.get(bridge, "#95a5a6")
+            bl = BRIDGE_LABELS.get(bridge, bridge)
+            prob = float(row.get("link_probability", 0))
+            badge = row.get("feasibility_badge", "")
+            badge_color = {"✅ Fundable": "#2ecc71", "⚠️ Cross-domain": "#f39c12", "❓ Topological": "#e74c3c"}.get(badge, "#95a5a6")
+            rationale = row.get("gnn_rationale", "")
+            note = row.get("bridge_note", "")
+            action = row.get("action_template", "")
             pathways = int(row.get("new_narrative_pathways", 0))
             new_vds = row.get("new_vds_unlocked", "none")
+            merges = row.get("merges_components", False)
+            src_cnt = int(row.get("source_perception_claim_count", 0))
+            tgt_cnt = int(row.get("target_perception_claim_count", 0))
             src_vds = row.get("source_vds", "none")
             tgt_vds = row.get("target_vds", "none")
-            note = row.get("bridge_note", "")
-            prob = float(row.get("link_probability", 0))
-            merges = row.get("merges_components", False)
-            only_src = row.get("only_source_vds", "")
-            only_tgt = row.get("only_target_vds", "")
-
-            with st.container():
-                cols = st.columns([0.65, 0.35])
-                with cols[0]:
-                    st.markdown(
-                        f'<div style="border-left: 4px solid {color}; padding: 0.3rem 1rem; '
-                        f'background: rgba(128,128,128,0.03); border-radius: 4px;">'
-                        f'<div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">'
-                        f'<strong>#{idx+1}</strong> '
-                        f'<span style="background: {color}; color: white; padding: 0.1rem 0.5rem; border-radius: 3px; font-size: 0.8rem;">{label}</span>'
-                        f'<span style="font-size: 0.85rem; color: #aaa;">p={prob:.3f}</span>'
-                        f'</div>'
-                        f'<div style="margin: 0.3rem 0; font-size: 1.05rem;">'
-                        f'{src} '
-                        f'<span style="font-size: 0.75rem; color: #888;">({st_src_t})</span>'
-                        f' &rarr; {tgt} '
-                        f'<span style="font-size: 0.75rem; color: #888;">({st_tgt_t})</span>'
-                        f'</div>'
-                        f'<div style="font-size: 0.85rem; color: #bbb;">{note}</div>'
-                        f'</div>',
-                        unsafe_allow_html=True,
-                    )
-                with cols[1]:
-                    st.markdown(
-                        f'<div style="text-align: right; font-size: 0.85rem;">'
-                        f'<div><span style="color: #888;">New pathways:</span> <strong>{pathways}</strong></div>'
-                        f'<div><span style="color: #888;">New VDs:</span> {new_vds}</div>'
-                        f'<div><span style="color: #888;">Merges:</span> {"Yes" if merges else "No"}</div>'
-                        f'</div>',
-                        unsafe_allow_html=True,
-                    )
-
-                with st.expander("Narrative neighborhoods", expanded=False):
-                    c1, c2 = st.columns(2)
-                    with c1:
-                        st.markdown(f"**{src}** ({st_src_t})")
-                        st.markdown(f"Claims/Perceptions reachable: {int(row.get('source_perception_claim_count', 0))}")
-                        st.markdown(f"Values: {src_vds}")
-                        if only_src and only_src != "none":
-                            st.markdown(f"Unique to source: {only_src}")
-                    with c2:
-                        st.markdown(f"**{tgt}** ({st_tgt_t})")
-                        st.markdown(f"Claims/Perceptions reachable: {int(row.get('target_perception_claim_count', 0))}")
-                        st.markdown(f"Values: {tgt_vds}")
-                        if only_tgt and only_tgt != "none":
-                            st.markdown(f"Unique to target: {only_tgt}")
-                    new_nodes = row.get("new_pathway_nodes", "")
-                    if new_nodes and new_nodes != "none":
-                        st.markdown(f"**New pathways opened:** {new_nodes}")
-
-            if idx < len(impact_edge_candidates) - 1:
-                st.divider()
-
-    if not impact_node_proposals.empty:
-        st.divider()
-        st.markdown("**5. What's missing — node addition proposals**")
-        st.caption(
-            "For nodes with no narrative footprint, adding a new node (claim or perception) "
-            "would create a narrative voice where none exists."
-        )
-
-        np_view = impact_node_proposals.copy()
-        for _, row in np_view.head(6).iterrows():
-            sub = row.get("proposal_subtype", "")
-            anchor = row.get("anchor_label", row.get("anchor_node", ""))
-            vd = row.get("proposed_value_dimension", "")
-            rationale = row.get("rationale", "")
-
-            icon = {"claim_node": "💬", "claim_value_gap": "🧩", "perception_node": "👤",
-                    "perception_void": "👥", "value_underfunding": "💰", "value_under_representation": "📊"}
-            icon_char = icon.get(sub, "◆")
 
             st.markdown(
-                f'<div style="border-left: 4px solid #9b59b6; padding: 0.3rem 1rem; margin: 0.3rem 0; '
-                f'background: rgba(128,128,128,0.02); border-radius: 4px;">'
-                f'<div style="display: flex; gap: 0.5rem; align-items: center;">'
-                f'<span>{icon_char}</span>'
-                f'<span style="font-size: 0.85rem; background: #9b59b6; color: white; padding: 0.1rem 0.5rem; border-radius: 3px;">{sub.replace("_", " ")}</span>'
-                f'<span style="font-size: 0.85rem;">near <strong>{anchor}</strong></span>'
-                f'<span style="font-size: 0.85rem; color: #888;">'
-                f'{f"VD: {vd}" if vd else ""}</span>'
+                f'<div style="border-left: 4px solid {color}; padding: 0.5rem 1rem; margin: 0.3rem 0; '
+                f'background: rgba(128,128,128,0.03); border-radius: 4px;">'
+                f'<div style="display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap;">'
+                f'<strong>#{idx+1}</strong> '
+                f'<span style="background: {color}; color: white; padding: 0.1rem 0.5rem; border-radius: 3px; font-size: 0.8rem;">{bl}</span>'
+                f'<span style="font-size: 0.85rem; color: #aaa;">p={prob:.3f}</span>'
+                f'<span style="background: {badge_color}; color: white; padding: 0.1rem 0.5rem; border-radius: 3px; font-size: 0.8rem;">{badge}</span>'
                 f'</div>'
-                f'<div style="font-size: 0.85rem; color: #bbb; margin-top: 0.2rem;">{rationale}</div>'
+                f'<div style="margin: 0.3rem 0; font-size: 1.05rem;">'
+                f'{src} <span style="font-size: 0.75rem; color: #888;">({st_src_t})</span>'
+                f' &rarr; {tgt} <span style="font-size: 0.75rem; color: #888;">({st_tgt_t})</span>'
+                f'</div>'
+                f'<div style="font-size: 0.85rem; color: #bbb;">{rationale}</div>'
+                f'<div style="font-size: 0.85rem; color: #bbb; margin-top: 0.15rem;">{note}</div>'
+                f'<div style="font-size: 0.85rem; color: #2ecc71; margin-top: 0.2rem;">→ {action}</div>'
                 f'</div>',
                 unsafe_allow_html=True,
             )
 
-    if not impact_invented_nodes.empty:
-        st.divider()
-        st.markdown("**6. GNN invents a node — synthesis from structural + semantic gaps**")
-        st.caption(
-            "When a predicted link connects two disconnected nodes with no narrative neighbors, "
-            "the GNN can invent a NEW node that bridges both components AND creates a narrative footprint."
-        )
+            # Side-by-side claim comparison
+            s1, s2, s3 = st.columns(3)
+            s1.metric(f"{src} claims reachable", src_cnt, help="How many claims/perceptions this node can already reach")
+            s2.metric(f"{tgt} claims reachable", tgt_cnt, help="How many claims/perceptions the target can already reach")
+            s3.metric("New pathways this link creates", pathways, help=f"New narrative paths opened: {new_vds}")
 
-        for _, row in impact_invented_nodes.head(4).iterrows():
-            label = row.get("invented_label", "?")
-            ntype = row.get("invented_node_type", "?")
-            pathways = int(row.get("new_narrative_pathways", 0))
-            merged = int(row.get("components_merged", 0))
-            profile = row.get("predicted_narrative_profile", "")
-            edges = row.get("predicted_edges", "")
-            score = float(row.get("composite_governance_score", 0))
+            with st.expander("Which specific claims it touches", expanded=False):
+                new_nodes_raw = row.get("new_pathway_nodes", "")
+                if new_nodes_raw and new_nodes_raw != "none":
+                    c_have, c_new, c_gain = st.columns(3)
+                    with c_have:
+                        st.markdown(f"**{src} currently has**")
+                    with c_new:
+                        st.markdown("**New connections the link creates**")
+                    with c_gain:
+                        st.markdown(f"**{tgt} would gain**")
 
-            st.markdown(
-                f'<div style="border-left: 4px solid #e67e22; padding: 0.3rem 1rem; margin: 0.3rem 0; '
-                f'background: rgba(128,128,128,0.02); border-radius: 4px;">'
-                f'<div style="display: flex; gap: 0.5rem; align-items: center;">'
-                f'<span style="font-size: 1.1rem;">🧬</span>'
-                f'<strong>{label}</strong>'
-                f'<span style="background: #e67e22; color: white; padding: 0.1rem 0.5rem; border-radius: 3px; font-size: 0.8rem;">{ntype}</span>'
-                f'<span style="font-size: 0.85rem; color: #888;">Score: {score:.4f}</span>'
-                f'</div>'
-                f'<div style="font-size: 0.85rem; color: #bbb; margin-top: 0.2rem;">'
-                f'+{pathways} narrative pathways | Merges {merged} components</div>',
-                unsafe_allow_html=True,
-            )
-
-            with st.expander("Details", expanded=False):
+                    for part in new_nodes_raw.split(";"):
+                        part = part.strip()
+                        if not part:
+                            continue
+                        if part.startswith("+") or part == "more":
+                            continue
+                        vd_tag = f"`{part[part.rfind('['):].strip('[]')}`" if "[" in part and "]" in part else ""
+                        claim_text = part[:part.rfind("[")].strip() if "[" in part else part
+                        if "saw:" in part or "have:" in part:
+                            with c_have:
+                                st.markdown(f"- {claim_text.replace('saw:', '').replace('have:', '').strip()} {vd_tag}")
+                        elif "lacks:" in part:
+                            with c_new:
+                                st.markdown(f"- {claim_text.replace('lacks:', '').strip()} {vd_tag}")
+                        elif "getting:" in part or "helps:" in part:
+                            with c_gain:
+                                st.markdown(f"- {claim_text.replace('getting:', '').replace('helps:', '').strip()} {vd_tag}")
+                        else:
+                            with c_new:
+                                st.markdown(f"- {claim_text} {vd_tag}")
+                st.markdown("---")
                 c1, c2 = st.columns(2)
                 with c1:
-                    st.markdown("**Predicted edges**")
-                    for e in edges.split(";"):
-                        parts = e.strip().split("(")
-                        if len(parts) == 2:
-                            en = parts[0]
-                            es = parts[1].rstrip(")")
-                            st.markdown(f"→ {en} (sim: {es})")
+                    st.markdown(f"**{src}** value dimensions: {src_vds}")
                 with c2:
-                    st.markdown("**Narrative profile**")
-                    for p in profile.split(";"):
-                        parts = p.strip().split(":")
-                        if len(parts) == 2:
-                            st.markdown(f"{parts[0]}: {float(parts[1])*100:.0f}%")
+                    st.markdown(f"**{tgt}** value dimensions: {tgt_vds}")
 
+            st.divider()
+
+    # ── 3. Suggested Projects ──
+    if not prototype_candidates.empty:
+        st.markdown(f"**3. Suggested projects to invest in**")
+        st.caption(
+            "These projects scored highest as prototype investment candidates. "
+            "The **prototype candidate score** combines: network centrality (how well-connected), "
+            "narrative reach (how many claims/perceptions it connects to), and budget efficiency "
+            "(lower budget with higher reach = better value). "
+            "The **budget** comes from the synthetic financial dataset "
+            "(`04_investment_opportunity_synthetic.py`) which maps each project's annual spending "
+            "based on KTool's financial bridge data."
+        )
+
+        top_n = min(10, len(prototype_candidates))
+        proj_view = prototype_candidates.sort_values("prototype_candidate_score", ascending=False).head(top_n)
+        show_cols = [c for c in ["label", "associated_budget", "prototype_candidate_score", "suggestion_reason", "degree", "impact_level"] if c in proj_view.columns]
+        proj_display = proj_view[show_cols].copy()
+        proj_display.columns = [c.replace("_", " ").title() for c in show_cols]
+        if "Associated Budget" in proj_display.columns:
+            proj_display["Associated Budget"] = proj_display["Associated Budget"].apply(
+                lambda b: f"€{b:,.0f}" if pd.notna(b) and b > 0 else "—"
+            )
+        if "Degree" in proj_display.columns:
+            proj_display["Degree"] = proj_display["Degree"].astype(int)
+        if "Prototype Candidate Score" in proj_display.columns:
+            proj_display["Prototype Candidate Score"] = proj_display["Prototype Candidate Score"].apply(lambda v: f"{v:.3f}")
+        st.dataframe(proj_display, width='stretch', hide_index=True)
+
+    # ── 4. Value Dimension Landscape ──
     if impact_dashboard:
         vd_list = impact_dashboard.get("vd_summary", [])
         if vd_list:
             st.divider()
-            st.markdown("**7. Value dimension landscape**")
-            st.caption("How claims are distributed across value dimensions — reveals narrative gaps.")
+            st.markdown("**4. Value dimension landscape**")
+            st.caption(
+                "Claim count per value dimension. "
+                "Budget = total investment (€) mapped from the financial bridge "
+                "(`04_investment_opportunity_synthetic.py`). "
+                "Underfunded = dimensions with the least budget allocation."
+            )
             vd_df = pd.DataFrame(vd_list)
-            if not vd_df.empty:
-                vd_df["budget_display"] = vd_df["budget"].apply(
-                    lambda b: f"€{b:,.0f}" if pd.notna(b) and b > 0 else "—"
-                )
-                st.dataframe(
-                    vd_df.rename(columns={
-                        "value_dimension": "Value dimension",
-                        "claim_count": "Claims",
-                        "budget_display": "Budget",
-                    }),
-                    column_config={
-                        "underfunded": st.column_config.CheckboxColumn("Underfunded", help="Lowest budget allocation"),
-                    },
-                    width='stretch', hide_index=True,
-                )
+            show_vd_cols = {"value_dimension": "Value dimension", "claim_count": "Claims"}
+            has_budget = vd_df["budget"].sum() > 0 if "budget" in vd_df.columns else False
+            has_under = vd_df["underfunded"].any() if "underfunded" in vd_df.columns else False
+            if has_budget:
+                vd_df["budget_display"] = vd_df["budget"].apply(lambda b: f"€{b:,.0f}")
+                show_vd_cols["budget_display"] = "Budget (€)"
+            if has_under:
+                show_vd_cols["underfunded"] = "Underfunded"
+            col_config = {}
+            if has_under:
+                col_config["underfunded"] = st.column_config.CheckboxColumn("Underfunded")
+            st.dataframe(
+                vd_df.rename(columns=show_vd_cols)[list(show_vd_cols.values())],
+                column_config=col_config,
+                width='stretch', hide_index=True,
+            )
 
     if not link_intervention_scores.empty:
         st.divider()
@@ -1218,9 +1622,345 @@ with tab_gnn:
                 f"Best validation AUC: {float(gnn_link_report.get('best_validation_auc', 0.0)):.1%}"
             )
 
+    # ── Diagnostics & Limitations ──
+    with st.expander("GNN Diagnostics & Limitations", expanded=False):
+        st.markdown(
+            "### What the GNN does well\n"
+            "- Detects **structural holes** — missing links that graph topology suggests should exist\n"
+            "- Scores candidates by **narrative impact** (new pathways, value dimensions unlocked)\n"
+            "- Applies a **domain compatibility filter** (embedding cosine similarity) to penalise cross-domain links\n\n"
+            "### Known limitations\n"
+            "- **53 / 375 nodes have zero embeddings** — their semantic content is unrecoverable, so domain filter falls back to node_type heuristic\n"
+            "- **Topological false positives** — structurally similar agents in different operational domains (e.g., Focus Ireland ↔ Liquid Therapy) get high GNN scores but low governance plausibility\n"
+            "- **No perception/claim awareness at training time** — the R-GCN uses only mapping-layer features; narrative impact is computed post-hoc\n"
+            "- **Sparse training edges** — only 8 training examples per relation type\n\n"
+            "### Recommendations with domain compatibility\n"
+        )
+
+        if not impact_edge_candidates.empty:
+            dc_view = impact_edge_candidates[
+                [c for c in ["source_label", "target_label", "bridge_type",
+                             "domain_compatibility", "domain_note",
+                             "composite_governance_score", "action_template"]
+                 if c in impact_edge_candidates.columns]
+            ].copy()
+            if not dc_view.empty:
+                st.dataframe(dc_view, width='stretch', hide_index=True)
+
+        st.markdown(
+            "### When to trust / not trust\n\n"
+            "| Scenario | Trust | Reason |\n"
+            "|---|---|---|\n"
+            "| Same value dimension, components merged | ✅ | Measurable new narrative pathways |\n"
+            "| Domain cosine sim > 0.5 | ✅ | Same operational domain |\n"
+            "| Domain cosine sim 0.3–0.5 | ⚠️ | Structurally plausible, semantically weak |\n"
+            "| Zero embedding on either node | ⚠️ | No semantic signal to verify |\n"
+            "| Different bridge, cosine sim < 0.3 | ❌ | Likely topological false positive |\n\n"
+            "### Diagnostic file\n"
+            "See `docs/gnn_diagnostics.md` for a full breakdown of model architecture, data quality "
+            "checks, and future improvements.\n"
+        )
+
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 1 — Network Layers
+# TAB 2 — Geography & Evolution
+# ═══════════════════════════════════════════════════════════════════════════════
+    with tab_geo:
+        st.subheader("Geography & Ecosystem Evolution")
+
+        geo_col1, geo_col2 = st.columns([0.55, 0.45])
+
+        with geo_col1:
+            st.markdown("**Irish ecosystem map**")
+            if "location" not in nodes_win.columns:
+                nodes_win["location"] = ""
+            geo_nodes = nodes_win[nodes_win["location"].notna() & (nodes_win["location"] != "")].copy()
+            if "latitude" in geo_nodes.columns and "longitude" in geo_nodes.columns:
+                geo_nodes["latitude"] = pd.to_numeric(geo_nodes["latitude"], errors="coerce")
+                geo_nodes["longitude"] = pd.to_numeric(geo_nodes["longitude"], errors="coerce")
+                geo_plot = geo_nodes.dropna(subset=["latitude", "longitude"])
+            else:
+                geo_plot = pd.DataFrame()
+
+            if not geo_plot.empty:
+                    map_modes = ["Node locations", "Concentration", "Influence", "Underserved areas", "County heatmap", "Time-lapse"]
+                    map_mode = st.radio("Map view", map_modes, horizontal=True, label_visibility="collapsed")
+                    geo_fig = go.Figure()
+
+                    VD_COLORS = {
+                        "social_justice": "#e41a1c",
+                        "evidence_based": "#377eb8",
+                        "innovation_drive": "#4daf4a",
+                        "collaboration": "#984ea3",
+                        "cultural_identity": "#ff7f00",
+                        "community_autonomy": "#f0f000",
+                        "austerity_scarcity": "#a65628",
+                    }
+                    VD_LABELS = {
+                        "social_justice": "Social Justice",
+                        "evidence_based": "Evidence-Based",
+                        "innovation_drive": "Innovation Drive",
+                        "collaboration": "Collaboration",
+                        "cultural_identity": "Cultural Identity",
+                        "community_autonomy": "Community Autonomy",
+                        "austerity_scarcity": "Austerity & Scarcity",
+                    }
+
+                    if map_mode == "Node locations":
+                        nt_colors = {nt: color_for_node_type(nt) for nt in geo_plot["node_type"].unique()}
+                        for nt in geo_plot["node_type"].unique():
+                            sub = geo_plot[geo_plot["node_type"] == nt]
+                            geo_fig.add_trace(go.Scattermap(
+                                lat=sub["latitude"].tolist(), lon=sub["longitude"].tolist(),
+                                mode="markers+text", marker=dict(size=10, color=nt_colors[nt], opacity=0.8),
+                                text=sub["label"].tolist(), textposition="top center",
+                                name=nt.title(),
+                                hovertemplate="<b>%{text}</b><br>Type: " + nt.title() + "<br>Location: %{customdata}<br><extra></extra>",
+                                customdata=sub["location"].tolist(),
+                            ))
+
+                    elif map_mode == "Concentration":
+                        loc_counts = geo_plot.groupby("location").agg(
+                            count=("global_id", "nunique"),
+                            lat=("latitude", "first"), lon=("longitude", "first"),
+                        ).reset_index()
+                        max_c = loc_counts["count"].max()
+                        geo_fig.add_trace(go.Scattermap(
+                            lat=loc_counts["lat"].tolist(), lon=loc_counts["lon"].tolist(),
+                            mode="markers+text",
+                            marker=dict(
+                                size=[max(8, 12 + 40 * (c / max_c)) for c in loc_counts["count"]],
+                                color=loc_counts["count"], colorscale="Viridis", showscale=True,
+                                opacity=0.7, sizemin=8,
+                            ),
+                            text=loc_counts["location"].tolist(), textposition="top center",
+                            hovertemplate="<b>%{text}</b><br>Nodes: %{marker.size}<extra></extra>",
+                        ))
+
+                    elif map_mode == "Influence":
+                        loc_pr = geo_plot.groupby("location").agg(
+                            lat=("latitude", "first"), lon=("longitude", "first"),
+                            nodes=("global_id", list),
+                        ).reset_index()
+                        pr_by_gid = {}
+                        if not diffusion.empty:
+                            for _, r in diffusion.iterrows():
+                                pr_by_gid[str(r.get("global_id", ""))] = float(r.get("pagerank", 0) or 0)
+                        loc_pr["total_pr"] = loc_pr["nodes"].apply(lambda ids: sum(pr_by_gid.get(str(i), 0.0) for i in ids))
+                        max_pr = loc_pr["total_pr"].max()
+                        if max_pr > 0:
+                            geo_fig.add_trace(go.Scattermap(
+                                lat=loc_pr["lat"].tolist(), lon=loc_pr["lon"].tolist(),
+                                mode="markers+text",
+                                marker=dict(
+                                    size=[max(8, 12 + 40 * (v / max_pr)) for v in loc_pr["total_pr"]],
+                                    color=loc_pr["total_pr"], colorscale="Plasma", showscale=True,
+                                    opacity=0.7,
+                                ),
+                                text=loc_pr["location"].tolist(), textposition="top center",
+                                hovertemplate="<b>%{text}</b><br>Total influence: %{marker.color:.4f}<extra></extra>",
+                            ))
+                        else:
+                            st.info("PageRank data not available. Run the pipeline first.")
+
+                    elif map_mode == "Underserved areas":
+                        loc_types = geo_plot.groupby("location").agg(
+                            lat=("latitude", "first"), lon=("longitude", "first"),
+                            types=("node_type", lambda x: x.tolist()),
+                        ).reset_index()
+
+                        def support_score(types_list):
+                            agents = sum(1 for t in types_list if t in ("agent", "channel"))
+                            projects = sum(1 for t in types_list if t in ("project", "pilot", "prototype"))
+                            total = len(types_list)
+                            if total == 0:
+                                return 0.0
+                            support = agents / max(projects, 1)
+                            return min(support, 3.0) / 3.0
+
+                        loc_types["score"] = loc_types["types"].apply(support_score)
+                        geo_fig.add_trace(go.Scattermap(
+                            lat=loc_types["lat"].tolist(), lon=loc_types["lon"].tolist(),
+                            mode="markers+text",
+                            marker=dict(
+                                size=20,
+                                color=loc_types["score"], colorscale="RdYlGn", showscale=True,
+                                opacity=0.7, cmin=0, cmax=1,
+                            ),
+                            text=loc_types["location"].tolist(), textposition="top center",
+                            hovertemplate="<b>%{text}</b><br>Support score: %{marker.color:.2f}<br>(1.0 = balanced, 0.0 = underserved)<extra></extra>",
+                        ))
+
+                    elif map_mode in ("County heatmap", "Time-lapse"):
+                        geo_json_candidates = [
+                            ROOT / "data" / "processed" / "ireland_counties.geojson",
+                            ANALYSIS_DIR / "ireland_counties.geojson",
+                        ]
+                        geo_json_path = next((p for p in geo_json_candidates if p.exists()), None)
+                        if geo_json_path is None:
+                            st.info("County boundary file not found. Re-run the pipeline for the synthetic platform.")
+                        else:
+                            with open(geo_json_path) as f:
+                                ireland_counties = json.load(f)
+
+                            if "value_dimension" not in nodes_win.columns:
+                                nodes_win["value_dimension"] = ""
+                            has_county = nodes_win[nodes_win["county"].notna() & nodes_win["value_dimension"].notna()].copy()
+                            if has_county.empty:
+                                st.info("No nodes with both county and value_dimension data. Run `28_enrich_value_dimensions.py` first.")
+                            else:
+                                if "sim_year" in has_county.columns:
+                                    has_county["year"] = pd.to_numeric(has_county["sim_year"], errors="coerce").fillna(has_county["best_date"].dt.year)
+                                else:
+                                    has_county["year"] = has_county["best_date"].dt.year
+
+                                def build_vd_order(vd_series):
+                                    present = sorted(vd_series.unique(), key=lambda v: list(VD_COLORS.keys()).index(v) if v in VD_COLORS else 99)
+                                    vd_code = {v: i for i, v in enumerate(present)}
+                                    n = len(present)
+                                    steps = []
+                                    for i, vd in enumerate(present):
+                                        lo = i / n
+                                        hi = (i + 1) / n
+                                        c = VD_COLORS.get(vd, "#888888")
+                                        steps.append([lo, c])
+                                        steps.append([hi - 0.001, c])
+                                        steps.append([hi, c])
+                                    return present, vd_code, n, steps
+
+                                def dominant_per_county(vd_year_group):
+                                    dom = vd_year_group.loc[vd_year_group.groupby("county")["count"].idxmax()].reset_index(drop=True)
+                                    return dom if not dom.empty else pd.DataFrame()
+
+                                def county_centroids(gj_dict):
+                                    centroids = {}
+                                    for f in gj_dict["features"]:
+                                        name = f["properties"].get("county", "").upper()
+                                        coords = f["geometry"]["coordinates"]
+                                        if f["geometry"]["type"] == "MultiPolygon":
+                                            pts = [p for poly in coords for ring in poly for p in ring]
+                                        elif f["geometry"]["type"] == "Polygon":
+                                            pts = [p for ring in coords for p in ring]
+                                        else:
+                                            continue
+                                        if pts:
+                                            centroids[name] = [sum(p[1] for p in pts) / len(pts), sum(p[0] for p in pts) / len(pts)]
+                                    return centroids
+
+                                centroids = county_centroids(ireland_counties)
+                                vd_legend = " | ".join(f'<span style="display:inline-block;width:10px;height:10px;background:{VD_COLORS[vd]};border-radius:50%;"></span> {VD_LABELS.get(vd, vd.replace("_"," ").title())}' for vd in VD_COLORS)
+
+                                def county_trace(dom_df, marker_size_col, show_legend=False):
+                                    dom_df = dom_df[dom_df["county"].str.upper().isin(centroids)].copy()
+                                    if dom_df.empty:
+                                        return None
+                                    dom_df["lat"] = dom_df["county"].str.upper().map(lambda c: centroids.get(c, [None, None])[0])
+                                    dom_df["lon"] = dom_df["county"].str.upper().map(lambda c: centroids.get(c, [None, None])[1])
+                                    dom_df = dom_df.dropna(subset=["lat", "lon"])
+                                    if dom_df.empty:
+                                        return None
+                                    colors = dom_df["value_dimension"].map(VD_COLORS).tolist()
+                                    labels = dom_df["value_dimension"].map(VD_LABELS).tolist()
+                                    return go.Scattermap(
+                                        lat=dom_df["lat"].tolist(), lon=dom_df["lon"].tolist(),
+                                        mode="markers+text",
+                                        marker=dict(
+                                            size=dom_df[marker_size_col].tolist() if marker_size_col in dom_df else 18,
+                                            color=colors, opacity=0.85,
+                                            showscale=False,
+                                        ),
+                                        text=dom_df["county"].tolist(), textposition="top center",
+                                        hovertemplate="<b>%{text}</b><br>%{customdata}<br>Nodes: %{marker.size}<extra></extra>",
+                                        customdata=labels,
+                                        showlegend=show_legend,
+                                    )
+
+                                if map_mode == "County heatmap":
+                                    county_vd = has_county.groupby(["county", "value_dimension"]).size().reset_index(name="count")
+                                    dominant = dominant_per_county(county_vd)
+                                    tr = county_trace(dominant, "count")
+                                    if tr is not None:
+                                        geo_fig.add_trace(tr)
+                                    else:
+                                        st.info("No county centroids matched. Check GeoJSON county names.")
+                                    st.caption(f"County centroid markers — size = node count, color = dominant value dimension. ROI only.<br>{vd_legend}", unsafe_allow_html=True)
+
+                                else:
+                                    has_date = has_county[has_county["year"].notna()].copy()
+                                    years_sorted = sorted(has_date["year"].unique().astype(int))
+                                    if len(years_sorted) < 2:
+                                        st.info("Only one year of data available. Switch to 'County heatmap' for the static view.")
+                                    else:
+                                        county_vd_year = has_date.groupby(["year", "county", "value_dimension"]).size().reset_index(name="count")
+
+                                        def make_frame_data(yr):
+                                            yr_data = county_vd_year[county_vd_year["year"] == yr]
+                                            dom = dominant_per_county(yr_data)
+                                            return county_trace(dom, "count")
+
+                                        tr0 = make_frame_data(years_sorted[0])
+                                        if tr0 is not None:
+                                            geo_fig.add_trace(tr0)
+                                        frames = []
+                                        for yr in years_sorted[1:]:
+                                            tr_f = make_frame_data(yr)
+                                            if tr_f is not None:
+                                                frames.append(go.Frame(data=[tr_f], name=str(int(yr))))
+                                        if frames:
+                                            geo_fig.frames = frames
+                                            slider_steps = [dict(method="animate", label=str(int(yr)), args=[[str(int(yr))], dict(mode="immediate", transition=dict(duration=300))]) for yr in years_sorted]
+                                            geo_fig.update_layout(
+                                                updatemenus=[dict(
+                                                    type="buttons", showactive=False, x=0.05, y=1.1,
+                                                    buttons=[
+                                                        dict(label="Play", method="animate", args=[None, dict(frame=dict(duration=800, redraw=True), fromcurrent=True)]),
+                                                        dict(label="Pause", method="animate", args=[[None], dict(mode="immediate", transition=dict(duration=0))]),
+                                                    ],
+                                                )],
+                                                sliders=[dict(active=0, currentvalue=dict(prefix="Year: "), pad=dict(t=10), steps=slider_steps)],
+                                            )
+                                        st.caption(f"County centroid markers over time — color = dominant value dimension. Play the animation.<br>{vd_legend}", unsafe_allow_html=True)
+
+                    geo_fig.update_layout(
+                        map=dict(style="open-street-map", center=dict(lat=53.4, lon=-8.0), zoom=6.5),
+                        margin=dict(l=0, r=0, t=0, b=0), height=550,
+                    )
+                    if map_mode == "Node locations":
+                        geo_fig.update_layout(legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1))
+                    st.plotly_chart(geo_fig, use_container_width=True)
+            else:
+                st.info(f"No nodes with valid coordinates in time window ({len(geo_nodes)} have location, 0 with valid lat/lon). Run `00_enrich_locations.py` first.")
+
+    with geo_col2:
+        st.markdown("**Node type distribution on map**")
+        if not geo_nodes.empty:
+            type_loc_counts = geo_nodes.groupby(["node_type", "location"]).size().reset_index(name="count")
+            st.dataframe(type_loc_counts, width='stretch', hide_index=True)
+
+        st.divider()
+        st.markdown("**Ecosystem growth over time**")
+        growth = nodes[nodes["best_date"].notna()].copy()
+        growth["year_month"] = growth["best_date"].dt.to_period("M").astype(str)
+        growth_ts = growth.groupby(["year_month", "node_type"]).size().reset_index(name="count")
+        growth_cumul = growth_ts.copy()
+        growth_cumul["cumulative"] = growth_cumul.groupby("node_type")["count"].cumsum()
+        fig_growth = px.line(
+            growth_cumul, x="year_month", y="cumulative", color="node_type",
+            template="plotly_white",
+            title="Cumulative node count by type over time",
+            color_discrete_sequence=PLOTLY_PALETTE,
+        )
+        fig_growth.update_layout(height=280, margin=dict(l=10, r=10, t=42, b=10))
+        st.plotly_chart(fig_growth, use_container_width=True)
+
+        st.markdown("**Time window composition**")
+        type_counts_now = nodes_win["node_type"].value_counts().reset_index()
+        type_counts_now.columns = ["Node type", "Count"]
+        st.dataframe(type_counts_now, width='stretch', hide_index=True)
+
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAB 3 — Network Layers
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_layer:
     st.subheader("What each link type adds")
@@ -1286,10 +2026,12 @@ with tab_layer:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 4 — AI-Generated Links
+# TAB 6 — AI-Generated Links
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_ai_semantic:
     st.subheader("AI-generated links")
+    if ai_mode == "Source only":
+        st.info("AI toggle set to **Source only** — switch to **All data** in the sidebar to see AI-inferred edges.")
     st.caption("Links the AI found between quotes. Separated from the source data so you can see what's AI vs what's from the original dataset.")
 
     ai_edges = edges.copy()
@@ -1362,7 +2104,7 @@ with tab_ai_semantic:
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 10 — Budget & Finance (synthetic only, appended last)
+# TAB 14 — Budget & Finance (synthetic only, appended last)
 # ═══════════════════════════════════════════════════════════════════════════════
 if tab_financial is not None:
     with tab_financial:
@@ -1577,7 +2319,141 @@ if tab_financial is not None:
             )
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# TAB 9 — Structural Change
+# TAB 12 — Narrative Simulation (cluster-level)
+# ═══════════════════════════════════════════════════════════════════════════════
+with tab_narrative_sim:
+    st.subheader("Narrative Simulation — Cluster Opinion Dynamics")
+    st.caption(
+        "Each story cluster holds an opinion profile (7 value dimensions) aggregated from its claims. "
+        "Clusters influence each other through semantic edges between their quotes. "
+        "Interventions test what happens when an external agent connects to a cluster."
+    )
+
+    if not cluster_narrative_baseline.empty and not cluster_narrative_interventions.empty:
+        vd_labels = [
+            "Cultural Identity", "Social Justice", "Collaboration",
+            "Innovation Drive", "Evidence-Based", "Community Autonomy",
+            "Austerity/Scarcity",
+        ]
+        vd_keys = VD_ORDER
+
+        sim_intro, sim_controls = st.columns([0.6, 0.4])
+        with sim_controls:
+            target_options = sorted(cluster_narrative_baseline["cluster_id"].unique())
+            sel_target = st.selectbox("Target cluster for intervention", target_options, key="cluster_target")
+            agent_types = ["Neutral agent", "Funder (collaboration)", "Advocate (social_justice)", "Traditionalist (cultural_identity)"]
+            agent_profiles = {
+                "Neutral agent": [1/7]*7,
+                "Funder (collaboration)": [0.05, 0.05, 0.80, 0.05, 0.05, 0.0, 0.0],
+                "Advocate (social_justice)": [0.05, 0.80, 0.05, 0.05, 0.05, 0.0, 0.0],
+                "Traditionalist (cultural_identity)": [0.80, 0.05, 0.05, 0.05, 0.0, 0.0, 0.05],
+            }
+            sel_agent = st.selectbox("Agent type", agent_types, key="agent_type")
+
+        with sim_intro:
+            st.markdown(
+                "**How it works** — Friedkin-Johnsen anchoring:\n\n"
+                "1. Each cluster has a **baseline opinion** = normalized value-dimension profile from its claims.\n"
+                "2. Clusters influence each other proportionally to cross-cluster semantic edge weight.\n"
+                "3. **Stubbornness** (lambda) scales with claim count: more claims = more anchored.\n"
+                "4. Intervention: an external agent with a given opinion profile connects to the target cluster. "
+                "The system re-converges; deltas show how opinions shift."
+            )
+
+        st.divider()
+
+        # Baseline radar
+        col_radar, col_deltas = st.columns([0.6, 0.4])
+
+        with col_radar:
+            with st.expander("Cluster opinion profiles (baseline)", expanded=True):
+                fig_radar = go.Figure()
+                for _, r in cluster_narrative_baseline.iterrows():
+                    cid = r["cluster_id"]
+                    vals = [float(r.get(k, 0)) for k in vd_keys]
+                    label = f"{cid} ({int(r.get('claim_count', 0))} claims, \u03bb={r.get('stubbornness', 0):.2f})"
+                    fig_radar.add_trace(go.Scatterpolar(
+                        r=vals + [vals[0]],
+                        theta=vd_labels + [vd_labels[0]],
+                        fill=None,
+                        name=label,
+                        line=dict(width=1),
+                    ))
+                fig_radar.update_layout(
+                    polar=dict(radialaxis=dict(visible=True, range=[0, 1])),
+                    height=450, margin=dict(l=80, r=80, t=40, b=40),
+                )
+                st.plotly_chart(fig_radar, use_container_width=True)
+
+        with col_deltas:
+            st.markdown("**Intervention effect**")
+            sub = cluster_narrative_interventions[
+                (cluster_narrative_interventions["target_cluster"] == sel_target)
+            ].copy()
+            if not sub.empty:
+                delta_cols = [f"delta_{k}" for k in vd_keys]
+                sub["max_delta"] = sub[delta_cols].abs().max(axis=1)
+                sub = sub.sort_values("max_delta", ascending=False)
+                for _, r in sub.iterrows():
+                    cid = r["affected_cluster"]
+                    md = r["max_delta"]
+                    arrow = "▲" if md > 0 else "▼"
+                    st.metric(f"{cid}", f"{arrow} {md:.6f}", help="Max absolute opinion shift across all dimensions")
+            else:
+                st.info("Select a target cluster to see effects.")
+
+        st.divider()
+
+        # Cluster adjacency network
+        with st.expander("Cluster influence network", expanded=False):
+            if not cluster_narrative_adjacency.empty:
+                G_cluster = nx.Graph()
+                for _, r in cluster_narrative_adjacency.iterrows():
+                    G_cluster.add_edge(r["source_cluster"], r["target_cluster"], weight=r["weight"])
+                pos = nx.spring_layout(G_cluster, seed=42)
+                edge_trace = go.Scatter(
+                    x=[], y=[], mode="lines", line=dict(width=1, color="#ccc"), hoverinfo="none"
+                )
+                for u, v, d in G_cluster.edges(data=True):
+                    x0, y0 = pos[u]
+                    x1, y1 = pos[v]
+                    edge_trace["x"] += (x0, x1, None)
+                    edge_trace["y"] += (y0, y1, None)
+                node_trace = go.Scatter(
+                    x=[], y=[], mode="markers+text", text=[], hoverinfo="text",
+                    marker=dict(size=20, color="#2ecc71", line=dict(width=2, color="white")),
+                )
+                for n in G_cluster.nodes():
+                    x, y = pos[n]
+                    node_trace["x"] += (x,)
+                    node_trace["y"] += (y,)
+                    node_trace["text"] += (n,)
+                fig_clust = go.Figure(data=[edge_trace, node_trace])
+                fig_clust.update_layout(
+                    height=350, margin=dict(l=10, r=10, t=10, b=10),
+                    xaxis=dict(showticklabels=False, showgrid=False, zeroline=False),
+                    yaxis=dict(showticklabels=False, showgrid=False, zeroline=False),
+                    template="plotly_white",
+                )
+                st.plotly_chart(fig_clust, use_container_width=True)
+
+        # All intervention deltas table
+        with st.expander("All intervention results", expanded=False):
+            view = cluster_narrative_interventions.copy()
+            view["key"] = view["target_cluster"] + " → " + view["affected_cluster"]
+            view["max_delta"] = view[[f"delta_{k}" for k in vd_keys]].abs().max(axis=1)
+            st.dataframe(view[["key", "max_delta"] + [f"delta_{k}" for k in vd_keys]].head(30), width='stretch', hide_index=True)
+
+    else:
+        st.info(
+            "Cluster narrative simulation requires the quote clustering pipeline (scripts 15–17) "
+            "and cluster-to-claim linking (script 23), which are only available for the synthetic "
+            "dataset (`173_synthetic`). Switch to that platform in the sidebar to see opinion dynamics.\n\n"
+            "```\npython src/analysis/01_run_all_platform.py\n```"
+        )
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAB 13 — Structural Change
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_structural:
     if not structural_change:
@@ -1842,10 +2718,7 @@ with tab_structural:
             st.dataframe(narrative_budget, width='stretch', hide_index=True)
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# CLAIMS TAB
-# ═══════════════════════════════════════════════════════════════════════════════
-# ═══════════════════════════════════════════════════════════════════════════════
-# TAB 7 — Claims
+# TAB 10 — Claims
 # ═══════════════════════════════════════════════════════════════════════════════
 with tab_claims:
     st.header("Narrative Claims")

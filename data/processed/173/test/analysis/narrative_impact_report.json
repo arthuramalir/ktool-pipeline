@@ -1,0 +1,168 @@
+{
+  "platform_id": "173",
+  "graph_nodes": 497,
+  "graph_edges": 654,
+  "gnn_recommendations_analyzed": 3,
+  "node_proposals_generated": 8,
+  "node_inventions_generated": 2,
+  "value_dimensions": {
+    "Cultural Identity": {
+      "claim_count": 14,
+      "budget": 0,
+      "underfunded": false
+    },
+    "Social Justice": {
+      "claim_count": 7,
+      "budget": 0,
+      "underfunded": false
+    },
+    "Collaboration": {
+      "claim_count": 6,
+      "budget": 0,
+      "underfunded": false
+    },
+    "Innovation Drive": {
+      "claim_count": 3,
+      "budget": 0,
+      "underfunded": false
+    },
+    "Evidence-Based": {
+      "claim_count": 1,
+      "budget": 0,
+      "underfunded": false
+    },
+    "Community Autonomy": {
+      "claim_count": 1,
+      "budget": 0,
+      "underfunded": false
+    },
+    "Austerity & Scarcity": {
+      "claim_count": 1,
+      "budget": 0,
+      "underfunded": false
+    }
+  },
+  "perception_void_components": 201,
+  "top_recommendations": {
+    "edges": [
+      {
+        "intervention_type": "edge_addition",
+        "source": "agent_5370",
+        "target": "agent_5350",
+        "source_label": "Focus Ireland",
+        "target_label": "Liquid Therapy",
+        "bridge_type": "learning_bridge",
+        "new_narrative_pathways": 8,
+        "new_vds_unlocked": "Cultural Identity",
+        "composite_governance_score": 0.3867,
+        "bridge_note": "Learning bridge — unlocks Cultural Identity across previously separate narrative spaces.",
+        "action_template": "Create a cross-departmental working group between the funders of Focus Ireland and Liquid Therapy",
+        "feasibility_badge": "✅ Fundable",
+        "domain_compatibility": 0.8,
+        "domain_note": "Neutral domain (cos=0.36)"
+      },
+      {
+        "intervention_type": "edge_addition",
+        "source": "project_4570",
+        "target": "project_4554",
+        "source_label": "Surf Club",
+        "target_label": "Mental Health & Wellbeing",
+        "bridge_type": "structural_only",
+        "new_narrative_pathways": 0,
+        "new_vds_unlocked": "none",
+        "composite_governance_score": 0.165,
+        "bridge_note": "No new perception/narrative pathways open — this link is purely structural.",
+        "action_template": "Document the existing but unrecorded relationship between Surf Club and Mental Health & Wellbeing",
+        "feasibility_badge": "❓ Topological",
+        "domain_compatibility": 0.8,
+        "domain_note": "Same type (project) — partial compatibility"
+      },
+      {
+        "intervention_type": "edge_addition",
+        "source": "project_4574",
+        "target": "agent_5797",
+        "source_label": "Corporate Workshops",
+        "target_label": "Donegal County Council",
+        "bridge_type": "structural_only",
+        "new_narrative_pathways": 0,
+        "new_vds_unlocked": "none",
+        "composite_governance_score": 0.145,
+        "bridge_note": "No new perception/narrative pathways open — this link is purely structural.",
+        "action_template": "Document the existing but unrecorded relationship between Corporate Workshops and Donegal County Council",
+        "feasibility_badge": "❓ Topological",
+        "domain_compatibility": 0.6,
+        "domain_note": "Different types (project ↔ agent) — low certainty"
+      }
+    ],
+    "nodes": [
+      {
+        "intervention_type": "node_addition",
+        "proposal_subtype": "claim_node",
+        "anchor_node": "project_4570",
+        "anchor_label": "Surf Club",
+        "proposed_value_dimension": "evidence_based",
+        "rationale": "Surf Club (project) has no claim nodes nearby. Adding a claim expressing 'Evidence-Based' (currently 1 claims in graph) would give this node a narrative voice in an under-represented value space."
+      },
+      {
+        "intervention_type": "node_addition",
+        "proposal_subtype": "claim_node",
+        "anchor_node": "project_4554",
+        "anchor_label": "Mental Health & Wellbeing",
+        "proposed_value_dimension": "evidence_based",
+        "rationale": "Mental Health & Wellbeing (project) has no claim nodes nearby. Adding a claim expressing 'Evidence-Based' (currently 1 claims in graph) would give this node a narrative voice in an under-represented value space."
+      },
+      {
+        "intervention_type": "node_addition",
+        "proposal_subtype": "perception_node",
+        "anchor_node": "project_4554",
+        "anchor_label": "Mental Health & Wellbeing",
+        "proposed_value_dimension": "",
+        "rationale": "The component containing Mental Health & Wellbeing has no perception nodes. Adding a perception node would give this community a voice in the perception space."
+      },
+      {
+        "intervention_type": "node_addition",
+        "proposal_subtype": "claim_node",
+        "anchor_node": "project_4574",
+        "anchor_label": "Corporate Workshops",
+        "proposed_value_dimension": "evidence_based",
+        "rationale": "Corporate Workshops (project) has no claim nodes nearby. Adding a claim expressing 'Evidence-Based' (currently 1 claims in graph) would give this node a narrative voice in an under-represented value space."
+      },
+      {
+        "intervention_type": "node_addition",
+        "proposal_subtype": "perception_node",
+        "anchor_node": "project_4574",
+        "anchor_label": "Corporate Workshops",
+        "proposed_value_dimension": "",
+        "rationale": "The component containing Corporate Workshops has no perception nodes. Adding a perception node would give this community a voice in the perception space."
+      }
+    ],
+    "invented_nodes": [
+      {
+        "intervention_type": "node_invention",
+        "invented_label": "Surf Club–Mental Health & Well Bridge",
+        "invented_node_type": "project",
+        "invented_from_src_label": "Surf Club",
+        "invented_from_tgt_label": "Mental Health & Wellbeing",
+        "new_narrative_pathways": 4,
+        "components_merged": 4,
+        "new_value_dimensions": "Austerity & Scarcity, Collaboration, Community Autonomy",
+        "predicted_narrative_profile": "Collaboration:0.266;Community Autonomy:0.203;Social Justice:0.133;Innovation Drive:0.133;Austerity & Scarcity:0.133;Cultural Identity:0.133",
+        "composite_governance_score": 0.64,
+        "predicted_edges": "project_4554(1.00);project_4551(1.00);project_4552(1.00);project_4549(1.00);project_4550(1.00);project_4562(0.53)"
+      },
+      {
+        "intervention_type": "node_invention",
+        "invented_label": "Corporate Workshops–Donegal County Counc Bridge",
+        "invented_node_type": "agent",
+        "invented_from_src_label": "Corporate Workshops",
+        "invented_from_tgt_label": "Donegal County Council",
+        "new_narrative_pathways": 0,
+        "components_merged": 1,
+        "new_value_dimensions": "none",
+        "predicted_narrative_profile": "Social Justice:0.526;Cultural Identity:0.421;Innovation Drive:0.053",
+        "composite_governance_score": 0.146,
+        "predicted_edges": "agent_5797(1.00);project_4541(0.55)"
+      }
+    ]
+  }
+}

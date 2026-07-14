@@ -1,14 +1,14 @@
 {
-  "analyzed_at_utc": "2026-07-02T15:03:56.975177+00:00",
+  "analyzed_at_utc": "2026-07-10T07:54:46.501586+00:00",
   "topology_metrics": {
-    "total_nodes": 376,
-    "total_edges": 354,
-    "connected_components_count": 170,
-    "largest_component_node_count": 105,
-    "largest_component_population_share": 0.27925531914893614,
-    "total_structural_articulation_points": 13,
-    "total_structural_bridges": 26,
-    "total_isolated_nodes": 153,
-    "max_k_core_layer": 3
+    "total_nodes": 498,
+    "total_edges": 866,
+    "connected_components_count": 114,
+    "largest_component_node_count": 383,
+    "largest_component_population_share": 0.7690763052208835,
+    "total_structural_articulation_points": 36,
+    "total_structural_bridges": 50,
+    "total_isolated_nodes": 112,
+    "max_k_core_layer": 8
   }
 }

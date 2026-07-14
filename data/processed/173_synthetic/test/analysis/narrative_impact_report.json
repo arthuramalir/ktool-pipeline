@@ -1,0 +1,155 @@
+{
+  "platform_id": "173_synthetic",
+  "graph_nodes": 498,
+  "graph_edges": 866,
+  "gnn_recommendations_analyzed": 3,
+  "node_proposals_generated": 12,
+  "node_inventions_generated": 1,
+  "value_dimensions": {
+    "Cultural Identity": {
+      "claim_count": 14,
+      "budget": 17598431.0,
+      "underfunded": false
+    },
+    "Social Justice": {
+      "claim_count": 7,
+      "budget": 5184094.0,
+      "underfunded": false
+    },
+    "Collaboration": {
+      "claim_count": 6,
+      "budget": 10135541.0,
+      "underfunded": false
+    },
+    "Innovation Drive": {
+      "claim_count": 3,
+      "budget": 6962486.0,
+      "underfunded": false
+    },
+    "Evidence-Based": {
+      "claim_count": 1,
+      "budget": 813738.0,
+      "underfunded": false
+    },
+    "Community Autonomy": {
+      "claim_count": 1,
+      "budget": 0.0,
+      "underfunded": true
+    },
+    "Austerity & Scarcity": {
+      "claim_count": 1,
+      "budget": 0.0,
+      "underfunded": true
+    }
+  },
+  "perception_void_components": 115,
+  "top_recommendations": {
+    "edges": [
+      {
+        "intervention_type": "edge_addition",
+        "source": "agent_5822",
+        "target": "project_4170",
+        "source_label": "No Barriers",
+        "target_label": "FoodCloud ",
+        "bridge_type": "learning_bridge",
+        "new_narrative_pathways": 6,
+        "new_vds_unlocked": "Social Justice",
+        "composite_governance_score": 0.335,
+        "bridge_note": "Learning bridge — unlocks Social Justice across previously separate narrative spaces.",
+        "action_template": "Create a cross-departmental working group between the funders of No Barriers and FoodCloud ",
+        "feasibility_badge": "❓ Topological",
+        "domain_compatibility": 0.5,
+        "domain_note": "Distant domain (cos=0.26)"
+      },
+      {
+        "intervention_type": "edge_addition",
+        "source": "project_4570",
+        "target": "project_4554",
+        "source_label": "Surf Club",
+        "target_label": "Mental Health & Wellbeing",
+        "bridge_type": "coalition_reinforcement",
+        "new_narrative_pathways": 2,
+        "new_vds_unlocked": "none",
+        "composite_governance_score": 0.2467,
+        "bridge_note": "Both sides share value dimensions (Cultural Identity, Social Justice). Reinforces existing narrative coalition.",
+        "action_template": "Strengthen existing collaboration through a joint pilot project linking Surf Club and Mental Health & Wellbeing",
+        "feasibility_badge": "✅ Fundable",
+        "domain_compatibility": 0.8,
+        "domain_note": "Same type (project) — partial compatibility"
+      },
+      {
+        "intervention_type": "edge_addition",
+        "source": "agent_5931",
+        "target": "agent_5787",
+        "source_label": "Active Disabilities Ireland",
+        "target_label": "Hair Together",
+        "bridge_type": "structural_only",
+        "new_narrative_pathways": 0,
+        "new_vds_unlocked": "none",
+        "composite_governance_score": 0.135,
+        "bridge_note": "No new perception/narrative pathways open — this link is purely structural.",
+        "action_template": "Document the existing but unrecorded relationship between Active Disabilities Ireland and Hair Together",
+        "feasibility_badge": "❓ Topological",
+        "domain_compatibility": 0.5,
+        "domain_note": "Distant domain (cos=0.17)"
+      }
+    ],
+    "nodes": [
+      {
+        "intervention_type": "node_addition",
+        "proposal_subtype": "claim_node",
+        "anchor_node": "agent_5931",
+        "anchor_label": "Active Disabilities Ireland",
+        "proposed_value_dimension": "evidence_based",
+        "rationale": "Active Disabilities Ireland (agent) has no claim nodes nearby. Adding a claim expressing 'Evidence-Based' (currently 1 claims in graph) would give this node a narrative voice in an under-represented value space."
+      },
+      {
+        "intervention_type": "node_addition",
+        "proposal_subtype": "perception_node",
+        "anchor_node": "agent_5931",
+        "anchor_label": "Active Disabilities Ireland",
+        "proposed_value_dimension": "",
+        "rationale": "The component containing Active Disabilities Ireland has no perception nodes. Adding a perception node would give this community a voice in the perception space."
+      },
+      {
+        "intervention_type": "node_addition",
+        "proposal_subtype": "claim_node",
+        "anchor_node": "agent_5787",
+        "anchor_label": "Hair Together",
+        "proposed_value_dimension": "evidence_based",
+        "rationale": "Hair Together (agent) has no claim nodes nearby. Adding a claim expressing 'Evidence-Based' (currently 1 claims in graph) would give this node a narrative voice in an under-represented value space."
+      },
+      {
+        "intervention_type": "node_addition",
+        "proposal_subtype": "perception_node",
+        "anchor_node": "agent_5787",
+        "anchor_label": "Hair Together",
+        "proposed_value_dimension": "",
+        "rationale": "The component containing Hair Together has no perception nodes. Adding a perception node would give this community a voice in the perception space."
+      },
+      {
+        "intervention_type": "node_addition",
+        "proposal_subtype": "claim_value_gap",
+        "anchor_node": "agent_5822",
+        "anchor_label": "No Barriers",
+        "proposed_value_dimension": "austerity_scarcity",
+        "rationale": "No Barriers's neighborhood expresses Cultural Identity but lacks 'Austerity & Scarcity'. Adding a claim in this value dimension would diversify the narrative portfolio."
+      }
+    ],
+    "invented_nodes": [
+      {
+        "intervention_type": "node_invention",
+        "invented_label": "Active Disabilities –Hair Together Bridge",
+        "invented_node_type": "agent",
+        "invented_from_src_label": "Active Disabilities Ireland",
+        "invented_from_tgt_label": "Hair Together",
+        "new_narrative_pathways": 3,
+        "components_merged": 3,
+        "new_value_dimensions": "Cultural Identity, Social Justice",
+        "predicted_narrative_profile": "Social Justice:0.317;Cultural Identity:0.28;Innovation Drive:0.2;Collaboration:0.162;Community Autonomy:0.04",
+        "composite_governance_score": 0.457,
+        "predicted_edges": "agent_5787(0.77);agent_5931(0.77);agent_5930(0.60);project_4584(0.60);project_4597(0.57);agent_5822(0.57)"
+      }
+    ]
+  }
+}

@@ -84,6 +84,7 @@ VALUE_DIMENSIONS = {
             "value for money", "savings", "fiscal", "reduced funding",
             "streamline", "rationalis", "cost-effective", "sustainable funding",
             "limited resource", "scarce", "insufficient", "funding gap",
+            "economy", "economic", "budget", "funding",
         ],
         "belief_level": "policy_core",
     },
@@ -505,7 +506,7 @@ def main() -> None:
     print(f"Loaded {len(nodes)} nodes, {len(edges) if not edges.empty else 0} edges")
 
     # 1. Select narrative nodes
-    NARRATIVE_TYPES = {"information", "perception", "challenge", "value"}
+    NARRATIVE_TYPES = {"information"}
     narrative_nodes = nodes[nodes["node_type"].isin(NARRATIVE_TYPES)].copy()
     narrative_nodes = narrative_nodes[narrative_nodes.apply(
         lambda r: len(text_for_node(r)) > 10, axis=1

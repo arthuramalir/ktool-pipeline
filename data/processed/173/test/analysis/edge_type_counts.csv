@@ -1,7 +1,13 @@
 edge_type,count
 information_originates_from_channel,135
-sequence,53
-similarity,44
+information_makes_claim,97
+claim_about_subject,95
+claim_about_object,89
+sequence,57
+causality,54
+contradiction,41
+frequency,34
 perception_reveals_challenge,21
-causality,12
-contradiction,10
+challenge_makes_claim,18
+perception_makes_claim,7
+similarity,6
